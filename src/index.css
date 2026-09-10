@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bayan-blue: #155eef;
+  --color-bayan-red: #d92d20;
+  --color-bayan-gold: #fdb022;
+  --color-bayan-green: #12805c;
+  --color-bayan-ink: #172033;
+  --color-bayan-mist: #f4f8fb;
+
+  --shadow-soft: 0 18px 60px rgba(23, 32, 51, 0.1);
+}

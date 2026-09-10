@@ -1,0 +1,958 @@
+{
+  "municipality": "Pagbilao",
+  "province": "Quezon",
+  "country": "Philippines",
+  "source": {
+    "name": "Official Website of the Municipal Government of Pagbilao, Quezon - Barangays",
+    "url": "https://pagbilao.gov.ph/barangays/",
+    "accessed": "2026-09-09"
+  },
+  "notes": [
+    "Barangay kagawad, SK chairman, secretary, treasurer, and hall address are null or empty where the source page did not provide values.",
+    "Population and household counts are kept with the year shown by the source."
+  ],
+  "barangays": [
+    {
+      "name": "Añato",
+      "alternateName": "Anato",
+      "type": "Rural",
+      "punongBarangay": "Ramil M. Cabile",
+      "barangayCaptain": "Ramil M. Cabile",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0999-396-5037",
+      "landAreaHectares": 415.1591,
+      "population": {
+        "count": 350,
+        "year": 2010
+      },
+      "households": {
+        "count": 86,
+        "year": 2010
+      },
+      "landmarksFacilities": [],
+      "psgc": {
+        "tenDigitCode": "0405630002",
+        "correspondenceCode": "045630002"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 584,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Alupaye",
+      "type": "Rural",
+      "punongBarangay": "Ricardo P. Pornela",
+      "barangayCaptain": "Ricardo P. Pornela",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0946-337-5736",
+      "landAreaHectares": 415.54715,
+      "population": {
+        "count": 2395,
+        "year": 2010
+      },
+      "households": {
+        "count": 531,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "BPI Pagbilao",
+        "Caltex",
+        "Orient",
+        "Shell",
+        "7/Eleven (Philippine Seven Corporation)",
+        "Star Shop",
+        "La Suerte Mega Warehouse - Supermarket",
+        "McDonald's - Restaurant",
+        "Superlines - Transportation/Terminal"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630001",
+        "correspondenceCode": "045630001"
+      },
+      "psa": {
+        "urbanRural": "Urban",
+        "population2024": 2952,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Antipolo",
+      "type": "Rural",
+      "punongBarangay": "Roy R. Marin",
+      "barangayCaptain": "Roy R. Marin",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0930-001-6514",
+      "landAreaHectares": 334.5114,
+      "population": {
+        "count": 266,
+        "year": 2010
+      },
+      "households": {
+        "count": 52,
+        "year": 2010
+      },
+      "landmarksFacilities": [],
+      "psgc": {
+        "tenDigitCode": "0405630003",
+        "correspondenceCode": "045630003"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 443,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Ibabang Bagumbungan",
+      "sourceName": "Bagumbungan Iba.",
+      "type": "Rural",
+      "punongBarangay": "Mila P. Maglasang",
+      "barangayCaptain": "Mila P. Maglasang",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0998-323-6265",
+      "landAreaHectares": 632.7081,
+      "population": {
+        "count": 356,
+        "year": 2010
+      },
+      "households": {
+        "count": 75,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Bagumbungan Elementary School"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630008",
+        "correspondenceCode": "045630008"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 546,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Ilayang Bagumbungan",
+      "sourceName": "Bagumbungan Ila.",
+      "type": "Rural",
+      "punongBarangay": "Jaime B. Peñaloza",
+      "barangayCaptain": "Jaime B. Peñaloza",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0939-488-9103",
+      "landAreaHectares": 891.7853,
+      "population": null,
+      "households": null,
+      "landmarksFacilities": [
+        "Bagumbungan Elementary School"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630012",
+        "correspondenceCode": "045630012"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 340,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Bantigue",
+      "type": "Rural",
+      "punongBarangay": "Dante B. Lusterio",
+      "barangayCaptain": "Dante B. Lusterio",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0909-946-0872",
+      "landAreaHectares": 580.0655,
+      "population": {
+        "count": 1804,
+        "year": 2010
+      },
+      "households": {
+        "count": 457,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Bantigue Elementary School"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630004",
+        "correspondenceCode": "045630004"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 2146,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Bigo",
+      "type": "Rural",
+      "punongBarangay": "Alvin L. Catapat",
+      "barangayCaptain": "Alvin L. Catapat",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0963-328-7449",
+      "landAreaHectares": 477.81625,
+      "population": {
+        "count": 992,
+        "year": 2010
+      },
+      "households": {
+        "count": 232,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Bigo Elementary School"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630005",
+        "correspondenceCode": "045630005"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 1537,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Binahaan",
+      "type": "Rural",
+      "punongBarangay": "Enrico Omalin",
+      "barangayCaptain": "Enrico Omalin",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": "0923-021-0143",
+      "contactNumber": null,
+      "landAreaHectares": 1127.1168,
+      "population": {
+        "count": 4673,
+        "year": 2010
+      },
+      "households": {
+        "count": 986,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Binahaan Integrated School"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630006",
+        "correspondenceCode": "045630006"
+      },
+      "psa": {
+        "urbanRural": "Urban",
+        "population2024": 6045,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Bukal",
+      "type": "Rural",
+      "punongBarangay": "Juana G. Carlos",
+      "barangayCaptain": "Juana G. Carlos",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0919-094-6524",
+      "landAreaHectares": 150.7466,
+      "population": {
+        "count": 8928,
+        "year": 2010
+      },
+      "households": {
+        "count": 1980,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Bukal Elementary School",
+        "Lord's Angel Learning School, Inc.",
+        "Petron",
+        "Phoenix",
+        "PTT",
+        "ISUZU Pagbilao (MBT Autoworx Corporation) - Car Dealership",
+        "7/Eleven (Philippine Seven Corp.) - Convenience Store"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630007",
+        "correspondenceCode": "045630007"
+      },
+      "psa": {
+        "urbanRural": "Urban",
+        "population2024": 10591,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Castillo",
+      "sourceName": "Castillo (Poblacion)",
+      "type": "Urban",
+      "punongBarangay": "Donato Y. Manzanilla",
+      "barangayCaptain": "Donato Y. Manzanilla",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0930-406-7315",
+      "landAreaHectares": 12.23448,
+      "population": {
+        "count": 1931,
+        "year": 2010
+      },
+      "households": {
+        "count": 420,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Alcastle"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630019",
+        "correspondenceCode": "045630019"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 1479,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Daungan",
+      "sourceName": "Daungan (Poblacion)",
+      "type": "Urban",
+      "punongBarangay": "Maria Assumpta Z. Ariate",
+      "barangayCaptain": "Maria Assumpta Z. Ariate",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0922-869-2372",
+      "landAreaHectares": 9.7856,
+      "population": {
+        "count": 2170,
+        "year": 2010
+      },
+      "households": {
+        "count": 485,
+        "year": 2010
+      },
+      "landmarksFacilities": [],
+      "psgc": {
+        "tenDigitCode": "0405630020",
+        "correspondenceCode": "045630020"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 2294,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Del Carmen",
+      "sourceName": "Del Carmen (Poblacion)",
+      "type": "Urban",
+      "punongBarangay": "Rosalinda R. Mataya",
+      "barangayCaptain": "Rosalinda R. Mataya",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0922-801-2032",
+      "landAreaHectares": 109.48987,
+      "population": {
+        "count": 1508,
+        "year": 2010
+      },
+      "households": {
+        "count": 363,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Pagbilao Central Elementary School",
+        "Pagbilao East Elementary School",
+        "Pagbilao West Elementary School",
+        "CVE Colleges Inc.",
+        "BPI Direct Banko, Inc. A Savings Bank",
+        "PNB Savings Bank"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630021",
+        "correspondenceCode": "045630021"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 1553,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Ikirin",
+      "type": "Rural",
+      "punongBarangay": "Rufino R. Aragon",
+      "barangayCaptain": "Rufino R. Aragon",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0948-241-7254",
+      "landAreaHectares": 699.6128,
+      "population": {
+        "count": 3071,
+        "year": 2010
+      },
+      "households": {
+        "count": 671,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Shell"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630011",
+        "correspondenceCode": "045630011"
+      },
+      "psa": {
+        "urbanRural": "Urban",
+        "population2024": 3904,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Kanlurang Malicboy",
+      "sourceName": "Malicboy Kan.",
+      "type": "Rural",
+      "punongBarangay": "Bernabe C. Sepillo",
+      "barangayCaptain": "Bernabe C. Sepillo",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0939-329-5354",
+      "landAreaHectares": 1588.3686,
+      "population": {
+        "count": 1208,
+        "year": 2010
+      },
+      "households": {
+        "count": 281,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Malicboy West Elementary School"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630015",
+        "correspondenceCode": "045630015"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 1373,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Silangang Malicboy",
+      "sourceName": "Malicboy Sil.",
+      "type": "Rural",
+      "punongBarangay": "Jovito V. Sotalbo",
+      "barangayCaptain": "Jovito V. Sotalbo",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0981-318-3637",
+      "landAreaHectares": 2122.5896,
+      "population": {
+        "count": 5204,
+        "year": 2010
+      },
+      "households": {
+        "count": 1082,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Malicboy East Elementary School",
+        "Silangan Malicboy National High School",
+        "Quezon National Agricultural School (QNAS)",
+        "UNO"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630025",
+        "correspondenceCode": "045630025"
+      },
+      "psa": {
+        "urbanRural": "Urban",
+        "population2024": 5531,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Mapagong",
+      "type": "Rural",
+      "punongBarangay": "Ariel M. Ayala",
+      "barangayCaptain": "Ariel M. Ayala",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "09550-169-8957",
+      "landAreaHectares": 559.8321,
+      "population": {
+        "count": 5210,
+        "year": 2010
+      },
+      "households": {
+        "count": 1185,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Mapagong/Alupaye Elementary School",
+        "Pagbilao National High School",
+        "UNO"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630016",
+        "correspondenceCode": "045630016"
+      },
+      "psa": {
+        "urbanRural": "Urban",
+        "population2024": 7361,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Mayhay",
+      "type": "Rural",
+      "punongBarangay": "Calixto G. Glorioso",
+      "barangayCaptain": "Calixto G. Glorioso",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0949-399-3209",
+      "landAreaHectares": 292.05943,
+      "population": {
+        "count": 743,
+        "year": 2010
+      },
+      "households": {
+        "count": 161,
+        "year": 2010
+      },
+      "landmarksFacilities": [],
+      "psgc": {
+        "tenDigitCode": "0405630017",
+        "correspondenceCode": "045630017"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 894,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Ibabang Palsabangon",
+      "sourceName": "Palsabangon Iba.",
+      "type": "Rural",
+      "punongBarangay": "Lolito M. Merle",
+      "barangayCaptain": "Lolito M. Merle",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0943-071-2520",
+      "landAreaHectares": 1390.9511,
+      "population": {
+        "count": 3964,
+        "year": 2010
+      },
+      "households": {
+        "count": 886,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Bureau of Fisheries and Aquatic Resources (BFAR)",
+        "Palsabangon Elementary School"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630009",
+        "correspondenceCode": "045630009"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 5232,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Ilayang Palsabangon",
+      "sourceName": "Palsabangon Ila.",
+      "type": "Rural",
+      "punongBarangay": "Ricardo P. De rama",
+      "barangayCaptain": "Ricardo P. De rama",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0994-508-2935",
+      "landAreaHectares": 1892.775,
+      "population": {
+        "count": 332,
+        "year": 2010
+      },
+      "households": {
+        "count": 76,
+        "year": 2010
+      },
+      "landmarksFacilities": [],
+      "psgc": {
+        "tenDigitCode": "0405630013",
+        "correspondenceCode": "045630013"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 360,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Parang",
+      "sourceName": "Parang (Poblacion)",
+      "type": "Urban",
+      "punongBarangay": "Roilan D. Buencamino",
+      "barangayCaptain": "Roilan D. Buencamino",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0912-481-1137",
+      "landAreaHectares": 15.08899,
+      "population": {
+        "count": 2739,
+        "year": 2010
+      },
+      "households": {
+        "count": 617,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Parang/Pinagbayanan Elementary School"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630022",
+        "correspondenceCode": "045630022"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 2370,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Pinagbayanan",
+      "type": "Rural",
+      "punongBarangay": "Renan A. Salles",
+      "barangayCaptain": "Renan A. Salles",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0921-234-9966 / 0918-349-0047",
+      "landAreaHectares": 502.5159,
+      "population": {
+        "count": 4091,
+        "year": 2010
+      },
+      "households": {
+        "count": 859,
+        "year": 2010
+      },
+      "landmarksFacilities": [],
+      "psgc": {
+        "tenDigitCode": "0405630018",
+        "correspondenceCode": "045630018"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 5270,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Ibabang Polo",
+      "sourceName": "Polo Iba.",
+      "type": "Rural",
+      "punongBarangay": "Gina A. Amandy",
+      "barangayCaptain": "Gina A. Amandy",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0922-274-3598",
+      "landAreaHectares": 1381.1059,
+      "population": {
+        "count": 4596,
+        "year": 2010
+      },
+      "households": {
+        "count": 1033,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Pagbilao Grande Island National High School",
+        "Polo South Elementary School",
+        "Pagbilao Energy Corporation - Power Generation",
+        "Team (Philippines) Energy Corporation - Energy Supply Business",
+        "Team Energy Corporation - Power Generation"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630010",
+        "correspondenceCode": "045630010"
+      },
+      "psa": {
+        "urbanRural": "Urban",
+        "population2024": 6210,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Ilayang Polo",
+      "sourceName": "Polo Ila.",
+      "type": "Rural",
+      "punongBarangay": "Cynthia E. De Leon",
+      "barangayCaptain": "Cynthia E. De Leon",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0928-633-1624",
+      "landAreaHectares": 1007.3568,
+      "population": {
+        "count": 1752,
+        "year": 2010
+      },
+      "households": {
+        "count": 432,
+        "year": 2010
+      },
+      "landmarksFacilities": [],
+      "psgc": {
+        "tenDigitCode": "0405630014",
+        "correspondenceCode": "045630014"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 2631,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Sta. Catalina",
+      "sourceName": "Sta. Catalina (Poblacion)",
+      "type": "Urban",
+      "punongBarangay": "Jorge T. Glorioso",
+      "barangayCaptain": "Jorge T. Glorioso",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0951-912-3211",
+      "landAreaHectares": 7.26241,
+      "population": {
+        "count": 1350,
+        "year": 2010
+      },
+      "households": {
+        "count": 308,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Bureau of Fire Protection (BFP)",
+        "Philippine National Police (PNP)",
+        "Casa del Niño Jesus de Pagbilao Inc.",
+        "Pagbilao Academy Inc.",
+        "Quezon Capital Rural Bank, Inc Pagbilao Branch",
+        "7/Eleven (Philippine Seven Corporation)"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630023",
+        "correspondenceCode": "045630023"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 1192,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Talipan",
+      "type": "Rural",
+      "punongBarangay": "Editha A. Alano",
+      "barangayCaptain": "Editha A. Alano",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0961-930-5105",
+      "landAreaHectares": 609.5975,
+      "population": {
+        "count": 3591,
+        "year": 2010
+      },
+      "households": {
+        "count": 1109,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Department of Agriculture (DA)",
+        "Department of Agrarian Reform (DAR)",
+        "Department of Education (DepEd)",
+        "Department of Environment and Natural Resources (DENR)",
+        "Provincial Engineering Office (PEO)",
+        "Provincial Veterinarian",
+        "Register of Deeds (RD)",
+        "Talipan Elementary School",
+        "Talipan National High School",
+        "Del Monte Transport Bus Company Inc. (ddTB) - Transportation/Terminal",
+        "Quezon Gas Corporation - LPG Retailer",
+        "VELFRAM Foods Corp. - Food Manufacturer-Meat Importer"
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630026",
+        "correspondenceCode": "045630026"
+      },
+      "psa": {
+        "urbanRural": "Urban",
+        "population2024": 7685,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Tambak",
+      "sourceName": "Tambak (Poblacion)",
+      "type": "Urban",
+      "punongBarangay": "Aldwin Jacob M. Lucila",
+      "barangayCaptain": "Aldwin Jacob M. Lucila",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0950-241-6655",
+      "landAreaHectares": 7.7401,
+      "population": {
+        "count": 1792,
+        "year": 2010
+      },
+      "households": {
+        "count": 381,
+        "year": 2010
+      },
+      "landmarksFacilities": [
+        "Rural Bank of Atimonan, Inc."
+      ],
+      "psgc": {
+        "tenDigitCode": "0405630024",
+        "correspondenceCode": "045630024"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 1410,
+        "populationSource": "2024 POPCEN"
+      }
+    },
+    {
+      "name": "Tukalan",
+      "type": "Rural",
+      "punongBarangay": "Ryan A. Lustado",
+      "barangayCaptain": "Ryan A. Lustado",
+      "barangayKagawad": [],
+      "skChairman": null,
+      "secretary": null,
+      "treasurer": null,
+      "hallAddress": null,
+      "contactNumber": "0946-336-6188",
+      "landAreaHectares": 396.5862,
+      "population": {
+        "count": 227,
+        "year": 2010
+      },
+      "households": {
+        "count": 60,
+        "year": 2010
+      },
+      "landmarksFacilities": [],
+      "psgc": {
+        "tenDigitCode": "0405630027",
+        "correspondenceCode": "045630027"
+      },
+      "psa": {
+        "urbanRural": "Rural",
+        "population2024": 199,
+        "populationSource": "2024 POPCEN"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "name": "Philippine Statistics Authority - Philippine Standard Geographic Code, Municipality of Pagbilao",
+      "url": "https://psa.gov.ph/classification/psgc/barangays/0405630000",
+      "accessed": "2026-09-09",
+      "fields": [
+        "PSGC 10 digit code",
+        "correspondence code",
+        "urban/rural classification",
+        "2024 POPCEN population"
+      ]
+    }
+  ]
+}

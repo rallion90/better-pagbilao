@@ -1,0 +1,205 @@
+{
+  "municipality": "Pagbilao",
+  "province": "Quezon",
+  "region": "CALABARZON (Region IV-A)",
+  "country": "Philippines",
+  "incomeClass": "1st",
+  "population2024": 82132,
+  "asOf": "2024 POPCEN; barangays as of 31 July 2025",
+  "source": {
+    "name": "Philippine Statistics Authority - Philippine Standard Geographic Code",
+    "url": "https://psa.gov.ph/classification/psgc/barangays/0405630000",
+    "accessed": "2026-09-09"
+  },
+  "barangays": [
+    {
+      "name": "Alupaye",
+      "tenDigitCode": "0405630001",
+      "correspondenceCode": "045630001",
+      "urbanRural": "Urban",
+      "population2024": 2952
+    },
+    {
+      "name": "Añato",
+      "tenDigitCode": "0405630002",
+      "correspondenceCode": "045630002",
+      "urbanRural": "Rural",
+      "population2024": 584
+    },
+    {
+      "name": "Antipolo",
+      "tenDigitCode": "0405630003",
+      "correspondenceCode": "045630003",
+      "urbanRural": "Rural",
+      "population2024": 443
+    },
+    {
+      "name": "Bantigue",
+      "tenDigitCode": "0405630004",
+      "correspondenceCode": "045630004",
+      "urbanRural": "Rural",
+      "population2024": 2146
+    },
+    {
+      "name": "Bigo",
+      "tenDigitCode": "0405630005",
+      "correspondenceCode": "045630005",
+      "urbanRural": "Rural",
+      "population2024": 1537
+    },
+    {
+      "name": "Binahaan",
+      "tenDigitCode": "0405630006",
+      "correspondenceCode": "045630006",
+      "urbanRural": "Urban",
+      "population2024": 6045
+    },
+    {
+      "name": "Bukal",
+      "tenDigitCode": "0405630007",
+      "correspondenceCode": "045630007",
+      "urbanRural": "Urban",
+      "population2024": 10591
+    },
+    {
+      "name": "Ibabang Bagumbungan",
+      "tenDigitCode": "0405630008",
+      "correspondenceCode": "045630008",
+      "urbanRural": "Rural",
+      "population2024": 546
+    },
+    {
+      "name": "Ibabang Palsabangon",
+      "tenDigitCode": "0405630009",
+      "correspondenceCode": "045630009",
+      "urbanRural": "Rural",
+      "population2024": 5232
+    },
+    {
+      "name": "Ibabang Polo",
+      "tenDigitCode": "0405630010",
+      "correspondenceCode": "045630010",
+      "urbanRural": "Urban",
+      "population2024": 6210
+    },
+    {
+      "name": "Ikirin",
+      "tenDigitCode": "0405630011",
+      "correspondenceCode": "045630011",
+      "urbanRural": "Urban",
+      "population2024": 3904
+    },
+    {
+      "name": "Ilayang Bagumbungan",
+      "tenDigitCode": "0405630012",
+      "correspondenceCode": "045630012",
+      "urbanRural": "Rural",
+      "population2024": 340
+    },
+    {
+      "name": "Ilayang Palsabangon",
+      "tenDigitCode": "0405630013",
+      "correspondenceCode": "045630013",
+      "urbanRural": "Rural",
+      "population2024": 360
+    },
+    {
+      "name": "Ilayang Polo",
+      "tenDigitCode": "0405630014",
+      "correspondenceCode": "045630014",
+      "urbanRural": "Rural",
+      "population2024": 2631
+    },
+    {
+      "name": "Kanlurang Malicboy",
+      "tenDigitCode": "0405630015",
+      "correspondenceCode": "045630015",
+      "urbanRural": "Rural",
+      "population2024": 1373
+    },
+    {
+      "name": "Mapagong",
+      "tenDigitCode": "0405630016",
+      "correspondenceCode": "045630016",
+      "urbanRural": "Urban",
+      "population2024": 7361
+    },
+    {
+      "name": "Mayhay",
+      "tenDigitCode": "0405630017",
+      "correspondenceCode": "045630017",
+      "urbanRural": "Rural",
+      "population2024": 894
+    },
+    {
+      "name": "Pinagbayanan",
+      "tenDigitCode": "0405630018",
+      "correspondenceCode": "045630018",
+      "urbanRural": "Rural",
+      "population2024": 5270
+    },
+    {
+      "name": "Castillo",
+      "tenDigitCode": "0405630019",
+      "correspondenceCode": "045630019",
+      "urbanRural": "Rural",
+      "population2024": 1479
+    },
+    {
+      "name": "Daungan",
+      "tenDigitCode": "0405630020",
+      "correspondenceCode": "045630020",
+      "urbanRural": "Rural",
+      "population2024": 2294
+    },
+    {
+      "name": "Del Carmen",
+      "tenDigitCode": "0405630021",
+      "correspondenceCode": "045630021",
+      "urbanRural": "Rural",
+      "population2024": 1553
+    },
+    {
+      "name": "Parang",
+      "tenDigitCode": "0405630022",
+      "correspondenceCode": "045630022",
+      "urbanRural": "Rural",
+      "population2024": 2370
+    },
+    {
+      "name": "Sta. Catalina",
+      "tenDigitCode": "0405630023",
+      "correspondenceCode": "045630023",
+      "urbanRural": "Rural",
+      "population2024": 1192
+    },
+    {
+      "name": "Tambak",
+      "tenDigitCode": "0405630024",
+      "correspondenceCode": "045630024",
+      "urbanRural": "Rural",
+      "population2024": 1410
+    },
+    {
+      "name": "Silangang Malicboy",
+      "tenDigitCode": "0405630025",
+      "correspondenceCode": "045630025",
+      "urbanRural": "Urban",
+      "population2024": 5531
+    },
+    {
+      "name": "Talipan",
+      "tenDigitCode": "0405630026",
+      "correspondenceCode": "045630026",
+      "urbanRural": "Urban",
+      "population2024": 7685
+    },
+    {
+      "name": "Tukalan",
+      "tenDigitCode": "0405630027",
+      "correspondenceCode": "045630027",
+      "urbanRural": "Rural",
+      "population2024": 199
+    }
+  ]
+}

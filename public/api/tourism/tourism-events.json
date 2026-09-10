@@ -1,0 +1,49 @@
+{
+  "municipality": "Pagbilao",
+  "province": "Quezon",
+  "sources": [
+    {
+      "name": "Quezon Tourism - Experience",
+      "url": "https://tourism.quezon.gov.ph/experience",
+      "accessed": "2026-09-09"
+    },
+    {
+      "name": "Pagbilao Tourism",
+      "url": "https://tourism.pagbilao.org/",
+      "accessed": "2026-09-09"
+    }
+  ],
+  "events": [
+    {
+      "name": "Araw ng Pagbilao",
+      "alsoKnownAs": ["Papag at Bilao Festival"],
+      "month": "August",
+      "dateLabel": "August 29",
+      "location": "Pagbilao, Quezon",
+      "description": "Festival honoring St. Catherine of Alexandria and the founding of Pagbilao, featuring street dancing, cultural programs, parades with floats, and community activities.",
+      "category": ["Festival", "Culture", "Founding Anniversary"]
+    },
+    {
+      "name": "296TH ARAW NG PAGBILAO",
+      "month": "August",
+      "location": "Pagbilao, Quezon",
+      "status": "Coming soon",
+      "category": ["Festival", "Tourism Video"]
+    },
+    {
+      "name": "Niyogyugan Festival",
+      "month": "August",
+      "location": "Quezon Province",
+      "description": "Provincial festival celebrating Quezon's coconut industry and culture through parades, street dancing, trade fairs, and agricultural exhibits.",
+      "category": ["Festival", "Province-wide Event"]
+    }
+  ],
+  "tourismCategories": [
+    "Bodies Of Water",
+    "Land Formation",
+    "Protected Areas",
+    "Cultural Built Heritage",
+    "Cultural Institution",
+    "Cultural Festivities"
+  ]
+}

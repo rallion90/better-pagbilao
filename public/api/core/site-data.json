@@ -1,0 +1,242 @@
+{
+  "site": {
+    "name": "Municipality of Pagbilao",
+    "province": "Quezon",
+    "country": "Philippines",
+    "tagline": "Official Government Portal",
+    "primaryWebsite": "https://www.pagbilao.org/",
+    "tourismWebsite": "https://tourism.pagbilao.org/",
+    "source": {
+      "url": "https://www.pagbilao.org/",
+      "accessed": "2026-09-09"
+    }
+  },
+  "navigation": [
+    { "label": "Home", "url": "https://www.pagbilao.org/" },
+    { "label": "About Pagbilao", "url": "https://www.pagbilao.org/about/" },
+    { "label": "HEARTS Program", "url": "https://www.pagbilao.org/hearts/" },
+    { "label": "Local Governance", "url": "https://www.pagbilao.org/officials/" },
+    { "label": "News", "url": "https://www.pagbilao.org/news/" },
+    { "label": "Tourism", "url": "https://tourism.pagbilao.org/" },
+    { "label": "Downloadable Forms", "url": "https://www.pagbilao.org/downloadable-forms/" },
+    { "label": "Transparency", "url": "https://www.pagbilao.org/transparency/" },
+    { "label": "Services", "url": "https://www.pagbilao.org/services/" },
+    { "label": "Contact", "url": "https://www.pagbilao.org/contact/" }
+  ],
+  "about": {
+    "originSummary": [
+      "Local tradition traces the early settlement to Pablo and Rita, who settled in what is now Pagbilao in the early 17th century.",
+      "The name Pagbilao is described as coming from papag, a bamboo bed, and bilao, a winnowing basket."
+    ],
+    "geography": {
+      "description": "Pagbilao, Quezon is one of the gateways to the South and is located eight kilometers from Lucena City, the provincial capital of Quezon.",
+      "coordinates": {
+        "latitude": "14°0′0″N",
+        "longitude": "121°45′0″E"
+      },
+      "boundaries": {
+        "northeast": "City of Tayabas",
+        "northwest": "Atimonan",
+        "southeast": "Padre Burgos",
+        "southwest": "City of Lucena"
+      },
+      "landAreaHectares": 17760,
+      "barangayCount": 27,
+      "ruralBarangayCount": 21,
+      "urbanBarangayCount": 6
+    },
+    "topography": {
+      "highestElevationArea": "Silangang Malicboy",
+      "lowestElevationArea": "Barangay Bantigue",
+      "clusters": [
+        "Poblacion barangays",
+        "Barangays along Pagbilao Bay",
+        "Barangays along Maharlika Highway",
+        "Forested barangays"
+      ],
+      "slopeAreas": [
+        {
+          "slope": "0-3%",
+          "barangaysOrAreas": ["Bantigue", "Alupaye", "Mapagong", "Del Carmen", "portion of Ibabang Palsabangon", "Binahaan"],
+          "areaHectares": 520
+        },
+        {
+          "slope": "3-9%",
+          "barangaysOrAreas": ["portion of Pinagbayanan", "Silangang Malicboy", "Binahaan", "Ibabang Palsabangon", "Kanlurang Malicboy"],
+          "areaHectares": 10400
+        },
+        {
+          "slope": "9-18%",
+          "barangaysOrAreas": ["Daungan", "Parang", "Talipan", "Alupaye", "Mapagong", "Castillo", "portion of Pinagbayanan", "Bukal", "Bigo", "Antipolo", "Tukalan", "Mayhay", "Ikirin", "Ibabang Bagumbungan", "Añato"],
+          "areaHectares": 3650
+        },
+        {
+          "slope": "18-30%",
+          "barangaysOrAreas": ["Ilayang Bagumbungan", "Ibabang Polo", "Ilayang Polo", "portion of Kanlurang Malicboy", "portion of Añato", "Binahaan"],
+          "areaHectares": 150
+        },
+        {
+          "slope": "More than 30%",
+          "barangaysOrAreas": ["Ibabang Palsabangon", "portion of Silangang Malicboy", "Binahaan", "Ilayang Palsabangon"],
+          "areaHectares": 1100
+        }
+      ]
+    }
+  },
+  "demography": {
+    "census2015": {
+      "totalPopulation": 75023,
+      "male": 38406,
+      "female": 36617,
+      "malePercent": 51.19,
+      "femalePercent": 48.81,
+      "sexRatioMalePer100Female": 106.25
+    },
+    "estimate2022": {
+      "totalPopulation": 88994,
+      "male": 45558,
+      "female": 43436,
+      "growthFrom2015Percent": 18.63
+    },
+    "populationByAgeGroup": [
+      { "ageGroup": "Under 1", "total2015": 1471, "total2022": 1745 },
+      { "ageGroup": "1-4", "total2015": 5932, "total2022": 7037 },
+      { "ageGroup": "5-9", "total2015": 7932, "total2022": 9409 },
+      { "ageGroup": "10-14", "total2015": 7515, "total2022": 8914 },
+      { "ageGroup": "15-19", "total2015": 7710, "total2022": 9146 },
+      { "ageGroup": "20-24", "total2015": 7039, "total2022": 8350 },
+      { "ageGroup": "25-29", "total2015": 6002, "total2022": 7120 },
+      { "ageGroup": "30-34", "total2015": 5250, "total2022": 6228 },
+      { "ageGroup": "35-39", "total2015": 5255, "total2022": 6234 },
+      { "ageGroup": "40-44", "total2015": 4327, "total2022": 5133 },
+      { "ageGroup": "45-49", "total2015": 4255, "total2022": 5047 },
+      { "ageGroup": "50-54", "total2015": 3687, "total2022": 4374 },
+      { "ageGroup": "55-59", "total2015": 2954, "total2022": 3504 },
+      { "ageGroup": "60-64", "total2015": 2226, "total2022": 2641 },
+      { "ageGroup": "65-69", "total2015": 1423, "total2022": 1688 },
+      { "ageGroup": "70-74", "total2015": 904, "total2022": 1072 },
+      { "ageGroup": "75-79", "total2015": 612, "total2022": 726 },
+      { "ageGroup": "80-84", "total2015": 308, "total2022": 628 }
+    ]
+  },
+  "economy": {
+    "assetRanking2018": {
+      "description": "Top 10 richest municipalities in Quezon Province by assets in millions of pesos.",
+      "entries": [
+        { "rank": 1, "municipality": "Pagbilao", "assetsMillionPhp": 1639 },
+        { "rank": 2, "municipality": "Mauban", "assetsMillionPhp": 1116 },
+        { "rank": 3, "municipality": "Tiaong", "assetsMillionPhp": 935 },
+        { "rank": 4, "municipality": "Sariaya", "assetsMillionPhp": 765 },
+        { "rank": 5, "municipality": "Candelaria", "assetsMillionPhp": 746 },
+        { "rank": 6, "municipality": "Lopez", "assetsMillionPhp": 739 },
+        { "rank": 7, "municipality": "Catanauan", "assetsMillionPhp": 705 },
+        { "rank": 8, "municipality": "General Nakar", "assetsMillionPhp": 613 },
+        { "rank": 9, "municipality": "Calauag", "assetsMillionPhp": 577 },
+        { "rank": 10, "municipality": "Tagkawayan", "assetsMillionPhp": 576 }
+      ]
+    },
+    "industries": [
+      "Agriculture",
+      "Coconut farming",
+      "Rice farming",
+      "Poultry farms",
+      "Industrial lands along the highway",
+      "Commerce",
+      "Tourism",
+      "Power generation"
+    ],
+    "notableEmployersOrEconomicDrivers": [
+      "Department of Education Division of Quezon Province",
+      "Municipal Government of Pagbilao",
+      "Pagbilao Coal Power Plant",
+      "La Suerte Mega Warehouse"
+    ]
+  },
+  "infrastructure": {
+    "transportation": [
+      "Pagbilao links the Bondoc Peninsula and Bicol Region with Lucena City.",
+      "Bicol-bound buses pass through Pagbilao.",
+      "Temporary jeepney terminals serve Lucena City, Barangay Bigo, Silangang Malicboy, and Grande Island.",
+      "All barangays are accessible by land transportation according to the source page."
+    ],
+    "roadNetworkHectares": {
+      "total": 98.5421,
+      "urbanRoads": 14.4454,
+      "ruralRoads": 84.0967,
+      "pnrRailway": 3.3114
+    },
+    "majorRoads": [
+      "Daang Maharlika via Old Zigzag Road",
+      "Newer diversion road",
+      "Pagbilao-Tayabas Road"
+    ],
+    "agriculture": {
+      "agriculturalLandHectares": 12381.252,
+      "agriculturalLandPercentOfTotal": 69.71,
+      "coconutCropAreaHectares": 5562.32,
+      "irrigatedLowlandRiceHectares": 2453.25,
+      "otherCropsHectares": 1245,
+      "fishpondsAndBreakwatersHectares": 1092.68,
+      "specialAgriculturalAndFisheriesDevelopmentZoneHectares": 2028
+    },
+    "utilities": {
+      "waterSupply": "Quezon Metropolitan Water District is listed as the main potable water source, with rainwater, open wells, natural springs, piped water, and watershed sources also mentioned.",
+      "power": "Pagbilao is described as the power capital of Southern Luzon, with TeaM Energy Philippines generating 750 MW through the coal-fired thermal power plant and MERALCO distributing electricity.",
+      "communications": ["PLDT/Digitel", "Globe", "Smart", "Sun", "Alcatel"]
+    },
+    "solidWaste": {
+      "householdsCollectedByGarbageTrucks": 4118,
+      "householdsCollectedByGarbageTrucksPercent": 42.27,
+      "householdsUsingSanitaryLandfill": 2742,
+      "householdsUsingSanitaryLandfillPercent": 28.14,
+      "ecologicalParkLocation": "Ibabang Bagumbungan",
+      "ecologicalParkAreaHectares": 6
+    },
+    "sanitation2012": {
+      "householdsWithSanitaryToilets": 6807,
+      "householdsWithSanitaryToiletsPercent": 69.87,
+      "householdsWithUnsanitaryToilets": 872,
+      "householdsWithUnsanitaryToiletsPercent": 8.95,
+      "householdsWithoutToilets": 2062,
+      "householdsWithoutToiletsPercent": 21.16
+    }
+  },
+  "services": [
+    {
+      "name": "Business Permits",
+      "description": "Renewals, new business registration, barangay clearance guidance, and payment steps."
+    },
+    {
+      "name": "Civil Registry",
+      "description": "Birth, marriage, death, and certification requests through the local civil registrar."
+    },
+    {
+      "name": "Social Services",
+      "description": "Assistance, referrals, senior citizen support, PWD services, and emergency coordination."
+    },
+    {
+      "name": "Real Property",
+      "description": "Assessment inquiries, tax payment information, transfer requirements, and records."
+    }
+  ],
+  "heartsProgram": {
+    "description": "The HEARTS Program organizes the priority services of the Municipality of Pagbilao around health, learning, livelihood, safety, tourism, employment, and responsive public service.",
+    "mayor": "Angelica \"Ate Gigi\" Portes",
+    "message": [
+      "Walang ako, walang kami, walang sila, walang kayo. Ang mayroon lamang ay tayo!",
+      "Magsama-sama po tayo kung saan ako ang inyong tsuper, kayo ang aking pasahero. Babyahe tayo tungo sa mas progresibong bayan ng Pagbilao!"
+    ]
+  },
+  "contact": {
+    "office": "LGU Pagbilao",
+    "address": "Pagbilao Municipal Hall, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon",
+    "emails": ["pagwebteam@gmail.com", "pagwebdev@gmail.com"],
+    "telephone": "(042) 797-0937",
+    "hotlines": [
+      { "name": "MDRRMO Disaster Response & Rescue", "telephone": "0918-624-4564" },
+      { "name": "Philippine National Police", "telephone": "0998-598-5764" },
+      { "name": "Bureau of Fire Protection", "telephone": "0923-442-4945" },
+      { "name": "Municipal Health Office", "telephone": "(042) 797-3092" }
+    ]
+  }
+}

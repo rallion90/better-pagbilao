@@ -1,0 +1,76 @@
+{
+  "source": {
+    "name": "Municipality of Pagbilao Official Government Portal",
+    "url": "https://www.pagbilao.org/",
+    "accessed": "2026-09-09"
+  },
+  "municipalMayor": {
+    "name": "Hon. Angelica G. Portes",
+    "displayName": "Mayor Angelica \"Ate Gigi\" Portes",
+    "term": "2022-Present"
+  },
+  "municipalCouncil": [
+    { "name": "Hon. Walter G. Dapla", "role": "Municipal Vice Mayor" },
+    { "name": "Hon. Joseph Manuel C. Luce", "role": "Municipal Councilor" },
+    { "name": "Hon. Joseph C. Garcia", "role": "Municipal Councilor" },
+    { "name": "Hon. Emmanuel C. Roces", "role": "Municipal Councilor" },
+    { "name": "Hon. Celedonio C. Dapla", "role": "Municipal Councilor" },
+    { "name": "Hon. Jeffrey A. Tiñana", "role": "Municipal Councilor" },
+    { "name": "Hon. Angelo Laurence P. Arriola", "role": "Municipal Councilor" },
+    { "name": "Hon. Ariel T. Martinez", "role": "Municipal Councilor" },
+    { "name": "Hon. Mary Catherine M. Garcia", "role": "Municipal Councilor" },
+    { "name": "Hon. Maria Asumpta Z. Ariate", "role": "Municipal Councilor / ABC President" },
+    { "name": "Hon. Stephanie Ann A. Porte", "role": "Municipal Councilor / SKMF" }
+  ],
+  "departmentHeadsAndOffices": [
+    { "name": "Dr. Rizaldo A. Ricafort", "office": null },
+    { "name": "Atty. Randy B. Baconawa", "office": "Bureau of Fire Protection" },
+    { "name": "PMAJ Arjon M. Oxina", "office": "Philippine National Police" },
+    { "name": "Jan Luke Patrick N. Go", "office": "Municipal Planning and Development Coordinator's Office" },
+    { "name": "Jocelyn D. Catalla", "office": "Municipal Agriculturist Office" },
+    { "name": "Engr. Ryam J. Tolentino", "office": "Municipal Engineering Office" },
+    { "name": "Magdalena A. Gloria", "office": "Municipal Human Resource Management Office" },
+    { "name": "Ronelo V. Rustia", "office": "Municipal Environmental and Natural Resources Office" },
+    { "name": "Engr. Juan H. Zaporteza", "office": null },
+    { "name": "Mary Ann M. Abadilla", "office": "Municipal Assessor's Office" },
+    { "name": "Gerlie Rose D. Roguel", "office": null },
+    { "name": "Jane M. Luce", "office": null },
+    { "name": "Olivia V. De Guzman", "office": null },
+    { "name": "Daisy D. Porta", "office": "Municipal Civil Registrar Office" },
+    { "name": "Zosimo M. Lusterio", "office": "Municipal Treasurer's Office" },
+    { "name": "Emerita B. Madla", "office": "Municipal Social Welfare and Development Office" },
+    { "name": "Dr. Riki J. Tolentino", "office": "Municipal Health Office" },
+    { "name": "Jerome R. De Rama", "office": "Office of the Secretary to the Sangguniang Bayan" }
+  ],
+  "formerMayors": [
+    { "name": "Lino De Castro", "terms": ["1901-1903", "1906", "1907"] },
+    { "name": "Segundo Martinez", "terms": ["1904"] },
+    { "name": "Caudencio De Rama", "terms": ["1905"] },
+    { "name": "Eduardo Martinez", "terms": ["1908-1909"] },
+    { "name": "Cipriano Mendoza", "terms": ["1910-1912"] },
+    { "name": "Jose Abastillas", "terms": ["1913-1916"] },
+    { "name": "Severino Martinez", "terms": ["1920-1927", "1935", "1937-1938"] },
+    { "name": "Epifanio Merto Sr.", "terms": ["1928-1929"] },
+    { "name": "Timoteo Bermudez", "terms": ["1930-1934"] },
+    { "name": "Dr. Elias Pornobi", "terms": ["1936", "1939", "1940", "1948-1951", "1956-1959"] },
+    { "name": "Vicente Medina", "terms": ["1944-1945"] },
+    { "name": "Leoncio De Rama", "terms": ["January-April 1947"] },
+    { "name": "Estanislao Glorioso", "terms": ["May-December 1947"] },
+    { "name": "Marcelino Batocabe", "terms": ["1952-1955"] },
+    { "name": "Trinidad Alvarez", "terms": ["1960-1966"] },
+    { "name": "Ceasar Merto", "terms": ["1967"] },
+    { "name": "Juanito Martinez", "terms": ["1968-1971"] },
+    { "name": "Venancio Pinon", "terms": ["1971"] },
+    { "name": "Rosauro Radovan", "terms": ["1972-1986", "1988-1993"] },
+    { "name": "Juan Zaporteza", "terms": ["1986-1988"] },
+    { "name": "Conrado De Rama", "terms": ["1993-1994", "1995-July 1999"] },
+    { "name": "Ma Evelyn Abeja", "terms": ["1994-1995"] },
+    { "name": "Romeo Portes", "terms": ["1998-2006", "2011-2013"] },
+    { "name": "Venus Portes", "terms": ["2007-2010"] },
+    { "name": "Shierre Ann Portes-Palicpic", "terms": ["2013-2022"] },
+    { "name": "Angelica G. Portes", "terms": ["2022-Present"] }
+  ],
+  "ordinanceAndExecutiveOrder": {
+    "status": "Municipal ordinances, executive orders, and corresponding documents will be published here."
+  }
+}

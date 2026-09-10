@@ -1,0 +1,335 @@
+{
+  "municipality": "Pagbilao",
+  "province": "Quezon",
+  "country": "Philippines",
+  "sources": [
+    {
+      "name": "Pagbilao Tourism",
+      "url": "https://tourism.pagbilao.org/",
+      "accessed": "2026-09-09"
+    },
+    {
+      "name": "Quezon Tourism",
+      "url": "https://tourism.quezon.gov.ph/",
+      "accessed": "2026-09-09"
+    },
+    {
+      "name": "Department of Tourism - Quezon",
+      "url": "https://www.tourism.gov.ph/destination/calabarzon/quezon/",
+      "accessed": "2026-09-09"
+    },
+    {
+      "name": "Municipality of Pagbilao Official Government Portal",
+      "url": "https://www.pagbilao.org/",
+      "accessed": "2026-09-09"
+    }
+  ],
+  "notes": [
+    "Fees, opening hours, boat access, and commute details should be locally verified before being shown as final visitor instructions.",
+    "Image URLs from tourism.pagbilao.org are public website references; confirm reuse permission before copying or redistributing media files."
+  ],
+  "categories": [
+    "Beach",
+    "Island",
+    "Bodies of Water",
+    "Waterfall",
+    "Dam",
+    "Protected Area",
+    "Land Formation",
+    "Heritage",
+    "Culture",
+    "Festival",
+    "Viewpoint",
+    "Nature"
+  ],
+  "destinations": [
+    {
+      "id": "pagbilao-grande-island",
+      "name": "Pagbilao Grande Island",
+      "category": ["Island", "Beach", "Nature", "Bodies of Water"],
+      "barangay": "Ibabang Polo",
+      "description": "Island tourism area in Pagbilao associated with Pagbilao Bay, Tayabas Bay, beaches, coastal views, and island activities.",
+      "activities": ["Swimming", "Beachcombing", "Camping", "Sightseeing", "Island hopping"],
+      "bestFor": ["Beach trips", "Friends", "Families", "Nature trips"],
+      "nearbyWaterbodies": ["Pagbilao Bay", "Tayabas Bay"],
+      "image": null,
+      "mapQuery": "Pagbilao Grande Island, Pagbilao, Quezon",
+      "howToGetThere": {
+        "fromPagbilaoTownProper": null,
+        "fromLucenaGrandTerminal": null,
+        "notes": ["Needs local verification for current routes, fares, and boat access."]
+      },
+      "fees": {
+        "entranceFee": null,
+        "boatFee": null,
+        "parkingFee": null,
+        "notes": "Fees may change. Verify with local tourism office or destination operator before visiting."
+      },
+      "visitorTips": [
+        "Check weather and sea conditions before travel.",
+        "Bring drinking water and sun protection.",
+        "Confirm boat access and return schedule before leaving town."
+      ],
+      "verificationStatus": "needs local confirmation"
+    },
+    {
+      "id": "palsabangon-falls",
+      "name": "Palsabangon Falls",
+      "category": ["Waterfall", "Nature", "Bodies of Water"],
+      "barangay": "Palsabangon area",
+      "description": "Waterfall destination featured on the Pagbilao Tourism website.",
+      "activities": ["Nature viewing", "Photography", "Outdoor trip"],
+      "bestFor": ["Nature trips", "Small groups", "Local exploration"],
+      "image": "https://tourism.pagbilao.org/Palsabangon%20Falls.png?v=20260806-1",
+      "mapQuery": "Palsabangon Falls, Pagbilao, Quezon",
+      "howToGetThere": {
+        "fromPagbilaoTownProper": null,
+        "fromLucenaGrandTerminal": null,
+        "notes": ["Confirm access route and local guide requirements before visiting."]
+      },
+      "fees": {
+        "entranceFee": null,
+        "guideFee": null,
+        "notes": "Needs local confirmation."
+      },
+      "visitorTips": [
+        "Wear footwear suitable for wet or uneven ground.",
+        "Avoid visiting during heavy rain or unsafe water conditions.",
+        "Ask the tourism office or barangay for current access guidance."
+      ],
+      "verificationStatus": "needs local confirmation"
+    },
+    {
+      "id": "patayan-island",
+      "name": "Patayan Island",
+      "category": ["Island", "Land Formation", "Beach", "Nature"],
+      "barangay": null,
+      "description": "Land formation destination referenced by the Pagbilao Tourism site.",
+      "activities": ["Sightseeing", "Photography", "Beach trip"],
+      "bestFor": ["Island trips", "Nature photography", "Adventure travelers"],
+      "image": "https://tourism.pagbilao.org/Patayan%20Island.png",
+      "mapQuery": "Patayan Island, Pagbilao, Quezon",
+      "howToGetThere": {
+        "fromPagbilaoTownProper": null,
+        "fromLucenaGrandTerminal": null,
+        "notes": ["Verify if boat transfer is required and whether public access is currently allowed."]
+      },
+      "fees": {
+        "entranceFee": null,
+        "boatFee": null,
+        "notes": "Needs local confirmation."
+      },
+      "visitorTips": [
+        "Confirm access rules before planning a trip.",
+        "Check tide, weather, and sea conditions.",
+        "Bring essentials and avoid leaving waste behind."
+      ],
+      "verificationStatus": "needs local confirmation"
+    },
+    {
+      "id": "binahaan-dam",
+      "name": "Binahaan Dam",
+      "category": ["Dam", "Protected Area", "Nature", "Bodies of Water"],
+      "barangay": "Binahaan",
+      "description": "Protected-area and water-related destination featured on the Pagbilao Tourism website.",
+      "activities": ["Sightseeing", "Photography", "Nature viewing"],
+      "bestFor": ["Short visits", "Nature trips", "Local sightseeing"],
+      "image": "https://tourism.pagbilao.org/Binhaan%20Dam.png",
+      "mapQuery": "Binahaan Dam, Pagbilao, Quezon",
+      "howToGetThere": {
+        "fromPagbilaoTownProper": null,
+        "fromLucenaGrandTerminal": null,
+        "notes": ["Confirm current access rules and safe viewing areas."]
+      },
+      "fees": {
+        "entranceFee": null,
+        "notes": "Needs local confirmation."
+      },
+      "visitorTips": [
+        "Respect restricted or protected areas.",
+        "Do not swim unless explicitly allowed by local authorities.",
+        "Follow local safety signs and barangay guidance."
+      ],
+      "verificationStatus": "needs local confirmation"
+    },
+    {
+      "id": "pagbilao-bay",
+      "name": "Pagbilao Bay",
+      "category": ["Bodies of Water", "Beach", "Nature"],
+      "barangay": null,
+      "description": "Coastal bay area associated with Pagbilao and its island and shoreline tourism.",
+      "activities": ["Beachcombing", "Sightseeing", "Photography", "Boating"],
+      "bestFor": ["Scenic views", "Coastal trips", "Nature trips"],
+      "image": "https://tourism.pagbilao.org/Irigangal1.png",
+      "mapQuery": "Pagbilao Bay, Quezon",
+      "howToGetThere": {
+        "fromPagbilaoTownProper": null,
+        "fromLucenaGrandTerminal": null,
+        "notes": ["Use destination-specific route details once locally verified."]
+      },
+      "fees": {
+        "notes": "Depends on the specific beach, resort, boat operator, or access point."
+      },
+      "visitorTips": [
+        "Choose verified access points.",
+        "Check weather and sea conditions.",
+        "Confirm whether the destination is public, private, or resort-managed."
+      ],
+      "verificationStatus": "needs local confirmation"
+    },
+    {
+      "id": "tayabas-bay-coastal-areas",
+      "name": "Tayabas Bay Coastal Areas",
+      "category": ["Bodies of Water", "Beach", "Nature"],
+      "barangay": null,
+      "description": "Pagbilao is a coastal municipality with tourism connected to Tayabas Bay and nearby shoreline areas.",
+      "activities": ["Swimming", "Beachcombing", "Sightseeing", "Photography"],
+      "bestFor": ["Beach trips", "Families", "Weekend visits"],
+      "image": null,
+      "mapQuery": "Tayabas Bay, Pagbilao, Quezon",
+      "howToGetThere": {
+        "fromPagbilaoTownProper": null,
+        "fromLucenaGrandTerminal": null,
+        "notes": ["Route depends on the chosen resort, beach, or coastal access point."]
+      },
+      "fees": {
+        "notes": "Depends on the chosen access point."
+      },
+      "visitorTips": [
+        "Verify if the area is public access or private resort property.",
+        "Check local advisories during bad weather.",
+        "Bring cash for local fees when visiting remote areas."
+      ],
+      "verificationStatus": "needs local confirmation"
+    },
+    {
+      "id": "pagbilao-cultural-built-heritage",
+      "name": "Pagbilao Cultural Built Heritage",
+      "category": ["Heritage", "Culture"],
+      "barangay": null,
+      "description": "Cultural built heritage category listed by the Pagbilao Tourism site.",
+      "activities": ["Heritage viewing", "Photography", "Educational visit"],
+      "bestFor": ["Students", "Culture trips", "History walks"],
+      "image": "https://tourism.pagbilao.org/Immovable.png",
+      "mapQuery": "Pagbilao cultural heritage, Quezon",
+      "howToGetThere": {
+        "notes": ["Specific site list and route details need local confirmation."]
+      },
+      "fees": {
+        "notes": "Depends on the specific heritage site."
+      },
+      "visitorTips": [
+        "Respect religious, cultural, and heritage spaces.",
+        "Ask permission before taking close-up photos inside active facilities.",
+        "Check visiting hours when going to churches, halls, or institutions."
+      ],
+      "verificationStatus": "needs local confirmation"
+    },
+    {
+      "id": "pagbilao-cultural-institutions",
+      "name": "Pagbilao Cultural Institutions",
+      "sourceName": "Cultural Instituition",
+      "category": ["Culture", "Heritage"],
+      "barangay": null,
+      "description": "Cultural institution category listed by the Pagbilao Tourism site.",
+      "activities": ["Educational visit", "Cultural learning", "Community tourism"],
+      "bestFor": ["Students", "Researchers", "Culture-focused visitors"],
+      "image": "https://tourism.pagbilao.org/Cultural%20Instituition.png",
+      "mapQuery": "Pagbilao cultural institutions, Quezon",
+      "howToGetThere": {
+        "notes": ["Specific institution list and visiting guidance need local confirmation."]
+      },
+      "fees": {
+        "notes": "Depends on the specific institution."
+      },
+      "visitorTips": [
+        "Contact the tourism office before visiting institutions.",
+        "Check whether appointments or permits are needed.",
+        "Use respectful visitor behavior in active community spaces."
+      ],
+      "verificationStatus": "needs local confirmation"
+    },
+    {
+      "id": "araw-ng-pagbilao-papag-at-bilao-festival",
+      "name": "Araw ng Pagbilao / Papag at Bilao Festival",
+      "category": ["Festival", "Culture", "Heritage"],
+      "barangay": "Municipality-wide",
+      "description": "Annual August celebration honoring St. Catherine of Alexandria and the founding of Pagbilao, with street dancing, cultural programs, floats, parades, and pageant activities.",
+      "activities": ["Street dancing", "Parade", "Cultural programs", "Float viewing", "Community events"],
+      "bestFor": ["Families", "Culture trips", "Festival visitors", "Photographers"],
+      "month": "August",
+      "dateLabel": "August 29",
+      "image": "https://tourism.pagbilao.org/Cover.jpg",
+      "mapQuery": "Pagbilao Municipal Hall, Pagbilao, Quezon",
+      "howToGetThere": {
+        "fromLucenaGrandTerminal": "Ride a jeepney or bus bound for Pagbilao, Atimonan, or Bicol route and ask to be dropped near Pagbilao town proper or Municipal Hall. Verify with driver before boarding.",
+        "notes": ["Festival traffic and road closures may change routes and drop-off points."]
+      },
+      "fees": {
+        "entranceFee": null,
+        "notes": "Public festival activities may be free, but specific events or venues may have separate rules."
+      },
+      "visitorTips": [
+        "Arrive early during parade days.",
+        "Check official advisories for road closures and schedules.",
+        "Bring water, sun protection, and cash."
+      ],
+      "verificationStatus": "partially verified from public tourism sources"
+    },
+    {
+      "id": "quezon-protected-landscape-nearby",
+      "name": "Quezon Protected Landscape",
+      "category": ["Protected Area", "Nature", "Viewpoint"],
+      "barangay": null,
+      "description": "Protected landscape near Pagbilao and neighboring municipalities, useful for nature and eco-tourism context.",
+      "activities": ["Nature viewing", "Hiking", "Scenic drive", "Photography"],
+      "bestFor": ["Nature trips", "Hikers", "Scenic route visitors"],
+      "image": null,
+      "mapQuery": "Quezon Protected Landscape",
+      "howToGetThere": {
+        "notes": ["Specific trailheads, rules, and access points need confirmation with local authorities."]
+      },
+      "fees": {
+        "notes": "Needs local confirmation."
+      },
+      "visitorTips": [
+        "Follow protected-area rules.",
+        "Avoid leaving trash.",
+        "Check weather and trail conditions before going."
+      ],
+      "verificationStatus": "needs local confirmation"
+    },
+    {
+      "id": "mount-pinagbanderahan-nearby",
+      "name": "Mount Pinagbanderahan",
+      "category": ["Nature", "Viewpoint", "Heritage"],
+      "barangay": null,
+      "description": "Historic viewpoint in Quezon where visitors can see towns including Atimonan, Pagbilao, Tayabas, Lucena, and Padre Burgos from the summit.",
+      "activities": ["Hiking", "Sightseeing", "Photography", "Heritage trip"],
+      "bestFor": ["Hikers", "Scenic viewpoint trips", "History-focused visitors"],
+      "elevationMeters": 365,
+      "image": null,
+      "mapQuery": "Mount Pinagbanderahan, Quezon",
+      "howToGetThere": {
+        "notes": ["This is a nearby Quezon destination, not necessarily inside Pagbilao. Confirm access point and route before presenting as a Pagbilao itinerary stop."]
+      },
+      "fees": {
+        "notes": "Needs local confirmation."
+      },
+      "visitorTips": [
+        "Wear proper hiking footwear.",
+        "Bring water and rain protection.",
+        "Go with local guidance if unfamiliar with the area."
+      ],
+      "verificationStatus": "nearby destination; needs route confirmation"
+    }
+  ],
+  "recommendedFilters": [
+    { "label": "Beach", "category": "Beach" },
+    { "label": "Nature", "category": "Nature" },
+    { "label": "Waterfalls", "category": "Waterfall" },
+    { "label": "Heritage", "category": "Heritage" },
+    { "label": "Festivals", "category": "Festival" },
+    { "label": "Family Friendly", "field": "bestFor", "value": "Families" }
+  ]
+}

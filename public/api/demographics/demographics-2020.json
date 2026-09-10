@@ -1,0 +1,42 @@
+{
+  "municipality": "Pagbilao",
+  "province": "Quezon",
+  "source": {
+    "name": "Philippine Statistics Authority CALABARZON - Age and Sex Distribution in Pagbilao, 2020 Census of Population and Housing",
+    "url": "https://rsso04a.psa.gov.ph/content/age-and-sex-distribution-pagbilao-2020-census-population-and-housing",
+    "releaseDate": "2024-07-22",
+    "referenceNumber": "2024-113",
+    "accessed": "2026-09-09"
+  },
+  "householdPopulation2020": 77481,
+  "sexDistribution": {
+    "male": { "count": 39142, "percent": 50.5 },
+    "female": { "count": 38339, "percent": 49.5 }
+  },
+  "ageDependencyGroups": [
+    {
+      "group": "Under 15",
+      "description": "Young dependents",
+      "count": 23562,
+      "percent": 30.4
+    },
+    {
+      "group": "15-64",
+      "description": "Working-age or economically active population",
+      "count": 49786,
+      "percent": 64.3
+    },
+    {
+      "group": "65 and over",
+      "description": "Old dependents",
+      "count": 4133,
+      "percent": 5.3
+    }
+  ],
+  "comparison2015": {
+    "under15Percent": 30.8,
+    "age15To64Percent": 64.5,
+    "age65AndOverPercent": 4.7
+  },
+  "summary": "As of May 1, 2020, Pagbilao's household population was 77,481. Males were 50.5% and females were 49.5%. People aged 15 to 64 made up 64.3% of the household population."
+}

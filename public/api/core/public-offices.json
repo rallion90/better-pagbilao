@@ -1,0 +1,46 @@
+{
+  "municipality": "Pagbilao",
+  "province": "Quezon",
+  "sources": [
+    {
+      "name": "Municipality of Pagbilao Official Government Portal",
+      "url": "https://www.pagbilao.org/",
+      "accessed": "2026-09-09"
+    },
+    {
+      "name": "Official Website of the Municipal Government of Pagbilao, Quezon - extracted public office listings",
+      "url": "https://pagbilao.gov.ph/",
+      "accessed": "2026-09-09"
+    }
+  ],
+  "mainOffice": {
+    "name": "LGU Pagbilao",
+    "address": "Pagbilao Municipal Hall, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon",
+    "telephone": "(042) 797-0937",
+    "emails": ["pagwebteam@gmail.com", "pagwebdev@gmail.com"]
+  },
+  "offices": [
+    { "office": "Office of the Municipal Mayor", "head": "Mayor Angelica Portes-Tatlonghari", "telephone": "(042) 797-0937", "address": "2nd Floor, Pagbilao Municipal Bldg., Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Office of the Municipal Administrator", "head": "Mr. Juan Zaporteza", "telephone": "(042) 797-0298", "address": "Ground Floor Pagbilao Municipal Administrator Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Chief of Staff - Office of Municipal Mayor", "head": "Dr. Rizaldo A. Ricafort, PhD, DPS", "telephone": null, "address": "2nd Floor, Sentrong Pangkabuhayan Building, JP Rizal St., Brgy Sta Catalina, Pagbilao Quezon" },
+    { "office": "Municipal Health Office", "head": "Dr. Riki J. Tolentino MD, FPAMS", "telephone": "(042) 797-3092", "address": "Sentrong Pangkalusugan Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Bureau of Fire Protection", "head": "FSINSP Atty. Randy B. Baconawa", "telephone": "(042) 797-0932", "address": "Sentrong Pangkabuhayan Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Philippine National Police", "head": "PMAJ Arjon M. Oxina", "telephone": "(042) 797-2854", "address": "Pagbilao Municipal Hall, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Office of the Secretary to the Sangguniang Bayan", "head": "Jerome R. De Rama", "telephone": "(042) 797-0938 / (042) 797-0525", "address": "2nd Floor, Pagbilao Municipal Hall, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Agriculturist Office", "head": "Jocelyn D. Catalla", "telephone": "(042) 797-1938", "address": "Sentrong Pangkabuhayan Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Treasurer's Office", "head": "Zosimo M. Lusterio", "telephone": "(042) 797-1057", "address": "Ground Floor Pagbilao Municipal Administrator Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Accounting Office", "head": "Delita L. Manuba", "telephone": "(042) 797-0402", "address": "Ground Floor Pagbilao Municipal Administrator Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Social Welfare and Development Office", "head": "Emerita B. Madla", "telephone": "(042) 797-2069", "address": "Ground Floor Pagbilao Municipal Administrator Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Civil Registrar Office", "head": "Daisy Porta", "telephone": "(042) 797-0186", "address": "Ground Floor Pagbilao Municipal Administrator Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Assessor's Office", "head": "Mary Ann M. Abadilla", "telephone": "(042) 797-0410", "address": "Ground Floor Pagbilao Municipal Administrator Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Planning and Development Coordinator's Office", "head": "Jan Luke Patrick N. Go", "telephone": "(042) 797-0933", "address": "2nd Floor Pagbilao Municipal Administrator Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Human Resource Management Office", "head": "Magdalena A. Gloria", "telephone": "(042) 797-3092", "address": "2nd Floor Pagbilao Municipal Administrator Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Interior and Local Government Operations Office", "head": "Sonia Matanguihan", "telephone": "(042) 797-2069", "address": "Liga Building, Bonifacio St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Engineering Office", "head": "Engr. Ryam J. Tolentino", "telephone": "(042) 797-0935", "address": "2nd Floor Pagbilao Municipal Administrator Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Budget Office", "head": "Maristel G. Merjudio", "telephone": "(042) 797-0930", "address": "2nd Floor Pagbilao Municipal Administrator Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Disaster Risk Reduction and Management Office", "head": "Delfin P. Magana", "telephone": "(042) 785-1358", "address": "Sentrong Pangkabuhayan Building, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal General Services Office", "head": "Dr. Rizaldo A. Ricafort, PhD, DPS", "telephone": null, "address": "Motorpool Complex, Barangay Bukal, Pagbilao, Quezon" },
+    { "office": "Pambayang Kapisanan ng mga Barangay", "head": "Pb. Maria Assumpta Z. Ariate", "telephone": "(042) 797-2859", "address": "LIGA Building, Bonifacio St., Brgy. Sta. Catalina, Pagbilao, Quezon" },
+    { "office": "Municipal Environmental and Natural Resources Office", "head": "Ronelo Rustia, Forester", "telephone": null, "address": "Motorpool Complex Barangay Bukal, Pagbilao" }
+  ]
+}

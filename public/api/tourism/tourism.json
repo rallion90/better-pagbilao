@@ -1,0 +1,110 @@
+{
+  "source": {
+    "name": "Pagbilao Tourism",
+    "url": "https://tourism.pagbilao.org/",
+    "accessed": "2026-09-09"
+  },
+  "site": {
+    "name": "Pagbilao Tourism",
+    "municipality": "Pagbilao",
+    "province": "Quezon",
+    "brand": "WOW PAGBILAO",
+    "headline": "Discover Pagbilao",
+    "tagline": "Explore every wow and feel Pagbilao.",
+    "returnWebsite": "https://pagbilao.org"
+  },
+  "navigation": [
+    { "label": "home", "url": "https://tourism.pagbilao.org/" },
+    { "label": "about", "url": "https://tourism.pagbilao.org/#about" },
+    { "label": "destinations", "url": "https://tourism.pagbilao.org/#destinations" },
+    { "label": "directory", "url": "https://tourism.pagbilao.org/Directory.html" }
+  ],
+  "heroSlides": [
+    { "title": "Bodies of Water", "image": "https://tourism.pagbilao.org/Irigangal1.png" },
+    { "title": "Palsabangon Falls", "image": "https://tourism.pagbilao.org/Palsabangon%20Falls.png?v=20260806-1" },
+    { "title": "Cultural Built Heritage", "image": "https://tourism.pagbilao.org/Immovable.png" },
+    { "title": "Cultural Institution", "image": "https://tourism.pagbilao.org/Cultural%20Instituition.png" },
+    { "title": "Cultural Festivities", "image": "https://tourism.pagbilao.org/Cover.jpg" }
+  ],
+  "videos": [
+    {
+      "title": "Experience Pagbilao",
+      "url": "https://tourism.pagbilao.org/pagbilao-tourism-720p.mp4",
+      "type": "video/mp4"
+    },
+    {
+      "title": "296TH ARAW NG PAGBILAO",
+      "status": "Coming soon"
+    }
+  ],
+  "about": {
+    "title": "Bayan ng Mananalo",
+    "summary": [
+      "In the early 17th century, Pablo and Rita settled in what is now Pagbilao, bringing rice seedlings and provisions.",
+      "According to local tradition, Spanish missionaries arrived in 1725 and the name Pagbilao came from papag and bilao."
+    ],
+    "logo": "https://tourism.pagbilao.org/Logoo.png",
+    "moreAboutUrl": "https://pagbilao.org/about/"
+  },
+  "tourismAndCulturalProperties": [
+    {
+      "name": "Bodies Of Water",
+      "description": "Explore the Bodies of Water in Pagbilao",
+      "url": "https://tourism.pagbilao.org/Water.html?v=20260807-3",
+      "image": "https://tourism.pagbilao.org/Irigangal1.png"
+    },
+    {
+      "name": "Land Formation",
+      "description": "Explore the Land Formation in Pagbilao",
+      "url": "https://tourism.pagbilao.org/LandFormation.html?v=20260807-3",
+      "image": "https://tourism.pagbilao.org/Patayan%20Island.png"
+    },
+    {
+      "name": "Protected Areas",
+      "description": "Explore the Protected Areas in Pagbilao",
+      "url": "https://tourism.pagbilao.org/ProtectedAreas.html?v=20260807-3",
+      "image": "https://tourism.pagbilao.org/Binhaan%20Dam.png"
+    },
+    {
+      "name": "Cultural Built Heritage",
+      "description": "Explore the Cultural Built Heritage in Pagbilao",
+      "url": "https://tourism.pagbilao.org/Immovable.html?v=20260807-3",
+      "image": "https://tourism.pagbilao.org/Immovable.png"
+    },
+    {
+      "name": "Cultural Institution",
+      "sourceName": "Cultural Instituition",
+      "description": "Explore the Cultural Institution in Pagbilao",
+      "url": "https://tourism.pagbilao.org/Cultural%20Instituition.html?v=20260807-3",
+      "image": "https://tourism.pagbilao.org/Cultural%20Instituition.png"
+    },
+    {
+      "name": "Cultural Festivities",
+      "description": "Explore the Cultural Festivities in Pagbilao",
+      "url": "https://tourism.pagbilao.org/Cultural%20Festival.html?v=20260807-3",
+      "image": "https://tourism.pagbilao.org/Cover.jpg"
+    }
+  ],
+  "directory": {
+    "title": "Pagbilao Tourism Directory",
+    "description": "Hotel Restaurant, Accommodation, Travel and Tours, Tour Guides, Transportation, and Destinations.",
+    "url": "https://tourism.pagbilao.org/Directory.html"
+  },
+  "contact": {
+    "office": "LGU PAGBILAO",
+    "address": "Pagbilao Municipal Hall, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon",
+    "emails": ["discover.pagbilaotourism@gmail.com", "pagwebteam@gmail.com", "pagwebdev@gmail.com"],
+    "telephone": "(042) 797-0937",
+    "hotlines": [
+      { "name": "MDRRMO Disaster Response & Rescue", "telephone": "0918-624-4564" },
+      { "name": "Philippine National Police", "telephone": "0998-598-5764" },
+      { "name": "Bureau Of Fire Protection", "telephone": "0923-442-4945" },
+      { "name": "Municipal Health Office", "telephone": "(042)797-3092" }
+    ]
+  },
+  "legal": {
+    "copyright": "©2026 - Pagbilao, Quezon, Philippines. all rights reserved",
+    "termsUrl": "https://tourism.pagbilao.org/#",
+    "privacyUrl": "https://tourism.pagbilao.org/#"
+  }
+}

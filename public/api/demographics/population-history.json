@@ -1,0 +1,64 @@
+{
+  "municipality": "Pagbilao",
+  "province": "Quezon",
+  "country": "Philippines",
+  "sources": [
+    {
+      "name": "PhilAtlas - Pagbilao, Quezon Profile",
+      "url": "https://www.philatlas.com/luzon/r04a/quezon/pagbilao.html",
+      "accessed": "2026-09-09"
+    },
+    {
+      "name": "Philippine Statistics Authority PSGC - Municipality of Pagbilao",
+      "url": "https://psa.gov.ph/classification/psgc/barangays/0405630000",
+      "accessed": "2026-09-09"
+    }
+  ],
+  "municipalPopulation": [
+    {
+      "year": 2015,
+      "population": 75023,
+      "source": "PhilAtlas / PSA"
+    },
+    {
+      "year": 2020,
+      "population": 78700,
+      "densityPerSquareKm": 460,
+      "source": "PhilAtlas / 2020 Census"
+    },
+    {
+      "year": 2024,
+      "population": 82132,
+      "source": "PSA 2024 POPCEN"
+    }
+  ],
+  "barangayPopulation2020": [
+    { "barangay": "Alupaye", "populationPercent": 3.56, "population2020": 2800, "population2015": 2560, "changePercent2015To2020": 9.38, "annualGrowthRate": 1.9 },
+    { "barangay": "Añato", "populationPercent": 0.72, "population2020": 569, "population2015": 491, "changePercent2015To2020": 15.89, "annualGrowthRate": 3.15 },
+    { "barangay": "Antipolo", "populationPercent": 0.48, "population2020": 381, "population2015": 248, "changePercent2015To2020": 53.63, "annualGrowthRate": 9.46 },
+    { "barangay": "Bantigue", "populationPercent": 2.7, "population2020": 2125, "population2015": 1827, "changePercent2015To2020": 16.31, "annualGrowthRate": 3.23 },
+    { "barangay": "Barangay 1 Castillo", "populationPercent": 2.04, "population2020": 1603, "population2015": 1892, "changePercent2015To2020": -15.27, "annualGrowthRate": -3.43 },
+    { "barangay": "Barangay 2 Daungan", "populationPercent": 2.9, "population2020": 2285, "population2015": 2275, "changePercent2015To2020": 0.44, "annualGrowthRate": 0.09 },
+    { "barangay": "Barangay 3 Del Carmen", "populationPercent": 1.97, "population2020": 1547, "population2015": 1515, "changePercent2015To2020": 2.11, "annualGrowthRate": 0.44 },
+    { "barangay": "Barangay 4 Parang", "populationPercent": 2.93, "population2020": 2304, "population2015": 2585, "changePercent2015To2020": -10.87, "annualGrowthRate": -2.39 },
+    { "barangay": "Barangay 5 Santa Catalina", "populationPercent": 1.58, "population2020": 1240, "population2015": 1457, "changePercent2015To2020": -14.89, "annualGrowthRate": -3.34 },
+    { "barangay": "Barangay 6 Tambak", "populationPercent": 1.92, "population2020": 1513, "population2015": 2036, "changePercent2015To2020": -25.69, "annualGrowthRate": -6.06 },
+    { "barangay": "Bigo", "populationPercent": 1.68, "population2020": 1322, "population2015": 1138, "changePercent2015To2020": 16.17, "annualGrowthRate": 3.2 },
+    { "barangay": "Binahaan", "populationPercent": 7.24, "population2020": 5698, "population2015": 5034, "changePercent2015To2020": 13.19, "annualGrowthRate": 2.64 },
+    { "barangay": "Bukal", "populationPercent": 12.81, "population2020": 10082, "population2015": 9500, "changePercent2015To2020": 6.13, "annualGrowthRate": 1.26 },
+    { "barangay": "Ibabang Bagumbungan", "populationPercent": 0.62, "population2020": 486, "population2015": 412, "changePercent2015To2020": 17.96, "annualGrowthRate": 3.54 },
+    { "barangay": "Ibabang Palsabangon", "populationPercent": 6.25, "population2020": 4915, "population2015": 4577, "changePercent2015To2020": 7.38, "annualGrowthRate": 1.51 },
+    { "barangay": "Ibabang Polo", "populationPercent": 7.59, "population2020": 5971, "population2015": 5710, "changePercent2015To2020": 4.57, "annualGrowthRate": 0.95 },
+    { "barangay": "Ikirin", "populationPercent": 4.66, "population2020": 3664, "population2015": 3327, "changePercent2015To2020": 10.13, "annualGrowthRate": 2.05 },
+    { "barangay": "Ilayang Bagumbungan", "populationPercent": 0.33, "population2020": 256, "population2015": 277, "changePercent2015To2020": -7.58, "annualGrowthRate": -1.65 },
+    { "barangay": "Ilayang Palsabangon", "populationPercent": 0.4, "population2020": 316, "population2015": 343, "changePercent2015To2020": -7.87, "annualGrowthRate": -1.71 },
+    { "barangay": "Ilayang Polo", "populationPercent": 3.18, "population2020": 2503, "population2015": 2105, "changePercent2015To2020": 18.91, "annualGrowthRate": 3.71 },
+    { "barangay": "Kanlurang Malicboy", "sourceName": "Kanluran Malicboy", "populationPercent": 1.65, "population2020": 1297, "population2015": 1264, "changePercent2015To2020": 2.61, "annualGrowthRate": 0.54 },
+    { "barangay": "Mapagong", "populationPercent": 8.59, "population2020": 6763, "population2015": 6140, "changePercent2015To2020": 10.15, "annualGrowthRate": 2.06 },
+    { "barangay": "Mayhay", "populationPercent": 1.11, "population2020": 876, "population2015": 804, "changePercent2015To2020": 8.96, "annualGrowthRate": 1.82 },
+    { "barangay": "Pinagbayanan", "populationPercent": 6.27, "population2020": 4934, "population2015": 4445, "changePercent2015To2020": 11.0, "annualGrowthRate": 2.22 },
+    { "barangay": "Silangang Malicboy", "sourceName": "Silangan Malicboy", "populationPercent": 7.02, "population2020": 5526, "population2015": 5520, "changePercent2015To2020": 0.11, "annualGrowthRate": 0.02 },
+    { "barangay": "Talipan", "populationPercent": 9.55, "population2020": 7517, "population2015": 7330, "changePercent2015To2020": 2.55, "annualGrowthRate": 0.53 },
+    { "barangay": "Tukalan", "populationPercent": 0.26, "population2020": 207, "population2015": 211, "changePercent2015To2020": -1.9, "annualGrowthRate": -0.4 }
+  ]
+}

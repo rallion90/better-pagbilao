@@ -1,0 +1,74 @@
+{
+  "municipality": "Pagbilao",
+  "province": "Quezon",
+  "sources": [
+    {
+      "name": "Municipality of Pagbilao Official Government Portal",
+      "url": "https://www.pagbilao.org/",
+      "accessed": "2026-09-09"
+    },
+    {
+      "name": "PhilAtlas - Pagbilao, Quezon Profile",
+      "url": "https://www.philatlas.com/luzon/r04a/quezon/pagbilao.html",
+      "accessed": "2026-09-09"
+    }
+  ],
+  "profile": {
+    "islandGroup": "Luzon",
+    "region": "CALABARZON (Region IV-A)",
+    "postalCode": "4302",
+    "coastalOrLandlocked": "Coastal",
+    "marineWaterbodies": ["Tayabas Bay", "Sibuyan Sea"],
+    "coordinates": {
+      "latitude": 13.9745,
+      "longitude": 121.6854,
+      "label": "13°58' North, 121°41' East"
+    },
+    "estimatedElevationMeters": 24.2,
+    "areaSquareKm": 170.96
+  },
+  "borderingPlaces": [
+    { "name": "City of Tayabas", "direction": "Northeast", "type": "City" },
+    { "name": "Atimonan", "direction": "Northwest", "type": "Municipality" },
+    { "name": "Padre Burgos", "direction": "Southeast", "type": "Municipality" },
+    { "name": "City of Lucena", "direction": "Southwest", "type": "City" }
+  ],
+  "nearbyUsefulPlaces": [
+    {
+      "name": "Lucena City",
+      "type": "Provincial capital / transport hub",
+      "note": "Pagbilao is located about eight kilometers from Lucena City according to the municipal profile."
+    },
+    {
+      "name": "Tayabas City",
+      "type": "Nearby city",
+      "note": "Borders Pagbilao to the northeast."
+    },
+    {
+      "name": "Atimonan",
+      "type": "Nearby municipality",
+      "note": "Borders Pagbilao to the northwest and is associated with the Old Zigzag Road area."
+    },
+    {
+      "name": "Padre Burgos",
+      "type": "Nearby municipality",
+      "note": "Borders Pagbilao to the southeast."
+    },
+    {
+      "name": "Pagbilao Grande Island",
+      "type": "Island / tourism area",
+      "note": "Located in Pagbilao and associated with Pagbilao Bay and Tayabas Bay."
+    },
+    {
+      "name": "Quezon Protected Landscape",
+      "type": "Protected area",
+      "note": "Relevant for nature and eco-tourism context around Pagbilao and nearby municipalities."
+    }
+  ],
+  "transportationNotes": [
+    "Pagbilao is a link between the Bondoc Peninsula, Bicol Region, and Lucena City.",
+    "Bicol-bound buses pass through the municipality.",
+    "Common terminals are situated at the Grand Terminal in Lucena City.",
+    "Jeepney routes mentioned by the municipal website include Lucena City, Barangay Bigo, Silangang Malicboy, and Grande Island."
+  ]
+}

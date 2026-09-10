@@ -1,0 +1,40 @@
+{
+  "name": "Better Pagbilao API Data",
+  "description": "Static JSON data grouped for later use by the Better Pagbilao frontend.",
+  "basePath": "/api",
+  "groups": {
+    "core": {
+      "description": "Municipal portal, offices, governance, emergency contacts, and public documents.",
+      "files": {
+        "siteData": "/api/core/site-data.json",
+        "governance": "/api/core/governance.json",
+        "publicOffices": "/api/core/public-offices.json",
+        "emergencyDirectory": "/api/core/emergency-directory.json",
+        "formsAndDocuments": "/api/core/forms-and-documents.json"
+      }
+    },
+    "geography": {
+      "description": "Barangays, PSGC records, nearby places, and transport notes.",
+      "files": {
+        "barangays": "/api/geography/barangays.json",
+        "psgcBarangays": "/api/geography/psgc-barangays.json",
+        "nearbyPlaces": "/api/geography/nearby-places.json"
+      }
+    },
+    "demographics": {
+      "description": "Census summaries, population history, and barangay population figures.",
+      "files": {
+        "demographics2020": "/api/demographics/demographics-2020.json",
+        "populationHistory": "/api/demographics/population-history.json"
+      }
+    },
+    "tourism": {
+      "description": "Tourism portal data, destinations, events, categories, images, and filters.",
+      "files": {
+        "tourism": "/api/tourism/tourism.json",
+        "tourismEvents": "/api/tourism/tourism-events.json",
+        "touristDestinations": "/api/tourism/tourist-destinations.json"
+      }
+    }
+  }
+}

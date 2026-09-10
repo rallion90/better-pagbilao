@@ -1,0 +1,46 @@
+{
+  "municipality": "Pagbilao",
+  "province": "Quezon",
+  "sources": [
+    {
+      "name": "Municipality of Pagbilao Official Government Portal",
+      "url": "https://www.pagbilao.org/",
+      "accessed": "2026-09-09"
+    },
+    {
+      "name": "Pagbilao Tourism",
+      "url": "https://tourism.pagbilao.org/",
+      "accessed": "2026-09-09"
+    }
+  ],
+  "hotlines": [
+    {
+      "agency": "MDRRMO Disaster Response & Rescue",
+      "telephone": "0918-624-4564",
+      "category": "Disaster response"
+    },
+    {
+      "agency": "Philippine National Police",
+      "telephone": "0998-598-5764",
+      "alternateTelephone": "(042) 797-2854",
+      "category": "Police"
+    },
+    {
+      "agency": "Bureau of Fire Protection",
+      "telephone": "0923-442-4945",
+      "alternateTelephone": "(042) 797-0932",
+      "category": "Fire"
+    },
+    {
+      "agency": "Municipal Health Office",
+      "telephone": "(042) 797-3092",
+      "category": "Health"
+    }
+  ],
+  "municipalContact": {
+    "office": "LGU Pagbilao",
+    "address": "Pagbilao Municipal Hall, Rizal St., Brgy. Sta. Catalina, Pagbilao, Quezon",
+    "telephone": "(042) 797-0937",
+    "emails": ["pagwebteam@gmail.com", "pagwebdev@gmail.com", "discover.pagbilaotourism@gmail.com"]
+  }
+}
