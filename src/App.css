@@ -23,3 +23,29 @@ html {
       .flag-ribbon {
         background: linear-gradient(90deg, #155eef 0 36%, #fdb022 36% 42%, #d92d20 42% 76%, #12805c 76% 100%);
       }
+
+      .bpg-chat-bubble .bpg-chat-answer > *:first-child {
+        margin-top: 0;
+      }
+
+      .bpg-chat-bubble .bpg-chat-answer > *:last-child {
+        margin-bottom: 0;
+      }
+
+      .bpg-chat-bubble .bpg-chat-paragraph {
+        margin: 0 0 0.5rem;
+      }
+
+      .bpg-chat-bubble .bpg-chat-list {
+        margin: 0 0 0.5rem;
+        padding-left: 1.25rem;
+        list-style: disc;
+      }
+
+      .bpg-chat-bubble .bpg-chat-list--numbered {
+        list-style: decimal;
+      }
+
+      .bpg-chat-bubble .bpg-chat-list li + li {
+        margin-top: 0.25rem;
+      }
