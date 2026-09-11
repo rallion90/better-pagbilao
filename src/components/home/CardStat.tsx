@@ -3,7 +3,7 @@ import { Landmark, Map, Sprout, UsersRound } from "lucide-react"
 const CardStat = () => {
     return (
         <section className="border-b border-slate-200 bg-bayan-mist">
-        <div className="mx-auto grid max-w-7xl gap-4 px-4 py-6 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+        <div className="mx-auto grid max-w-[1600px] gap-4 px-4 py-6 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
           <article className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
             <div className="flex items-center gap-3">
               <span className="grid h-10 w-10 place-items-center rounded-md bg-blue-50 text-bayan-blue">

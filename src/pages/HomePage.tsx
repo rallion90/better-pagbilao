@@ -38,7 +38,7 @@ const HomePage = () => {
          
             
             <section id="services" className="bg-white py-16 sm:py-20">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
                         <div>
                             <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-blue">Government Services</p>
@@ -95,7 +95,7 @@ const HomePage = () => {
             </section>
 
             <section className="bg-bayan-ink py-16 text-white sm:py-20">
-                <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+                <div className="mx-auto grid max-w-[1600px] gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
                     <div>
                         <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">Bayan ng Mananalo</p>
                         <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">From papag and bilao to a more connected town.</h2>
@@ -125,7 +125,7 @@ const HomePage = () => {
             </section>
 
             <section id="transparency" className="bg-bayan-mist py-16 sm:py-20">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
                         <div>
                             <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-green">Transparency</p>
@@ -178,7 +178,7 @@ const HomePage = () => {
             </section>
 
             <section id="tourism" className="bg-white py-16 sm:py-20">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
                         <figure className="overflow-hidden rounded-lg shadow-soft">
                             <img
@@ -216,7 +216,7 @@ const HomePage = () => {
             </section>
 
             <section id="hotlines" className="bg-bayan-red py-16 text-white sm:py-20">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
                         <div>
                             <p className="text-sm font-black uppercase tracking-[0.18em] text-white/72">Emergency Hotlines</p>
@@ -253,7 +253,7 @@ const HomePage = () => {
             </section>
 
             <section id="history" className="bg-white py-16 sm:py-20">
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                         <div>
                             <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-blue">History of Pagbilao</p>

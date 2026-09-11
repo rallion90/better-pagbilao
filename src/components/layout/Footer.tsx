@@ -37,8 +37,8 @@ const supportMarks = [
 const Footer = () => {
     return (
         <footer className="bg-[#111111] text-white">
-            <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-                <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr_1fr_1fr]">
+            <div className="mx-auto max-w-[1600px] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+                <div className="grid gap-12 lg:grid-cols-[1.1fr_0.7fr_0.8fr_1.4fr]">
                     <div>
                         <a href="#home" className="inline-flex items-center gap-4" aria-label="Better Pagbilao home">
                             <span className="grid h-20 w-20 shrink-0 place-items-center rounded-full bg-white p-2 ring-1 ring-white/20">
@@ -95,7 +95,7 @@ const Footer = () => {
                     </nav>
 
                     <div className="lg:justify-self-end">
-                        <div className="inline-flex items-center rounded-md bg-emerald-950/30 px-4 py-3 text-sm font-black text-white/78 ring-1 ring-emerald-400/5">
+                        <div className="inline-flex items-center whitespace-nowrap rounded-md bg-emerald-950/30 px-4 py-3 text-sm font-black text-white/78 ring-1 ring-emerald-400/5">
                             Cost to the People of Pagbilao =&nbsp;<span className="text-emerald-400">₱0</span>
                         </div>
 

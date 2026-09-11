@@ -3,7 +3,7 @@ import { PhoneCall, Siren, Shield, Flame, HeartPulse, Landmark } from "lucide-re
 const QuickLinks = () => {
     return (
         <div className="bg-bayan-ink text-white">
-            <div className="mx-auto flex max-w-7xl items-center gap-3 overflow-x-auto px-4 py-2 text-xs font-bold sm:px-6 lg:px-8">
+            <div className="mx-auto flex max-w-[1600px] items-center gap-3 overflow-x-auto px-4 py-2 text-xs font-bold sm:px-6 lg:px-8">
                 <span className="sticky left-0 z-10 inline-flex shrink-0 items-center gap-2 bg-bayan-ink pr-1 uppercase tracking-[0.14em] text-white/62">
                     <PhoneCall className="h-3.5 w-3.5" />
                     <span data-i18n="quickContacts">Quick Contacts</span>

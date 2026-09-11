@@ -74,7 +74,7 @@ const BottomHeader = () => {
     const [openMenu, setOpenMenu] = useState<string | null>(null)
 
     return (
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
             <a href="#home" className="flex min-w-0 items-center gap-4" aria-label="Better Pagbilao home">
                 <span className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-white p-1.5 shadow-soft ring-1 ring-slate-200 sm:h-20 sm:w-20">
                     <img src="logo.png" alt="Bayan ng Pagbilao official seal" className="h-full w-full object-contain" />
