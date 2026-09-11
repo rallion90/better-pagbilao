@@ -1,6 +1,31 @@
 import HeroSlider from '../components/home/HeroSlider'
 import CardStat from '../components/home/CardStat'
-import { BookOpenText, Landmark, MapPinned, Route, Sprout } from 'lucide-react'
+import {
+    Binoculars,
+    BookOpenCheck,
+    BookOpenText,
+    BriefcaseBusiness,
+    ChevronRight,
+    ClipboardCheck,
+    FileDown,
+    Flame,
+    FolderDown,
+    HandHeart,
+    HeartPulse,
+    Landmark,
+    MapPinned,
+    MessageSquareHeart,
+    Palmtree,
+    Route,
+    ScrollText,
+    Shield,
+    ShieldAlert,
+    Siren,
+    Sprout,
+    UsersRound,
+    Waves,
+    Wheat,
+} from 'lucide-react'
 
 const HomePage = () => {
     return (
@@ -20,47 +45,47 @@ const HomePage = () => {
                             </p>
                         </div>
                         <a href="#transparency" className="inline-flex w-fit items-center gap-2 rounded-md border border-slate-300 px-4 py-2.5 text-sm font-black text-slate-800 hover:bg-slate-50">
-                            <i data-lucide="file-down" className="h-4 w-4"></i>
+                            <FileDown className="h-4 w-4" />
                             Downloadable Forms
                         </a>
                     </div>
 
                     <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         <article className="rounded-lg border border-slate-200 p-6 transition hover:-translate-y-0.5 hover:shadow-soft">
-                            <i data-lucide="briefcase-business" className="h-7 w-7 text-bayan-blue"></i>
+                            <BriefcaseBusiness className="h-7 w-7 text-bayan-blue" />
                             <h3 className="mt-5 text-xl font-black">Business and Permits</h3>
                             <p className="mt-2 text-sm leading-6 text-slate-600">Business permit applications, renewals, zoning, locational clearance, and building permit forms.</p>
-                            <a href="#" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-bayan-blue">View requirements <i data-lucide="chevron-right" className="h-4 w-4"></i></a>
+                            <a href="#" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-bayan-blue">View requirements <ChevronRight className="h-4 w-4" /></a>
                         </article>
                         <article className="rounded-lg border border-slate-200 p-6 transition hover:-translate-y-0.5 hover:shadow-soft">
-                            <i data-lucide="heart-pulse" className="h-7 w-7 text-bayan-red"></i>
+                            <HeartPulse className="h-7 w-7 text-bayan-red" />
                             <h3 className="mt-5 text-xl font-black">Health Services</h3>
                             <p className="mt-2 text-sm leading-6 text-slate-600">Municipal Health Office support, community wellness, vaccination programs, and local health referrals.</p>
-                            <a href="#hotlines" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-bayan-red">Call health office <i data-lucide="chevron-right" className="h-4 w-4"></i></a>
+                            <a href="#hotlines" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-bayan-red">Call health office <ChevronRight className="h-4 w-4" /></a>
                         </article>
                         <article className="rounded-lg border border-slate-200 p-6 transition hover:-translate-y-0.5 hover:shadow-soft">
-                            <i data-lucide="shield-alert" className="h-7 w-7 text-bayan-green"></i>
+                            <ShieldAlert className="h-7 w-7 text-bayan-green" />
                             <h3 className="mt-5 text-xl font-black">Disaster and Safety</h3>
                             <p className="mt-2 text-sm leading-6 text-slate-600">MDRRMO rescue, emergency reporting, police, fire, and public safety coordination.</p>
-                            <a href="#hotlines" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-bayan-green">Open hotlines <i data-lucide="chevron-right" className="h-4 w-4"></i></a>
+                            <a href="#hotlines" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-bayan-green">Open hotlines <ChevronRight className="h-4 w-4" /></a>
                         </article>
                         <article className="rounded-lg border border-slate-200 p-6 transition hover:-translate-y-0.5 hover:shadow-soft">
-                            <i data-lucide="wheat" className="h-7 w-7 text-amber-700"></i>
+                            <Wheat className="h-7 w-7 text-amber-700" />
                             <h3 className="mt-5 text-xl font-black">Agriculture and Livelihood</h3>
                             <p className="mt-2 text-sm leading-6 text-slate-600">Support for coconut, rice, poultry, fisherfolk, livelihood programs, and local enterprise growth.</p>
-                            <a href="#" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-amber-700">Find office <i data-lucide="chevron-right" className="h-4 w-4"></i></a>
+                            <a href="#" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-amber-700">Find office <ChevronRight className="h-4 w-4" /></a>
                         </article>
                         <article className="rounded-lg border border-slate-200 p-6 transition hover:-translate-y-0.5 hover:shadow-soft">
-                            <i data-lucide="users-round" className="h-7 w-7 text-bayan-blue"></i>
+                            <UsersRound className="h-7 w-7 text-bayan-blue" />
                             <h3 className="mt-5 text-xl font-black">Social Welfare</h3>
                             <p className="mt-2 text-sm leading-6 text-slate-600">Assistance pathways for families, seniors, persons with disabilities, youth, and vulnerable residents.</p>
-                            <a href="#hotlines" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-bayan-blue">Ask for help <i data-lucide="chevron-right" className="h-4 w-4"></i></a>
+                            <a href="#hotlines" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-bayan-blue">Ask for help <ChevronRight className="h-4 w-4" /></a>
                         </article>
                         <article className="rounded-lg border border-slate-200 p-6 transition hover:-translate-y-0.5 hover:shadow-soft">
-                            <i data-lucide="palm-tree" className="h-7 w-7 text-bayan-green"></i>
+                            <Palmtree className="h-7 w-7 text-bayan-green" />
                             <h3 className="mt-5 text-xl font-black">Tourism and Culture</h3>
                             <p className="mt-2 text-sm leading-6 text-slate-600">Destinations, tourism directory, festivals, heritage, visitor feedback, and WOW Pagbilao experiences.</p>
-                            <a href="#tourism" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-bayan-green">Explore Pagbilao <i data-lucide="chevron-right" className="h-4 w-4"></i></a>
+                            <a href="#tourism" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-bayan-green">Explore Pagbilao <ChevronRight className="h-4 w-4" /></a>
                         </article>
                     </div>
                 </div>
@@ -78,17 +103,17 @@ const HomePage = () => {
                     </div>
                     <div className="grid gap-4 sm:grid-cols-3">
                         <article className="rounded-lg bg-white/8 p-5 ring-1 ring-white/12">
-                            <i data-lucide="route" className="h-7 w-7 text-bayan-gold"></i>
+                            <Route className="h-7 w-7 text-bayan-gold" />
                             <h3 className="mt-4 font-black">Gateway Location</h3>
                             <p className="mt-2 text-sm leading-6 text-white/70">A strategic link near Lucena, Bondoc Peninsula, and the Bicol route.</p>
                         </article>
                         <article className="rounded-lg bg-white/8 p-5 ring-1 ring-white/12">
-                            <i data-lucide="waves" className="h-7 w-7 text-cyan-300"></i>
+                            <Waves className="h-7 w-7 text-cyan-300" />
                             <h3 className="mt-4 font-black">Bay Communities</h3>
                             <p className="mt-2 text-sm leading-6 text-white/70">Coastal barangays, islands, resorts, and natural destinations.</p>
                         </article>
                         <article className="rounded-lg bg-white/8 p-5 ring-1 ring-white/12">
-                            <i data-lucide="hand-heart" className="h-7 w-7 text-emerald-300"></i>
+                            <HandHeart className="h-7 w-7 text-emerald-300" />
                             <h3 className="mt-4 font-black">HEARTS Lens</h3>
                             <p className="mt-2 text-sm leading-6 text-white/70">Health, education, assistance, resilience, tourism, and service.</p>
                         </article>
@@ -114,7 +139,7 @@ const HomePage = () => {
                                         <p className="text-sm font-black text-slate-500">Documents</p>
                                         <h3 className="mt-2 text-xl font-black">Ordinances and EOs</h3>
                                     </div>
-                                    <i data-lucide="scroll-text" className="h-6 w-6 text-bayan-green"></i>
+                                    <ScrollText className="h-6 w-6 text-bayan-green" />
                                 </div>
                             </a>
                             <a href="#" className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm hover:shadow-soft">
@@ -123,7 +148,7 @@ const HomePage = () => {
                                         <p className="text-sm font-black text-slate-500">Accountability</p>
                                         <h3 className="mt-2 text-xl font-black">Procurement</h3>
                                     </div>
-                                    <i data-lucide="clipboard-check" className="h-6 w-6 text-bayan-blue"></i>
+                                    <ClipboardCheck className="h-6 w-6 text-bayan-blue" />
                                 </div>
                             </a>
                             <a href="#" className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm hover:shadow-soft">
@@ -132,7 +157,7 @@ const HomePage = () => {
                                         <p className="text-sm font-black text-slate-500">Resident Help</p>
                                         <h3 className="mt-2 text-xl font-black">Citizen's Charter</h3>
                                     </div>
-                                    <i data-lucide="book-open-check" className="h-6 w-6 text-bayan-red"></i>
+                                    <BookOpenCheck className="h-6 w-6 text-bayan-red" />
                                 </div>
                             </a>
                             <a href="#" className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm hover:shadow-soft">
@@ -141,7 +166,7 @@ const HomePage = () => {
                                         <p className="text-sm font-black text-slate-500">Forms</p>
                                         <h3 className="mt-2 text-xl font-black">Permits and Clearances</h3>
                                     </div>
-                                    <i data-lucide="folder-down" className="h-6 w-6 text-amber-700"></i>
+                                    <FolderDown className="h-6 w-6 text-amber-700" />
                                 </div>
                             </a>
                         </div>
@@ -172,12 +197,12 @@ const HomePage = () => {
                             </p>
                             <div className="mt-7 grid gap-3 sm:grid-cols-2">
                                 <div className="rounded-lg border border-slate-200 p-4">
-                                    <i data-lucide="binoculars" className="h-5 w-5 text-bayan-blue"></i>
+                                    <Binoculars className="h-5 w-5 text-bayan-blue" />
                                     <p className="mt-3 font-black">Destinations</p>
                                     <p className="mt-1 text-sm text-slate-600">Beaches, falls, protected areas, and cultural stops.</p>
                                 </div>
                                 <div className="rounded-lg border border-slate-200 p-4">
-                                    <i data-lucide="message-square-heart" className="h-5 w-5 text-bayan-green"></i>
+                                    <MessageSquareHeart className="h-5 w-5 text-bayan-green" />
                                     <p className="mt-3 font-black">Feedback</p>
                                     <p className="mt-1 text-sm text-slate-600">Tourism registration and visitor survey pathways.</p>
                                 </div>
@@ -201,22 +226,22 @@ const HomePage = () => {
 
                     <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                         <a href="tel:09186244564" className="rounded-lg bg-white p-5 text-bayan-ink shadow-soft">
-                            <i data-lucide="siren" className="h-7 w-7 text-bayan-red"></i>
+                            <Siren className="h-7 w-7 text-bayan-red" />
                             <p className="mt-4 text-sm font-black text-slate-500">MDRRMO Rescue</p>
                             <p className="mt-1 text-2xl font-black">0918-624-4564</p>
                         </a>
                         <a href="tel:09985985764" className="rounded-lg bg-white p-5 text-bayan-ink shadow-soft">
-                            <i data-lucide="shield" className="h-7 w-7 text-bayan-blue"></i>
+                            <Shield className="h-7 w-7 text-bayan-blue" />
                             <p className="mt-4 text-sm font-black text-slate-500">Philippine National Police</p>
                             <p className="mt-1 text-2xl font-black">0998-598-5764</p>
                         </a>
                         <a href="tel:09234424945" className="rounded-lg bg-white p-5 text-bayan-ink shadow-soft">
-                            <i data-lucide="flame" className="h-7 w-7 text-amber-700"></i>
+                            <Flame className="h-7 w-7 text-amber-700" />
                             <p className="mt-4 text-sm font-black text-slate-500">Bureau of Fire Protection</p>
                             <p className="mt-1 text-2xl font-black">0923-442-4945</p>
                         </a>
                         <a href="tel:0427973092" className="rounded-lg bg-white p-5 text-bayan-ink shadow-soft">
-                            <i data-lucide="cross" className="h-7 w-7 text-bayan-green"></i>
+                            <HeartPulse className="h-7 w-7 text-bayan-green" />
                             <p className="mt-4 text-sm font-black text-slate-500">Municipal Health Office</p>
                             <p className="mt-1 text-2xl font-black">(042) 797-3092</p>
                         </a>
