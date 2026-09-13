@@ -53,7 +53,7 @@ const HeroSlider = () => {
         <div className="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
       </div>
 
-      <div className="relative mx-auto grid min-h-170 max-w-[1600px] place-items-center px-4 py-24 sm:px-6 lg:px-8">
+      <div className="relative mx-auto grid min-h-136 max-w-[1600px] place-items-center px-4 py-16 sm:min-h-160 sm:px-6 sm:py-20 lg:min-h-170 lg:px-8 lg:py-24">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center text-white">
           <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/10 px-3 py-2 text-sm font-bold backdrop-blur">
             <MapPin className="h-4 w-4" />

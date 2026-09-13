@@ -7,6 +7,7 @@ import {
     FolderDown,
     HeartPulse,
     MapPinned,
+    Menu,
     Palmtree,
     Route,
     Search,
@@ -16,7 +17,8 @@ import {
     Wheat,
     Building2,
     Scale,
-    ContactRound
+    ContactRound,
+    X
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { useState } from "react"
@@ -72,7 +74,14 @@ const navMenuMeta: NavMenuMeta[] = [
 
 const BottomHeader = () => {
     const [openMenu, setOpenMenu] = useState<string | null>(null)
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [openMobileSection, setOpenMobileSection] = useState<string | null>(null)
     const { lang, setLang, t } = useLanguage()
+
+    const closeMobileMenu = () => {
+        setIsMobileMenuOpen(false)
+        setOpenMobileSection(null)
+    }
 
     const navMenus = navMenuMeta.map((menu) => {
         const text = t.nav.menus[menu.id as keyof typeof t.nav.menus]
@@ -89,15 +98,16 @@ const BottomHeader = () => {
     })
 
     return (
-        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
-            <a href="#home" className="flex min-w-0 items-center gap-4" aria-label="Better Pagbilao home">
-                <span className="flex h-20 shrink-0 items-center py-1 sm:h-24">
+        <>
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-4 py-2 sm:gap-4 sm:px-6 2xl:px-8">
+            <a href="#home" className="flex min-w-0 shrink-0 items-center gap-4" aria-label="Better Pagbilao home">
+                <span className="flex h-14 shrink-0 items-center py-1 sm:h-20 xl:h-24">
                     <img src="/betterpagbilao_logo.svg" alt="Better Pagbilao" className="h-full w-auto object-contain drop-shadow-sm" />
                 </span>
             </a>
 
-            <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation" onMouseLeave={() => setOpenMenu(null)}>
-                <a className="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#home">
+            <nav className="hidden items-center gap-1 xl:flex" aria-label="Main navigation" onMouseLeave={() => setOpenMenu(null)}>
+                <a className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#home">
                     {t.nav.home}
                 </a>
                 {navMenus.map((menu) => {
@@ -107,7 +117,7 @@ const BottomHeader = () => {
                         <div key={menu.id} className="relative" onMouseEnter={() => setOpenMenu(menu.id)}>
                             <button
                                 type="button"
-                                className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold transition ${isOpen ? "bg-slate-100 text-bayan-ink" : "text-slate-700 hover:bg-slate-100"}`}
+                                className={`inline-flex items-center gap-1 rounded-md px-2.5 py-2 text-sm font-semibold transition ${isOpen ? "bg-slate-100 text-bayan-ink" : "text-slate-700 hover:bg-slate-100"}`}
                                 aria-expanded={isOpen}
                                 aria-haspopup="true"
                                 onClick={() => setOpenMenu(isOpen ? null : menu.id)}
@@ -149,21 +159,21 @@ const BottomHeader = () => {
                     )
                 })}
 
-                <a className="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#hotlines">
+                <a className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#hotlines">
                     {t.nav.hotlines}
                 </a>
-                <a className="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#history">
+                <a className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#history">
                     {t.nav.history}
                 </a>
             </nav>
 
-            <div className="flex shrink-0 items-center gap-2">
-                <div className="hidden rounded-md border border-slate-200 bg-slate-50 p-1 sm:inline-flex" aria-label="Language switcher">
+            <div className="flex shrink-0 items-center gap-1.5 xl:gap-2">
+                <div className="hidden rounded-md border border-slate-200 bg-slate-50 p-1 xl:inline-flex" aria-label="Language switcher">
                     <button
                         type="button"
                         aria-pressed={lang === "en"}
                         onClick={() => setLang("en")}
-                        className={`rounded px-2.5 py-1.5 text-xs font-black transition sm:px-3 ${lang === "en" ? "bg-bayan-blue text-white shadow-sm" : "text-slate-600 hover:text-bayan-ink"}`}
+                        className={`rounded px-2.5 py-1.5 text-xs font-black transition ${lang === "en" ? "bg-bayan-blue text-white shadow-sm" : "text-slate-600 hover:text-bayan-ink"}`}
                     >
                         English
                     </button>
@@ -171,7 +181,7 @@ const BottomHeader = () => {
                         type="button"
                         aria-pressed={lang === "tl"}
                         onClick={() => setLang("tl")}
-                        className={`rounded px-2.5 py-1.5 text-xs font-black transition sm:px-3 ${lang === "tl" ? "bg-bayan-blue text-white shadow-sm" : "text-slate-600 hover:text-bayan-ink"}`}
+                        className={`rounded px-2.5 py-1.5 text-xs font-black transition ${lang === "tl" ? "bg-bayan-blue text-white shadow-sm" : "text-slate-600 hover:text-bayan-ink"}`}
                     >
                         Tagalog
                     </button>
@@ -179,13 +189,117 @@ const BottomHeader = () => {
                 <button
                     type="button"
                     id="header-search-button"
-                    className="inline-flex items-center gap-2 rounded-md bg-bayan-blue px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-blue-700 sm:px-4"
+                    className="inline-flex items-center gap-2 rounded-md bg-bayan-blue px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-blue-700 xl:px-4"
                 >
                     <Search className="h-4 w-4" />
                     <span className="hidden sm:inline">{t.nav.search}</span>
                 </button>
+
+                <button
+                    type="button"
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-md text-slate-700 transition hover:bg-slate-100 xl:hidden"
+                    aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={isMobileMenuOpen}
+                    onClick={() => {
+                        setIsMobileMenuOpen((currentValue) => !currentValue)
+                        setOpenMobileSection(null)
+                    }}
+                >
+                    {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </button>
             </div>
         </div>
+
+        {isMobileMenuOpen ? (
+            <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-slate-200 bg-white px-4 py-4 sm:px-6 xl:hidden">
+                <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
+                    <a
+                        href="#home"
+                        onClick={closeMobileMenu}
+                        className="rounded-md px-3 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-100"
+                    >
+                        {t.nav.home}
+                    </a>
+
+                    {navMenus.map((menu) => {
+                        const isSectionOpen = openMobileSection === menu.id
+
+                        return (
+                            <div key={menu.id} className="border-t border-slate-100 first:border-t-0">
+                                <button
+                                    type="button"
+                                    className="flex w-full items-center justify-between rounded-md px-3 py-2.5 text-left text-sm font-black text-slate-700 hover:bg-slate-100"
+                                    aria-expanded={isSectionOpen}
+                                    onClick={() => setOpenMobileSection(isSectionOpen ? null : menu.id)}
+                                >
+                                    {menu.label}
+                                    <ChevronDown className={`h-4 w-4 shrink-0 transition ${isSectionOpen ? "rotate-180" : ""}`} />
+                                </button>
+
+                                {isSectionOpen ? (
+                                    <div className="grid gap-1 py-1 pl-2">
+                                        {menu.items.map(({ label, href, description, Icon, color }) => (
+                                            <a
+                                                key={label}
+                                                href={href}
+                                                onClick={closeMobileMenu}
+                                                className="grid grid-cols-[auto_1fr] items-center gap-3 rounded-md p-2.5 text-left transition hover:bg-slate-50"
+                                            >
+                                                <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-md ${color}`}>
+                                                    <Icon className="h-4 w-4" />
+                                                </span>
+                                                <span className="min-w-0">
+                                                    <span className="block text-sm font-bold text-bayan-ink">{label}</span>
+                                                    <span className="block truncate text-xs font-semibold text-slate-500">{description}</span>
+                                                </span>
+                                            </a>
+                                        ))}
+                                    </div>
+                                ) : null}
+                            </div>
+                        )
+                    })}
+
+                    <a
+                        href="#hotlines"
+                        onClick={closeMobileMenu}
+                        className="border-t border-slate-100 px-3 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-100"
+                    >
+                        {t.nav.hotlines}
+                    </a>
+                    <a
+                        href="#history"
+                        onClick={closeMobileMenu}
+                        className="px-3 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-100"
+                    >
+                        {t.nav.history}
+                    </a>
+                </nav>
+
+                <div className="mt-3 flex items-center gap-2 border-t border-slate-100 pt-4">
+                    <span className="text-xs font-black uppercase tracking-[0.14em] text-slate-500">Language</span>
+                    <div className="inline-flex rounded-md border border-slate-200 bg-slate-50 p-1">
+                        <button
+                            type="button"
+                            aria-pressed={lang === "en"}
+                            onClick={() => setLang("en")}
+                            className={`rounded px-3 py-1.5 text-xs font-black transition ${lang === "en" ? "bg-bayan-blue text-white shadow-sm" : "text-slate-600 hover:text-bayan-ink"}`}
+                        >
+                            English
+                        </button>
+                        <button
+                            type="button"
+                            aria-pressed={lang === "tl"}
+                            onClick={() => setLang("tl")}
+                            className={`rounded px-3 py-1.5 text-xs font-black transition ${lang === "tl" ? "bg-bayan-blue text-white shadow-sm" : "text-slate-600 hover:text-bayan-ink"}`}
+                        >
+                            Tagalog
+                        </button>
+                    </div>
+                </div>
+            </div>
+        ) : null}
+        </>
     )
 }
 
