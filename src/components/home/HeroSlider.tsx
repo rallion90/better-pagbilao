@@ -1,5 +1,6 @@
 import { ArrowRight, MapPin, Search } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useLanguage } from "../../i18n/useLanguage";
 
 const heroSlides = [
   {
@@ -24,6 +25,7 @@ const heroSlides = [
 
 const HeroSlider = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -51,24 +53,20 @@ const HeroSlider = () => {
         <div className="absolute inset-0 bg-linear-to-t from-slate-950/60 via-transparent to-transparent"></div>
       </div>
 
-      <div className="relative mx-auto grid min-h-170 max-w-[1600px] content-end px-4 pb-10 pt-24 sm:px-6 lg:px-8">
-        <div className="max-w-3xl pb-10 text-white">
+      <div className="relative mx-auto grid min-h-170 max-w-[1600px] place-items-center px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center text-white">
           <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/10 px-3 py-2 text-sm font-bold backdrop-blur">
             <MapPin className="h-4 w-4" />
-            <span data-i18n="locationBadge">Municipality of Pagbilao, Quezon</span>
+            <span>{t.hero.locationBadge}</span>
           </div>
-          <h1
-            className="max-w-3xl text-5xl font-black leading-[1.02] tracking-normal sm:text-6xl lg:text-7xl"
-            data-i18n="heroTitle"
-          >
-            Better access for every Pagbilaoin.
+          <h1 className="max-w-3xl text-5xl font-black leading-[1.02] tracking-normal sm:text-6xl lg:text-7xl">
+            {t.hero.title}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg font-medium leading-8 text-white/88" data-i18n="heroDescription">
-            A community-powered local portal concept for finding services, forms, hotlines, tourism information, and
-            public documents in one clear place.
+          <p className="mt-6 max-w-2xl text-lg font-medium leading-8 text-white/88">
+            {t.hero.description}
           </p>
 
-          <div className="mt-8 max-w-2xl rounded-lg bg-white p-2 shadow-soft">
+          <div className="mt-8 w-full max-w-2xl rounded-lg bg-white p-2 shadow-soft">
             <label htmlFor="search" className="sr-only">
               Search local services
             </label>
@@ -78,46 +76,41 @@ const HeroSlider = () => {
                 <input
                   id="search"
                   type="search"
-                  placeholder="Search permits, health, tourism, hotlines..."
-                  data-i18n-placeholder="searchPlaceholder"
+                  placeholder={t.hero.searchPlaceholder}
                   className="w-full border-0 bg-transparent py-3 text-base font-semibold text-slate-800 outline-none placeholder:text-slate-400"
                 />
               </div>
               <button className="inline-flex items-center justify-center gap-2 rounded-md bg-bayan-red px-5 py-3 text-sm font-black text-white hover:bg-red-700">
                 <ArrowRight className="h-4 w-4" />
-                <span data-i18n="findService">Find Service</span>
+                <span>{t.hero.findService}</span>
               </button>
             </div>
           </div>
 
-          <div className="mt-5 flex flex-wrap gap-2">
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
             <a
               href="#services"
               className="rounded-md bg-white/[0.14] px-3 py-2 text-sm font-bold text-white ring-1 ring-white/20 hover:bg-white/22"
-              data-i18n="businessPermit"
             >
-              Business Permit
+              {t.hero.chips.businessPermit}
             </a>
             <a
               href="#services"
               className="rounded-md bg-white/[0.14] px-3 py-2 text-sm font-bold text-white ring-1 ring-white/20 hover:bg-white/22"
-              data-i18n="civilRegistry"
             >
-              Civil Registry
+              {t.hero.chips.civilRegistry}
             </a>
             <a
               href="#hotlines"
               className="rounded-md bg-white/[0.14] px-3 py-2 text-sm font-bold text-white ring-1 ring-white/20 hover:bg-white/22"
-              data-i18n="emergencyHotlines"
             >
-              Emergency Hotlines
+              {t.hero.chips.emergencyHotlines}
             </a>
             <a
               href="#tourism"
               className="rounded-md bg-white/[0.14] px-3 py-2 text-sm font-bold text-white ring-1 ring-white/20 hover:bg-white/22"
-              data-i18n="wowPagbilao"
             >
-              WOW Pagbilao
+              {t.hero.chips.wowPagbilao}
             </a>
           </div>
           <a

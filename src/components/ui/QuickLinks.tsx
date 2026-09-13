@@ -1,5 +1,6 @@
 import { PhoneCall, Siren, Shield, Flame, HeartPulse, Landmark, type LucideIcon } from "lucide-react"
 import { useSiteData } from "../../hooks/useSiteData"
+import { useLanguage } from "../../i18n/useLanguage"
 
 const HOTLINE_ICONS: { match: string; icon: LucideIcon; color: string }[] = [
     { match: "mdrrmo", icon: Siren, color: "text-bayan-gold" },
@@ -20,6 +21,7 @@ function toTelHref(telephone: string) {
 
 const QuickLinks = () => {
     const { data } = useSiteData()
+    const { t } = useLanguage()
     const contact = data?.contact
 
     const items = contact
@@ -38,7 +40,7 @@ const QuickLinks = () => {
             <div className="mx-auto flex max-w-[1600px] items-center gap-3 px-4 py-2 text-xs font-bold sm:px-6 lg:px-8">
                 <span className="z-10 inline-flex shrink-0 items-center gap-2 bg-bayan-ink pr-3 uppercase tracking-[0.14em] text-white/62">
                     <PhoneCall className="h-3.5 w-3.5" />
-                    <span>Quick Contacts</span>
+                    <span>{t.common.quickContacts}</span>
                 </span>
 
                 <div className="group relative min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_24px,black_calc(100%-24px),transparent)]">

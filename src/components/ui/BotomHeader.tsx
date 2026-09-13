@@ -6,13 +6,11 @@ import {
     FileDown,
     FolderDown,
     HeartPulse,
-    Landmark,
     MapPinned,
     Palmtree,
     Route,
     Search,
     ShieldAlert,
-    Siren,
     Sprout,
     UsersRound,
     Wheat,
@@ -22,101 +20,86 @@ import {
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { useState } from "react"
+import { useLanguage } from "../../i18n/useLanguage"
 
-type NavMenu = {
+type NavMenuMeta = {
     id: string
-    label: string
-    description: string
     items: {
-        label: string
         href: string
-        description: string
         Icon: LucideIcon
         color: string
     }[]
 }
 
-const navMenus: NavMenu[] = [
+const navMenuMeta: NavMenuMeta[] = [
     {
         id: "services",
-        label: "Services",
-        description: "Resident, business, health, safety, and livelihood pathways.",
         items: [
-            { label: "Business and Permits", href: "#services", description: "Permits, renewals, zoning, and clearances.", Icon: BriefcaseBusiness, color: "text-bayan-blue bg-blue-50" },
-            { label: "Health Services", href: "#services", description: "MHO support, wellness, and local referrals.", Icon: HeartPulse, color: "text-bayan-red bg-red-50" },
-            { label: "Disaster and Safety", href: "#hotlines", description: "Rescue, police, fire, and emergency contacts.", Icon: ShieldAlert, color: "text-bayan-green bg-emerald-50" },
-            { label: "Agriculture and Livelihood", href: "#services", description: "Support for farmers, fisherfolk, and enterprises.", Icon: Wheat, color: "text-amber-700 bg-amber-50" },
-            { label: "Social Welfare", href: "#services", description: "Assistance for families, seniors, PWDs, and youth.", Icon: UsersRound, color: "text-bayan-blue bg-blue-50" },
-            { label: "Tourism and Culture", href: "#tourism", description: "Destinations, festivals, and visitor pathways.", Icon: Palmtree, color: "text-bayan-green bg-emerald-50" },
+            { href: "#services", Icon: BriefcaseBusiness, color: "text-bayan-blue bg-blue-50" },
+            { href: "#services", Icon: HeartPulse, color: "text-bayan-red bg-red-50" },
+            { href: "#hotlines", Icon: ShieldAlert, color: "text-bayan-green bg-emerald-50" },
+            { href: "#services", Icon: Wheat, color: "text-amber-700 bg-amber-50" },
+            { href: "#services", Icon: UsersRound, color: "text-bayan-blue bg-blue-50" },
+            { href: "#tourism", Icon: Palmtree, color: "text-bayan-green bg-emerald-50" },
         ],
     },
     {
         id: "government",
-        label: "Government",
-        description: "Lists all elected officials of the City Government of Pagbilao, Quezon.",
         items: [
-            {
-                label: "Department & Officials",
-                href: "#services",
-                description: "Permits, renewals, zoning, and clearances.",
-                Icon: Building2,
-                color: "text-bayan-blue bg-blue-50"
-            },
-            {
-                label: "Legislative (City Council)",
-                href: "#services",
-                description: "MHO support, wellness, and local referrals.",
-                Icon: Scale,
-                color: "text-bayan-red bg-red-50"
-            },
-            {
-                label: "Local Officials Directory",
-                href: "#hotlines",
-                description: "Rescue, police, fire, and emergency contacts.",
-                Icon: ContactRound,
-                color: "text-bayan-green bg-emerald-50"
-            },
+            { href: "#services", Icon: Building2, color: "text-bayan-blue bg-blue-50" },
+            { href: "#services", Icon: Scale, color: "text-bayan-red bg-red-50" },
+            { href: "#hotlines", Icon: ContactRound, color: "text-bayan-green bg-emerald-50" },
         ],
     },
     {
         id: "explore",
-        label: "Explore",
-        description: "Maps, place identity, tourism, and town history.",
         items: [
-            { label: "Barangay Map", href: "#barangays", description: "View all 27 barangays with local profile details.", Icon: MapPinned, color: "text-bayan-blue bg-blue-50" },
-            { label: "History of Pagbilao", href: "#history", description: "Read the papag and bilao origin story.", Icon: Sprout, color: "text-bayan-green bg-emerald-50" },
-            { label: "Gateway Location", href: "#tourism", description: "Bay, highway, and upland community context.", Icon: Route, color: "text-bayan-gold bg-amber-50" },
+            { href: "#barangays", Icon: MapPinned, color: "text-bayan-blue bg-blue-50" },
+            { href: "#history", Icon: Sprout, color: "text-bayan-green bg-emerald-50" },
+            { href: "#tourism", Icon: Route, color: "text-bayan-gold bg-amber-50" },
         ],
     },
     {
         id: "transparency",
-        label: "Transparency",
-        description: "Public records, forms, accountability, and civic access.",
         items: [
-            { label: "Public Documents", href: "#transparency", description: "Ordinances, executive orders, and references.", Icon: FileDown, color: "text-bayan-green bg-emerald-50" },
-            { label: "Procurement", href: "#transparency", description: "Bids, notices, and accountability entries.", Icon: ClipboardCheck, color: "text-bayan-blue bg-blue-50" },
-            { label: "Citizen's Charter", href: "#transparency", description: "Service standards and resident-facing guidance.", Icon: BookOpenCheck, color: "text-bayan-red bg-red-50" },
-            { label: "Forms", href: "#transparency", description: "Permits, clearances, and downloadable files.", Icon: FolderDown, color: "text-amber-700 bg-amber-50" },
+            { href: "#transparency", Icon: FileDown, color: "text-bayan-green bg-emerald-50" },
+            { href: "#transparency", Icon: ClipboardCheck, color: "text-bayan-blue bg-blue-50" },
+            { href: "#transparency", Icon: BookOpenCheck, color: "text-bayan-red bg-red-50" },
+            { href: "#transparency", Icon: FolderDown, color: "text-amber-700 bg-amber-50" },
         ],
     },
 ]
 
 const BottomHeader = () => {
     const [openMenu, setOpenMenu] = useState<string | null>(null)
+    const { lang, setLang, t } = useLanguage()
+
+    const navMenus = navMenuMeta.map((menu) => {
+        const text = t.nav.menus[menu.id as keyof typeof t.nav.menus]
+        return {
+            ...menu,
+            label: text.label,
+            description: text.description,
+            items: menu.items.map((item, index) => ({
+                ...item,
+                label: text.items[index].label,
+                description: text.items[index].description,
+            })),
+        }
+    })
 
     return (
-        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
             <a href="#home" className="flex min-w-0 items-center gap-4" aria-label="Better Pagbilao home">
-                <span className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-white p-1.5 shadow-soft ring-1 ring-slate-200 sm:h-20 sm:w-20">
-                    <img src="logo.png" alt="Bayan ng Pagbilao official seal" className="h-full w-full object-contain" />
-                </span>
-                <span className="min-w-0">
-                    <span className="block truncate text-xl font-extrabold tracking-tight sm:text-2xl">Pagbilao, Quezon</span>
-                    <span className="block truncate text-sm font-medium text-slate-500" data-i18n="tagline">Bayan services, made easier</span>
+                <span className="flex h-20 shrink-0 items-center py-1 sm:h-24">
+                    <img src="/betterpagbilao_logo.svg" alt="Better Pagbilao" className="h-full w-auto object-contain drop-shadow-sm" />
                 </span>
             </a>
 
             <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation" onMouseLeave={() => setOpenMenu(null)}>
+                <a className="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#home">
+                    {t.nav.home}
+                </a>
                 {navMenus.map((menu) => {
                     const isOpen = openMenu === menu.id
 
@@ -166,13 +149,11 @@ const BottomHeader = () => {
                     )
                 })}
 
-                <a className="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#hotlines" data-i18n="navHotlines">
-                    <Siren className="h-4 w-4 text-bayan-red" />
-                    Hotlines
+                <a className="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#hotlines">
+                    {t.nav.hotlines}
                 </a>
                 <a className="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#history">
-                    <Landmark className="h-4 w-4 text-bayan-green" />
-                    History
+                    {t.nav.history}
                 </a>
             </nav>
 
@@ -180,15 +161,17 @@ const BottomHeader = () => {
                 <div className="hidden rounded-md border border-slate-200 bg-slate-50 p-1 sm:inline-flex" aria-label="Language switcher">
                     <button
                         type="button"
-                        data-language="en"
-                        className="rounded bg-bayan-blue px-2.5 py-1.5 text-xs font-black text-white shadow-sm transition sm:px-3"
+                        aria-pressed={lang === "en"}
+                        onClick={() => setLang("en")}
+                        className={`rounded px-2.5 py-1.5 text-xs font-black transition sm:px-3 ${lang === "en" ? "bg-bayan-blue text-white shadow-sm" : "text-slate-600 hover:text-bayan-ink"}`}
                     >
                         English
                     </button>
                     <button
                         type="button"
-                        data-language="tl"
-                        className="rounded px-2.5 py-1.5 text-xs font-black text-slate-600 transition hover:text-bayan-ink sm:px-3"
+                        aria-pressed={lang === "tl"}
+                        onClick={() => setLang("tl")}
+                        className={`rounded px-2.5 py-1.5 text-xs font-black transition sm:px-3 ${lang === "tl" ? "bg-bayan-blue text-white shadow-sm" : "text-slate-600 hover:text-bayan-ink"}`}
                     >
                         Tagalog
                     </button>
@@ -199,7 +182,7 @@ const BottomHeader = () => {
                     className="inline-flex items-center gap-2 rounded-md bg-bayan-blue px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-blue-700 sm:px-4"
                 >
                     <Search className="h-4 w-4" />
-                    <span className="hidden sm:inline" data-i18n="headerSearch">Search</span>
+                    <span className="hidden sm:inline">{t.nav.search}</span>
                 </button>
             </div>
         </div>

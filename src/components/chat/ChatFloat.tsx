@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { askPagbilaoAssistant } from "../../lib/chatApi";
 import type { ChatApiAction, ChatApiMessage } from "../../lib/chatApi";
+import { useLanguage } from "../../i18n/useLanguage";
 
 type ChatMessage = {
   id: number;
@@ -27,36 +28,23 @@ type ChatFloatProps = {
   onResolveMessage?: (message: string, history: ChatMessage[]) => Promise<string> | string;
 };
 
-const quickPrompts = [
-  "Business permit",
-  "Emergency hotlines",
-  "Tourism spots",
-  "Citizen's Charter",
-];
-
 const getMessageTime = () =>
   new Intl.DateTimeFormat("en", {
     hour: "numeric",
     minute: "2-digit",
   }).format(new Date());
 
-const starterMessage: ChatMessage = {
-  id: 1,
-  author: "assistant",
-  text: "Mabuhay! Ask me about services, hotlines, tourism, forms, or local offices in Pagbilao.",
-  time: getMessageTime(),
-};
-
-const FALLBACK_REPLY =
-  "Sorry, I couldn't answer that yet. Please try again or use the quick links for direct office contacts.";
-
 const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [draft, setDraft] = useState("");
-  const [messages, setMessages] = useState<ChatMessage[]>([starterMessage]);
+  const [messages, setMessages] = useState<ChatMessage[]>(() => [
+    { id: 1, author: "assistant", text: t.chat.starterMessage, time: getMessageTime() },
+  ]);
   const [isReplying, setIsReplying] = useState(false);
   const nextMessageId = useRef(2);
   const messageListRef = useRef<HTMLDivElement>(null);
+  const quickPrompts = t.chat.quickPrompts;
 
   useEffect(() => {
     if (!isOpen) {
@@ -119,7 +107,7 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
         });
       }
     } catch {
-      appendAssistantMessage({ text: FALLBACK_REPLY });
+      appendAssistantMessage({ text: t.chat.fallbackReply });
     } finally {
       setIsReplying(false);
     }
@@ -131,10 +119,10 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-[60] flex max-w-[calc(100vw-2rem)] flex-col items-end gap-3 sm:bottom-6 sm:right-6">
+    <div className="fixed bottom-4 right-4 z-60 flex max-w-[calc(100vw-2rem)] flex-col items-end gap-3 sm:bottom-6 sm:right-6">
       {isOpen ? (
         <section
-          className="flex h-[min(42rem,calc(100vh-6rem))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft ring-1 ring-slate-900/5 sm:h-[min(44rem,calc(100vh-7rem))] sm:w-[26rem]"
+          className="flex h-[min(42rem,calc(100vh-6rem))] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft ring-1 ring-slate-900/5 sm:h-[min(44rem,calc(100vh-7rem))] sm:w-104"
           aria-label="Better Pagbilao chat assistant"
         >
           <div className="flag-ribbon h-1.5 w-full" />
@@ -145,10 +133,10 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
                 <Bot className="h-5 w-5" />
               </span>
               <div className="min-w-0">
-                <h2 className="truncate text-base font-black text-bayan-ink">Pagbilao Assist</h2>
+                <h2 className="truncate text-base font-black text-bayan-ink">{t.chat.title}</h2>
                 <p className="flex items-center gap-1.5 text-xs font-bold text-slate-500">
                   <span className="h-2 w-2 rounded-full bg-bayan-green" />
-                  Ready to help
+                  {t.chat.ready}
                 </p>
               </div>
             </div>
@@ -156,7 +144,7 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
             <button
               type="button"
               className="grid h-9 w-9 shrink-0 place-items-center rounded-md text-slate-500 transition hover:bg-white hover:text-bayan-ink"
-              aria-label="Close chat"
+              aria-label={t.chat.closeLabel}
               onClick={() => setIsOpen(false)}
             >
               <X className="h-5 w-5" />
@@ -229,7 +217,7 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
                 <span className="grid h-8 w-8 place-items-center rounded-md bg-emerald-50 text-bayan-green">
                   <Sparkles className="h-4 w-4" />
                 </span>
-                Checking the right pathway...
+                {t.chat.checkingReply}
               </div>
             ) : null}
           </div>
@@ -250,20 +238,20 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
 
             <form className="flex items-center gap-2" onSubmit={handleSubmit}>
               <label htmlFor="chat-message" className="sr-only">
-                Message Pagbilao Assist
+                {t.chat.messageLabel}
               </label>
               <input
                 id="chat-message"
                 value={draft}
                 type="text"
-                placeholder="Ask about services..."
+                placeholder={t.chat.inputPlaceholder}
                 className="min-h-11 min-w-0 flex-1 rounded-md border border-slate-200 bg-slate-50 px-3 text-sm font-semibold text-bayan-ink outline-none transition placeholder:text-slate-400 focus:border-bayan-blue focus:bg-white focus:ring-[3px] focus:ring-blue-100"
                 onChange={(event) => setDraft(event.target.value)}
               />
               <button
                 type="submit"
                 className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-bayan-red text-white shadow-sm transition hover:bg-red-700 disabled:cursor-not-allowed disabled:bg-slate-300"
-                aria-label="Send message"
+                aria-label={t.chat.sendLabel}
                 disabled={!draft.trim() || isReplying}
               >
                 <Send className="h-5 w-5" />
@@ -276,14 +264,14 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
       <button
         type="button"
         className="group relative inline-flex min-h-14 items-center gap-3 rounded-full bg-bayan-blue px-4 pr-5 text-sm font-black text-white shadow-soft ring-1 ring-blue-300/40 transition hover:-translate-y-0.5 hover:bg-blue-700"
-        aria-label={isOpen ? "Minimize chat" : "Open chat"}
+        aria-label={isOpen ? t.chat.minimizeLabel : t.chat.openLabel}
         aria-expanded={isOpen}
         onClick={() => setIsOpen((currentValue) => !currentValue)}
       >
         <span className="grid h-10 w-10 place-items-center rounded-full bg-white/15">
           {isOpen ? <ChevronDown className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
         </span>
-        <span className="hidden sm:inline">{isOpen ? "Minimize" : "Ask Pagbilao Assist"}</span>
+        <span className="hidden sm:inline">{isOpen ? t.chat.minimizeLabel : t.chat.openLabel}</span>
       </button>
     </div>
   );
