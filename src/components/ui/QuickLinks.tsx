@@ -1,33 +1,60 @@
-import { PhoneCall, Siren, Shield, Flame, HeartPulse, Landmark } from "lucide-react"
+import { PhoneCall, Siren, Shield, Flame, HeartPulse, Landmark, type LucideIcon } from "lucide-react"
+import { useSiteData } from "../../hooks/useSiteData"
+
+const HOTLINE_ICONS: { match: string; icon: LucideIcon; color: string }[] = [
+    { match: "mdrrmo", icon: Siren, color: "text-bayan-gold" },
+    { match: "police", icon: Shield, color: "text-sky-300" },
+    { match: "fire", icon: Flame, color: "text-red-300" },
+    { match: "health", icon: HeartPulse, color: "text-emerald-300" },
+]
+
+function getHotlineIcon(name: string) {
+    const lower = name.toLowerCase()
+    const found = HOTLINE_ICONS.find((entry) => lower.includes(entry.match))
+    return found ?? { icon: PhoneCall, color: "text-white" }
+}
+
+function toTelHref(telephone: string) {
+    return `tel:${telephone.replace(/[^0-9]/g, "")}`
+}
 
 const QuickLinks = () => {
+    const { data } = useSiteData()
+    const contact = data?.contact
+
+    const items = contact
+        ? [
+              ...contact.hotlines.map((hotline) => ({
+                  label: hotline.name,
+                  telephone: hotline.telephone,
+                  ...getHotlineIcon(hotline.name),
+              })),
+              { label: "LGU", telephone: contact.telephone, icon: Landmark, color: "text-white" },
+          ]
+        : []
+
     return (
         <div className="bg-bayan-ink text-white">
-            <div className="mx-auto flex max-w-[1600px] items-center gap-3 overflow-x-auto px-4 py-2 text-xs font-bold sm:px-6 lg:px-8">
-                <span className="sticky left-0 z-10 inline-flex shrink-0 items-center gap-2 bg-bayan-ink pr-1 uppercase tracking-[0.14em] text-white/62">
+            <div className="mx-auto flex max-w-[1600px] items-center gap-3 px-4 py-2 text-xs font-bold sm:px-6 lg:px-8">
+                <span className="z-10 inline-flex shrink-0 items-center gap-2 bg-bayan-ink pr-3 uppercase tracking-[0.14em] text-white/62">
                     <PhoneCall className="h-3.5 w-3.5" />
-                    <span data-i18n="quickContacts">Quick Contacts</span>
+                    <span>Quick Contacts</span>
                 </span>
-                <a href="tel:09186244564" className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-white/8 px-3 py-1.5 ring-1 ring-white/12 hover:bg-white/[0.14]">
-                    <Siren className="h-3.5 w-3.5 text-bayan-gold" />
-                    MDRRMO: 0918-624-4564
-                </a>
-                <a href="tel:09985985764" className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-white/8 px-3 py-1.5 ring-1 ring-white/8 hover:bg-white/[0.14]">
-                    <Shield className="h-3.5 w-3.5 text-sky-300" />
-                    <span><span data-i18n="police">Police</span>: 0998-598-5764</span>
-                </a>
-                <a href="tel:09234424945" className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-white/8 px-3 py-1.5 ring-1 ring-white/12 hover:bg-white/[0.14]">
-                    <Flame className="h-3.5 w-3.5 text-red-300" />
-                    <span><span data-i18n="fire">Fire</span>: 0923-442-4945</span>
-                </a>
-                <a href="tel:0427973092" className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-white/8 px-3 py-1.5 ring-1 ring-white/12 hover:bg-white/[0.14]">
-                    <HeartPulse className="h-3.5 w-3.5 text-emerald-300" />
-                    <span><span data-i18n="health">Health</span>: (042) 797-3092</span>
-                </a>
-                <a href="tel:0427970937" className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-white/8 px-3 py-1.5 ring-1 ring-white/12 hover:bg-white/[0.14]">
-                    <Landmark className="h-3.5 w-3.5 text-white" />
-                    <span><span data-i18n="lgu">LGU</span>: (042) 797-0937</span>
-                </a>
+
+                <div className="group relative min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_24px,black_calc(100%-24px),transparent)]">
+                    <div className="flex w-max animate-marquee items-center gap-3 group-hover:[animation-play-state:paused]">
+                        {[...items, ...items].map((item, index) => (
+                            <a
+                                key={`${item.label}-${index}`}
+                                href={toTelHref(item.telephone)}
+                                className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-white/8 px-3 py-1.5 ring-1 ring-white/12 hover:bg-white/[0.14]"
+                            >
+                                <item.icon className={`h-3.5 w-3.5 ${item.color}`} />
+                                <span>{item.label}: {item.telephone}</span>
+                            </a>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     )

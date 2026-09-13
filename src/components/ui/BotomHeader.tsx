@@ -16,6 +16,9 @@ import {
     Sprout,
     UsersRound,
     Wheat,
+    Building2,
+    Scale,
+    ContactRound
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { useState } from "react"
@@ -45,6 +48,34 @@ const navMenus: NavMenu[] = [
             { label: "Agriculture and Livelihood", href: "#services", description: "Support for farmers, fisherfolk, and enterprises.", Icon: Wheat, color: "text-amber-700 bg-amber-50" },
             { label: "Social Welfare", href: "#services", description: "Assistance for families, seniors, PWDs, and youth.", Icon: UsersRound, color: "text-bayan-blue bg-blue-50" },
             { label: "Tourism and Culture", href: "#tourism", description: "Destinations, festivals, and visitor pathways.", Icon: Palmtree, color: "text-bayan-green bg-emerald-50" },
+        ],
+    },
+    {
+        id: "government",
+        label: "Government",
+        description: "Lists all elected officials of the City Government of Pagbilao, Quezon.",
+        items: [
+            {
+                label: "Department & Officials",
+                href: "#services",
+                description: "Permits, renewals, zoning, and clearances.",
+                Icon: Building2,
+                color: "text-bayan-blue bg-blue-50"
+            },
+            {
+                label: "Legislative (City Council)",
+                href: "#services",
+                description: "MHO support, wellness, and local referrals.",
+                Icon: Scale,
+                color: "text-bayan-red bg-red-50"
+            },
+            {
+                label: "Local Officials Directory",
+                href: "#hotlines",
+                description: "Rescue, police, fire, and emergency contacts.",
+                Icon: ContactRound,
+                color: "text-bayan-green bg-emerald-50"
+            },
         ],
     },
     {

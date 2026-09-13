@@ -9,4 +9,15 @@
   --color-bayan-mist: #f4f8fb;
 
   --shadow-soft: 0 18px 60px rgba(23, 32, 51, 0.1);
+
+  --animate-marquee: marquee 22s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

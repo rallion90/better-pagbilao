@@ -1,29 +1,37 @@
+const PG_API_BASE = "https://api.betterpagbilao.org/api"
+
 export const pgApiEndpoints = {
-  catalog: "/api/index.json",
   core: {
-    siteData: "/api/core/site-data.json",
-    governance: "/api/core/governance.json",
-    publicOffices: "/api/core/public-offices.json",
-    emergencyDirectory: "/api/core/emergency-directory.json",
-    formsAndDocuments: "/api/core/forms-and-documents.json",
+    siteData: `${PG_API_BASE}/site-data`,
+    governance: `${PG_API_BASE}/governance`,
+    publicOffices: `${PG_API_BASE}/public-offices`,
+    emergencyDirectory: `${PG_API_BASE}/emergency-directory`,
+    formsAndDocuments: `${PG_API_BASE}/forms-and-documents`,
   },
   geography: {
-    barangays: "/api/geography/barangays.json",
-    psgcBarangays: "/api/geography/psgc-barangays.json",
-    nearbyPlaces: "/api/geography/nearby-places.json",
+    barangays: `${PG_API_BASE}/barangays`,
+    psgcBarangays: `${PG_API_BASE}/psgc-barangays`,
+    nearbyPlaces: `${PG_API_BASE}/nearby-places`,
   },
   demographics: {
-    demographics2020: "/api/demographics/demographics-2020.json",
-    populationHistory: "/api/demographics/population-history.json",
+    demographics2020: `${PG_API_BASE}/demographics-2020`,
+    populationHistory: `${PG_API_BASE}/population-history`,
   },
   tourism: {
-    tourism: "/api/tourism/tourism.json",
-    tourismEvents: "/api/tourism/tourism-events.json",
-    touristDestinations: "/api/tourism/tourist-destinations.json",
+    tourism: `${PG_API_BASE}/tourism`,
+    tourismEvents: `${PG_API_BASE}/tourism-events`,
+    touristDestinations: `${PG_API_BASE}/tourist-destinations`,
   },
 } as const
 
 export type PgApiEndpoint = string
+
+type PgApiEnvelope<T> = {
+  ok: boolean
+  name: string
+  data: T
+  error?: string
+}
 
 export async function fetchPgApi<T>(endpoint: PgApiEndpoint): Promise<T> {
   const response = await fetch(endpoint)
@@ -32,5 +40,11 @@ export async function fetchPgApi<T>(endpoint: PgApiEndpoint): Promise<T> {
     throw new Error(`Failed to fetch ${endpoint}: ${response.status}`)
   }
 
-  return response.json() as Promise<T>
+  const envelope = (await response.json()) as PgApiEnvelope<T>
+
+  if (!envelope.ok) {
+    throw new Error(envelope.error || `API reported failure for ${endpoint}`)
+  }
+
+  return envelope.data
 }
