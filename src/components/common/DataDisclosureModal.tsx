@@ -56,19 +56,19 @@ const DataDisclosureModal = () => {
 
     return (
         <div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-bayan-ink/70 p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-bayan-ink/70 p-4 py-8 backdrop-blur-sm sm:items-center"
             role="dialog"
             aria-modal="true"
             aria-labelledby="data-disclosure-title"
             onClick={handleClose}
         >
             <div
-                className="w-full max-w-lg overflow-hidden rounded-lg bg-white shadow-soft ring-1 ring-slate-900/10"
+                className="flex max-h-full w-full max-w-lg flex-col overflow-hidden rounded-lg bg-white shadow-soft ring-1 ring-slate-900/10"
                 onClick={(event) => event.stopPropagation()}
             >
-                <div className="flag-ribbon h-1.5 w-full" />
+                <div className="flag-ribbon h-1.5 w-full shrink-0" />
 
-                <div className="flex items-start justify-between gap-4 border-b border-slate-200 bg-bayan-mist px-6 py-5">
+                <div className="flex shrink-0 items-start justify-between gap-4 border-b border-slate-200 bg-bayan-mist px-6 py-5">
                     <div className="flex items-center gap-3">
                         <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-bayan-blue text-white shadow-sm">
                             <Info className="h-5 w-5" />
@@ -88,7 +88,7 @@ const DataDisclosureModal = () => {
                     </button>
                 </div>
 
-                <div className="px-6 py-6">
+                <div className="min-h-0 flex-1 overflow-y-auto px-6 py-6">
                     <p className="text-sm leading-6 text-slate-600">{t.disclosure.intro}</p>
 
                     <div className="mt-5 space-y-4">
@@ -117,7 +117,7 @@ const DataDisclosureModal = () => {
                     </p>
                 </div>
 
-                <div className="flex justify-end border-t border-slate-200 px-6 py-4">
+                <div className="flex shrink-0 justify-end border-t border-slate-200 px-6 py-4">
                     <button
                         type="button"
                         onClick={handleClose}
