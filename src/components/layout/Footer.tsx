@@ -13,7 +13,7 @@ const resourceHrefs = [
     "https://data.gov.ph/",
     "https://www.foi.gov.ph/",
     "https://pagbilao.gov.ph/",
-    "#",
+    "/government/legislative-council",
     "#",
     "https://blgf.gov.ph/",
     "https://cmci.dti.gov.ph/",

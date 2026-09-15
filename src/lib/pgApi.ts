@@ -7,6 +7,7 @@ export const pgApiEndpoints = {
     publicOffices: `${PG_API_BASE}/public-offices`,
     emergencyDirectory: `${PG_API_BASE}/emergency-directory`,
     formsAndDocuments: `${PG_API_BASE}/forms-and-documents`,
+    services: `${PG_API_BASE}/services`,
   },
   geography: {
     barangays: `${PG_API_BASE}/barangays`,
