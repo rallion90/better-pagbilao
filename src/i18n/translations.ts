@@ -53,6 +53,12 @@ interface DisclosurePoint {
     body: string
 }
 
+interface PageIntro {
+    eyebrow: string
+    heading: string
+    intro: string
+}
+
 export interface Translations {
     common: {
         quickContacts: string
@@ -166,6 +172,84 @@ export interface Translations {
         footNoteEnd: string
         closeButton: string
     }
+    government: {
+        breadcrumbHome: string
+        breadcrumbGovernment: string
+        legislative: PageIntro & {
+            presidingOfficerLabel: string
+            councilorsLabel: string
+            secretariatLabel: string
+        }
+        directory: PageIntro & {
+            executiveLabel: string
+            officesLabel: string
+        }
+    }
+    services: {
+        breadcrumbHome: string
+        breadcrumbServices: string
+        healthService: PageIntro & {
+            officeLabel: string
+            servicesLabel: string
+            howToAvailLabel: string
+            requirementsLabel: string
+            verificationLabel: string
+        }
+        disasterAndSafety: PageIntro & {
+            hotlinesLabel: string
+            officesLabel: string
+            servicesLabel: string
+            emergencyStepsLabel: string
+            nonEmergencyStepsLabel: string
+            verificationLabel: string
+        }
+        agricultureAndLivelihood: PageIntro & {
+            profileLabel: string
+            officesLabel: string
+            servicesLabel: string
+            howToAvailLabel: string
+            requirementsLabel: string
+            verificationLabel: string
+        }
+        socialWelfare: PageIntro & {
+            officeLabel: string
+            facilitiesLabel: string
+            servicesLabel: string
+            howToAvailLabel: string
+            requirementsLabel: string
+            verificationLabel: string
+        }
+        businessAndPermits: PageIntro & {
+            officesLabel: string
+            formsLabel: string
+            servicesLabel: string
+            howToAvailLabel: string
+            requirementsLabel: string
+            verificationLabel: string
+        }
+    }
+    hotlinesPage: PageIntro & {
+        municipalContactLabel: string
+        moreNumbersLabel: string
+        guidanceLabel: string
+        guidanceEmergencyTitle: string
+        guidanceEmergencyNote: string
+        guidanceOfficeTitle: string
+        guidanceOfficeNote: string
+        viewFullPageLabel: string
+    }
+    explore: {
+        breadcrumbHome: string
+        breadcrumbExplore: string
+        gatewayLocation: PageIntro & {
+            quickFactsLabel: string
+            borderingPlacesLabel: string
+            gettingThereLabel: string
+            majorRoadsLabel: string
+            nearbyPlacesLabel: string
+            tourismTeaserLabel: string
+        }
+    }
 }
 
 const en: Translations = {
@@ -182,21 +266,20 @@ const en: Translations = {
                 label: "Services",
                 description: "Resident, business, health, safety, and livelihood pathways.",
                 items: [
-                    { label: "Business and Permits", description: "Permits, renewals, zoning, and clearances." },
-                    { label: "Health Services", description: "MHO support, wellness, and local referrals." },
-                    { label: "Disaster and Safety", description: "Rescue, police, fire, and emergency contacts." },
-                    { label: "Agriculture and Livelihood", description: "Support for farmers, fisherfolk, and enterprises." },
-                    { label: "Social Welfare", description: "Assistance for families, seniors, PWDs, and youth." },
+                    { label: "Business and Permits", description: "Business permits, building permits, zoning, and downloadable forms." },
+                    { label: "Health Services", description: "Municipal Health Office services, immunization, and how to avail." },
+                    { label: "Disaster and Safety", description: "MDRRMO, police, and fire hotlines, office map, and how to avail." },
+                    { label: "Agriculture and Livelihood", description: "MAO and Negosyo Center programs, farmer/fisherfolk registration, and business support." },
+                    { label: "Social Welfare", description: "MSWDO assistance, senior/PWD IDs, day care, and solo parent support." },
                     { label: "Tourism and Culture", description: "Destinations, festivals, and visitor pathways." },
                 ],
             },
             government: {
                 label: "Government",
-                description: "Lists all elected officials of the City Government of Pagbilao, Quezon.",
+                description: "Lists all elected officials of the Municipal Government of Pagbilao, Quezon.",
                 items: [
-                    { label: "Department & Officials", description: "Permits, renewals, zoning, and clearances." },
-                    { label: "Legislative (City Council)", description: "MHO support, wellness, and local referrals." },
-                    { label: "Local Officials Directory", description: "Rescue, police, fire, and emergency contacts." },
+                    { label: "Legislative (City Council)", description: "Sangguniang Bayan members and the municipal legislative council." },
+                    { label: "Local Officials Directory", description: "Executive officials and department heads with office contact details." },
                 ],
             },
             explore: {
@@ -417,6 +500,120 @@ const en: Translations = {
         footNoteEnd: "and we'll fix it.",
         closeButton: "Got it, thanks",
     },
+    government: {
+        breadcrumbHome: "Home",
+        breadcrumbGovernment: "Government",
+        legislative: {
+            eyebrow: "Sangguniang Bayan",
+            heading: "Legislative Council of Pagbilao",
+            intro:
+                "The Sangguniang Bayan is the municipality's legislative body, responsible for passing ordinances and resolutions for Pagbilao, Quezon. Below is the presiding officer and the full roster of municipal councilors.",
+            presidingOfficerLabel: "Presiding Officer",
+            councilorsLabel: "Municipal Councilors",
+            secretariatLabel: "Secretariat",
+        },
+        directory: {
+            eyebrow: "Local Government Directory",
+            heading: "Local Officials Directory",
+            intro:
+                "A directory of Pagbilao's executive officials and department heads, with the office address and telephone number for each, sourced from the official municipal government portal.",
+            executiveLabel: "Executive Officials",
+            officesLabel: "Offices and Department Heads",
+        },
+    },
+    services: {
+        breadcrumbHome: "Home",
+        breadcrumbServices: "Services",
+        healthService: {
+            eyebrow: "Municipal Health Office",
+            heading: "Health Services",
+            intro:
+                "A guide to health services available through Pagbilao's Municipal Health Office (Sentrong Pangkalusugan) — what's typically offered, how to avail of it, and what to bring.",
+            officeLabel: "Municipal Health Office",
+            servicesLabel: "Typical Services",
+            howToAvailLabel: "How to Avail",
+            requirementsLabel: "Common Requirements",
+            verificationLabel: "Verify Before You Go",
+        },
+        disasterAndSafety: {
+            eyebrow: "MDRRMO · PNP · BFP",
+            heading: "Disaster and Safety",
+            intro:
+                "Emergency contacts and typical services from Pagbilao's Disaster Risk Reduction and Management Office, police station, and fire station — where they are, how to reach them, and what to expect.",
+            hotlinesLabel: "Emergency Hotlines",
+            officesLabel: "Our Offices",
+            servicesLabel: "Typical Services",
+            emergencyStepsLabel: "In an Emergency",
+            nonEmergencyStepsLabel: "Non-Emergency Requests",
+            verificationLabel: "Verify Before You Go",
+        },
+        agricultureAndLivelihood: {
+            eyebrow: "MAO · Negosyo Center",
+            heading: "Agriculture and Livelihood",
+            intro:
+                "Support for farmers, fisherfolk, and local entrepreneurs through Pagbilao's Municipal Agriculturist Office and the DTI Negosyo Center — programs available, where to go, and what to bring.",
+            profileLabel: "Pagbilao's Agricultural Profile",
+            officesLabel: "Our Offices",
+            servicesLabel: "Typical Services",
+            howToAvailLabel: "How to Avail",
+            requirementsLabel: "Common Requirements",
+            verificationLabel: "Verify Before You Go",
+        },
+        socialWelfare: {
+            eyebrow: "MSWDO",
+            heading: "Social Welfare",
+            intro:
+                "Assistance and programs from Pagbilao's Municipal Social Welfare and Development Office for families, seniors, persons with disabilities, solo parents, and children — what's available, where to go, and what to bring.",
+            officeLabel: "Municipal Social Welfare and Development Office",
+            facilitiesLabel: "Confirmed Facilities",
+            servicesLabel: "Typical Services",
+            howToAvailLabel: "How to Avail",
+            requirementsLabel: "Common Requirements",
+            verificationLabel: "Verify Before You Go",
+        },
+        businessAndPermits: {
+            eyebrow: "Treasurer's · Engineering · MPDC · Assessor's",
+            heading: "Business and Permits",
+            intro:
+                "New and renewed business permits, locational clearance, zoning certificates, and building permits — the offices involved, the official downloadable forms, and how to file them.",
+            officesLabel: "Our Offices",
+            formsLabel: "Downloadable Forms",
+            servicesLabel: "Typical Services",
+            howToAvailLabel: "How to Avail",
+            requirementsLabel: "Common Requirements",
+            verificationLabel: "Verify Before You Go",
+        },
+    },
+    hotlinesPage: {
+        eyebrow: "Emergency & Office Contacts",
+        heading: "Hotlines",
+        intro:
+            "Emergency numbers to call right away, plus the office landlines behind every service on this site — organized so you always know which number to dial.",
+        municipalContactLabel: "General Municipal Contact",
+        moreNumbersLabel: "More Numbers by Category",
+        guidanceLabel: "Which Number Should You Call?",
+        guidanceEmergencyTitle: "Mobile Hotlines",
+        guidanceEmergencyNote: "For an active emergency — fire, crime in progress, medical emergency, or disaster — call the mobile hotline immediately. These are meant for urgent response, any time of day.",
+        guidanceOfficeTitle: "Office Landlines",
+        guidanceOfficeNote: "For non-urgent matters — certificates, permits, program inquiries — call the office landline during business hours, typically Monday-Friday, 8:00 AM-5:00 PM.",
+        viewFullPageLabel: "View full page",
+    },
+    explore: {
+        breadcrumbHome: "Home",
+        breadcrumbExplore: "Explore",
+        gatewayLocation: {
+            eyebrow: "A Gateway to the South",
+            heading: "Gateway Location",
+            intro:
+                "Pagbilao sits eight kilometers from Lucena City, linking the Bondoc Peninsula, the Bicol Region, and Quezon's capital along Maharlika Highway — a position that has shaped the town's bay, highway, and upland communities for centuries.",
+            quickFactsLabel: "Pagbilao at a Glance",
+            borderingPlacesLabel: "Bordering Places",
+            gettingThereLabel: "Getting to Pagbilao",
+            majorRoadsLabel: "Major Roads",
+            nearbyPlacesLabel: "Nearby Places",
+            tourismTeaserLabel: "Where This Gateway Leads",
+        },
+    },
 }
 
 const tl: Translations = {
@@ -433,11 +630,11 @@ const tl: Translations = {
                 label: "Mga Serbisyo",
                 description: "Mga daan para sa residente, negosyo, kalusugan, kaligtasan, at kabuhayan.",
                 items: [
-                    { label: "Negosyo at mga Permit", description: "Mga permit, pagpapanibago, zoning, at clearance." },
-                    { label: "Mga Serbisyong Pangkalusugan", description: "Suporta ng MHO, wellness, at lokal na referral." },
-                    { label: "Sakuna at Kaligtasan", description: "Rescue, pulis, bumbero, at mga emergency contact." },
-                    { label: "Agrikultura at Kabuhayan", description: "Suporta para sa mga magsasaka, mangingisda, at negosyo." },
-                    { label: "Kapakanang Panlipunan", description: "Tulong para sa mga pamilya, senior citizen, PWD, at kabataan." },
+                    { label: "Negosyo at mga Permit", description: "Business permit, building permit, zoning, at madodownload na form." },
+                    { label: "Mga Serbisyong Pangkalusugan", description: "Mga serbisyo ng Municipal Health Office, immunization, at paano ito maaabot." },
+                    { label: "Sakuna at Kaligtasan", description: "Hotline ng MDRRMO, pulis, at bumbero, mapa ng opisina, at paano ito maaabot." },
+                    { label: "Agrikultura at Kabuhayan", description: "Mga programa ng MAO at Negosyo Center, rehistrasyon ng magsasaka/mangingisda, at suporta sa negosyo." },
+                    { label: "Kapakanang Panlipunan", description: "Tulong ng MSWDO, senior/PWD ID, day care, at suporta sa solo parent." },
                     { label: "Turismo at Kultura", description: "Mga destinasyon, pista, at gabay para sa mga bisita." },
                 ],
             },
@@ -445,9 +642,8 @@ const tl: Translations = {
                 label: "Pamahalaan",
                 description: "Listahan ng lahat ng inihalal na opisyal ng Pamahalaang Bayan ng Pagbilao, Quezon.",
                 items: [
-                    { label: "Mga Departamento at Opisyal", description: "Mga permit, pagpapanibago, zoning, at clearance." },
-                    { label: "Lehislatura (Sangguniang Bayan)", description: "Suporta ng MHO, wellness, at lokal na referral." },
-                    { label: "Direktoryo ng mga Lokal na Opisyal", description: "Rescue, pulis, bumbero, at mga emergency contact." },
+                    { label: "Lehislatura (Sangguniang Bayan)", description: "Mga kasapi ng Sangguniang Bayan at ang lehislatibong konseho ng bayan." },
+                    { label: "Direktoryo ng mga Lokal na Opisyal", description: "Mga ehekutibong opisyal at pinuno ng departamento kasama ang detalye ng kontak." },
                 ],
             },
             explore: {
@@ -667,6 +863,120 @@ const tl: Translations = {
         letUsKnow: "Ipaalam sa amin",
         footNoteEnd: "at aayusin namin ito.",
         closeButton: "Nakuha ko, salamat",
+    },
+    government: {
+        breadcrumbHome: "Home",
+        breadcrumbGovernment: "Pamahalaan",
+        legislative: {
+            eyebrow: "Sangguniang Bayan",
+            heading: "Lehislatibong Konseho ng Pagbilao",
+            intro:
+                "Ang Sangguniang Bayan ang lehislatibong sangay ng bayan, na responsable sa pagpasa ng mga ordinansa at resolusyon para sa Pagbilao, Quezon. Nasa ibaba ang presiding officer at ang buong listahan ng mga municipal councilor.",
+            presidingOfficerLabel: "Presiding Officer",
+            councilorsLabel: "Mga Municipal Councilor",
+            secretariatLabel: "Secretariat",
+        },
+        directory: {
+            eyebrow: "Direktoryo ng Lokal na Pamahalaan",
+            heading: "Direktoryo ng mga Lokal na Opisyal",
+            intro:
+                "Isang direktoryo ng mga ehekutibong opisyal at pinuno ng departamento ng Pagbilao, kasama ang address at numero ng telepono ng bawat opisina, mula sa opisyal na portal ng pamahalaang bayan.",
+            executiveLabel: "Mga Ehekutibong Opisyal",
+            officesLabel: "Mga Opisina at Pinuno ng Departamento",
+        },
+    },
+    services: {
+        breadcrumbHome: "Home",
+        breadcrumbServices: "Mga Serbisyo",
+        healthService: {
+            eyebrow: "Munisipal na Health Office",
+            heading: "Mga Serbisyong Pangkalusugan",
+            intro:
+                "Isang gabay sa mga serbisyong pangkalusugan mula sa Munisipal na Health Office ng Pagbilao (Sentrong Pangkalusugan) — karaniwang inaalok, paano ito maaabot, at ano ang dapat dalhin.",
+            officeLabel: "Munisipal na Health Office",
+            servicesLabel: "Karaniwang mga Serbisyo",
+            howToAvailLabel: "Paano Makakakuha",
+            requirementsLabel: "Karaniwang mga Kinakailangan",
+            verificationLabel: "I-verify Bago Pumunta",
+        },
+        disasterAndSafety: {
+            eyebrow: "MDRRMO · PNP · BFP",
+            heading: "Sakuna at Kaligtasan",
+            intro:
+                "Mga emergency contact at karaniwang serbisyo mula sa Disaster Risk Reduction and Management Office, police station, at fire station ng Pagbilao — saan sila matatagpuan, paano sila maabot, at ano ang aasahan.",
+            hotlinesLabel: "Mga Emergency Hotline",
+            officesLabel: "Aming mga Opisina",
+            servicesLabel: "Karaniwang mga Serbisyo",
+            emergencyStepsLabel: "Sa Oras ng Emergency",
+            nonEmergencyStepsLabel: "Mga Kahilingang Hindi Emergency",
+            verificationLabel: "I-verify Bago Pumunta",
+        },
+        agricultureAndLivelihood: {
+            eyebrow: "MAO · Negosyo Center",
+            heading: "Agrikultura at Kabuhayan",
+            intro:
+                "Suporta para sa mga magsasaka, mangingisda, at lokal na negosyante sa pamamagitan ng Municipal Agriculturist Office at DTI Negosyo Center ng Pagbilao — mga available na programa, saan pupunta, at ano ang dapat dalhin.",
+            profileLabel: "Profile ng Agrikultura ng Pagbilao",
+            officesLabel: "Aming mga Opisina",
+            servicesLabel: "Karaniwang mga Serbisyo",
+            howToAvailLabel: "Paano Makakakuha",
+            requirementsLabel: "Karaniwang mga Kinakailangan",
+            verificationLabel: "I-verify Bago Pumunta",
+        },
+        socialWelfare: {
+            eyebrow: "MSWDO",
+            heading: "Kapakanang Panlipunan",
+            intro:
+                "Tulong at mga programa mula sa Municipal Social Welfare and Development Office ng Pagbilao para sa mga pamilya, senior citizen, taong may kapansanan, solo parent, at mga bata — kung ano ang available, saan pupunta, at ano ang dapat dalhin.",
+            officeLabel: "Municipal Social Welfare and Development Office",
+            facilitiesLabel: "Mga Kumpirmadong Pasilidad",
+            servicesLabel: "Karaniwang mga Serbisyo",
+            howToAvailLabel: "Paano Makakakuha",
+            requirementsLabel: "Karaniwang mga Kinakailangan",
+            verificationLabel: "I-verify Bago Pumunta",
+        },
+        businessAndPermits: {
+            eyebrow: "Treasurer's · Engineering · MPDC · Assessor's",
+            heading: "Negosyo at mga Permit",
+            intro:
+                "Bagong at pagpapanibagong business permit, locational clearance, zoning certificate, at building permit — ang mga opisinang kasangkot, ang opisyal na madodownload na form, at kung paano ito i-file.",
+            officesLabel: "Aming mga Opisina",
+            formsLabel: "Mga Madodownload na Form",
+            servicesLabel: "Karaniwang mga Serbisyo",
+            howToAvailLabel: "Paano Makakakuha",
+            requirementsLabel: "Karaniwang mga Kinakailangan",
+            verificationLabel: "I-verify Bago Pumunta",
+        },
+    },
+    hotlinesPage: {
+        eyebrow: "Emergency at Office Contacts",
+        heading: "Mga Hotline",
+        intro:
+            "Mga emergency number na dapat tawagan agad, kasama ang office landline sa likod ng bawat serbisyo sa site na ito — inayos para alam mo agad kung anong numero ang dapat tawagan.",
+        municipalContactLabel: "Pangkalahatang Kontak ng Munisipyo",
+        moreNumbersLabel: "Karagdagang mga Numero ayon sa Kategorya",
+        guidanceLabel: "Aling Numero ang Dapat Tawagan?",
+        guidanceEmergencyTitle: "Mobile Hotlines",
+        guidanceEmergencyNote: "Para sa aktibong emergency — sunog, krimen, medical emergency, o sakuna — tawagan agad ang mobile hotline. Ito ay para sa agarang tugon, anumang oras.",
+        guidanceOfficeTitle: "Office Landlines",
+        guidanceOfficeNote: "Para sa hindi-urgent na bagay — certificate, permit, katanungan sa programa — tawagan ang office landline sa oras ng negosyo, karaniwang Lunes-Biyernes, 8:00 AM-5:00 PM.",
+        viewFullPageLabel: "Tingnan ang buong pahina",
+    },
+    explore: {
+        breadcrumbHome: "Home",
+        breadcrumbExplore: "Tuklasin",
+        gatewayLocation: {
+            eyebrow: "Isang Gateway Patungong Timog",
+            heading: "Gateway na Lokasyon",
+            intro:
+                "Walong kilometro ang layo ng Pagbilao mula sa Lungsod ng Lucena, na nag-uugnay sa Bondoc Peninsula, Bicol Region, at kabisera ng Quezon sa tabi ng Maharlika Highway — isang posisyong humubog sa mga komunidad sa baybayin, highway, at kabundukan ng bayan sa loob ng maraming siglo.",
+            quickFactsLabel: "Pagbilao sa Isang Sulyap",
+            borderingPlacesLabel: "Mga Karatig na Lugar",
+            gettingThereLabel: "Paano Makarating sa Pagbilao",
+            majorRoadsLabel: "Mga Pangunahing Kalsada",
+            nearbyPlacesLabel: "Mga Malapit na Lugar",
+            tourismTeaserLabel: "Kung Saan Patungo ang Gateway na Ito",
+        },
     },
 }
 

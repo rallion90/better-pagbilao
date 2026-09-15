@@ -15,14 +15,38 @@ import {
     Sprout,
     UsersRound,
     Wheat,
-    Building2,
     Scale,
     ContactRound,
     X
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
+import type { ReactNode } from "react"
 import { useState } from "react"
+import { Link } from "react-router"
 import { useLanguage } from "../../i18n/useLanguage"
+
+type MenuLinkProps = {
+    href: string
+    className: string
+    onClick?: () => void
+    children: ReactNode
+}
+
+const MenuLink = ({ href, className, onClick, children }: MenuLinkProps) => {
+    if (href.startsWith("/")) {
+        return (
+            <Link to={href} className={className} onClick={onClick}>
+                {children}
+            </Link>
+        )
+    }
+
+    return (
+        <a href={href} className={className} onClick={onClick}>
+            {children}
+        </a>
+    )
+}
 
 type NavMenuMeta = {
     id: string
@@ -37,20 +61,19 @@ const navMenuMeta: NavMenuMeta[] = [
     {
         id: "services",
         items: [
-            { href: "#services", Icon: BriefcaseBusiness, color: "text-bayan-blue bg-blue-50" },
-            { href: "#services", Icon: HeartPulse, color: "text-bayan-red bg-red-50" },
-            { href: "#hotlines", Icon: ShieldAlert, color: "text-bayan-green bg-emerald-50" },
-            { href: "#services", Icon: Wheat, color: "text-amber-700 bg-amber-50" },
-            { href: "#services", Icon: UsersRound, color: "text-bayan-blue bg-blue-50" },
+            { href: "/services/business-and-permits", Icon: BriefcaseBusiness, color: "text-bayan-blue bg-blue-50" },
+            { href: "/services/health-services", Icon: HeartPulse, color: "text-bayan-red bg-red-50" },
+            { href: "/services/disaster-and-safety", Icon: ShieldAlert, color: "text-bayan-green bg-emerald-50" },
+            { href: "/services/agriculture-and-livelihood", Icon: Wheat, color: "text-amber-700 bg-amber-50" },
+            { href: "/services/social-welfare", Icon: UsersRound, color: "text-bayan-blue bg-blue-50" },
             { href: "#tourism", Icon: Palmtree, color: "text-bayan-green bg-emerald-50" },
         ],
     },
     {
         id: "government",
         items: [
-            { href: "#services", Icon: Building2, color: "text-bayan-blue bg-blue-50" },
-            { href: "#services", Icon: Scale, color: "text-bayan-red bg-red-50" },
-            { href: "#hotlines", Icon: ContactRound, color: "text-bayan-green bg-emerald-50" },
+            { href: "/government/legislative-council", Icon: Scale, color: "text-bayan-blue bg-blue-50" },
+            { href: "/government/local-officials-directory", Icon: ContactRound, color: "text-bayan-green bg-emerald-50" },
         ],
     },
     {
@@ -58,7 +81,7 @@ const navMenuMeta: NavMenuMeta[] = [
         items: [
             { href: "#barangays", Icon: MapPinned, color: "text-bayan-blue bg-blue-50" },
             { href: "#history", Icon: Sprout, color: "text-bayan-green bg-emerald-50" },
-            { href: "#tourism", Icon: Route, color: "text-bayan-gold bg-amber-50" },
+            { href: "/explore/gateway-location", Icon: Route, color: "text-bayan-gold bg-amber-50" },
         ],
     },
     {
@@ -136,7 +159,7 @@ const BottomHeader = () => {
                                         </div>
                                         <div className="grid gap-1 p-2 sm:grid-cols-2">
                                             {menu.items.map(({ label, href, description, Icon, color }) => (
-                                                <a
+                                                <MenuLink
                                                     key={label}
                                                     href={href}
                                                     onClick={() => setOpenMenu(null)}
@@ -149,7 +172,7 @@ const BottomHeader = () => {
                                                         <span className="block text-sm font-black text-bayan-ink">{label}</span>
                                                         <span className="mt-0.5 block text-xs font-semibold leading-5 text-slate-500">{description}</span>
                                                     </span>
-                                                </a>
+                                                </MenuLink>
                                             ))}
                                         </div>
                                     </div>
@@ -159,9 +182,9 @@ const BottomHeader = () => {
                     )
                 })}
 
-                <a className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#hotlines">
+                <MenuLink className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="/hotlines">
                     {t.nav.hotlines}
-                </a>
+                </MenuLink>
                 <a className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#history">
                     {t.nav.history}
                 </a>
@@ -239,7 +262,7 @@ const BottomHeader = () => {
                                 {isSectionOpen ? (
                                     <div className="grid gap-1 py-1 pl-2">
                                         {menu.items.map(({ label, href, description, Icon, color }) => (
-                                            <a
+                                            <MenuLink
                                                 key={label}
                                                 href={href}
                                                 onClick={closeMobileMenu}
@@ -252,7 +275,7 @@ const BottomHeader = () => {
                                                     <span className="block text-sm font-bold text-bayan-ink">{label}</span>
                                                     <span className="block truncate text-xs font-semibold text-slate-500">{description}</span>
                                                 </span>
-                                            </a>
+                                            </MenuLink>
                                         ))}
                                     </div>
                                 ) : null}
@@ -260,13 +283,13 @@ const BottomHeader = () => {
                         )
                     })}
 
-                    <a
-                        href="#hotlines"
+                    <MenuLink
+                        href="/hotlines"
                         onClick={closeMobileMenu}
                         className="border-t border-slate-100 px-3 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-100"
                     >
                         {t.nav.hotlines}
-                    </a>
+                    </MenuLink>
                     <a
                         href="#history"
                         onClick={closeMobileMenu}
