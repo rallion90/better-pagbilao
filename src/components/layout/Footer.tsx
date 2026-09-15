@@ -42,15 +42,10 @@ const Footer = () => {
                         </p>
 
                         <div className="mt-10 flex items-center gap-5">
-                            <a href="#" className="grid h-14 w-14 place-items-center rounded-lg bg-white/10 text-white/78 transition hover:bg-white/16 hover:text-white" aria-label="Follow Better Pagbilao on Facebook">
+                            <a href="https://www.facebook.com/profile.php?id=61593848205577" className="grid h-14 w-14 place-items-center rounded-lg bg-white/10 text-white/78 transition hover:bg-white/16 hover:text-white" aria-label="Follow Better Pagbilao on Facebook">
                                 <span className="text-2xl font-black leading-none">f</span>
                             </a>
-                            <a href="#" className="grid h-14 w-14 place-items-center rounded-lg bg-white/10 text-white/78 transition hover:bg-white/16 hover:text-white" aria-label="Follow Better Pagbilao on LinkedIn">
-                                <span className="text-xl font-black leading-none">in</span>
-                            </a>
-                            <a href="#" className="grid h-14 w-14 place-items-center rounded-lg bg-white/10 text-white/78 transition hover:bg-white/16 hover:text-white" aria-label="Join Better Pagbilao community chat">
-                                <MessageCircle className="h-6 w-6" />
-                            </a>
+                            
                         </div>
                     </div>
 
@@ -87,7 +82,7 @@ const Footer = () => {
 
                         <div className="mt-7 flex flex-col items-start gap-4">
 
-                            <a href="#" className="inline-flex min-h-12 items-center gap-3 rounded-full bg-white/8 px-5 text-base font-semibold text-white/76 transition hover:bg-white/12 hover:text-white">
+                            <a href="https://github.com/rallion90/better-pagbilao" className="inline-flex min-h-12 items-center gap-3 rounded-full bg-white/8 px-5 text-base font-semibold text-white/76 transition hover:bg-white/12 hover:text-white">
                                 <Code2 className="h-5 w-5" />
                                 {t.footer.contribute}
                             </a>
