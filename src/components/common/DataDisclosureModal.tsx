@@ -2,7 +2,9 @@ import { useEffect, useState } from "react"
 import { Bot, Database, Info, ShieldCheck, X } from "lucide-react"
 import { useLanguage } from "../../i18n/useLanguage"
 
-const STORAGE_KEY = "bp_data_disclosure_seen_v1"
+export const DISCLOSURE_SEEN_KEY = "bp_data_disclosure_seen_v1"
+export const DISCLOSURE_DISMISSED_EVENT = "bp:disclosure-dismissed"
+const STORAGE_KEY = DISCLOSURE_SEEN_KEY
 const OPEN_DELAY_MS = 1200
 
 const POINT_ICONS = [Database, Bot, ShieldCheck]
@@ -19,6 +21,7 @@ const DataDisclosureModal = () => {
         } catch {
             // ignore storage errors, no impact on close behavior
         }
+        window.dispatchEvent(new Event(DISCLOSURE_DISMISSED_EVENT))
     }
 
     useEffect(() => {

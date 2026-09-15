@@ -32,6 +32,8 @@ const getMessageTime = () =>
     minute: "2-digit",
   }).format(new Date());
 
+export const OPEN_CHAT_EVENT = "bp:open-chat";
+
 const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
@@ -54,6 +56,12 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
       behavior: "smooth",
     });
   }, [isOpen, messages, isReplying]);
+
+  useEffect(() => {
+    const handleOpenRequest = () => setIsOpen(true);
+    window.addEventListener(OPEN_CHAT_EVENT, handleOpenRequest);
+    return () => window.removeEventListener(OPEN_CHAT_EVENT, handleOpenRequest);
+  }, []);
 
   const appendAssistantMessage = (partial: { text: string; html?: string; actions?: ChatApiAction[] }) => {
     setMessages((currentMessages) => [

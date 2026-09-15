@@ -172,6 +172,17 @@ export interface Translations {
         footNoteEnd: string
         closeButton: string
     }
+    mascotIntro: {
+        eyebrow: string
+        title: string
+        intro: string
+        papagName: string
+        papagBlurb: string
+        bilaoName: string
+        bilaoBlurb: string
+        sayHi: string
+        maybeLater: string
+    }
     government: {
         breadcrumbHome: string
         breadcrumbGovernment: string
@@ -518,6 +529,18 @@ const en: Translations = {
         letUsKnow: "Let us know",
         footNoteEnd: "and we'll fix it.",
         closeButton: "Got it, thanks",
+    },
+    mascotIntro: {
+        eyebrow: "Say Hello",
+        title: "Meet Papag & Bilao",
+        intro:
+            "Pagbilao's name traces back to papag, a bamboo bed, and bilao, a winnowing basket — two everyday objects that became part of the town's story. Now they're your friendly guides to this site.",
+        papagName: "Papag",
+        papagBlurb: "Steady and thorough. Ask Papag when you want the full picture.",
+        bilaoName: "Bilao",
+        bilaoBlurb: "Quick and resourceful. Ask Bilao when you need a fast answer.",
+        sayHi: "Say Hi 👋",
+        maybeLater: "Maybe later",
     },
     government: {
         breadcrumbHome: "Home",
@@ -917,6 +940,18 @@ const tl: Translations = {
         letUsKnow: "Ipaalam sa amin",
         footNoteEnd: "at aayusin namin ito.",
         closeButton: "Nakuha ko, salamat",
+    },
+    mascotIntro: {
+        eyebrow: "Kumusta",
+        title: "Kilalanin sina Papag at Bilao",
+        intro:
+            "Ang pangalang Pagbilao ay nagmula sa papag, isang kawayang higaan, at bilao, isang panghimay — dalawang pang-araw-araw na bagay na naging bahagi ng kwento ng bayan. Ngayon, sila na ang magiging kaibigan mong gabay sa site na ito.",
+        papagName: "Papag",
+        papagBlurb: "Mahinahon at masinsinan. Tanungin si Papag kapag gusto mo ng buong detalye.",
+        bilaoName: "Bilao",
+        bilaoBlurb: "Mabilis at magaling humanap ng paraan. Tanungin si Bilao kapag kailangan mo ng mabilis na sagot.",
+        sayHi: "Kumusta 👋",
+        maybeLater: "Sa ibang pagkakataon",
     },
     government: {
         breadcrumbHome: "Home",

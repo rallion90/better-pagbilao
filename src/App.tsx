@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer'
 import HomePage from "./pages/HomePage";
 import ChatFloat from "./components/chat/ChatFloat";
 import DataDisclosureModal from "./components/common/DataDisclosureModal";
+import MascotIntroModal from "./components/common/MascotIntroModal";
 import './App.css'
 
 const LegislativeCouncilPage = lazy(() => import("./pages/government/LegislativeCouncilPage"));
@@ -53,6 +54,7 @@ function App() {
       <Footer />
       <ChatFloat />
       <DataDisclosureModal />
+      <MascotIntroModal />
     </>
   )
 }
