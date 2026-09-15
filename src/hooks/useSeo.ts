@@ -7,6 +7,7 @@ type SeoOptions = {
   description: string
   path: string
   jsonLd?: Record<string, unknown>
+  noindex?: boolean
 }
 
 function setMetaTag(attr: "name" | "property", key: string, content: string) {
@@ -19,7 +20,7 @@ function setMetaTag(attr: "name" | "property", key: string, content: string) {
   el.setAttribute("content", content)
 }
 
-export function useSeo({ title, description, path, jsonLd }: SeoOptions) {
+export function useSeo({ title, description, path, jsonLd, noindex }: SeoOptions) {
   const jsonLdString = jsonLd ? JSON.stringify(jsonLd) : undefined
 
   useEffect(() => {
@@ -32,6 +33,10 @@ export function useSeo({ title, description, path, jsonLd }: SeoOptions) {
     setMetaTag("property", "og:url", `${SITE_URL}${path}`)
     setMetaTag("name", "twitter:title", title)
     setMetaTag("name", "twitter:description", description)
+
+    const robotsTag = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]')
+    const previousRobots = robotsTag?.getAttribute("content") ?? null
+    setMetaTag("name", "robots", noindex ? "noindex, follow" : "index, follow")
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     if (!canonical) {
@@ -53,7 +58,8 @@ export function useSeo({ title, description, path, jsonLd }: SeoOptions) {
     return () => {
       document.title = previousTitle
       if (previousCanonical) canonical.setAttribute("href", previousCanonical)
+      if (previousRobots) setMetaTag("name", "robots", previousRobots)
       if (script) document.head.removeChild(script)
     }
-  }, [title, description, path, jsonLdString])
+  }, [title, description, path, jsonLdString, noindex])
 }

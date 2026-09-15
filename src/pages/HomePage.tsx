@@ -1,6 +1,8 @@
+import { Link } from 'react-router'
 import HeroSlider from '../components/home/HeroSlider'
 import CardStat from '../components/home/CardStat'
 import { useLanguage } from '../i18n/useLanguage'
+import { useSeo } from '../hooks/useSeo'
 
 import {
     Binoculars,
@@ -31,13 +33,26 @@ import {
 
 const SERVICE_ICONS = [BriefcaseBusiness, HeartPulse, ShieldAlert, Wheat, UsersRound, Palmtree]
 const SERVICE_COLORS = ["text-bayan-blue", "text-bayan-red", "text-bayan-green", "text-amber-700", "text-bayan-blue", "text-bayan-green"]
-const SERVICE_LINK_HREFS = ["#", "#hotlines", "#hotlines", "#", "#hotlines", "#tourism"]
+const SERVICE_LINK_HREFS = [
+    "/services/business-and-permits",
+    "/services/health-services",
+    "/services/disaster-and-safety",
+    "/services/agriculture-and-livelihood",
+    "/services/social-welfare",
+    "#tourism",
+]
 
 const IDENTITY_ICONS = [Route, Waves, HandHeart]
 const IDENTITY_COLORS = ["text-bayan-gold", "text-cyan-300", "text-emerald-300"]
 
 const TRANSPARENCY_ICONS = [ScrollText, ClipboardCheck, BookOpenCheck, FolderDown]
 const TRANSPARENCY_COLORS = ["text-bayan-green", "text-bayan-blue", "text-bayan-red", "text-amber-700"]
+const TRANSPARENCY_LINK_HREFS = [
+    "/transparency/ordinances-and-executive-orders",
+    "/transparency/procurement",
+    "/transparency/citizens-charter",
+    "/transparency/permits-and-clearances",
+]
 
 const HOTLINE_ICONS = [Siren, Shield, Flame, HeartPulse]
 const HOTLINE_COLORS = ["text-bayan-red", "text-bayan-blue", "text-amber-700", "text-bayan-green"]
@@ -54,6 +69,18 @@ const HISTORY_STAT_COLORS = ["text-bayan-blue", "text-bayan-green", "text-bayan-
 
 const HomePage = () => {
     const { t } = useLanguage()
+
+    // No jsonLd here: the WebSite schema already lives as a static <script> in
+    // index.html so it's present for crawlers even before JS runs. This call
+    // exists to re-assert title/description/canonical when navigating back to
+    // "/" from another page (those pages' useSeo cleanup can otherwise leave
+    // stale values, since nothing else re-asserts Home's own on remount).
+    useSeo({
+        title: "Better Pagbilao | Pagbilao, Quezon Transparency Portal",
+        description:
+            "Better Pagbilao is a community-built portal for Pagbilao, Quezon — find government services, emergency hotlines, tourism spots, barangay info, and public documents in one place.",
+        path: "/",
+    })
 
     return (
         <>
@@ -78,14 +105,22 @@ const HomePage = () => {
                     <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         {t.home.services.cards.map((card, index) => {
                             const Icon = SERVICE_ICONS[index]
+                            const href = SERVICE_LINK_HREFS[index]
+                            const linkClassName = `mt-5 inline-flex items-center gap-2 text-sm font-black ${SERVICE_COLORS[index]}`
                             return (
                                 <article key={card.title} className="rounded-lg border border-slate-200 p-6 transition hover:-translate-y-0.5 hover:shadow-soft">
                                     <Icon className={`h-7 w-7 ${SERVICE_COLORS[index]}`} />
                                     <h3 className="mt-5 text-xl font-black">{card.title}</h3>
                                     <p className="mt-2 text-sm leading-6 text-slate-600">{card.description}</p>
-                                    <a href={SERVICE_LINK_HREFS[index]} className={`mt-5 inline-flex items-center gap-2 text-sm font-black ${SERVICE_COLORS[index]}`}>
-                                        {card.linkText} <ChevronRight className="h-4 w-4" />
-                                    </a>
+                                    {href.startsWith("#") ? (
+                                        <a href={href} className={linkClassName}>
+                                            {card.linkText} <ChevronRight className="h-4 w-4" />
+                                        </a>
+                                    ) : (
+                                        <Link to={href} className={linkClassName}>
+                                            {card.linkText} <ChevronRight className="h-4 w-4" />
+                                        </Link>
+                                    )}
                                 </article>
                             )
                         })}
@@ -127,7 +162,11 @@ const HomePage = () => {
                             {t.home.transparency.cards.map((card, index) => {
                                 const Icon = TRANSPARENCY_ICONS[index]
                                 return (
-                                    <a key={card.title} href="#" className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm hover:shadow-soft">
+                                    <Link
+                                        key={card.title}
+                                        to={TRANSPARENCY_LINK_HREFS[index]}
+                                        className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm hover:shadow-soft"
+                                    >
                                         <div className="flex items-start justify-between gap-4">
                                             <div>
                                                 <p className="text-sm font-black text-slate-500">{card.category}</p>
@@ -135,7 +174,7 @@ const HomePage = () => {
                                             </div>
                                             <Icon className={`h-6 w-6 ${TRANSPARENCY_COLORS[index]}`} />
                                         </div>
-                                    </a>
+                                    </Link>
                                 )
                             })}
                         </div>

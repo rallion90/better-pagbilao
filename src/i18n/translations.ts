@@ -250,6 +250,25 @@ export interface Translations {
             tourismTeaserLabel: string
         }
     }
+    transparencyPages: {
+        breadcrumbHome: string
+        breadcrumbTransparency: string
+        ordinances: PageIntro & {
+            statusLabel: string
+            documentsLabel: string
+        }
+        procurement: PageIntro & {
+            documentsLabel: string
+            emptyNote: string
+        }
+        citizensCharter: PageIntro & {
+            documentsLabel: string
+            emptyNote: string
+        }
+        permitsAndClearances: PageIntro & {
+            formsLabel: string
+        }
+    }
 }
 
 const en: Translations = {
@@ -614,6 +633,41 @@ const en: Translations = {
             tourismTeaserLabel: "Where This Gateway Leads",
         },
     },
+    transparencyPages: {
+        breadcrumbHome: "Home",
+        breadcrumbTransparency: "Transparency",
+        ordinances: {
+            eyebrow: "Public Documents",
+            heading: "Ordinances and Executive Orders",
+            intro:
+                "Municipal ordinances, resolutions, and executive orders issued by the Sangguniang Bayan and the Office of the Mayor — published here as they become available from official sources.",
+            statusLabel: "Publication Status",
+            documentsLabel: "Related Documents",
+        },
+        procurement: {
+            eyebrow: "Accountability",
+            heading: "Procurement",
+            intro:
+                "Bids, procurement notices, and monitoring reports for Pagbilao's local government — sourced directly from the official municipal portal.",
+            documentsLabel: "Procurement Notices and Reports",
+            emptyNote: "No procurement documents are available from the official source right now. Check back later or visit the official portal directly.",
+        },
+        citizensCharter: {
+            eyebrow: "Resident Help",
+            heading: "Citizen's Charter",
+            intro:
+                "The Citizen's Charter sets out Pagbilao's official service standards — what to expect, how long each transaction should take, and who to approach for every frontline service.",
+            documentsLabel: "Citizen's Charter Documents",
+            emptyNote: "The Citizen's Charter document isn't linked from the official source yet. Check back later or visit the official portal directly.",
+        },
+        permitsAndClearances: {
+            eyebrow: "Forms",
+            heading: "Permits and Clearances",
+            intro:
+                "Every downloadable form for business permits, locational clearance, zoning certificates, and building-related permits in one place — pulled directly from the official municipal portal.",
+            formsLabel: "Downloadable Forms",
+        },
+    },
 }
 
 const tl: Translations = {
@@ -976,6 +1030,41 @@ const tl: Translations = {
             majorRoadsLabel: "Mga Pangunahing Kalsada",
             nearbyPlacesLabel: "Mga Malapit na Lugar",
             tourismTeaserLabel: "Kung Saan Patungo ang Gateway na Ito",
+        },
+    },
+    transparencyPages: {
+        breadcrumbHome: "Home",
+        breadcrumbTransparency: "Transparency",
+        ordinances: {
+            eyebrow: "Mga Pampublikong Dokumento",
+            heading: "Mga Ordinansa at Executive Order",
+            intro:
+                "Mga ordinansa, resolusyon, at executive order na inilabas ng Sangguniang Bayan at ng Tanggapan ng Alkalde — ilalathala dito kapag naging available na mula sa opisyal na sources.",
+            statusLabel: "Katayuan ng Paglalathala",
+            documentsLabel: "Kaugnay na mga Dokumento",
+        },
+        procurement: {
+            eyebrow: "Accountability",
+            heading: "Procurement",
+            intro:
+                "Mga bid, abiso sa procurement, at monitoring report para sa lokal na pamahalaan ng Pagbilao — direktang kinuha mula sa opisyal na portal ng munisipyo.",
+            documentsLabel: "Mga Abiso at Ulat sa Procurement",
+            emptyNote: "Wala pang procurement documents na available mula sa opisyal na source sa ngayon. Bumalik mamaya o bisitahin direkta ang opisyal na portal.",
+        },
+        citizensCharter: {
+            eyebrow: "Tulong sa Residente",
+            heading: "Citizen's Charter",
+            intro:
+                "Ang Citizen's Charter ang naglalatag ng opisyal na service standards ng Pagbilao — kung ano ang aasahan, gaano katagal ang bawat transaksyon, at sino ang lalapitan para sa bawat frontline na serbisyo.",
+            documentsLabel: "Mga Dokumento ng Citizen's Charter",
+            emptyNote: "Wala pang naka-link na Citizen's Charter mula sa opisyal na source. Bumalik mamaya o bisitahin direkta ang opisyal na portal.",
+        },
+        permitsAndClearances: {
+            eyebrow: "Mga Form",
+            heading: "Mga Permit at Clearance",
+            intro:
+                "Lahat ng madodownload na form para sa business permit, locational clearance, zoning certificate, at mga building permit sa iisang lugar — direktang kinuha mula sa opisyal na portal ng munisipyo.",
+            formsLabel: "Mga Madodownload na Form",
         },
     },
 }

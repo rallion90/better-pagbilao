@@ -43,6 +43,8 @@ const HeroSlider = () => {
             key={slide.src}
             src={slide.src}
             alt={slide.alt}
+            decoding="async"
+            fetchPriority={index === 0 ? "high" : "low"}
             className={[
               "absolute inset-0 h-full w-full object-cover transition duration-1000 ease-out",
               index === activeSlide ? "scale-105 opacity-100" : "scale-100 opacity-0",

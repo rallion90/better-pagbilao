@@ -8,7 +8,6 @@ import {
     HeartPulse,
     MapPinned,
     Menu,
-    Palmtree,
     Route,
     Search,
     ShieldAlert,
@@ -66,7 +65,6 @@ const navMenuMeta: NavMenuMeta[] = [
             { href: "/services/disaster-and-safety", Icon: ShieldAlert, color: "text-bayan-green bg-emerald-50" },
             { href: "/services/agriculture-and-livelihood", Icon: Wheat, color: "text-amber-700 bg-amber-50" },
             { href: "/services/social-welfare", Icon: UsersRound, color: "text-bayan-blue bg-blue-50" },
-            { href: "#tourism", Icon: Palmtree, color: "text-bayan-green bg-emerald-50" },
         ],
     },
     {
@@ -87,10 +85,10 @@ const navMenuMeta: NavMenuMeta[] = [
     {
         id: "transparency",
         items: [
-            { href: "#transparency", Icon: FileDown, color: "text-bayan-green bg-emerald-50" },
-            { href: "#transparency", Icon: ClipboardCheck, color: "text-bayan-blue bg-blue-50" },
-            { href: "#transparency", Icon: BookOpenCheck, color: "text-bayan-red bg-red-50" },
-            { href: "#transparency", Icon: FolderDown, color: "text-amber-700 bg-amber-50" },
+            { href: "/transparency/ordinances-and-executive-orders", Icon: FileDown, color: "text-bayan-green bg-emerald-50" },
+            { href: "/transparency/procurement", Icon: ClipboardCheck, color: "text-bayan-blue bg-blue-50" },
+            { href: "/transparency/citizens-charter", Icon: BookOpenCheck, color: "text-bayan-red bg-red-50" },
+            { href: "/transparency/permits-and-clearances", Icon: FolderDown, color: "text-amber-700 bg-amber-50" },
         ],
     },
 ]
@@ -123,14 +121,14 @@ const BottomHeader = () => {
     return (
         <>
         <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-4 py-2 sm:gap-4 sm:px-6 2xl:px-8">
-            <a href="#home" className="flex min-w-0 shrink-0 items-center gap-4" aria-label="Better Pagbilao home">
-                <span className="flex h-14 shrink-0 items-center py-1 sm:h-20 xl:h-24">
+            <a href="/" className="flex min-w-0 shrink-0 items-center gap-4" aria-label="Better Pagbilao home">
+                <span className="flex h-11 shrink-0 items-center py-1 sm:h-14 xl:h-16">
                     <img src="/betterpagbilao_logo.svg" alt="Better Pagbilao" className="h-full w-auto object-contain drop-shadow-sm" />
                 </span>
             </a>
 
             <nav className="hidden items-center gap-1 xl:flex" aria-label="Main navigation" onMouseLeave={() => setOpenMenu(null)}>
-                <a className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#home">
+                <a className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="/">
                     {t.nav.home}
                 </a>
                 {navMenus.map((menu) => {
