@@ -3,8 +3,7 @@ import {
     Boxes,
     Code2,
     HandHeart,
-    HeartPulse,
-    MessageCircle,
+    HeartPulse
 } from "lucide-react"
 import { useLanguage } from "../../i18n/useLanguage"
 
