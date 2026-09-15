@@ -1,12 +1,9 @@
 import {
-  Bot,
   ChevronDown,
   Clock3,
   Download,
   ExternalLink,
-  MessageCircle,
   Send,
-  Sparkles,
   X,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -14,6 +11,7 @@ import type { FormEvent } from "react";
 import { askPagbilaoAssistant } from "../../lib/chatApi";
 import type { ChatApiAction, ChatApiMessage } from "../../lib/chatApi";
 import { useLanguage } from "../../i18n/useLanguage";
+import { Bilao, Papag } from "./ChatMascots";
 
 type ChatMessage = {
   id: number;
@@ -118,6 +116,15 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
     void sendMessage(draft);
   };
 
+  const assistantMascotById = new Map<number, boolean>();
+  let nextIsPapag = true;
+  for (const message of messages) {
+    if (message.author === "assistant") {
+      assistantMascotById.set(message.id, nextIsPapag);
+      nextIsPapag = !nextIsPapag;
+    }
+  }
+
   return (
     <div className="fixed bottom-4 right-4 z-60 flex max-w-[calc(100vw-2rem)] flex-col items-end gap-3 sm:bottom-6 sm:right-6">
       {isOpen ? (
@@ -129,8 +136,9 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
 
           <div className="flex items-center justify-between gap-3 border-b border-slate-200 bg-bayan-mist px-4 py-3">
             <div className="flex min-w-0 items-center gap-3">
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-bayan-blue text-white shadow-sm">
-                <Bot className="h-5 w-5" />
+              <span className="flex shrink-0 items-center -space-x-2.5">
+                <Papag className="h-10 w-10 animate-mascot-bob rounded-full bg-blue-50 ring-2 ring-white" style={{ animationDelay: "0s" }} />
+                <Bilao className="h-10 w-10 animate-mascot-bob rounded-full bg-amber-50 ring-2 ring-white" style={{ animationDelay: "0.3s" }} />
               </span>
               <div className="min-w-0">
                 <h2 className="truncate text-base font-black text-bayan-ink">{t.chat.title}</h2>
@@ -154,6 +162,8 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
           <div ref={messageListRef} className="min-h-0 flex-1 space-y-4 overflow-y-auto px-4 py-4">
             {messages.map((message) => {
               const isResident = message.author === "resident";
+              const isPapag = assistantMascotById.get(message.id) ?? true;
+              const MessageMascot = isPapag ? Papag : Bilao;
 
               return (
                 <article
@@ -161,9 +171,7 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
                   className={`flex items-end gap-2 ${isResident ? "justify-end" : "justify-start"}`}
                 >
                   {!isResident ? (
-                    <span className="mb-5 grid h-8 w-8 shrink-0 place-items-center rounded-md bg-blue-50 text-bayan-blue">
-                      <Bot className="h-4 w-4" />
-                    </span>
+                    <MessageMascot className={`mb-5 h-8 w-8 shrink-0 rounded-full ${isPapag ? "bg-blue-50" : "bg-amber-50"}`} />
                   ) : null}
 
                   <div className={`max-w-[82%] ${isResident ? "items-end" : "items-start"}`}>
@@ -214,9 +222,11 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
 
             {isReplying ? (
               <div className="flex items-center gap-2 text-sm font-bold text-slate-500">
-                <span className="grid h-8 w-8 place-items-center rounded-md bg-emerald-50 text-bayan-green">
-                  <Sparkles className="h-4 w-4" />
-                </span>
+                {nextIsPapag ? (
+                  <Papag className="h-8 w-8 shrink-0 animate-mascot-bob rounded-full bg-blue-50" />
+                ) : (
+                  <Bilao className="h-8 w-8 shrink-0 animate-mascot-bob rounded-full bg-amber-50" />
+                )}
                 {t.chat.checkingReply}
               </div>
             ) : null}
@@ -268,8 +278,8 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
         aria-expanded={isOpen}
         onClick={() => setIsOpen((currentValue) => !currentValue)}
       >
-        <span className="grid h-10 w-10 place-items-center rounded-full bg-white/15">
-          {isOpen ? <ChevronDown className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
+        <span className="grid h-11 w-11 place-items-center rounded-full bg-white/15">
+          {isOpen ? <ChevronDown className="h-5 w-5" /> : <Bilao className="h-9 w-9 animate-mascot-bob" />}
         </span>
         <span className="hidden sm:inline">{isOpen ? t.chat.minimizeLabel : t.chat.openLabel}</span>
       </button>
