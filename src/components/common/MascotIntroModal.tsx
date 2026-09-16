@@ -80,7 +80,7 @@ const MascotIntroModal = () => {
 
     return (
         <div
-            className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-bayan-ink/70 p-4 py-8 backdrop-blur-sm sm:items-center"
+            className="fixed inset-0 z-100 flex items-start justify-center overflow-y-auto bg-bayan-ink/70 p-4 py-8 backdrop-blur-sm sm:items-center"
             role="dialog"
             aria-modal="true"
             aria-labelledby="mascot-intro-title"
