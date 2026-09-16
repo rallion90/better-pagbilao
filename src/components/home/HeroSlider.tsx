@@ -1,6 +1,7 @@
-import { ArrowRight, MapPin, Search } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLanguage } from "../../i18n/useLanguage";
+import HeroSearch from "./HeroSearch";
 
 const heroSlides = [
   {
@@ -36,8 +37,8 @@ const HeroSlider = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0">
+    <section className="relative">
+      <div className="absolute inset-0 overflow-hidden">
         {heroSlides.map((slide, index) => (
           <img
             key={slide.src}
@@ -68,26 +69,7 @@ const HeroSlider = () => {
             {t.hero.description}
           </p>
 
-          <div className="mt-8 w-full max-w-2xl rounded-lg bg-white p-2 shadow-soft">
-            <label htmlFor="search" className="sr-only">
-              Search local services
-            </label>
-            <div className="flex flex-col gap-2 sm:flex-row">
-              <div className="flex min-w-0 flex-1 items-center gap-3 px-3 text-slate-500">
-                <Search className="h-5 w-5 shrink-0" />
-                <input
-                  id="search"
-                  type="search"
-                  placeholder={t.hero.searchPlaceholder}
-                  className="w-full border-0 bg-transparent py-3 text-base font-semibold text-slate-800 outline-none placeholder:text-slate-400"
-                />
-              </div>
-              <button className="inline-flex items-center justify-center gap-2 rounded-md bg-bayan-red px-5 py-3 text-sm font-black text-white hover:bg-red-700">
-                <ArrowRight className="h-4 w-4" />
-                <span>{t.hero.findService}</span>
-              </button>
-            </div>
-          </div>
+          <HeroSearch />
 
           <div className="mt-5 flex flex-wrap justify-center gap-2">
             <a

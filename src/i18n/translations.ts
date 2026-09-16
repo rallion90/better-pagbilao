@@ -81,6 +81,8 @@ export interface Translations {
         description: string
         searchPlaceholder: string
         findService: string
+        searchLoading: string
+        searchNoResults: string
         chips: {
             businessPermit: string
             civilRegistry: string
@@ -340,6 +342,8 @@ const en: Translations = {
             "A community-powered local portal concept for finding services, forms, hotlines, tourism information, and public documents in one clear place.",
         searchPlaceholder: "Search permits, health, tourism, hotlines...",
         findService: "Find Service",
+        searchLoading: "Loading search index...",
+        searchNoResults: "No matches yet — try a different word.",
         chips: {
             businessPermit: "Business Permit",
             civilRegistry: "Civil Registry",
@@ -751,6 +755,8 @@ const tl: Translations = {
             "Isang community-powered na konsepto ng lokal na portal para mahanap ang mga serbisyo, forms, hotline, impormasyon sa turismo, at pampublikong dokumento sa iisang lugar.",
         searchPlaceholder: "Maghanap ng permit, kalusugan, turismo, hotline...",
         findService: "Hanapin ang Serbisyo",
+        searchLoading: "Nilo-load ang search index...",
+        searchNoResults: "Walang tugma — subukan ang ibang salita.",
         chips: {
             businessPermit: "Business Permit",
             civilRegistry: "Civil Registry",
