@@ -34,39 +34,14 @@ type PgApiEnvelope<T> = {
   error?: string
 }
 
-declare global {
-  interface Window {
-    __PRELOAD__?: Record<string, unknown>
-  }
-}
-
-// Prerendered pages (see scripts/prerender.mjs) embed the API responses they
-// captured as window.__PRELOAD__, keyed by endpoint URL. Consuming that here
-// means the first render after page load doesn't pay for a redundant network
-// round-trip to the API for data the server already fetched.
-function takePreloaded<T>(endpoint: PgApiEndpoint): PgApiEnvelope<T> | null {
-  const preload = window.__PRELOAD__
-  if (!preload || !(endpoint in preload)) return null
-  const envelope = preload[endpoint] as PgApiEnvelope<T>
-  delete preload[endpoint]
-  return envelope
-}
-
 export async function fetchPgApi<T>(endpoint: PgApiEndpoint): Promise<T> {
-  const preloaded = takePreloaded<T>(endpoint)
-  let envelope: PgApiEnvelope<T>
+  const response = await fetch(endpoint)
 
-  if (preloaded) {
-    envelope = preloaded
-  } else {
-    const response = await fetch(endpoint)
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch ${endpoint}: ${response.status}`)
-    }
-
-    envelope = (await response.json()) as PgApiEnvelope<T>
+  if (!response.ok) {
+    throw new Error(`Failed to fetch ${endpoint}: ${response.status}`)
   }
+
+  const envelope = (await response.json()) as PgApiEnvelope<T>
 
   if (!envelope.ok) {
     throw new Error(envelope.error || `API reported failure for ${endpoint}`)

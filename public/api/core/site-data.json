@@ -4,24 +4,24 @@
     "province": "Quezon",
     "country": "Philippines",
     "tagline": "Official Government Portal",
-    "primaryWebsite": "https://www.pagbilao.org/",
-    "tourismWebsite": "https://tourism.pagbilao.org/",
+    "primaryWebsite": "https://www.pagbilao.gov.ph/",
+    "tourismWebsite": "https://tourism.pagbilao.gov.ph/",
     "source": {
-      "url": "https://www.pagbilao.org/",
+      "url": "https://www.pagbilao.gov.ph/",
       "accessed": "2026-09-09"
     }
   },
   "navigation": [
-    { "label": "Home", "url": "https://www.pagbilao.org/" },
-    { "label": "About Pagbilao", "url": "https://www.pagbilao.org/about/" },
-    { "label": "HEARTS Program", "url": "https://www.pagbilao.org/hearts/" },
-    { "label": "Local Governance", "url": "https://www.pagbilao.org/officials/" },
-    { "label": "News", "url": "https://www.pagbilao.org/news/" },
-    { "label": "Tourism", "url": "https://tourism.pagbilao.org/" },
-    { "label": "Downloadable Forms", "url": "https://www.pagbilao.org/downloadable-forms/" },
-    { "label": "Transparency", "url": "https://www.pagbilao.org/transparency/" },
-    { "label": "Services", "url": "https://www.pagbilao.org/services/" },
-    { "label": "Contact", "url": "https://www.pagbilao.org/contact/" }
+    { "label": "Home", "url": "https://www.pagbilao.gov.ph/" },
+    { "label": "About Pagbilao", "url": "https://www.pagbilao.gov.ph/about/" },
+    { "label": "HEARTS Program", "url": "https://www.pagbilao.gov.ph/hearts/" },
+    { "label": "Local Governance", "url": "https://www.pagbilao.gov.ph/officials/" },
+    { "label": "News", "url": "https://www.pagbilao.gov.ph/news/" },
+    { "label": "Tourism", "url": "https://tourism.pagbilao.gov.ph/" },
+    { "label": "Downloadable Forms", "url": "https://www.pagbilao.gov.ph/downloadable-forms/" },
+    { "label": "Transparency", "url": "https://www.pagbilao.gov.ph/transparency/" },
+    { "label": "Services", "url": "https://www.pagbilao.gov.ph/services/" },
+    { "label": "Contact", "url": "https://www.pagbilao.gov.ph/contact/" }
   ],
   "about": {
     "originSummary": [
