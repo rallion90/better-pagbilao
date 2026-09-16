@@ -147,7 +147,7 @@ const GatewayLocationPage = () => {
                         <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                             {places.borderingPlaces.map((place) => (
                                 <article key={place.name} className="rounded-lg border border-slate-200 bg-bayan-mist p-5">
-                                    <span className="text-xs font-black uppercase tracking-[0.1em] text-bayan-blue">{place.direction}</span>
+                                    <span className="text-xs font-black uppercase tracking-widest text-bayan-blue">{place.direction}</span>
                                     <p className="mt-2 text-lg font-black">{place.name}</p>
                                     <p className="mt-1 text-sm font-semibold text-slate-500">{place.type}</p>
                                 </article>
