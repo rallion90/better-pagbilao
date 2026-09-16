@@ -12,7 +12,7 @@
 import { chromium } from "playwright"
 import { readFile, writeFile, mkdir } from "node:fs/promises"
 import { existsSync } from "node:fs"
-import { spawn } from "node:child_process"
+import { spawn, spawnSync } from "node:child_process"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 
@@ -43,6 +43,22 @@ function waitForServer(url, timeoutMs = 20000) {
     }
     attempt()
   })
+}
+
+// child_process .kill() only signals the immediate process. Since the preview
+// server is spawned via a shell (npx -> vite), that leaves the actual vite
+// process orphaned on Windows, still holding the port for the next run.
+// taskkill /t walks the whole tree instead.
+function killProcessTree(pid) {
+  if (process.platform === "win32") {
+    spawnSync("taskkill", ["/pid", String(pid), "/t", "/f"], { stdio: "ignore" })
+  } else {
+    try {
+      process.kill(-pid, "SIGKILL")
+    } catch {
+      // process (group) already gone
+    }
+  }
 }
 
 function outputPathForRoute(routePath) {
@@ -112,11 +128,22 @@ async function main() {
     cwd: ROOT,
     stdio: "pipe",
     shell: true,
+    detached: process.platform !== "win32",
   })
-  previewProcess.stderr.on("data", (chunk) => process.stderr.write(chunk))
+  let previewStderr = ""
+  previewProcess.stderr.on("data", (chunk) => {
+    previewStderr += chunk.toString()
+    process.stderr.write(chunk)
+  })
 
   try {
     await waitForServer(BASE_URL)
+    if (previewStderr.includes("already in use")) {
+      throw new Error(
+        `Port ${PORT} was already occupied by another process (likely a leftover from a previous run) — ` +
+          "aborting instead of prerendering against a stale server. Free the port and retry.",
+      )
+    }
 
     const browser = await chromium.launch()
     const results = []
@@ -139,7 +166,7 @@ async function main() {
 
     console.log(`Wrote ${results.length} prerendered page(s) to dist/.`)
   } finally {
-    previewProcess.kill()
+    killProcessTree(previewProcess.pid)
   }
 }
 
