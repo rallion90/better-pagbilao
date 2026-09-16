@@ -1,29 +1,29 @@
 {
   "source": {
     "name": "Municipality of Pagbilao Official Government Portal",
-    "url": "https://www.pagbilao.org/",
+    "url": "https://www.pagbilao.gov.ph/",
     "accessed": "2026-09-09"
   },
   "transparency": [
     {
       "title": "Annual Budget",
       "category": "Transparency",
-      "url": "https://www.pagbilao.org/annual-budget-2026.html"
+      "url": "https://www.pagbilao.gov.ph/annual-budget-2026.html"
     },
     {
       "title": "Procurement Notices",
       "category": "Transparency",
-      "url": "https://www.pagbilao.org/transparency/"
+      "url": "https://www.pagbilao.gov.ph/transparency/"
     },
     {
       "title": "Procurement Monitoring Report",
       "category": "Transparency",
-      "url": "https://www.pagbilao.org/assets/documents/procurement-monitoring-report-1st-semester-2026.pdf"
+      "url": "https://www.pagbilao.gov.ph/assets/documents/procurement-monitoring-report-1st-semester-2026.pdf"
     },
     {
       "title": "Citizen's Charter",
       "category": "Transparency",
-      "url": "https://www.pagbilao.org/transparency/"
+      "url": "https://www.pagbilao.gov.ph/transparency/"
     }
   ],
   "downloadableForms": [
@@ -33,17 +33,17 @@
         {
           "title": "Requirements for New Business Permit",
           "type": "image",
-          "url": "https://www.pagbilao.org/assets/downloadable-forms/requirements-new-business-permit.png"
+          "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/requirements-new-business-permit.png"
         },
         {
           "title": "Unified Application Form",
           "type": "pdf",
-          "url": "https://www.pagbilao.org/assets/downloadable-forms/unified-application-form.pdf"
+          "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/unified-application-form.pdf"
         },
         {
           "title": "Sworn Statement of Capital Form",
           "type": "pdf",
-          "url": "https://www.pagbilao.org/assets/downloadable-forms/sworn-statement-of-capital.pdf"
+          "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/sworn-statement-of-capital.pdf"
         }
       ]
     },
@@ -53,17 +53,17 @@
         {
           "title": "Requirements for Business Permit Renewal",
           "type": "image",
-          "url": "https://www.pagbilao.org/assets/downloadable-forms/requirements-business-permit-renewal.png"
+          "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/requirements-business-permit-renewal.png"
         },
         {
           "title": "Unified Application Form",
           "type": "pdf",
-          "url": "https://www.pagbilao.org/assets/downloadable-forms/unified-application-form.pdf"
+          "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/unified-application-form.pdf"
         },
         {
           "title": "Sworn Statement of Gross Receipts Form",
           "type": "pdf",
-          "url": "https://www.pagbilao.org/assets/downloadable-forms/sworn-statement-of-gross-receipts.pdf"
+          "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/sworn-statement-of-gross-receipts.pdf"
         }
       ]
     },
@@ -73,12 +73,12 @@
         {
           "title": "Requirements for Locational Clearance",
           "type": "image",
-          "url": "https://www.pagbilao.org/assets/downloadable-forms/requirements-locational-clearance.png"
+          "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/requirements-locational-clearance.png"
         },
         {
           "title": "Unified Locational Clearance Application Form",
           "type": "pdf",
-          "url": "https://www.pagbilao.org/assets/downloadable-forms/unified-locational-clearance-application-form.pdf"
+          "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/unified-locational-clearance-application-form.pdf"
         }
       ]
     },
@@ -88,12 +88,12 @@
         {
           "title": "Requirements for Zoning Certificate",
           "type": "image",
-          "url": "https://www.pagbilao.org/assets/downloadable-forms/requirements-zoning-certificate.png"
+          "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/requirements-zoning-certificate.png"
         },
         {
           "title": "Zoning Certificate Form",
           "type": "pdf",
-          "url": "https://www.pagbilao.org/assets/downloadable-forms/zoning-certificate-form.pdf"
+          "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/zoning-certificate-form.pdf"
         }
       ]
     },
@@ -101,20 +101,20 @@
       "section": "Building Permit Forms",
       "note": "Please print these forms back to back.",
       "items": [
-        { "title": "Building Permit Requirements", "url": "https://www.pagbilao.org/assets/downloadable-forms/building-permit-requirements.pdf" },
-        { "title": "Civil Structural Permit", "url": "https://www.pagbilao.org/assets/downloadable-forms/civil-structural-permit.pdf" },
-        { "title": "Demolition Permit", "url": "https://www.pagbilao.org/assets/downloadable-forms/demolition-permit.pdf" },
-        { "title": "Electrical Permit", "url": "https://www.pagbilao.org/assets/downloadable-forms/electrical-permit.pdf" },
-        { "title": "Electronics Permit", "url": "https://www.pagbilao.org/assets/downloadable-forms/electronics-permit.pdf" },
-        { "title": "Excavation Permit", "url": "https://www.pagbilao.org/assets/downloadable-forms/excavation-permit.pdf" },
-        { "title": "Fencing Permit", "url": "https://www.pagbilao.org/assets/downloadable-forms/fencing-permit.pdf" },
-        { "title": "Mechanical Permit", "url": "https://www.pagbilao.org/assets/downloadable-forms/mechanical-permit.pdf" },
-        { "title": "Permit for Temporary Service Connection", "url": "https://www.pagbilao.org/assets/downloadable-forms/permit-for-temporary-service-connection.pdf" },
-        { "title": "Plumbing Permit", "url": "https://www.pagbilao.org/assets/downloadable-forms/plumbing-permit.pdf" },
-        { "title": "Sanitary Permit", "url": "https://www.pagbilao.org/assets/downloadable-forms/sanitary-permit.pdf" },
-        { "title": "Sign Permit", "url": "https://www.pagbilao.org/assets/downloadable-forms/sign-permit.pdf" },
-        { "title": "Unified Building Permit Form 2020", "url": "https://www.pagbilao.org/assets/downloadable-forms/unified-building-permit-form-2020.pdf" },
-        { "title": "Architectural Permit", "url": "https://www.pagbilao.org/assets/downloadable-forms/architectural-permit.pdf" }
+        { "title": "Building Permit Requirements", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/building-permit-requirements.pdf" },
+        { "title": "Civil Structural Permit", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/civil-structural-permit.pdf" },
+        { "title": "Demolition Permit", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/demolition-permit.pdf" },
+        { "title": "Electrical Permit", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/electrical-permit.pdf" },
+        { "title": "Electronics Permit", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/electronics-permit.pdf" },
+        { "title": "Excavation Permit", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/excavation-permit.pdf" },
+        { "title": "Fencing Permit", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/fencing-permit.pdf" },
+        { "title": "Mechanical Permit", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/mechanical-permit.pdf" },
+        { "title": "Permit for Temporary Service Connection", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/permit-for-temporary-service-connection.pdf" },
+        { "title": "Plumbing Permit", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/plumbing-permit.pdf" },
+        { "title": "Sanitary Permit", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/sanitary-permit.pdf" },
+        { "title": "Sign Permit", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/sign-permit.pdf" },
+        { "title": "Unified Building Permit Form 2020", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/unified-building-permit-form-2020.pdf" },
+        { "title": "Architectural Permit", "url": "https://www.pagbilao.gov.ph/assets/downloadable-forms/architectural-permit.pdf" }
       ]
     }
   ]

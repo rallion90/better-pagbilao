@@ -1,7 +1,7 @@
 {
   "source": {
     "name": "Pagbilao Tourism",
-    "url": "https://tourism.pagbilao.org/",
+    "url": "https://tourism.pagbilao.gov.ph/",
     "accessed": "2026-09-09"
   },
   "site": {
@@ -11,25 +11,25 @@
     "brand": "WOW PAGBILAO",
     "headline": "Discover Pagbilao",
     "tagline": "Explore every wow and feel Pagbilao.",
-    "returnWebsite": "https://pagbilao.org"
+    "returnWebsite": "https://pagbilao.gov.ph"
   },
   "navigation": [
-    { "label": "home", "url": "https://tourism.pagbilao.org/" },
-    { "label": "about", "url": "https://tourism.pagbilao.org/#about" },
-    { "label": "destinations", "url": "https://tourism.pagbilao.org/#destinations" },
-    { "label": "directory", "url": "https://tourism.pagbilao.org/Directory.html" }
+    { "label": "home", "url": "https://tourism.pagbilao.gov.ph/" },
+    { "label": "about", "url": "https://tourism.pagbilao.gov.ph/#about" },
+    { "label": "destinations", "url": "https://tourism.pagbilao.gov.ph/#destinations" },
+    { "label": "directory", "url": "https://tourism.pagbilao.gov.ph/Directory.html" }
   ],
   "heroSlides": [
-    { "title": "Bodies of Water", "image": "https://tourism.pagbilao.org/Irigangal1.png" },
-    { "title": "Palsabangon Falls", "image": "https://tourism.pagbilao.org/Palsabangon%20Falls.png?v=20260806-1" },
-    { "title": "Cultural Built Heritage", "image": "https://tourism.pagbilao.org/Immovable.png" },
-    { "title": "Cultural Institution", "image": "https://tourism.pagbilao.org/Cultural%20Instituition.png" },
-    { "title": "Cultural Festivities", "image": "https://tourism.pagbilao.org/Cover.jpg" }
+    { "title": "Bodies of Water", "image": "https://tourism.pagbilao.gov.ph/Irigangal1.png" },
+    { "title": "Palsabangon Falls", "image": "https://tourism.pagbilao.gov.ph/Palsabangon%20Falls.png?v=20260806-1" },
+    { "title": "Cultural Built Heritage", "image": "https://tourism.pagbilao.gov.ph/Immovable.png" },
+    { "title": "Cultural Institution", "image": "https://tourism.pagbilao.gov.ph/Cultural%20Instituition.png" },
+    { "title": "Cultural Festivities", "image": "https://tourism.pagbilao.gov.ph/Cover.jpg" }
   ],
   "videos": [
     {
       "title": "Experience Pagbilao",
-      "url": "https://tourism.pagbilao.org/pagbilao-tourism-720p.mp4",
+      "url": "https://tourism.pagbilao.gov.ph/pagbilao-tourism-720p.mp4",
       "type": "video/mp4"
     },
     {
@@ -43,52 +43,52 @@
       "In the early 17th century, Pablo and Rita settled in what is now Pagbilao, bringing rice seedlings and provisions.",
       "According to local tradition, Spanish missionaries arrived in 1725 and the name Pagbilao came from papag and bilao."
     ],
-    "logo": "https://tourism.pagbilao.org/Logoo.png",
-    "moreAboutUrl": "https://pagbilao.org/about/"
+    "logo": "https://tourism.pagbilao.gov.ph/Logoo.png",
+    "moreAboutUrl": "https://pagbilao.gov.ph/about/"
   },
   "tourismAndCulturalProperties": [
     {
       "name": "Bodies Of Water",
       "description": "Explore the Bodies of Water in Pagbilao",
-      "url": "https://tourism.pagbilao.org/Water.html?v=20260807-3",
-      "image": "https://tourism.pagbilao.org/Irigangal1.png"
+      "url": "https://tourism.pagbilao.gov.ph/Water.html?v=20260807-3",
+      "image": "https://tourism.pagbilao.gov.ph/Irigangal1.png"
     },
     {
       "name": "Land Formation",
       "description": "Explore the Land Formation in Pagbilao",
-      "url": "https://tourism.pagbilao.org/LandFormation.html?v=20260807-3",
-      "image": "https://tourism.pagbilao.org/Patayan%20Island.png"
+      "url": "https://tourism.pagbilao.gov.ph/LandFormation.html?v=20260807-3",
+      "image": "https://tourism.pagbilao.gov.ph/Patayan%20Island.png"
     },
     {
       "name": "Protected Areas",
       "description": "Explore the Protected Areas in Pagbilao",
-      "url": "https://tourism.pagbilao.org/ProtectedAreas.html?v=20260807-3",
-      "image": "https://tourism.pagbilao.org/Binhaan%20Dam.png"
+      "url": "https://tourism.pagbilao.gov.ph/ProtectedAreas.html?v=20260807-3",
+      "image": "https://tourism.pagbilao.gov.ph/Binhaan%20Dam.png"
     },
     {
       "name": "Cultural Built Heritage",
       "description": "Explore the Cultural Built Heritage in Pagbilao",
-      "url": "https://tourism.pagbilao.org/Immovable.html?v=20260807-3",
-      "image": "https://tourism.pagbilao.org/Immovable.png"
+      "url": "https://tourism.pagbilao.gov.ph/Immovable.html?v=20260807-3",
+      "image": "https://tourism.pagbilao.gov.ph/Immovable.png"
     },
     {
       "name": "Cultural Institution",
       "sourceName": "Cultural Instituition",
       "description": "Explore the Cultural Institution in Pagbilao",
-      "url": "https://tourism.pagbilao.org/Cultural%20Instituition.html?v=20260807-3",
-      "image": "https://tourism.pagbilao.org/Cultural%20Instituition.png"
+      "url": "https://tourism.pagbilao.gov.ph/Cultural%20Instituition.html?v=20260807-3",
+      "image": "https://tourism.pagbilao.gov.ph/Cultural%20Instituition.png"
     },
     {
       "name": "Cultural Festivities",
       "description": "Explore the Cultural Festivities in Pagbilao",
-      "url": "https://tourism.pagbilao.org/Cultural%20Festival.html?v=20260807-3",
-      "image": "https://tourism.pagbilao.org/Cover.jpg"
+      "url": "https://tourism.pagbilao.gov.ph/Cultural%20Festival.html?v=20260807-3",
+      "image": "https://tourism.pagbilao.gov.ph/Cover.jpg"
     }
   ],
   "directory": {
     "title": "Pagbilao Tourism Directory",
     "description": "Hotel Restaurant, Accommodation, Travel and Tours, Tour Guides, Transportation, and Destinations.",
-    "url": "https://tourism.pagbilao.org/Directory.html"
+    "url": "https://tourism.pagbilao.gov.ph/Directory.html"
   },
   "contact": {
     "office": "LGU PAGBILAO",
@@ -104,7 +104,7 @@
   },
   "legal": {
     "copyright": "©2026 - Pagbilao, Quezon, Philippines. all rights reserved",
-    "termsUrl": "https://tourism.pagbilao.org/#",
-    "privacyUrl": "https://tourism.pagbilao.org/#"
+    "termsUrl": "https://tourism.pagbilao.gov.ph/#",
+    "privacyUrl": "https://tourism.pagbilao.gov.ph/#"
   }
 }
