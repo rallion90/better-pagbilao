@@ -21,6 +21,7 @@ const OrdinancesAndExecutiveOrdersPage = lazy(() => import("./pages/transparency
 const ProcurementPage = lazy(() => import("./pages/transparency/ProcurementPage"));
 const CitizensCharterPage = lazy(() => import("./pages/transparency/CitizensCharterPage"));
 const PermitsAndClearancesPage = lazy(() => import("./pages/transparency/PermitsAndClearancesPage"));
+const CommunityReportingPage = lazy(() => import("./pages/community/CommunityReportingPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
             <Route path="/services/social-welfare" element={<SocialWelfarePage />} />
             <Route path="/services/business-and-permits" element={<BusinessAndPermitsPage />} />
             <Route path="/hotlines" element={<HotlinesPage />} />
+            <Route path="/community/report" element={<CommunityReportingPage />} />
             <Route path="/explore/gateway-location" element={<GatewayLocationPage />} />
             <Route path="/transparency/ordinances-and-executive-orders" element={<OrdinancesAndExecutiveOrdersPage />} />
             <Route path="/transparency/procurement" element={<ProcurementPage />} />

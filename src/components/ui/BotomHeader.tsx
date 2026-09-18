@@ -9,7 +9,6 @@ import {
     MapPinned,
     Menu,
     Route,
-    Search,
     ShieldAlert,
     Sprout,
     UsersRound,
@@ -207,14 +206,13 @@ const BottomHeader = () => {
                         Tagalog
                     </button>
                 </div>
-                <button
-                    type="button"
-                    id="header-search-button"
+                <MenuLink
+                    href="/community/report"
                     className="inline-flex items-center gap-2 rounded-md bg-bayan-blue px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-blue-700 xl:px-4"
                 >
-                    <Search className="h-4 w-4" />
-                    <span className="hidden sm:inline">{t.nav.search}</span>
-                </button>
+                    <MapPinned className="h-4 w-4" />
+                    <span className="hidden sm:inline">{t.nav.report}</span>
+                </MenuLink>
 
                 <button
                     type="button"
