@@ -1,4 +1,4 @@
-const PG_API_BASE = "https://api-v2.betterpagbilao.org/api"
+export const PG_API_BASE = "https://api-v2.betterpagbilao.org/api"
 
 export const pgApiEndpoints = {
   core: {
