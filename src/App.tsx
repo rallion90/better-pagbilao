@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router";
 import Header from './components/layout/Header'
+import EmergencyBanner from './components/announcements/EmergencyBanner'
 import Footer from './components/layout/Footer'
 import HomePage from "./pages/HomePage";
 import ChatFloat from "./components/chat/ChatFloat";
@@ -25,12 +26,15 @@ const CommunityReportingPage = lazy(() => import("./pages/community/CommunityRep
 const TrackReportPage = lazy(() => import("./pages/community/TrackReportPage"));
 const BarangayMapPage = lazy(() => import("./pages/explore/BarangayMapPage"));
 const HistoryPage = lazy(() => import("./pages/explore/HistoryPage"));
+const AnnouncementsPage = lazy(() => import("./pages/announcements/AnnouncementsPage"));
+const AnnouncementDetailPage = lazy(() => import("./pages/announcements/AnnouncementDetailPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function App() {
 
   return (
     <>
+      <EmergencyBanner />
       <Header />
 
       <main id="home">
@@ -45,6 +49,8 @@ function App() {
             <Route path="/services/social-welfare" element={<SocialWelfarePage />} />
             <Route path="/services/business-and-permits" element={<BusinessAndPermitsPage />} />
             <Route path="/hotlines" element={<HotlinesPage />} />
+            <Route path="/announcements" element={<AnnouncementsPage />} />
+            <Route path="/announcements/:slug" element={<AnnouncementDetailPage />} />
             <Route path="/community/report" element={<CommunityReportingPage />} />
             <Route path="/community/track" element={<TrackReportPage />} />
             <Route path="/community/track/:code" element={<TrackReportPage />} />

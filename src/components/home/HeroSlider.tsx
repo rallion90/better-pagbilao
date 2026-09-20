@@ -2,6 +2,7 @@ import { MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLanguage } from "../../i18n/useLanguage";
 import HeroSearch from "./HeroSearch";
+import LocalConditions from "../ui/LocalConditions";
 
 const heroSlides = [
   {
@@ -58,9 +59,12 @@ const HeroSlider = () => {
 
       <div className="relative mx-auto grid min-h-136 max-w-[1600px] place-items-center px-4 py-16 sm:min-h-160 sm:px-6 sm:py-20 lg:min-h-170 lg:px-8 lg:py-24">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center text-white">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/10 px-3 py-2 text-sm font-bold backdrop-blur">
-            <MapPin className="h-4 w-4" />
-            <span>{t.hero.locationBadge}</span>
+          <div className="relative mb-5 flex w-full flex-wrap items-center justify-center gap-2">
+            <div className="inline-flex items-center gap-2 rounded-md border border-white/25 bg-white/10 px-3 py-2 text-sm font-bold backdrop-blur">
+              <MapPin className="h-4 w-4" />
+              <span>{t.hero.locationBadge}</span>
+            </div>
+            <LocalConditions />
           </div>
           <h1 className="max-w-3xl text-5xl font-black leading-[1.02] tracking-normal sm:text-6xl lg:text-7xl">
             {t.hero.title}

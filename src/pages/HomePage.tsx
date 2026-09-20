@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import HeroSlider from '../components/home/HeroSlider'
 import CardStat from '../components/home/CardStat'
+import LatestAnnouncements from '../components/announcements/LatestAnnouncements'
 import { useLanguage } from '../i18n/useLanguage'
 import { historyPageCopy } from '../i18n/historyPage'
 import { useSeo } from '../hooks/useSeo'
@@ -89,6 +90,8 @@ const HomePage = () => {
             <HeroSlider />
 
             <CardStat />
+
+            <LatestAnnouncements />
 
             <section id="services" className="bg-white py-16 sm:py-20">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
