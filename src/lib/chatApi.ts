@@ -1,4 +1,4 @@
-const CHAT_API_BASE = "https://askai.betterpagbilao.org"
+const CHAT_API_BASE = "https://api-v2.betterpagbilao.org"
 const CHAT_ENDPOINT = `${CHAT_API_BASE}/api/chat`
 const SESSION_STORAGE_KEY = "bpg_chat_session_id"
 const REQUEST_TIMEOUT_MS = 20000
