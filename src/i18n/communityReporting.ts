@@ -18,7 +18,6 @@ export interface CommunityReportingCopy {
         retry: string
         backHome: string
         hotlines: string
-        track: string
     }
     steps: { title: string; body: string }[]
     stats: { total: string; open: string; resolved: string }
@@ -117,13 +116,12 @@ const en: CommunityReportingCopy = {
     unavailable: {
         badge: "Reporting paused",
         heading: "Community reporting is not accepting new reports right now",
-        body: "New reports are currently switched off. If you already sent a report, you can still track it with your tracking code. For urgent problems, please call the hotlines.",
+        body: "New reports are currently switched off. For urgent problems, please call the hotlines.",
         errorHeading: "Community reporting is unavailable right now",
-        errorBody: "We could not confirm that reporting is open. You can still track an existing report, and for urgent problems please call the hotlines.",
+        errorBody: "We could not confirm that reporting is open. For urgent problems, please call the hotlines.",
         retry: "Check again",
         backHome: "Back to home",
         hotlines: "View hotlines",
-        track: "Track my report",
     },
     steps: [
         { title: "Pin it", body: "Tap the map to mark exactly where the problem is." },
@@ -255,13 +253,12 @@ const tl: CommunityReportingCopy = {
     unavailable: {
         badge: "Naka-pause ang pag-uulat",
         heading: "Hindi muna tumatanggap ng bagong ulat ang Ulat ng Komunidad",
-        body: "Kasalukuyang naka-off ang pagtanggap ng bagong ulat. Kung nakapag-ulat ka na, masusubaybayan mo pa rin ito gamit ang tracking code. Para sa madalian, tumawag sa mga hotline.",
+        body: "Kasalukuyang naka-off ang pagtanggap ng bagong ulat. Para sa madalian, tumawag sa mga hotline.",
         errorHeading: "Hindi available ang Ulat ng Komunidad sa ngayon",
-        errorBody: "Hindi namin makumpirma kung bukas ang pag-uulat. Masusubaybayan mo pa rin ang naipadalang ulat, at para sa madalian, tumawag sa mga hotline.",
+        errorBody: "Hindi namin makumpirma kung bukas ang pag-uulat. Para sa madalian, tumawag sa mga hotline.",
         retry: "Suriin muli",
         backHome: "Bumalik sa home",
         hotlines: "Tingnan ang mga hotline",
-        track: "Subaybayan ang ulat ko",
     },
     steps: [
         { title: "I-pin", body: "Pindutin ang mapa para markahan kung nasaan ang problema." },
