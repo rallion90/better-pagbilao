@@ -14,7 +14,7 @@ import {
     X,
 } from "lucide-react"
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
-import { Link, useNavigate } from "react-router"
+import { Link, useNavigate, useSearchParams } from "react-router"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
 import IssueStatusBadge from "../../components/community/IssueStatusBadge"
 import ReportForm from "../../components/community/ReportForm"
@@ -66,9 +66,6 @@ const Unavailable = ({ copy }: { copy: CommunityReportingCopy }) => {
                     {message && <p className="mt-4 text-base font-bold text-bayan-gold">{message}</p>}
                     <p className="mt-4 text-base leading-8 text-white/76">{failed ? copy.unavailable.errorBody : copy.unavailable.body}</p>
                     <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                        <Link to="/community/track" className="rounded-md bg-bayan-gold px-5 py-3 text-sm font-black text-bayan-ink transition hover:bg-amber-400">
-                            {copy.unavailable.track}
-                        </Link>
                         {failed && (
                             <button
                                 type="button"
@@ -154,6 +151,7 @@ const CommunityReportingContent = () => {
     const copy = communityReportingCopy[lang]
     const { markDisabled } = useIssueReporting()
     const navigate = useNavigate()
+    const [searchParams] = useSearchParams()
     const options = useIssueFormOptions()
 
     const [draft, setDraft] = useState<LatLng | null>(null)
@@ -165,7 +163,7 @@ const CommunityReportingContent = () => {
     const [formKey, setFormKey] = useState(0)
     const [copied, setCopied] = useState(false)
 
-    const [filters, setFilters] = useState<IssueFilters>({ q: "", category: "", barangay: "", status: "" })
+    const [filters, setFilters] = useState<IssueFilters>({ q: "", category: "", barangay: searchParams.get("barangay") ?? "", status: "" })
     const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
     const list = useIssueList(filters)
 

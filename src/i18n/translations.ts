@@ -67,7 +67,6 @@ export interface Translations {
         home: string
         hotlines: string
         report: string
-        track: string
         history: string
         search: string
         menus: {
@@ -294,7 +293,6 @@ const en: Translations = {
         home: "Home",
         hotlines: "Hotlines",
         report: "Report an Issue",
-        track: "Track my report",
         history: "History",
         search: "Search",
         menus: {
@@ -450,7 +448,7 @@ const en: Translations = {
             paragraph2:
                 "Today, Pagbilao sits eight kilometers from Lucena City and serves as one of Quezon's gateways to the south, linking poblacion barangays, bay communities, highway settlements, and forested uplands.",
             stats: [
-                { value: "1700s", label: "Early Roots" },
+                { value: "1600s", label: "Early Roots" },
                 { value: "27", label: "Barangays" },
                 { value: "8 km", label: "From Lucena" },
             ],
@@ -709,7 +707,6 @@ const tl: Translations = {
         home: "Home",
         hotlines: "Mga Hotline",
         report: "Mag-ulat",
-        track: "Subaybayan ang ulat",
         history: "Kasaysayan",
         search: "Maghanap",
         menus: {
@@ -865,7 +862,7 @@ const tl: Translations = {
             paragraph2:
                 "Ngayon, ang Pagbilao ay walong kilometro mula sa Lungsod ng Lucena at naglilingkod bilang isa sa mga gateway ng Quezon patungo sa timog, na nag-uugnay sa mga barangay sa poblacion, komunidad sa baybayin, pamayanan sa highway, at gubat na kabundukan.",
             stats: [
-                { value: "1700s", label: "Unang Ugat" },
+                { value: "1600s", label: "Unang Ugat" },
                 { value: "27", label: "Mga Barangay" },
                 { value: "8 km", label: "Mula sa Lucena" },
             ],

@@ -2,9 +2,11 @@ import { Link } from 'react-router'
 import HeroSlider from '../components/home/HeroSlider'
 import CardStat from '../components/home/CardStat'
 import { useLanguage } from '../i18n/useLanguage'
+import { historyPageCopy } from '../i18n/historyPage'
 import { useSeo } from '../hooks/useSeo'
 
 import {
+    ArrowRight,
     Binoculars,
     BookOpenCheck,
     BookOpenText,
@@ -68,7 +70,7 @@ const TIMELINE_COLORS = [
 const HISTORY_STAT_COLORS = ["text-bayan-blue", "text-bayan-green", "text-bayan-red"]
 
 const HomePage = () => {
-    const { t } = useLanguage()
+    const { t, lang } = useLanguage()
 
     // No jsonLd here: the WebSite schema already lives as a static <script> in
     // index.html so it's present for crawlers even before JS runs. This call
@@ -261,6 +263,13 @@ const HomePage = () => {
                                     </div>
                                 ))}
                             </div>
+
+                            <Link
+                                to="/explore/history"
+                                className="mt-6 inline-flex items-center gap-2 rounded-md bg-bayan-blue px-5 py-3 text-sm font-black text-white transition hover:bg-blue-700"
+                            >
+                                {historyPageCopy[lang].homeCta} <ArrowRight className="h-4 w-4" />
+                            </Link>
                         </div>
 
                         <div className="rounded-lg border border-slate-200 bg-bayan-mist p-5 sm:p-6">

@@ -9,7 +9,6 @@ import {
     MapPinned,
     Menu,
     Route,
-    Search,
     ShieldAlert,
     Sprout,
     UsersRound,
@@ -78,8 +77,8 @@ const navMenuMeta: NavMenuMeta[] = [
     {
         id: "explore",
         items: [
-            { href: "#barangays", Icon: MapPinned, color: "text-bayan-blue bg-blue-50" },
-            { href: "#history", Icon: Sprout, color: "text-bayan-green bg-emerald-50" },
+            { href: "/explore/barangays", Icon: MapPinned, color: "text-bayan-blue bg-blue-50" },
+            { href: "/explore/history", Icon: Sprout, color: "text-bayan-green bg-emerald-50" },
             { href: "/explore/gateway-location", Icon: Route, color: "text-bayan-gold bg-amber-50" },
         ],
     },
@@ -185,9 +184,9 @@ const BottomHeader = () => {
                 <MenuLink className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="/hotlines">
                     {t.nav.hotlines}
                 </MenuLink>
-                <a className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="#history">
+                <MenuLink className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="/explore/history">
                     {t.nav.history}
-                </a>
+                </MenuLink>
             </nav>
 
             <div className="flex shrink-0 items-center gap-1.5 xl:gap-2">
@@ -217,16 +216,7 @@ const BottomHeader = () => {
                         <MapPinned className="h-4 w-4" />
                         <span className="hidden sm:inline">{t.nav.report}</span>
                     </MenuLink>
-                ) : reportingState !== "loading" ? (
-                    // Reporting is off or unreachable: hide the report link, keep tracking reachable.
-                    <MenuLink
-                        href="/community/track"
-                        className="inline-flex items-center gap-2 rounded-md bg-bayan-blue px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-blue-700 xl:px-4"
-                    >
-                        <Search className="h-4 w-4" />
-                        <span className="hidden sm:inline">{t.nav.track}</span>
-                    </MenuLink>
-                ) : null}
+                ) : null /* reporting off, unreachable or still loading: no report or track link */}
 
                 <button
                     type="button"
@@ -300,13 +290,13 @@ const BottomHeader = () => {
                     >
                         {t.nav.hotlines}
                     </MenuLink>
-                    <a
-                        href="#history"
+                    <MenuLink
+                        href="/explore/history"
                         onClick={closeMobileMenu}
                         className="px-3 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-100"
                     >
                         {t.nav.history}
-                    </a>
+                    </MenuLink>
                 </nav>
 
                 <div className="mt-3 flex items-center gap-2 border-t border-slate-100 pt-4">
