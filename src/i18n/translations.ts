@@ -67,6 +67,7 @@ export interface Translations {
         home: string
         hotlines: string
         report: string
+        track: string
         history: string
         search: string
         menus: {
@@ -293,6 +294,7 @@ const en: Translations = {
         home: "Home",
         hotlines: "Hotlines",
         report: "Report an Issue",
+        track: "Track my report",
         history: "History",
         search: "Search",
         menus: {
@@ -707,6 +709,7 @@ const tl: Translations = {
         home: "Home",
         hotlines: "Mga Hotline",
         report: "Mag-ulat",
+        track: "Subaybayan ang ulat",
         history: "Kasaysayan",
         search: "Maghanap",
         menus: {

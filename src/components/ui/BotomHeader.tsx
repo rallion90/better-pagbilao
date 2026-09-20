@@ -9,6 +9,7 @@ import {
     MapPinned,
     Menu,
     Route,
+    Search,
     ShieldAlert,
     Sprout,
     UsersRound,
@@ -21,6 +22,7 @@ import type { LucideIcon } from "lucide-react"
 import type { ReactNode } from "react"
 import { useState } from "react"
 import { Link } from "react-router"
+import { useIssueReporting } from "../../hooks/useIssueReporting"
 import { useLanguage } from "../../i18n/useLanguage"
 
 type MenuLinkProps = {
@@ -97,6 +99,7 @@ const BottomHeader = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [openMobileSection, setOpenMobileSection] = useState<string | null>(null)
     const { lang, setLang, t } = useLanguage()
+    const { state: reportingState } = useIssueReporting()
 
     const closeMobileMenu = () => {
         setIsMobileMenuOpen(false)
@@ -206,13 +209,24 @@ const BottomHeader = () => {
                         Tagalog
                     </button>
                 </div>
-                <MenuLink
-                    href="/community/report"
-                    className="inline-flex items-center gap-2 rounded-md bg-bayan-blue px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-blue-700 xl:px-4"
-                >
-                    <MapPinned className="h-4 w-4" />
-                    <span className="hidden sm:inline">{t.nav.report}</span>
-                </MenuLink>
+                {reportingState === "enabled" ? (
+                    <MenuLink
+                        href="/community/report"
+                        className="inline-flex items-center gap-2 rounded-md bg-bayan-blue px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-blue-700 xl:px-4"
+                    >
+                        <MapPinned className="h-4 w-4" />
+                        <span className="hidden sm:inline">{t.nav.report}</span>
+                    </MenuLink>
+                ) : reportingState !== "loading" ? (
+                    // Reporting is off or unreachable: hide the report link, keep tracking reachable.
+                    <MenuLink
+                        href="/community/track"
+                        className="inline-flex items-center gap-2 rounded-md bg-bayan-blue px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-blue-700 xl:px-4"
+                    >
+                        <Search className="h-4 w-4" />
+                        <span className="hidden sm:inline">{t.nav.track}</span>
+                    </MenuLink>
+                ) : null}
 
                 <button
                     type="button"

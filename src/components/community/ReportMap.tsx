@@ -2,18 +2,20 @@ import { useEffect } from "react"
 import { MapContainer, Marker, TileLayer, useMap, useMapEvents } from "react-leaflet"
 import L from "leaflet"
 import "leaflet/dist/leaflet.css"
-import { PAGBILAO_CENTER, STATUS_META } from "../../lib/communityReports"
-import type { CommunityReport, LatLng } from "../../lib/communityReports"
+import { PAGBILAO_CENTER, statusMeta } from "../../lib/communityReports"
+import type { LatLng } from "../../lib/communityReports"
+import type { Issue } from "../../types/issues"
 
 export type MapFocus = { position: LatLng; key: number }
 
 type ReportMapProps = {
-    reports: CommunityReport[]
+    reports: Issue[]
     draft: LatLng | null
-    selectedId: string | null
+    selectedCode: string | null
     focus: MapFocus | null
+    pickEnabled: boolean
     onPick: (position: LatLng) => void
-    onSelect: (id: string) => void
+    onSelect: (trackingCode: string) => void
 }
 
 function reportIcon(color: string, selected: boolean) {
@@ -39,9 +41,11 @@ const draftIcon = L.divIcon({
     iconAnchor: [17, 41],
 })
 
-const ClickToPick = ({ onPick }: { onPick: (position: LatLng) => void }) => {
+const ClickToPick = ({ enabled, onPick }: { enabled: boolean; onPick: (position: LatLng) => void }) => {
     useMapEvents({
-        click: (event) => onPick([event.latlng.lat, event.latlng.lng]),
+        click: (event) => {
+            if (enabled) onPick([event.latlng.lat, event.latlng.lng])
+        },
     })
     return null
 }
@@ -54,27 +58,29 @@ const FlyToFocus = ({ focus }: { focus: MapFocus | null }) => {
     return null
 }
 
-const ReportMap = ({ reports, draft, selectedId, focus, onPick, onSelect }: ReportMapProps) => (
+const ReportMap = ({ reports, draft, selectedCode, focus, pickEnabled, onPick, onSelect }: ReportMapProps) => (
     <MapContainer
         center={PAGBILAO_CENTER}
         zoom={14}
         minZoom={11}
         scrollWheelZoom={false}
-        style={{ height: "100%", width: "100%", cursor: "crosshair" }}
+        style={{ height: "100%", width: "100%", cursor: pickEnabled ? "crosshair" : "" }}
         attributionControl={false}
     >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <ClickToPick onPick={onPick} />
+        <ClickToPick enabled={pickEnabled} onPick={onPick} />
         <FlyToFocus focus={focus} />
-        {reports.map((report) => (
-            <Marker
-                key={report.id}
-                position={report.position}
-                icon={reportIcon(STATUS_META[report.status].pin, report.id === selectedId)}
-                zIndexOffset={report.id === selectedId ? 500 : 0}
-                eventHandlers={{ click: () => onSelect(report.id) }}
-            />
-        ))}
+        {reports.map((report) =>
+            report.latitude === null || report.longitude === null ? null : (
+                <Marker
+                    key={report.trackingCode}
+                    position={[report.latitude, report.longitude]}
+                    icon={reportIcon(statusMeta(report.status).pin, report.trackingCode === selectedCode)}
+                    zIndexOffset={report.trackingCode === selectedCode ? 500 : 0}
+                    eventHandlers={{ click: () => onSelect(report.trackingCode) }}
+                />
+            )
+        )}
         {draft && <Marker position={draft} icon={draftIcon} zIndexOffset={1000} />}
     </MapContainer>
 )
