@@ -21,8 +21,10 @@ import type { LucideIcon } from "lucide-react"
 import type { ReactNode } from "react"
 import { useState } from "react"
 import { Link } from "react-router"
+import { useBusinessDirectoryStatus } from "../../hooks/useBusinessDirectory"
 import { useIssueReporting } from "../../hooks/useIssueReporting"
 import { announcementsCopy } from "../../i18n/announcementsPage"
+import { businessDirectoryCopy } from "../../i18n/businessDirectory"
 import { useLanguage } from "../../i18n/useLanguage"
 
 type MenuLinkProps = {
@@ -100,6 +102,9 @@ const BottomHeader = () => {
     const [openMobileSection, setOpenMobileSection] = useState<string | null>(null)
     const { lang, setLang, t } = useLanguage()
     const { state: reportingState } = useIssueReporting()
+    // Directory off, unreachable or still loading: no link to it.
+    const { enabled: directoryOpen } = useBusinessDirectoryStatus()
+    const directoryLabel = businessDirectoryCopy[lang].directory.breadcrumb
 
     const closeMobileMenu = () => {
         setIsMobileMenuOpen(false)
@@ -188,9 +193,12 @@ const BottomHeader = () => {
                 <MenuLink className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="/announcements">
                     {announcementsCopy[lang].navLabel}
                 </MenuLink>
-                <MenuLink className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="/explore/history">
-                    {t.nav.history}
-                </MenuLink>
+                {directoryOpen ? (
+                    <MenuLink className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="/community/businesses">
+                        {directoryLabel}
+                    </MenuLink>
+                ) : null}
+               
             </nav>
 
             <div className="flex shrink-0 items-center gap-1.5 xl:gap-2">
@@ -301,6 +309,15 @@ const BottomHeader = () => {
                     >
                         {announcementsCopy[lang].navLabel}
                     </MenuLink>
+                    {directoryOpen ? (
+                        <MenuLink
+                            href="/community/businesses"
+                            onClick={closeMobileMenu}
+                            className="px-3 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-100"
+                        >
+                            {directoryLabel}
+                        </MenuLink>
+                    ) : null}
                     <MenuLink
                         href="/explore/history"
                         onClick={closeMobileMenu}
