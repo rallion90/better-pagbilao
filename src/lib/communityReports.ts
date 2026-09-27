@@ -18,7 +18,7 @@ export type LatLng = [number, number]
 export const PAGBILAO_CENTER: LatLng = [13.9714, 121.6869]
 
 // Loose bounding box around the municipality (includes Pagbilao Grande Island) used to reject pins dropped far away.
-const PAGBILAO_BOUNDS = { south: 13.85, north: 14.08, west: 121.58, east: 121.82 }
+export const PAGBILAO_BOUNDS = { south: 13.85, north: 14.08, west: 121.58, east: 121.82 }
 
 export function isWithinPagbilao([lat, lng]: LatLng) {
     return lat >= PAGBILAO_BOUNDS.south && lat <= PAGBILAO_BOUNDS.north && lng >= PAGBILAO_BOUNDS.west && lng <= PAGBILAO_BOUNDS.east

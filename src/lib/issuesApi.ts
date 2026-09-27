@@ -26,7 +26,8 @@ export class IssueApiError extends Error {
 
 type Envelope<T> = { ok?: boolean; name?: string; data: T; error?: string; message?: string; errors?: Record<string, string[]> }
 
-async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
+/** Shared fetch helper for the community APIs: unwraps the `{ ok, data }` envelope and turns failures into IssueApiError. */
+export async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     let response: Response
     try {
         response = await fetch(`${PG_API_BASE}${path}`, {
@@ -50,7 +51,7 @@ async function request<T>(path: string, init: RequestInit = {}): Promise<T> {
     const message = body?.error ?? body?.message ?? ""
     switch (response.status) {
         case 403:
-            throw new IssueApiError("disabled", message || "Issue reporting is currently turned off.", 403)
+            throw new IssueApiError("disabled", message || "This feature is currently turned off.", 403)
         case 404:
             throw new IssueApiError("not-found", message, 404)
         case 422:
