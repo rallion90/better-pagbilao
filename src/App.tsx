@@ -24,6 +24,10 @@ const CitizensCharterPage = lazy(() => import("./pages/transparency/CitizensChar
 const PermitsAndClearancesPage = lazy(() => import("./pages/transparency/PermitsAndClearancesPage"));
 const CommunityReportingPage = lazy(() => import("./pages/community/CommunityReportingPage"));
 const TrackReportPage = lazy(() => import("./pages/community/TrackReportPage"));
+const BusinessDirectoryLayout = lazy(() => import("./components/community/BusinessDirectoryLayout"));
+const BusinessDirectoryPage = lazy(() => import("./pages/community/BusinessDirectoryPage"));
+const AddBusinessPage = lazy(() => import("./pages/community/AddBusinessPage"));
+const BusinessDetailPage = lazy(() => import("./pages/community/BusinessDetailPage"));
 const BarangayMapPage = lazy(() => import("./pages/explore/BarangayMapPage"));
 const HistoryPage = lazy(() => import("./pages/explore/HistoryPage"));
 const AnnouncementsPage = lazy(() => import("./pages/announcements/AnnouncementsPage"));
@@ -54,6 +58,11 @@ function App() {
             <Route path="/community/report" element={<CommunityReportingPage />} />
             <Route path="/community/track" element={<TrackReportPage />} />
             <Route path="/community/track/:code" element={<TrackReportPage />} />
+            <Route path="/community/businesses" element={<BusinessDirectoryLayout />}>
+              <Route index element={<BusinessDirectoryPage />} />
+              <Route path="add" element={<AddBusinessPage />} />
+              <Route path=":id" element={<BusinessDetailPage />} />
+            </Route>
             <Route path="/explore/history" element={<HistoryPage />} />
             <Route path="/explore/barangays" element={<BarangayMapPage />} />
             <Route path="/explore/gateway-location" element={<GatewayLocationPage />} />
