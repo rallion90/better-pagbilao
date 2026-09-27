@@ -245,11 +245,11 @@ const en: BusinessDirectoryCopy = {
         eyebrow: "Community Directory",
         heading: "Shop local. Find Pagbilao businesses.",
         intro:
-            "A community-built list of stores, food places, farms, services, and online sellers in Pagbilao, Quezon. Listed by the owners themselves, so neighbors and visitors know where to go.",
+            "A community-built list of stores, food places, farms, services, and online sellers in Pagbilao, Quezon. Added by owners, residents, and anyone who knows a local business, so neighbors and visitors know where to go.",
         ctaAdd: "List your business",
         ctaBrowse: "Browse businesses",
         steps: [
-            { title: "Owners submit", body: "Any Pagbilao resident can send in a free listing for their business, big or small." },
+            { title: "Anyone can add", body: "Own a business or know one you like? Anyone can send in a free listing for a Pagbilao business, big or small." },
             { title: "We review", body: "A volunteer checks the details before the listing goes public." },
             { title: "Neighbors find you", body: "Residents and visitors search by barangay or category to find what they need." },
         ],
@@ -288,11 +288,11 @@ const en: BusinessDirectoryCopy = {
         },
     },
     form: {
-        breadcrumb: "List Your Business",
+        breadcrumb: "Add a Business",
         eyebrow: "Community Directory",
-        heading: "List your business in Pagbilao",
+        heading: "Add a business in Pagbilao",
         intro:
-            "Tell us about your business so neighbors and visitors can find you. It's free, and you can be as small as a sari-sari store or a weekend food seller.",
+            "Own a business, or know a favorite local spot? Tell us about it so neighbors and visitors can find it. It's free, and it can be as small as a sari-sari store or a weekend food seller.",
         sections: {
             about: "About your business",
             location: "Where to find you",
@@ -365,7 +365,7 @@ const en: BusinessDirectoryCopy = {
         consent: {
             publish: "I agree that the business details above (except the private contact info I mark) may be shown on the public directory.",
             privacy: "I understand my personal information is handled under the Data Privacy Act of 2012 and used only for this directory.",
-            accurate: "I am the owner or an authorized representative of this business, and the details are accurate.",
+            accurate: "The details I entered are accurate to the best of my knowledge.",
         },
         submit: "Submit for review",
         submitting: "Sending…",
@@ -476,11 +476,11 @@ const tl: BusinessDirectoryCopy = {
         eyebrow: "Direktoryo ng Komunidad",
         heading: "Bumili sa lokal. Hanapin ang mga negosyo sa Pagbilao.",
         intro:
-            "Listahang binuo ng komunidad ng mga tindahan, kainan, sakahan, serbisyo, at online seller sa Pagbilao, Quezon. Ang mga may-ari mismo ang nagpapasok, para alam ng kapitbahay at bisita kung saan pupunta.",
+            "Listahang binuo ng komunidad ng mga tindahan, kainan, sakahan, serbisyo, at online seller sa Pagbilao, Quezon. Idinadagdag ng mga may-ari, residente, at sinumang may alam na lokal na negosyo, para alam ng kapitbahay at bisita kung saan pupunta.",
         ctaAdd: "I-lista ang negosyo mo",
         ctaBrowse: "Tingnan ang mga negosyo",
         steps: [
-            { title: "Magpapasa ang may-ari", body: "Sinumang taga-Pagbilao ay maaaring magpasa ng libreng listing para sa negosyo nila, malaki man o maliit." },
+            { title: "Kahit sino puwedeng magdagdag", body: "May-ari ka man o may alam kang negosyong gusto mo, kahit sino ay puwedeng magpasa ng libreng listing para sa negosyo sa Pagbilao, malaki man o maliit." },
             { title: "Sisiyasatin namin", body: "Titingnan muna ng isang volunteer ang detalye bago ilabas ang listing." },
             { title: "Makikita ka ng kapitbahay", body: "Maghahanap ang mga residente at bisita ayon sa barangay o kategorya." },
         ],
@@ -519,11 +519,11 @@ const tl: BusinessDirectoryCopy = {
         },
     },
     form: {
-        breadcrumb: "I-lista ang Negosyo",
+        breadcrumb: "Magdagdag ng Negosyo",
         eyebrow: "Direktoryo ng Komunidad",
-        heading: "I-lista ang negosyo mo sa Pagbilao",
+        heading: "Magdagdag ng negosyo sa Pagbilao",
         intro:
-            "Ikuwento sa amin ang negosyo mo para mahanap ka ng kapitbahay at bisita. Libre ito, at puwede kahit maliit na sari-sari store o tindahan tuwing weekend.",
+            "May negosyo ka ba, o may alam kang paboritong puwesto? Ikuwento sa amin para mahanap ito ng kapitbahay at bisita. Libre ito, at puwede kahit maliit na sari-sari store o tindahan tuwing weekend.",
         sections: {
             about: "Tungkol sa negosyo",
             location: "Saan ka mahahanap",
@@ -596,7 +596,7 @@ const tl: BusinessDirectoryCopy = {
         consent: {
             publish: "Pumapayag akong ipakita sa public na direktoryo ang detalye ng negosyo sa itaas (maliban sa private na contact info na minarkahan ko).",
             privacy: "Nauunawaan kong ang aking personal na impormasyon ay pinangangasiwaan alinsunod sa Data Privacy Act of 2012 at gagamitin lamang para sa direktoryong ito.",
-            accurate: "Ako ang may-ari o awtorisadong kinatawan ng negosyong ito, at tama ang mga detalye.",
+            accurate: "Sa abot ng aking kaalaman, tama ang mga detalyeng inilagay ko.",
         },
         submit: "Ipasa para masuri",
         submitting: "Ipinapadala…",
