@@ -5,13 +5,16 @@ import './index.css'
 import App from './App.tsx'
 import { LanguageProvider } from './i18n/LanguageContext'
 import { IssueReportingProvider } from './components/community/IssueReportingProvider'
+import { BusinessDirectoryProvider } from './components/community/BusinessDirectoryProvider'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <LanguageProvider>
       <BrowserRouter>
         <IssueReportingProvider>
-          <App />
+          <BusinessDirectoryProvider>
+            <App />
+          </BusinessDirectoryProvider>
         </IssueReportingProvider>
       </BrowserRouter>
     </LanguageProvider>

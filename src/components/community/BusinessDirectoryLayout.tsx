@@ -1,13 +1,14 @@
 import { LoaderCircle, Store } from "lucide-react"
-import { Suspense, useCallback, useEffect, useMemo, useState } from "react"
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { Link, Outlet } from "react-router"
 import PageBreadcrumb from "../common/PageBreadcrumb"
 import { BusinessDirectoryContext } from "../../hooks/businessDirectoryContext"
 import type { BusinessDirectoryContextValue, BusinessDirectoryState } from "../../hooks/businessDirectoryContext"
+import { useBusinessDirectoryStatus } from "../../hooks/useBusinessDirectory"
 import { useSeo } from "../../hooks/useSeo"
 import { businessDirectoryCopy } from "../../i18n/businessDirectory"
 import { useLanguage } from "../../i18n/useLanguage"
-import { getBusinessCategories, getBusinessDirectoryStatus } from "../../lib/businessApi"
+import { getBusinessCategories } from "../../lib/businessApi"
 import { IssueApiError, getBarangayNames } from "../../lib/issuesApi"
 import type { BusinessCategory } from "../../types/businesses"
 
@@ -77,41 +78,26 @@ const Checking = () => {
 }
 
 /**
- * Layout route for every /community/businesses page. Checks GET /business-directory-status when the section is
- * entered and only renders the pages while it says enabled. Pages call markDisabled on any 403 so the whole
- * section swaps to the "paused" screen. Also loads the category and barangay lists all three pages share.
+ * Layout route for every /community/businesses page. Only renders the pages while BusinessDirectoryProvider says
+ * the directory is on. Pages call markDisabled on any 403 so the whole section swaps to the "paused" screen.
+ * Also loads the category and barangay lists all three pages share.
  */
 const BusinessDirectoryLayout = () => {
-    const [state, setState] = useState<BusinessDirectoryState>("loading")
-    const [message, setMessage] = useState<string | null>(null)
-    const [statusRequestId, setStatusRequestId] = useState(0)
+    const status = useBusinessDirectoryStatus()
+    const { state, message, refresh, markDisabled } = status
+
+    // The provider already checks once on app load. If the app was already past that when the directory opened,
+    // check again so a switch flipped by an admin in the meantime is picked up.
+    const stateOnMount = useRef(state)
+    useEffect(() => {
+        if (stateOnMount.current !== "loading") refresh()
+    }, [refresh])
 
     const [categories, setCategories] = useState<BusinessCategory[]>([])
     const [barangays, setBarangays] = useState<string[]>([])
     const [optionsLoading, setOptionsLoading] = useState(true)
     const [optionsFailed, setOptionsFailed] = useState(false)
     const [optionsRequestId, setOptionsRequestId] = useState(0)
-
-    useEffect(() => {
-        const controller = new AbortController()
-
-        getBusinessDirectoryStatus(controller.signal)
-            .then((enabled) => {
-                setMessage(null)
-                setState(enabled ? "enabled" : "disabled")
-            })
-            .catch((error: unknown) => {
-                if (error instanceof DOMException && error.name === "AbortError") return
-                setState("unavailable")
-            })
-
-        return () => controller.abort()
-    }, [statusRequestId])
-
-    const markDisabled = useCallback((next?: string) => {
-        setMessage(next ?? null)
-        setState("disabled")
-    }, [])
 
     const enabled = state === "enabled"
 
@@ -137,10 +123,6 @@ const BusinessDirectoryLayout = () => {
         return () => controller.abort()
     }, [enabled, optionsRequestId, markDisabled])
 
-    const refresh = useCallback(() => {
-        setState("loading")
-        setStatusRequestId((id) => id + 1)
-    }, [])
     const reloadOptions = useCallback(() => {
         setOptionsLoading(true)
         setOptionsRequestId((id) => id + 1)
@@ -148,8 +130,8 @@ const BusinessDirectoryLayout = () => {
     const categoryName = useCallback((slug: string) => categories.find((category) => category.slug === slug)?.name ?? "", [categories])
 
     const value = useMemo<BusinessDirectoryContextValue>(
-        () => ({ state, message, refresh, markDisabled, categories, barangays, optionsLoading, optionsFailed, reloadOptions, categoryName }),
-        [state, message, refresh, markDisabled, categories, barangays, optionsLoading, optionsFailed, reloadOptions, categoryName]
+        () => ({ ...status, categories, barangays, optionsLoading, optionsFailed, reloadOptions, categoryName }),
+        [status, categories, barangays, optionsLoading, optionsFailed, reloadOptions, categoryName]
     )
 
     return (
