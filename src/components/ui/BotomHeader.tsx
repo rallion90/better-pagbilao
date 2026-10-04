@@ -1,23 +1,4 @@
-import {
-    BookOpenCheck,
-    BriefcaseBusiness,
-    ChevronDown,
-    ClipboardCheck,
-    FileDown,
-    FolderDown,
-    HeartPulse,
-    MapPinned,
-    Menu,
-    Route,
-    ShieldAlert,
-    Sprout,
-    UsersRound,
-    Wheat,
-    Scale,
-    ContactRound,
-    X
-} from "lucide-react"
-import type { LucideIcon } from "lucide-react"
+import { ChevronDown, MapPinned, Menu, X } from "lucide-react"
 import type { ReactNode } from "react"
 import { useState } from "react"
 import { Link } from "react-router"
@@ -26,6 +7,7 @@ import { useIssueReporting } from "../../hooks/useIssueReporting"
 import { announcementsCopy } from "../../i18n/announcementsPage"
 import { businessDirectoryCopy } from "../../i18n/businessDirectory"
 import { useLanguage } from "../../i18n/useLanguage"
+import { navMenuMeta } from "../../lib/navMenus"
 
 type MenuLinkProps = {
     href: string
@@ -50,52 +32,6 @@ const MenuLink = ({ href, className, onClick, children }: MenuLinkProps) => {
     )
 }
 
-type NavMenuMeta = {
-    id: string
-    items: {
-        href: string
-        Icon: LucideIcon
-        color: string
-    }[]
-}
-
-const navMenuMeta: NavMenuMeta[] = [
-    {
-        id: "services",
-        items: [
-            { href: "/services/business-and-permits", Icon: BriefcaseBusiness, color: "text-bayan-blue bg-blue-50" },
-            { href: "/services/health-services", Icon: HeartPulse, color: "text-bayan-red bg-red-50" },
-            { href: "/services/disaster-and-safety", Icon: ShieldAlert, color: "text-bayan-green bg-emerald-50" },
-            { href: "/services/agriculture-and-livelihood", Icon: Wheat, color: "text-amber-700 bg-amber-50" },
-            { href: "/services/social-welfare", Icon: UsersRound, color: "text-bayan-blue bg-blue-50" },
-        ],
-    },
-    {
-        id: "government",
-        items: [
-            { href: "/government/legislative-council", Icon: Scale, color: "text-bayan-blue bg-blue-50" },
-            { href: "/government/local-officials-directory", Icon: ContactRound, color: "text-bayan-green bg-emerald-50" },
-        ],
-    },
-    {
-        id: "explore",
-        items: [
-            { href: "/explore/barangays", Icon: MapPinned, color: "text-bayan-blue bg-blue-50" },
-            { href: "/explore/history", Icon: Sprout, color: "text-bayan-green bg-emerald-50" },
-            { href: "/explore/gateway-location", Icon: Route, color: "text-bayan-gold bg-amber-50" },
-        ],
-    },
-    {
-        id: "transparency",
-        items: [
-            { href: "/transparency/ordinances-and-executive-orders", Icon: FileDown, color: "text-bayan-green bg-emerald-50" },
-            { href: "/transparency/procurement", Icon: ClipboardCheck, color: "text-bayan-blue bg-blue-50" },
-            { href: "/transparency/citizens-charter", Icon: BookOpenCheck, color: "text-bayan-red bg-red-50" },
-            { href: "/transparency/permits-and-clearances", Icon: FolderDown, color: "text-amber-700 bg-amber-50" },
-        ],
-    },
-]
-
 const BottomHeader = () => {
     const [openMenu, setOpenMenu] = useState<string | null>(null)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -112,7 +48,7 @@ const BottomHeader = () => {
     }
 
     const navMenus = navMenuMeta.map((menu) => {
-        const text = t.nav.menus[menu.id as keyof typeof t.nav.menus]
+        const text = t.nav.menus[menu.id]
         return {
             ...menu,
             label: text.label,
@@ -155,34 +91,33 @@ const BottomHeader = () => {
                                 <ChevronDown className={`h-4 w-4 transition ${isOpen ? "rotate-180" : ""}`} />
                             </button>
 
-                            {isOpen ? (
-                                <div className="absolute left-1/2 top-full z-50 w-[min(34rem,calc(100vw-2rem))] -translate-x-1/2 pt-3">
-                                    <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft ring-1 ring-slate-900/5">
-                                        <div className="border-b border-slate-200 bg-bayan-mist px-5 py-4">
-                                            <p className="text-xs font-black uppercase tracking-[0.16em] text-bayan-blue">{menu.label}</p>
-                                            <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">{menu.description}</p>
-                                        </div>
-                                        <div className="grid gap-1 p-2 sm:grid-cols-2">
-                                            {menu.items.map(({ label, href, description, Icon, color }) => (
-                                                <MenuLink
-                                                    key={label}
-                                                    href={href}
-                                                    onClick={() => setOpenMenu(null)}
-                                                    className="grid grid-cols-[auto_1fr] gap-3 rounded-md p-3 text-left transition hover:bg-slate-50 focus:bg-slate-50 focus:outline-none"
-                                                >
-                                                    <span className={`grid h-10 w-10 place-items-center rounded-md ${color}`}>
-                                                        <Icon className="h-5 w-5" />
-                                                    </span>
-                                                    <span>
-                                                        <span className="block text-sm font-black text-bayan-ink">{label}</span>
-                                                        <span className="mt-0.5 block text-xs font-semibold leading-5 text-slate-500">{description}</span>
-                                                    </span>
-                                                </MenuLink>
-                                            ))}
-                                        </div>
+                            {/* Closed menus stay in the page, hidden, so crawlers can follow their links. */}
+                            <div className={`absolute left-1/2 top-full z-50 w-[min(34rem,calc(100vw-2rem))] -translate-x-1/2 pt-3 ${isOpen ? "" : "hidden"}`}>
+                                <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft ring-1 ring-slate-900/5">
+                                    <div className="border-b border-slate-200 bg-bayan-mist px-5 py-4">
+                                        <p className="text-xs font-black uppercase tracking-[0.16em] text-bayan-blue">{menu.label}</p>
+                                        <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">{menu.description}</p>
+                                    </div>
+                                    <div className="grid gap-1 p-2 sm:grid-cols-2">
+                                        {menu.items.map(({ label, href, description, Icon, color }) => (
+                                            <MenuLink
+                                                key={label}
+                                                href={href}
+                                                onClick={() => setOpenMenu(null)}
+                                                className="grid grid-cols-[auto_1fr] gap-3 rounded-md p-3 text-left transition hover:bg-slate-50 focus:bg-slate-50 focus:outline-none"
+                                            >
+                                                <span className={`grid h-10 w-10 place-items-center rounded-md ${color}`}>
+                                                    <Icon className="h-5 w-5" />
+                                                </span>
+                                                <span>
+                                                    <span className="block text-sm font-black text-bayan-ink">{label}</span>
+                                                    <span className="mt-0.5 block text-xs font-semibold leading-5 text-slate-500">{description}</span>
+                                                </span>
+                                            </MenuLink>
+                                        ))}
                                     </div>
                                 </div>
-                            ) : null}
+                            </div>
                         </div>
                     )
                 })}

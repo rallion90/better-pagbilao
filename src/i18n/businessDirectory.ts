@@ -40,6 +40,8 @@ export interface BusinessDirectoryCopy {
         ctaHeading: string
         ctaBody: string
         ctaButton: string
+        relatedHeading: (category: string) => string
+        relatedFallbackHeading: string
     }
     directory: {
         breadcrumb: string
@@ -239,6 +241,8 @@ const en: BusinessDirectoryCopy = {
         ctaHeading: "Have a business like this?",
         ctaBody: "Listing takes about five minutes and costs nothing.",
         ctaButton: "List your business",
+        relatedHeading: (category) => `More ${category} in Pagbilao`,
+        relatedFallbackHeading: "More businesses in Pagbilao",
     },
     directory: {
         breadcrumb: "Local Businesses",
@@ -470,6 +474,8 @@ const tl: BusinessDirectoryCopy = {
         ctaHeading: "May negosyo ka rin ba tulad nito?",
         ctaBody: "Limang minuto lang ang pag-lista at libre ito.",
         ctaButton: "I-lista ang negosyo mo",
+        relatedHeading: (category) => `Iba pang ${category} sa Pagbilao`,
+        relatedFallbackHeading: "Iba pang negosyo sa Pagbilao",
     },
     directory: {
         breadcrumb: "Mga Negosyo sa Bayan",

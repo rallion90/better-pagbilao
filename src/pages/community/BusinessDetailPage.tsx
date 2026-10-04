@@ -5,17 +5,20 @@ import { Link, useParams } from "react-router"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
 import { useBusiness } from "../../hooks/useBusiness"
 import { useBusinessDirectory } from "../../hooks/useBusinessDirectory"
+import { useBusinessList } from "../../hooks/useBusinessList"
 import { useSeo } from "../../hooks/useSeo"
 import { businessDirectoryCopy } from "../../i18n/businessDirectory"
 import { useLanguage } from "../../i18n/useLanguage"
 import { businessPosition, onlineHref, telHref } from "../../lib/businessApi"
 import { businessCategoryMeta, categorySchemaType } from "../../lib/businessCategories"
+import type { Business } from "../../types/businesses"
 
 const BusinessMap = lazy(() => import("../../components/community/BusinessMap"))
 
 const SITE_URL = "https://betterpagbilao.org"
 const DIRECTORY_PATH = "/community/businesses"
 const ADD_PATH = "/community/businesses/add"
+const RELATED_LIMIT = 6
 
 /** Dark hero used for the loading, error and not-found states. */
 const StatusHero = ({ icon, heading, body, children }: { icon: ReactNode; heading: string; body?: string; children?: ReactNode }) => {
@@ -39,6 +42,54 @@ const StatusHero = ({ icon, heading, body, children }: { icon: ReactNode; headin
                         </Link>
                     </div>
                 </div>
+            </div>
+        </section>
+    )
+}
+
+/** Other listings in the same category. Gives every business page links to its neighbors, for visitors and crawlers alike. */
+const RelatedBusinesses = ({ business, categoryLabel }: { business: Business; categoryLabel: string }) => {
+    const { lang } = useLanguage()
+    const copy = businessDirectoryCopy[lang].detail
+    const { businesses } = useBusinessList({ q: "", category: business.category, barangay: "", page: 1 })
+    const related = businesses.filter((other) => other.id !== business.id && other.category === business.category).slice(0, RELATED_LIMIT)
+
+    if (related.length === 0) return null
+
+    return (
+        <section className="bg-bayan-mist py-14 sm:py-16">
+            <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
+                <h2 className="text-2xl font-black sm:text-3xl">{categoryLabel ? copy.relatedHeading(categoryLabel) : copy.relatedFallbackHeading}</h2>
+                <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {related.map((other) => {
+                        const { Icon, color } = businessCategoryMeta(other.category)
+                        return (
+                            <li key={other.id}>
+                                <Link
+                                    to={`${DIRECTORY_PATH}/${other.id}`}
+                                    className="flex h-full items-start gap-4 rounded-lg border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-soft"
+                                >
+                                    {other.logoUrl ? (
+                                        <img src={other.logoUrl} alt="" loading="lazy" className="h-11 w-11 shrink-0 rounded-md object-cover ring-1 ring-slate-200" />
+                                    ) : (
+                                        <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-md ${color}`}>
+                                            <Icon className="h-5 w-5" />
+                                        </span>
+                                    )}
+                                    <span className="min-w-0">
+                                        <span className="block text-base font-black leading-6 text-bayan-ink">{other.name}</span>
+                                        <span className="mt-1 flex items-start gap-1.5 text-xs font-bold text-slate-500">
+                                            <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                                            <span>
+                                                {other.barangay} · {other.address}
+                                            </span>
+                                        </span>
+                                    </span>
+                                </Link>
+                            </li>
+                        )
+                    })}
+                </ul>
             </div>
         </section>
     )
@@ -258,6 +309,8 @@ const BusinessDetailPage = () => {
                     </div>
                 </div>
             </section>
+
+            <RelatedBusinesses business={business} categoryLabel={category} />
 
             <section className="bg-bayan-ink py-14 text-white sm:py-16">
                 <div className="mx-auto grid max-w-[1600px] gap-8 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:items-center lg:px-8">
