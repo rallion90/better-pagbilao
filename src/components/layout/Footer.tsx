@@ -5,9 +5,14 @@ import {
     HandHeart,
     HeartPulse
 } from "lucide-react"
+import { Link } from "react-router"
+import { useBusinessDirectoryStatus } from "../../hooks/useBusinessDirectory"
+import { announcementsCopy } from "../../i18n/announcementsPage"
+import { businessDirectoryCopy } from "../../i18n/businessDirectory"
 import { useLanguage } from "../../i18n/useLanguage"
+import { navMenuMeta } from "../../lib/navMenus"
 
-const quickLinkHrefs = ["#", "#", "#transparency", "#", "#", "#", "#"]
+const quickLinkHrefs = ["#", "#", "/transparency/citizens-charter", "#", "#", "#", "#"]
 const resourceHrefs = [
     "https://data.gov.ph/",
     "https://www.foi.gov.ph/",
@@ -22,7 +27,26 @@ const supportMarkIcons = [Accessibility, HeartPulse, HandHeart]
 const supportMarkLabels = ["Abakada", "HIV Care PH", "BetterGov.ph"]
 
 const Footer = () => {
-    const { t } = useLanguage()
+    const { lang, t } = useLanguage()
+    const { enabled: directoryOpen } = useBusinessDirectoryStatus()
+    const directoryCopy = businessDirectoryCopy[lang]
+
+    // Every main page, linked from every page: this is how visitors and search engines reach pages
+    // that sit inside the header dropdowns.
+    const siteLinkGroups = [
+        ...navMenuMeta.map((menu) => {
+            const text = t.nav.menus[menu.id]
+            return { heading: text.label, links: menu.items.map((item, index) => ({ href: item.href, label: text.items[index].label })) }
+        }),
+        {
+            heading: directoryCopy.breadcrumbCommunity,
+            links: [
+                { href: "/hotlines", label: t.nav.hotlines },
+                { href: "/announcements", label: announcementsCopy[lang].navLabel },
+                ...(directoryOpen ? [{ href: "/community/businesses", label: directoryCopy.directory.breadcrumb }] : []),
+            ],
+        },
+    ]
 
     return (
         <footer className="bg-[#111111] text-white">
@@ -101,7 +125,24 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="mt-20 flex flex-col gap-5 border-t border-white/10 pt-10 text-sm font-semibold text-white/48 md:flex-row md:items-center md:justify-between">
+                <nav aria-label="Site pages" className="mt-16 grid gap-x-10 gap-y-10 border-t border-white/10 pt-12 sm:grid-cols-2 lg:grid-cols-5">
+                    {siteLinkGroups.map((group) => (
+                        <div key={group.heading}>
+                            <h2 className="text-sm font-black uppercase tracking-[0.16em] text-white/52">{group.heading}</h2>
+                            <ul className="mt-5 space-y-3 text-sm font-semibold text-white/72">
+                                {group.links.map((link) => (
+                                    <li key={link.href}>
+                                        <Link to={link.href} className="transition hover:text-white">
+                                            {link.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </nav>
+
+                <div className="mt-16 flex flex-col gap-5 border-t border-white/10 pt-10 text-sm font-semibold text-white/48 md:flex-row md:items-center md:justify-between">
                     <p>{t.footer.copyright}</p>
                     <p className="inline-flex items-center gap-2">
                         <Boxes className="h-5 w-5" />

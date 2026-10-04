@@ -140,11 +140,14 @@ const BusinessDirectoryPage = () => {
         }
     }, [list.loading, pagination, currentPage, updateParams])
 
+    // Each unfiltered page is its own indexable URL, so the listings past page 1 can be crawled.
+    const paged = currentPage > 1 && !hasFilters
+
     useSeo({
-        title: `${page.breadcrumb} | Better Pagbilao`,
+        title: `${page.breadcrumb}${paged ? `, page ${currentPage}` : ""} | Better Pagbilao`,
         description:
             "Community directory of local businesses in Pagbilao, Quezon: stores, food, farms, services, and online sellers listed by their owners.",
-        path: PAGE_PATH,
+        path: paged ? `${PAGE_PATH}?page=${currentPage}` : PAGE_PATH,
         jsonLd:
             businesses.length > 0
                 ? {
@@ -160,10 +163,20 @@ const BusinessDirectoryPage = () => {
                 : undefined,
     })
 
-    const goToPage = (next: number) => {
-        updateParams({ page: next > 1 ? String(next) : "" })
+    /** Same filters, another page. Real links (not buttons) so crawlers can walk the whole directory. */
+    const pageHref = (target: number) => {
+        const next = new URLSearchParams(searchParams)
+        if (target > 1) next.set("page", String(target))
+        else next.delete("page")
+        const search = next.toString()
+        return { pathname: PAGE_PATH, search: search ? `?${search}` : "" }
+    }
+
+    const scrollToList = () => {
         document.getElementById("businesses")?.scrollIntoView({ behavior: "smooth", block: "start" })
     }
+
+    const pageLinkClass = "inline-flex items-center gap-2 rounded-md bg-bayan-mist px-4 py-2.5 text-sm font-black text-bayan-blue ring-1 ring-slate-200"
 
     const clearFilters = () => {
         setQuery("")
@@ -327,25 +340,27 @@ const BusinessDirectoryPage = () => {
 
                                 {pagination && pagination.lastPage > 1 && (
                                     <nav aria-label={page.pagination.label} className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                                        <button
-                                            type="button"
-                                            onClick={() => goToPage(pagination.page - 1)}
-                                            disabled={pagination.page <= 1 || list.loading}
-                                            className="inline-flex items-center gap-2 rounded-md bg-bayan-mist px-4 py-2.5 text-sm font-black text-bayan-blue ring-1 ring-slate-200 transition hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-50"
-                                        >
-                                            <ArrowLeft className="h-4 w-4" /> {page.pagination.previous}
-                                        </button>
+                                        {pagination.page > 1 ? (
+                                            <Link to={pageHref(pagination.page - 1)} preventScrollReset onClick={scrollToList} className={`${pageLinkClass} transition hover:bg-blue-50`}>
+                                                <ArrowLeft className="h-4 w-4" /> {page.pagination.previous}
+                                            </Link>
+                                        ) : (
+                                            <span aria-disabled="true" className={`${pageLinkClass} cursor-not-allowed opacity-50`}>
+                                                <ArrowLeft className="h-4 w-4" /> {page.pagination.previous}
+                                            </span>
+                                        )}
                                         <p className="text-sm font-bold text-slate-600" aria-current="page">
                                             {page.pagination.page(pagination.page, pagination.lastPage)}
                                         </p>
-                                        <button
-                                            type="button"
-                                            onClick={() => goToPage(pagination.page + 1)}
-                                            disabled={pagination.page >= pagination.lastPage || list.loading}
-                                            className="inline-flex items-center gap-2 rounded-md bg-bayan-mist px-4 py-2.5 text-sm font-black text-bayan-blue ring-1 ring-slate-200 transition hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-50"
-                                        >
-                                            {page.pagination.next} <ArrowRight className="h-4 w-4" />
-                                        </button>
+                                        {pagination.page < pagination.lastPage ? (
+                                            <Link to={pageHref(pagination.page + 1)} preventScrollReset onClick={scrollToList} className={`${pageLinkClass} transition hover:bg-blue-50`}>
+                                                {page.pagination.next} <ArrowRight className="h-4 w-4" />
+                                            </Link>
+                                        ) : (
+                                            <span aria-disabled="true" className={`${pageLinkClass} cursor-not-allowed opacity-50`}>
+                                                {page.pagination.next} <ArrowRight className="h-4 w-4" />
+                                            </span>
+                                        )}
                                     </nav>
                                 )}
                             </>
