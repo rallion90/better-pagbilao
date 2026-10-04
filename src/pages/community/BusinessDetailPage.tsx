@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react"
 import type { ReactNode } from "react"
 import { Link, useParams } from "react-router"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import ShareButton from "../../components/common/ShareButton"
 import { useBusiness } from "../../hooks/useBusiness"
 import { useBusinessDirectory } from "../../hooks/useBusinessDirectory"
 import { useBusinessList } from "../../hooks/useBusinessList"
@@ -195,28 +196,24 @@ const BusinessDetailPage = () => {
                         </div>
                     </div>
                     <p className="mt-5 max-w-2xl whitespace-pre-line text-base leading-8 text-white/76">{business.description}</p>
-                    {(callHref || business.online) && (
-                        <div className="mt-5 flex flex-wrap items-center gap-3">
-                            {callHref && (
-                                <a
-                                    href={callHref}
-                                    className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-black text-bayan-ink shadow-soft"
-                                >
-                                    <PhoneCall className="h-4 w-4 text-bayan-blue" /> {business.phone}
-                                </a>
-                            )}
-                            {business.online && (
-                                <a
-                                    href={onlineHref(business.online)}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-md bg-white/10 px-4 py-2 text-sm font-bold text-white ring-1 ring-white/20 transition hover:bg-white/16"
-                                >
-                                    <Globe className="h-4 w-4" /> {copy.detail.online}
-                                </a>
-                            )}
-                        </div>
-                    )}
+                    <div className="mt-5 flex flex-wrap items-center gap-3">
+                        {callHref && (
+                            <a href={callHref} className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-black text-bayan-ink shadow-soft">
+                                <PhoneCall className="h-4 w-4 text-bayan-blue" /> {business.phone}
+                            </a>
+                        )}
+                        {business.online && (
+                            <a
+                                href={onlineHref(business.online)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 rounded-md bg-white/10 px-4 py-2 text-sm font-bold text-white ring-1 ring-white/20 transition hover:bg-white/16"
+                            >
+                                <Globe className="h-4 w-4" /> {copy.detail.online}
+                            </a>
+                        )}
+                        <ShareButton title={`${business.name}, Barangay ${business.barangay}, Pagbilao`} path={canonicalPath} />
+                    </div>
                 </div>
             </section>
 
