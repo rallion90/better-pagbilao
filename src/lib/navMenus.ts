@@ -7,6 +7,7 @@ import {
     FolderDown,
     HeartPulse,
     MapPinned,
+    Palmtree,
     Route,
     Scale,
     ShieldAlert,
@@ -25,8 +26,15 @@ export type NavMenuMeta = {
     }[]
 }
 
-// Labels and descriptions live in the translations (t.nav.menus), matched to these items by index.
+// In display order. Labels and descriptions live in the translations (t.nav.menus), matched to these items by index.
 export const navMenuMeta: NavMenuMeta[] = [
+    {
+        id: "government",
+        items: [
+            { href: "/government/legislative-council", Icon: Scale, color: "text-bayan-blue bg-blue-50" },
+            { href: "/government/local-officials-directory", Icon: ContactRound, color: "text-bayan-green bg-emerald-50" },
+        ],
+    },
     {
         id: "services",
         items: [
@@ -38,10 +46,12 @@ export const navMenuMeta: NavMenuMeta[] = [
         ],
     },
     {
-        id: "government",
+        id: "transparency",
         items: [
-            { href: "/government/legislative-council", Icon: Scale, color: "text-bayan-blue bg-blue-50" },
-            { href: "/government/local-officials-directory", Icon: ContactRound, color: "text-bayan-green bg-emerald-50" },
+            { href: "/transparency/ordinances-and-executive-orders", Icon: FileDown, color: "text-bayan-green bg-emerald-50" },
+            { href: "/transparency/procurement", Icon: ClipboardCheck, color: "text-bayan-blue bg-blue-50" },
+            { href: "/transparency/citizens-charter", Icon: BookOpenCheck, color: "text-bayan-red bg-red-50" },
+            { href: "/transparency/permits-and-clearances", Icon: FolderDown, color: "text-amber-700 bg-amber-50" },
         ],
     },
     {
@@ -50,15 +60,7 @@ export const navMenuMeta: NavMenuMeta[] = [
             { href: "/explore/barangays", Icon: MapPinned, color: "text-bayan-blue bg-blue-50" },
             { href: "/explore/history", Icon: Sprout, color: "text-bayan-green bg-emerald-50" },
             { href: "/explore/gateway-location", Icon: Route, color: "text-bayan-gold bg-amber-50" },
-        ],
-    },
-    {
-        id: "transparency",
-        items: [
-            { href: "/transparency/ordinances-and-executive-orders", Icon: FileDown, color: "text-bayan-green bg-emerald-50" },
-            { href: "/transparency/procurement", Icon: ClipboardCheck, color: "text-bayan-blue bg-blue-50" },
-            { href: "/transparency/citizens-charter", Icon: BookOpenCheck, color: "text-bayan-red bg-red-50" },
-            { href: "/transparency/permits-and-clearances", Icon: FolderDown, color: "text-amber-700 bg-amber-50" },
+            { href: "/explore/tourist-destinations", Icon: Palmtree, color: "text-bayan-red bg-red-50" },
         ],
     },
 ]

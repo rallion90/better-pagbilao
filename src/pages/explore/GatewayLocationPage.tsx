@@ -16,6 +16,7 @@ import { useNearbyPlaces } from "../../hooks/useNearbyPlaces"
 import { useTouristDestinations } from "../../hooks/useTouristDestinations"
 import { useSeo } from "../../hooks/useSeo"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import { Link } from "react-router"
 
 const PAGE_PATH = "/explore/gateway-location"
 
@@ -261,6 +262,9 @@ const GatewayLocationPage = () => {
                                 </article>
                             )}
                         </div>
+                        <Link to="/explore/tourist-destinations" className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-bayan-blue hover:underline">
+                            {t.home.tourism.viewAll} →
+                        </Link>
                     </div>
                 </section>
             )}

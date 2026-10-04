@@ -1,10 +1,9 @@
-import { ChevronDown, MapPinned, Menu, X } from "lucide-react"
+import { ChevronDown, MapPinned, Menu, PhoneCall, X } from "lucide-react"
 import type { ReactNode } from "react"
 import { useState } from "react"
 import { Link } from "react-router"
 import { useBusinessDirectoryStatus } from "../../hooks/useBusinessDirectory"
 import { useIssueReporting } from "../../hooks/useIssueReporting"
-import { announcementsCopy } from "../../i18n/announcementsPage"
 import { businessDirectoryCopy } from "../../i18n/businessDirectory"
 import { useLanguage } from "../../i18n/useLanguage"
 import { navMenuMeta } from "../../lib/navMenus"
@@ -61,19 +60,23 @@ const BottomHeader = () => {
         }
     })
 
+    // Labels never wrap; type and spacing tighten below 2xl so the longer Tagalog labels still fit on one line on a laptop.
+    const navItemClass = "inline-flex items-center whitespace-nowrap rounded-md px-2 py-2 text-[13px] 2xl:px-2.5 2xl:text-sm"
+    const navLinkClass = `${navItemClass} gap-2 font-semibold text-slate-700 hover:bg-slate-100`
+
     return (
         <>
         <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-3 px-4 py-2 sm:gap-4 sm:px-6 2xl:px-8">
             <a href="/" className="flex min-w-0 shrink-0 items-center gap-4" aria-label="Better Pagbilao home">
-                <span className="flex h-11 shrink-0 items-center py-1 sm:h-14 xl:h-16">
+                <span className="flex h-11 shrink-0 items-center py-1 sm:h-14 xl:h-12 2xl:h-16">
                     <img src="/betterpagbilao_logo.svg" alt="Better Pagbilao" className="h-full w-auto object-contain drop-shadow-sm" />
                 </span>
             </a>
 
-            <nav className="hidden items-center gap-1 xl:flex" aria-label="Main navigation" onMouseLeave={() => setOpenMenu(null)}>
-                <a className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="/">
+            <nav className="hidden items-center xl:flex 2xl:gap-1" aria-label="Main navigation" onMouseLeave={() => setOpenMenu(null)}>
+                <MenuLink className={navLinkClass} href="/">
                     {t.nav.home}
-                </a>
+                </MenuLink>
                 {navMenus.map((menu) => {
                     const isOpen = openMenu === menu.id
 
@@ -81,7 +84,7 @@ const BottomHeader = () => {
                         <div key={menu.id} className="relative" onMouseEnter={() => setOpenMenu(menu.id)}>
                             <button
                                 type="button"
-                                className={`inline-flex items-center gap-1 rounded-md px-2.5 py-2 text-sm font-semibold transition ${isOpen ? "bg-slate-100 text-bayan-ink" : "text-slate-700 hover:bg-slate-100"}`}
+                                className={`${navItemClass} gap-1 font-semibold transition ${isOpen ? "bg-slate-100 text-bayan-ink" : "text-slate-700 hover:bg-slate-100"}`}
                                 aria-expanded={isOpen}
                                 aria-haspopup="true"
                                 onClick={() => setOpenMenu(isOpen ? null : menu.id)}
@@ -122,17 +125,18 @@ const BottomHeader = () => {
                     )
                 })}
 
-                <MenuLink className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="/hotlines">
-                    {t.nav.hotlines}
-                </MenuLink>
-                <MenuLink className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="/announcements">
-                    {announcementsCopy[lang].navLabel}
-                </MenuLink>
                 {directoryOpen ? (
-                    <MenuLink className="inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100" href="/community/businesses">
+                    <MenuLink className={navLinkClass} href="/community/businesses">
                         {directoryLabel}
                     </MenuLink>
                 ) : null}
+
+                {/* Emergency numbers sit apart from the page links so they are easy to spot. */}
+                <span className="mx-1 h-5 w-px shrink-0 bg-slate-200 2xl:mx-1.5" aria-hidden="true" />
+                <MenuLink className={`${navItemClass} gap-1.5 font-bold text-bayan-red hover:bg-red-50`} href="/hotlines">
+                    <PhoneCall className="h-4 w-4 shrink-0" />
+                    {t.nav.hotlines}
+                </MenuLink>
                
             </nav>
 
@@ -144,7 +148,8 @@ const BottomHeader = () => {
                         onClick={() => setLang("en")}
                         className={`rounded px-2.5 py-1.5 text-xs font-black transition ${lang === "en" ? "bg-bayan-blue text-white shadow-sm" : "text-slate-600 hover:text-bayan-ink"}`}
                     >
-                        English
+                        <span className="2xl:hidden" aria-hidden="true">EN</span>
+                        <span className="sr-only 2xl:not-sr-only">English</span>
                     </button>
                     <button
                         type="button"
@@ -152,7 +157,8 @@ const BottomHeader = () => {
                         onClick={() => setLang("tl")}
                         className={`rounded px-2.5 py-1.5 text-xs font-black transition ${lang === "tl" ? "bg-bayan-blue text-white shadow-sm" : "text-slate-600 hover:text-bayan-ink"}`}
                     >
-                        Tagalog
+                        <span className="2xl:hidden" aria-hidden="true">TL</span>
+                        <span className="sr-only 2xl:not-sr-only">Tagalog</span>
                     </button>
                 </div>
                 {reportingState === "enabled" ? (
@@ -161,7 +167,7 @@ const BottomHeader = () => {
                         className="inline-flex items-center gap-2 rounded-md bg-bayan-blue px-3 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-blue-700 xl:px-4"
                     >
                         <MapPinned className="h-4 w-4" />
-                        <span className="hidden sm:inline">{t.nav.report}</span>
+                        <span className="hidden sm:inline xl:hidden 2xl:inline">{t.nav.report}</span>
                     </MenuLink>
                 ) : null /* reporting off, unreachable or still loading: no report or track link */}
 
@@ -183,13 +189,13 @@ const BottomHeader = () => {
         {isMobileMenuOpen ? (
             <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-slate-200 bg-white px-4 py-4 sm:px-6 xl:hidden">
                 <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
-                    <a
-                        href="#home"
+                    <MenuLink
+                        href="/"
                         onClick={closeMobileMenu}
                         className="rounded-md px-3 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-100"
                     >
                         {t.nav.home}
-                    </a>
+                    </MenuLink>
 
                     {navMenus.map((menu) => {
                         const isSectionOpen = openMobileSection === menu.id
@@ -230,35 +236,22 @@ const BottomHeader = () => {
                         )
                     })}
 
-                    <MenuLink
-                        href="/hotlines"
-                        onClick={closeMobileMenu}
-                        className="border-t border-slate-100 px-3 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-100"
-                    >
-                        {t.nav.hotlines}
-                    </MenuLink>
-                    <MenuLink
-                        href="/announcements"
-                        onClick={closeMobileMenu}
-                        className="px-3 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-100"
-                    >
-                        {announcementsCopy[lang].navLabel}
-                    </MenuLink>
                     {directoryOpen ? (
                         <MenuLink
                             href="/community/businesses"
                             onClick={closeMobileMenu}
-                            className="px-3 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-100"
+                            className="border-t border-slate-100 px-3 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-100"
                         >
                             {directoryLabel}
                         </MenuLink>
                     ) : null}
                     <MenuLink
-                        href="/explore/history"
+                        href="/hotlines"
                         onClick={closeMobileMenu}
-                        className="px-3 py-2.5 text-sm font-black text-slate-700 hover:bg-slate-100"
+                        className="flex items-center gap-2 border-t border-slate-100 px-3 py-2.5 text-sm font-black text-bayan-red hover:bg-red-50"
                     >
-                        {t.nav.history}
+                        <PhoneCall className="h-4 w-4" />
+                        {t.nav.hotlines}
                     </MenuLink>
                 </nav>
 

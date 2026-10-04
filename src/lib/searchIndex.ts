@@ -4,7 +4,8 @@ import type { PublicOfficesData } from "../types/publicOffices"
 import type { EmergencyDirectory } from "../types/emergencyDirectory"
 import type { FormsAndDocumentsData } from "../types/formsAndDocuments"
 import type { ServicesData, ServiceCategory } from "../types/services"
-import type { TouristDestinationsData } from "../types/touristDestinations"
+import { DESTINATIONS_PATH, FALLBACK_GUIDE } from "../data/touristDestinations"
+import { loadTouristGuide } from "../hooks/useTouristGuide"
 
 export type SearchItem = {
   id: string
@@ -26,6 +27,7 @@ const STATIC_PAGES: SearchItem[] = [
   { id: "page-business", title: "Business and Permits", subtitle: "Business registration and permits", category: "Page", path: "/services/business-and-permits" },
   { id: "page-hotlines", title: "Hotlines", subtitle: "Emergency numbers and public offices", category: "Page", path: "/hotlines" },
   { id: "page-gateway", title: "Gateway Location", subtitle: "Geography, nearby places, tourism", category: "Page", path: "/explore/gateway-location" },
+  { id: "page-destinations", title: "Tourist Destinations", subtitle: "Islands, beaches, falls, heritage sites", category: "Page", path: DESTINATIONS_PATH },
   { id: "page-ordinances", title: "Ordinances and Executive Orders", subtitle: "Legislative issuances", category: "Page", path: "/transparency/ordinances-and-executive-orders" },
   { id: "page-procurement", title: "Procurement", subtitle: "Bids and procurement notices", category: "Page", path: "/transparency/procurement" },
   { id: "page-citizens-charter", title: "Citizen's Charter", subtitle: "Service standards and requirements", category: "Page", path: "/transparency/citizens-charter" },
@@ -62,13 +64,13 @@ export function loadSearchIndex(): Promise<SearchItem[]> {
 }
 
 async function buildSearchIndex(): Promise<SearchItem[]> {
-  const [governance, publicOffices, emergency, forms, services, destinations] = await Promise.all([
+  const [governance, publicOffices, emergency, forms, services, guide] = await Promise.all([
     fetchPgApi<GovernanceData>(pgApiEndpoints.core.governance),
     fetchPgApi<PublicOfficesData>(pgApiEndpoints.core.publicOffices),
     fetchPgApi<EmergencyDirectory>(pgApiEndpoints.core.emergencyDirectory),
     fetchPgApi<FormsAndDocumentsData>(pgApiEndpoints.core.formsAndDocuments),
     fetchPgApi<ServicesData>(pgApiEndpoints.core.services),
-    fetchPgApi<TouristDestinationsData>(pgApiEndpoints.tourism.touristDestinations),
+    loadTouristGuide().catch(() => FALLBACK_GUIDE),
   ])
 
   const items: SearchItem[] = [...STATIC_PAGES]
@@ -103,13 +105,13 @@ async function buildSearchIndex(): Promise<SearchItem[]> {
     })
   })
 
-  destinations.destinations.forEach((destination) => {
+  guide.spots.forEach((spot) => {
     items.push({
-      id: `destination-${destination.id}`,
-      title: destination.name,
-      subtitle: destination.barangay ?? "Tourist destination",
+      id: `destination-${spot.slug}`,
+      title: spot.name,
+      subtitle: spot.area ?? "Tourist destination",
       category: "Tourist Spot",
-      path: "/explore/gateway-location",
+      path: `${DESTINATIONS_PATH}/${spot.slug}`,
     })
   })
 

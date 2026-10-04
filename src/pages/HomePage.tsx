@@ -42,7 +42,7 @@ const SERVICE_LINK_HREFS = [
     "/services/disaster-and-safety",
     "/services/agriculture-and-livelihood",
     "/services/social-welfare",
-    "#tourism",
+    "/explore/tourist-destinations",
 ]
 
 const IDENTITY_ICONS = [Route, Waves, HandHeart]
@@ -217,6 +217,12 @@ const HomePage = () => {
                                     <p className="mt-1 text-sm text-slate-600">{t.home.tourism.feedback.description}</p>
                                 </div>
                             </div>
+                            <Link
+                                to="/explore/tourist-destinations"
+                                className="mt-7 inline-flex items-center gap-2 rounded-md bg-bayan-blue px-5 py-3 text-sm font-black text-white transition hover:bg-blue-700"
+                            >
+                                {t.home.tourism.viewAll} <ArrowRight className="h-4 w-4" />
+                            </Link>
                         </div>
                     </div>
                 </div>

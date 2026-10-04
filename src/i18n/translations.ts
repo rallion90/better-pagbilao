@@ -123,6 +123,7 @@ export interface Translations {
             paragraph: string
             destinations: TextCard
             feedback: TextCard
+            viewAll: string
         }
         hotlines: {
             eyebrow: string
@@ -323,6 +324,7 @@ const en: Translations = {
                     { label: "Barangay Map", description: "View all 27 barangays with local profile details." },
                     { label: "History of Pagbilao", description: "Read the papag and bilao origin story." },
                     { label: "Gateway Location", description: "Bay, highway, and upland community context." },
+                    { label: "Tourist Destinations", description: "Islands, beaches, falls, and heritage sites." },
                 ],
             },
             transparency: {
@@ -428,6 +430,7 @@ const en: Translations = {
                 "Pagbilao's tourism identity covers bodies of water, land formations, protected areas, cultural built heritage, institutions, and festivities. A better portal can connect residents and visitors to destinations, directories, registration, and feedback.",
             destinations: { title: "Destinations", description: "Beaches, falls, protected areas, and cultural stops." },
             feedback: { title: "Feedback", description: "Tourism registration and visitor survey pathways." },
+            viewAll: "See all tourist destinations",
         },
         hotlines: {
             eyebrow: "Emergency Hotlines",
@@ -737,6 +740,7 @@ const tl: Translations = {
                     { label: "Mapa ng Barangay", description: "Tingnan ang profile ng lahat ng 27 barangay." },
                     { label: "Kasaysayan ng Pagbilao", description: "Basahin ang kwento ng papag at bilao." },
                     { label: "Gateway na Lokasyon", description: "Konteksto ng baybayin, highway, at kabundukan." },
+                    { label: "Mga Destinasyong Panturista", description: "Mga isla, dalampasigan, talon, at pamanang pook." },
                 ],
             },
             transparency: {
@@ -842,6 +846,7 @@ const tl: Translations = {
                 "Saklaw ng identidad pang-turismo ng Pagbilao ang mga katubigan, anyong-lupa, protektadong lugar, kultural na pamana, institusyon, at pagdiriwang. Ang mas magandang portal ay maaaring iugnay ang mga residente at bisita sa mga destinasyon, direktoryo, pagpaparehistro, at feedback.",
             destinations: { title: "Mga Destinasyon", description: "Mga dalampasigan, talon, protektadong lugar, at kultural na himpilan." },
             feedback: { title: "Feedback", description: "Pagpaparehistro sa turismo at survey ng bisita." },
+            viewAll: "Tingnan ang lahat ng destinasyong panturista",
         },
         hotlines: {
             eyebrow: "Mga Emergency Hotline",

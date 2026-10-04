@@ -32,7 +32,7 @@ export interface Business {
     address: string
     /** Free text, display as-is */
     hours: string | null
-    /** Free text, may hold more than one number */
+    /** Free text: may hold more than one number, or placeholder text ("Not available") when there is none. Use telHref(). */
     phone: string
     /** "facebook.com/..." or a full URL */
     online: string | null

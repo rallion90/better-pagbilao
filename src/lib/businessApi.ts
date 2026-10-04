@@ -65,10 +65,20 @@ export function onlineHref(online: string): string {
     return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed.replace(/^\/+/, "")}`
 }
 
-export function telHref(phone: string): string {
-    // `phone` may hold several numbers ("0912 345 6789 / 042 123 4567"); dial the first.
-    const first = phone.split(/[/,;]| or /i)[0] ?? phone
-    return `tel:${first.replace(/[^0-9+]/g, "")}`
+// Shortest thing worth dialing: a local landline number without its area code.
+const MIN_PHONE_DIGITS = 7
+
+/**
+ * `tel:` link for a listing, or null when `phone` holds nothing dialable: listings without a number come
+ * back as placeholder text ("Not available"), and the field may also be blank or missing.
+ */
+export function telHref(phone: string | null | undefined): string | null {
+    // `phone` may hold several numbers ("0912 345 6789 / 042 123 4567"); dial the first real one.
+    for (const part of (phone ?? "").split(/[/,;]| or /i)) {
+        const number = part.replace(/[^0-9+]/g, "")
+        if (number.replace(/\D/g, "").length >= MIN_PHONE_DIGITS) return `tel:${number}`
+    }
+    return null
 }
 
 /** Map position for a listing, or null when the owner hid it from the map. */

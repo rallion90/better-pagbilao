@@ -103,6 +103,7 @@ const BusinessDetailPage = () => {
     const { business, loading, notFound, failed, reload } = useBusiness(id)
 
     const category = business ? categoryName(business.category) : ""
+    const callHref = business ? telHref(business.phone) : null
 
     // Keyword-rich on purpose: category and barangay in the title/description are what let someone find this
     // specific business — not just the site — from a Google search for e.g. "carinderia Daungan Pagbilao".
@@ -124,7 +125,7 @@ const BusinessDetailPage = () => {
               name: business.name,
               description: business.description,
               url: `${SITE_URL}${canonicalPath}`,
-              telephone: business.phone,
+              ...(callHref ? { telephone: business.phone } : {}),
               address: {
                   "@type": "PostalAddress",
                   streetAddress: `${business.address}, Barangay ${business.barangay}`,
@@ -194,24 +195,28 @@ const BusinessDetailPage = () => {
                         </div>
                     </div>
                     <p className="mt-5 max-w-2xl whitespace-pre-line text-base leading-8 text-white/76">{business.description}</p>
-                    <div className="mt-5 flex flex-wrap items-center gap-3">
-                        <a
-                            href={telHref(business.phone)}
-                            className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-black text-bayan-ink shadow-soft"
-                        >
-                            <PhoneCall className="h-4 w-4 text-bayan-blue" /> {business.phone}
-                        </a>
-                        {business.online && (
-                            <a
-                                href={onlineHref(business.online)}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 rounded-md bg-white/10 px-4 py-2 text-sm font-bold text-white ring-1 ring-white/20 transition hover:bg-white/16"
-                            >
-                                <Globe className="h-4 w-4" /> {copy.detail.online}
-                            </a>
-                        )}
-                    </div>
+                    {(callHref || business.online) && (
+                        <div className="mt-5 flex flex-wrap items-center gap-3">
+                            {callHref && (
+                                <a
+                                    href={callHref}
+                                    className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-black text-bayan-ink shadow-soft"
+                                >
+                                    <PhoneCall className="h-4 w-4 text-bayan-blue" /> {business.phone}
+                                </a>
+                            )}
+                            {business.online && (
+                                <a
+                                    href={onlineHref(business.online)}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 rounded-md bg-white/10 px-4 py-2 text-sm font-bold text-white ring-1 ring-white/20 transition hover:bg-white/16"
+                                >
+                                    <Globe className="h-4 w-4" /> {copy.detail.online}
+                                </a>
+                            )}
+                        </div>
+                    )}
                 </div>
             </section>
 
