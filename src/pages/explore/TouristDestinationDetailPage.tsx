@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight, Calendar, Check, Info, LoaderCircle, MapPin, Navigation, PhoneCall, SearchX, Wallet } from "lucide-react"
 import { Link, useParams } from "react-router"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import ShareButton from "../../components/common/ShareButton"
 import DestinationPhoto from "../../components/explore/DestinationPhoto"
 import { DESTINATIONS_PATH, findTouristSpot, mapsHref, relatedTouristSpots, TOURISM_OFFICE } from "../../data/touristDestinations"
 import type { TouristSpot } from "../../data/touristDestinations"
@@ -118,6 +119,7 @@ const TouristDestinationDetailPage = () => {
                         >
                             <Navigation className="h-4 w-4 text-bayan-blue" /> {copy.detail.openMap}
                         </a>
+                        <ShareButton title={`${spot.name}, ${spot.nearby ? "near Pagbilao" : "Pagbilao"}, Quezon`} path={path} />
                         {spot.nearby && <span className="rounded-md bg-white/10 px-4 py-2 text-sm font-bold text-white ring-1 ring-white/20">{copy.nearbyBadge}</span>}
                     </div>
                 </div>

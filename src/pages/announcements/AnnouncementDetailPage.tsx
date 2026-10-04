@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router"
 import AnnouncementImage from "../../components/announcements/AnnouncementImage"
 import TypeBadge from "../../components/announcements/TypeBadge"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import ShareButton from "../../components/common/ShareButton"
 import { useSeo } from "../../hooks/useSeo"
 import { announcementsCopy } from "../../i18n/announcementsPage"
 import { useLanguage } from "../../i18n/useLanguage"
@@ -208,7 +209,10 @@ const AnnouncementDetailPage = () => {
             </section>
             <section className="bg-bayan-mist py-10 sm:py-14">
                 <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-                    <div className="mb-5">{back}</div>
+                    <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+                        {back}
+                        {announcement && <ShareButton title={announcement.title} path={`/announcements/${announcement.slug}`} tone="light" align="right" />}
+                    </div>
                     <div aria-live="polite">{content}</div>
                     {announcement && <div className="mt-6">{back}</div>}
                 </div>
