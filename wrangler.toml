@@ -1,7 +1,12 @@
 name = "patient-cell-e316"
+main = "worker/index.js"
 compatibility_date = "2026-09-13"
 
 [assets]
 directory = "./dist"
+binding = "ASSETS"
 not_found_handling = "single-page-application"
 html_handling = "drop-trailing-slash"
+# The Worker fills in each page's title, description and share image (see worker/index.js), so it has to
+# see page requests before the static files do. Static folders skip it.
+run_worker_first = ["/*", "!/assets/*", "!/hero/*", "!/images/*", "!/tourism/*", "!/api/*"]
