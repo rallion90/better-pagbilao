@@ -28,6 +28,7 @@ type BusinessCardProps = {
 
 const BusinessCard = ({ business, categoryName, page }: BusinessCardProps) => {
     const { Icon, color } = businessCategoryMeta(business.category)
+    const callHref = telHref(business.phone)
     return (
         <article className="flex flex-col rounded-lg border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-soft">
             {business.logoUrl ? (
@@ -60,16 +61,20 @@ const BusinessCard = ({ business, categoryName, page }: BusinessCardProps) => {
                 )}
             </ul>
 
-            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm font-bold text-bayan-blue">
-                {business.online && (
-                    <a href={onlineHref(business.online)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:underline">
-                        <Globe className="h-4 w-4" /> {page.online}
-                    </a>
-                )}
-                <a href={telHref(business.phone)} className="inline-flex items-center gap-1 hover:underline">
-                    <PhoneCall className="h-4 w-4" /> {page.call}
-                </a>
-            </div>
+            {(business.online || callHref) && (
+                <div className="mt-4 flex flex-wrap items-center gap-3 text-sm font-bold text-bayan-blue">
+                    {business.online && (
+                        <a href={onlineHref(business.online)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 hover:underline">
+                            <Globe className="h-4 w-4" /> {page.online}
+                        </a>
+                    )}
+                    {callHref && (
+                        <a href={callHref} className="inline-flex items-center gap-1 hover:underline">
+                            <PhoneCall className="h-4 w-4" /> {page.call}
+                        </a>
+                    )}
+                </div>
+            )}
 
             <div className="mt-auto border-t border-slate-100 pt-4">
                 <Link to={`${PAGE_PATH}/${business.id}`} className="inline-flex items-center gap-1 text-sm font-bold text-bayan-ink hover:gap-2 hover:text-bayan-blue">

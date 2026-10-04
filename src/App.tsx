@@ -30,6 +30,8 @@ const AddBusinessPage = lazy(() => import("./pages/community/AddBusinessPage"));
 const BusinessDetailPage = lazy(() => import("./pages/community/BusinessDetailPage"));
 const BarangayMapPage = lazy(() => import("./pages/explore/BarangayMapPage"));
 const HistoryPage = lazy(() => import("./pages/explore/HistoryPage"));
+const TouristDestinationsPage = lazy(() => import("./pages/explore/TouristDestinationsPage"));
+const TouristDestinationDetailPage = lazy(() => import("./pages/explore/TouristDestinationDetailPage"));
 const AnnouncementsPage = lazy(() => import("./pages/announcements/AnnouncementsPage"));
 const AnnouncementDetailPage = lazy(() => import("./pages/announcements/AnnouncementDetailPage"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
@@ -66,6 +68,8 @@ function App() {
             <Route path="/explore/history" element={<HistoryPage />} />
             <Route path="/explore/barangays" element={<BarangayMapPage />} />
             <Route path="/explore/gateway-location" element={<GatewayLocationPage />} />
+            <Route path="/explore/tourist-destinations" element={<TouristDestinationsPage />} />
+            <Route path="/explore/tourist-destinations/:slug" element={<TouristDestinationDetailPage />} />
             <Route path="/transparency/ordinances-and-executive-orders" element={<OrdinancesAndExecutiveOrdersPage />} />
             <Route path="/transparency/procurement" element={<ProcurementPage />} />
             <Route path="/transparency/citizens-charter" element={<CitizensCharterPage />} />
