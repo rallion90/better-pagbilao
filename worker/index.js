@@ -49,7 +49,8 @@ async function businessMeta(slug) {
     return {
         title: `${business.name} — ${category ? `${category} in ` : ""}Barangay ${business.barangay}, Pagbilao | ${SITE_NAME}`,
         description: `${business.description} Find ${business.name} in Barangay ${business.barangay}, Pagbilao, Quezon — hours, contact number, and location on the map.`,
-        image: business.logoUrl || business.gallery?.[0]?.url || null,
+        // The branded card the API draws for each listing. Without one the page keeps the site's default image.
+        image: business.shareImageUrl || null,
         imageAlt: business.name,
     }
 }
