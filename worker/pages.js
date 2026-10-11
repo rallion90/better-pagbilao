@@ -1,5 +1,6 @@
 // Title and description of every fixed page, matching what each page sets once it loads (see useSeo in src/pages).
-// Keep in step with the pages: a page missing here still works, it just shares with the homepage preview.
+// Keep in step with the pages: the Worker answers 404 for any fixed page that is not listed here, so a new
+// page must be added here before it goes live.
 export const STATIC_PAGES = {
     "/hotlines": {
         "title": "Hotlines | Better Pagbilao",

@@ -7,6 +7,10 @@
 // For page requests this fills in the right title, description, image and canonical URL before the HTML
 // leaves the server. Everything else (scripts, images, the app itself) is untouched. If anything here
 // fails, the unmodified page is served.
+//
+// Every URL also answers 200 by default, even one that leads nowhere, which search engines report as a
+// "soft 404". A URL that matches no page, or a listing the API says does not exist, is answered 404 here.
+// The app still loads and shows its own "not found" screen.
 
 import { STATIC_PAGES } from "./pages.js"
 
@@ -16,7 +20,10 @@ const SITE_NAME = "Better Pagbilao"
 const API_TIMEOUT_MS = 2500
 const API_CACHE_SECONDS = 300
 
-/** GET a public API endpoint. Null on any failure, including 404. */
+/** A URL that leads nowhere: no such page, or the API says the listing does not exist. */
+const NOT_FOUND = Symbol("not found")
+
+/** GET a public API endpoint. NOT_FOUND on a 404, null on any other failure. */
 async function api(path) {
     try {
         const response = await fetch(`${API}${path}`, {
@@ -24,6 +31,7 @@ async function api(path) {
             signal: AbortSignal.timeout(API_TIMEOUT_MS),
             cf: { cacheTtl: API_CACHE_SECONDS, cacheEverything: true },
         })
+        if (response.status === 404) return NOT_FOUND
         if (!response.ok) return null
         const body = await response.json()
         return body && body.ok !== false ? (body.data ?? null) : null
@@ -34,6 +42,7 @@ async function api(path) {
 
 async function businessMeta(slug) {
     const [data, categories] = await Promise.all([api(`/businesses/${encodeURIComponent(slug)}`), api("/business-categories")])
+    if (data === NOT_FOUND) return NOT_FOUND
     const business = data?.business
     if (!business) return null
     const category = categories?.categories?.find((item) => item.slug === business.category)?.name
@@ -47,9 +56,10 @@ async function businessMeta(slug) {
 
 async function destinationMeta(slug) {
     const data = await api("/tourist-destinations")
+    if (!Array.isArray(data?.destinations)) return null
     // Out-of-town places carry a "-nearby" id suffix that the page URL leaves off.
-    const destination = data?.destinations?.find((item) => item.id.replace(/-nearby$/, "") === slug)
-    if (!destination) return null
+    const destination = data.destinations.find((item) => item.id.replace(/-nearby$/, "") === slug)
+    if (!destination) return NOT_FOUND
     const nearby = destination.id.endsWith("-nearby") || (destination.verificationStatus ?? "").startsWith("nearby")
     const activities = (destination.activities ?? []).join(", ").toLowerCase()
     return {
@@ -62,6 +72,7 @@ async function destinationMeta(slug) {
 
 async function announcementMeta(slug) {
     const data = await api(`/announcements/${encodeURIComponent(slug)}`)
+    if (data === NOT_FOUND) return NOT_FOUND
     const announcement = data?.announcement
     if (!announcement) return null
     return {
@@ -78,17 +89,21 @@ const DYNAMIC_PAGES = [
     { pattern: /^\/announcements\/([^/]+)$/, load: announcementMeta },
 ]
 
-/** What to put in the page's head, or null to leave the page as it is (unknown URL, or the API is down). */
+// A report's tracking page. It is private to whoever holds the code, so it is served as it is.
+const TRACK_REPORT_PAGE = /^\/community\/track\/[^/]+$/
+
+/** What to put in the page's head, null to leave the page as it is (the API is down), or NOT_FOUND. */
 async function pageMeta(pathname) {
     // The homepage already carries its own title and description; it only needs its canonical URL.
     if (pathname === "/") return {}
     if (STATIC_PAGES[pathname]) return STATIC_PAGES[pathname]
+    if (TRACK_REPORT_PAGE.test(pathname)) return null
     for (const { pattern, load } of DYNAMIC_PAGES) {
         const match = pathname.match(pattern)
         // "add" is a fixed page under /community/businesses and is matched above.
         if (match) return load(decodeURIComponent(match[1]))
     }
-    return null
+    return NOT_FOUND
 }
 
 const escapeAttribute = (value) => value.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;")
@@ -124,20 +139,40 @@ function rewrite(response, meta, pathname) {
         .transform(response)
 }
 
+/** The same page, answered 404 and kept out of search results. */
+function notFound(response) {
+    const headers = new Headers(response.headers)
+    // Without these a repeat visit could be answered "not modified", which hides the 404.
+    headers.delete("etag")
+    headers.delete("last-modified")
+    const page = new HTMLRewriter()
+        .on("title", {
+            element(element) {
+                element.setInnerContent(`Page Not Found | ${SITE_NAME}`)
+            },
+        })
+        .on('meta[name="robots"]', setContent("noindex, follow"))
+        .transform(response)
+    return new Response(page.body, { status: 404, headers })
+}
+
 export default {
     async fetch(request, env) {
         const response = await env.ASSETS.fetch(request)
-        if (request.method !== "GET") return response
+        if (request.method !== "GET" && request.method !== "HEAD") return response
 
         // "/hotlines/" is the same page as "/hotlines".
         const pathname = new URL(request.url).pathname.replace(/(.)\/+$/, "$1")
         const lastSegment = pathname.slice(pathname.lastIndexOf("/") + 1)
         const isHtml = (response.headers.get("content-type") ?? "").includes("text/html")
-        // Files (anything with an extension), redirects and errors pass straight through.
-        if (lastSegment.includes(".") || !isHtml || response.status !== 200) return response
+        // Real files, redirects and errors pass straight through.
+        if (!isHtml || response.status !== 200) return response
 
         try {
+            // A file (anything with an extension) that got the app's page instead does not exist.
+            if (lastSegment.includes(".")) return notFound(response)
             const meta = await pageMeta(pathname)
+            if (meta === NOT_FOUND) return notFound(response)
             return meta ? rewrite(response, meta, pathname) : response
         } catch {
             return response
