@@ -127,6 +127,12 @@ function rewrite(response, meta, pathname) {
         .on('meta[property="og:description"]', setContent(meta.description))
         .on('meta[property="og:image"]', setContent(meta.image))
         .on('meta[property="og:image:alt"]', setContent(meta.image ? meta.imageAlt : null))
+        // The size in the page is the default share image's, not this one's.
+        .on('meta[property="og:image:width"], meta[property="og:image:height"]', {
+            element(element) {
+                if (meta.image) element.remove()
+            },
+        })
         .on('meta[name="twitter:title"]', setContent(meta.title))
         .on('meta[name="twitter:description"]', setContent(meta.description))
         .on('meta[name="twitter:image"]', setContent(meta.image))
