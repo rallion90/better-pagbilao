@@ -33,6 +33,8 @@ const getMessageTime = () =>
   }).format(new Date());
 
 export const OPEN_CHAT_EVENT = "bp:open-chat";
+/** Fired whenever the chat panel opens, however it was opened. */
+export const CHAT_OPENED_EVENT = "bp:chat-opened";
 
 const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
   const { t } = useLanguage();
@@ -56,6 +58,10 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
       behavior: "smooth",
     });
   }, [isOpen, messages, isReplying]);
+
+  useEffect(() => {
+    if (isOpen) window.dispatchEvent(new Event(CHAT_OPENED_EVENT));
+  }, [isOpen]);
 
   useEffect(() => {
     const handleOpenRequest = () => setIsOpen(true);

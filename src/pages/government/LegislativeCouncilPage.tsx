@@ -1,4 +1,5 @@
-import { Gavel, Scale, ScrollText, UserRound } from "lucide-react"
+import { Scale, ScrollText } from "lucide-react"
+import InitialsAvatar from "../../components/common/InitialsAvatar"
 import { useLanguage } from "../../i18n/useLanguage"
 import { useGovernance } from "../../hooks/useGovernance"
 import { useSeo } from "../../hooks/useSeo"
@@ -64,9 +65,7 @@ const LegislativeCouncilPage = () => {
                             <div>
                                 <h2 className="text-sm font-black uppercase tracking-[0.16em] text-slate-500">{copy.presidingOfficerLabel}</h2>
                                 <article className="mt-4 flex items-center gap-4 rounded-lg border border-slate-200 bg-bayan-mist p-6 sm:max-w-md">
-                                    <span className={`grid h-14 w-14 shrink-0 place-items-center rounded-md ${sectionAccent.tile}`}>
-                                        <Gavel className="h-7 w-7" />
-                                    </span>
+                                    {data.municipalCouncil[0] && <InitialsAvatar name={data.municipalCouncil[0].name} size="lg" />}
                                     <div>
                                         <p className="text-lg font-black">{data.municipalCouncil[0]?.name}</p>
                                         <p className="mt-1 text-sm font-semibold text-slate-600">{data.municipalCouncil[0]?.role}</p>
@@ -82,9 +81,7 @@ const LegislativeCouncilPage = () => {
                                             key={member.name}
                                             className="rounded-lg border border-slate-200 p-5 transition hover:-translate-y-0.5 hover:shadow-soft"
                                         >
-                                            <span className={`grid h-11 w-11 place-items-center rounded-md ${sectionAccent.tileAlt}`}>
-                                                <UserRound className="h-5 w-5" />
-                                            </span>
+                                            <InitialsAvatar name={member.name} />
                                             <p className="mt-4 text-base font-black">{member.name}</p>
                                             <p className="mt-1 text-sm font-semibold text-slate-500">{member.role}</p>
                                         </article>
@@ -94,9 +91,13 @@ const LegislativeCouncilPage = () => {
 
                             <div className="mt-10 rounded-lg border border-slate-200 bg-bayan-mist p-6 sm:flex sm:items-center sm:justify-between sm:gap-6">
                                 <div className="flex items-center gap-3">
-                                    <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-md ${sectionAccent.tileAlt}`}>
-                                        <ScrollText className="h-5 w-5" />
-                                    </span>
+                                    {secretary ? (
+                                        <InitialsAvatar name={secretary.name} />
+                                    ) : (
+                                        <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-md ${sectionAccent.tileAlt}`}>
+                                            <ScrollText className="h-5 w-5" />
+                                        </span>
+                                    )}
                                     <div>
                                         <p className="text-xs font-black uppercase tracking-[0.14em] text-slate-500">{copy.secretariatLabel}</p>
                                         <p className="mt-1 text-base font-black">{secretary?.name ?? data.ordinanceAndExecutiveOrder.status}</p>

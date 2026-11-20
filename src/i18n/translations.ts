@@ -298,6 +298,11 @@ export interface Translations {
         procurement: PageIntro & {
             documentsLabel: string
             emptyNote: string
+            guideLabel: string
+            /** Matched to documents by a keyword in their title */
+            guide: { notices: string; monitoring: string }
+            sourceLabel: string
+            lastChecked: string
         }
         citizensCharter: PageIntro & {
             documentsLabel: string
@@ -729,6 +734,15 @@ const en: Translations = {
                 "Bids, procurement notices, and monitoring reports for Pagbilao's local government — sourced directly from the official municipal portal.",
             documentsLabel: "Procurement Notices and Reports",
             emptyNote: "No procurement documents are available from the official source right now. Check back later or visit the official portal directly.",
+            guideLabel: "What these documents are",
+            guide: {
+                notices:
+                    "Procurement notices are the LGU's public calls when it buys goods, services or infrastructure: invitations to bid, requests for quotation, and the notices that announce who won. Government procurement rules require them to be posted publicly, including on PhilGEPS, so any qualified supplier can take part and anyone can follow the process.",
+                monitoring:
+                    "The Procurement Monitoring Report (PMR) is a summary the LGU prepares every semester for the Government Procurement Policy Board. It lists each procurement project with its method, budget, contract amount and progress, which makes it the easiest way to see what was bought and for how much.",
+            },
+            sourceLabel: "Source",
+            lastChecked: "Last checked",
         },
         citizensCharter: {
             eyebrow: "Resident Help",
@@ -1168,6 +1182,15 @@ const tl: Translations = {
                 "Mga bid, abiso sa procurement, at monitoring report para sa lokal na pamahalaan ng Pagbilao — direktang kinuha mula sa opisyal na portal ng munisipyo.",
             documentsLabel: "Mga Abiso at Ulat sa Procurement",
             emptyNote: "Wala pang procurement documents na available mula sa opisyal na source sa ngayon. Bumalik mamaya o bisitahin direkta ang opisyal na portal.",
+            guideLabel: "Ano ang mga dokumentong ito",
+            guide: {
+                notices:
+                    "Ang procurement notices ay mga pampublikong anunsyo ng LGU kapag bumibili ito ng gamit, serbisyo o imprastraktura: mga imbitasyon sa bid, request for quotation, at mga abiso kung sino ang nanalo. Ayon sa mga patakaran sa government procurement, kailangang ilathala ang mga ito sa publiko, kasama sa PhilGEPS, para makasali ang sinumang kwalipikadong supplier at masubaybayan ng lahat ang proseso.",
+                monitoring:
+                    "Ang Procurement Monitoring Report (PMR) ay buod na inihahanda ng LGU kada semestre para sa Government Procurement Policy Board. Nakalista rito ang bawat procurement project, ang paraan ng pagbili, budget, halaga ng kontrata at progreso nito, kaya ito ang pinakamadaling paraan para makita kung ano ang binili at magkano.",
+            },
+            sourceLabel: "Pinagmulan",
+            lastChecked: "Huling sinuri",
         },
         citizensCharter: {
             eyebrow: "Tulong sa Residente",

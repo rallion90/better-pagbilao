@@ -1,10 +1,10 @@
-import { Building2, Landmark, MapPin, PhoneCall, ShieldCheck } from "lucide-react"
+import { MapPin, PhoneCall } from "lucide-react"
 import { useLanguage } from "../../i18n/useLanguage"
 import { useGovernance } from "../../hooks/useGovernance"
 import { usePublicOffices } from "../../hooks/usePublicOffices"
 import { useSeo } from "../../hooks/useSeo"
 import PageBanner from "../../components/common/PageBanner"
-import { useSectionAccent } from "../../lib/sectionAccents"
+import InitialsAvatar from "../../components/common/InitialsAvatar"
 
 const PAGE_PATH = "/government/local-officials-directory"
 
@@ -14,7 +14,6 @@ function toTelHref(telephone: string) {
 
 const LocalOfficialsDirectoryPage = () => {
     const { t } = useLanguage()
-    const sectionAccent = useSectionAccent()
     const governance = useGovernance()
     const { data, loading, error } = usePublicOffices()
     const copy = t.government.directory
@@ -79,9 +78,7 @@ const LocalOfficialsDirectoryPage = () => {
                                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
                                     {mayorOffice && (
                                         <article className="rounded-lg border border-slate-200 bg-bayan-mist p-6">
-                                            <span className={`grid h-12 w-12 place-items-center rounded-md ${sectionAccent.tile}`}>
-                                                <Landmark className="h-6 w-6" />
-                                            </span>
+                                            <InitialsAvatar name={mayorOffice.head} size="lg" />
                                             <p className="mt-4 text-xs font-black uppercase tracking-[0.14em] text-slate-500">{mayorOffice.office}</p>
                                             <p className="mt-1 text-lg font-black">{mayorOffice.head}</p>
                                             {mayorOffice.telephone && (
@@ -93,9 +90,7 @@ const LocalOfficialsDirectoryPage = () => {
                                     )}
                                     {viceMayor && (
                                         <article className="rounded-lg border border-slate-200 bg-bayan-mist p-6">
-                                            <span className={`grid h-12 w-12 place-items-center rounded-md ${sectionAccent.tileAlt}`}>
-                                                <ShieldCheck className="h-6 w-6" />
-                                            </span>
+                                            <InitialsAvatar name={viceMayor.name} size="lg" />
                                             <p className="mt-4 text-xs font-black uppercase tracking-[0.14em] text-slate-500">{viceMayor.role}</p>
                                             <p className="mt-1 text-lg font-black">{viceMayor.name}</p>
                                         </article>
@@ -111,9 +106,7 @@ const LocalOfficialsDirectoryPage = () => {
                                             key={office.office}
                                             className="rounded-lg border border-slate-200 p-5 transition hover:-translate-y-0.5 hover:shadow-soft"
                                         >
-                                            <span className={`grid h-11 w-11 place-items-center rounded-md ${sectionAccent.tile}`}>
-                                                <Building2 className="h-5 w-5" />
-                                            </span>
+                                            <InitialsAvatar name={office.head} />
                                             <p className="mt-4 text-sm font-black uppercase tracking-[0.08em] text-slate-500">{office.office}</p>
                                             <p className="mt-1 text-base font-black">{office.head}</p>
                                             <div className="mt-3 space-y-1.5 text-sm font-semibold text-slate-600">

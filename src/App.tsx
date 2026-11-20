@@ -6,7 +6,8 @@ import Footer from './components/layout/Footer'
 import HomePage from "./pages/HomePage";
 import ChatFloat from "./components/chat/ChatFloat";
 import DataDisclosureModal from "./components/common/DataDisclosureModal";
-import MascotIntroModal from "./components/common/MascotIntroModal";
+import MascotIntroToast from "./components/common/MascotIntroToast";
+import ScrollToTop from "./components/common/ScrollToTop";
 import PageLoading from "./components/common/PageLoading";
 import { useScrollReveal } from "./hooks/useScrollReveal";
 import './App.css'
@@ -43,6 +44,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <EmergencyBanner />
       <Header />
 
@@ -85,7 +87,7 @@ function App() {
       <Footer />
       <ChatFloat />
       <DataDisclosureModal />
-      <MascotIntroModal />
+      <MascotIntroToast />
     </>
   )
 }
