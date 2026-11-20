@@ -18,7 +18,7 @@ const DestinationCard = ({ spot, copy }: { spot: TouristSpot; copy: TouristDesti
     const href = `${DESTINATIONS_PATH}/${spot.slug}`
     return (
         <article className="flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:shadow-soft">
-            <DestinationPhoto spot={spot} className="h-48 w-full" placeholderLabel={copy.noPhoto} />
+            <DestinationPhoto spot={spot} placeholderLabel={copy.noPhoto} />
             <div className="flex flex-1 flex-col p-5">
                 <p className="text-xs font-black uppercase tracking-[0.12em] text-slate-500">{spot.categories.slice(0, 2).join(" · ")}</p>
                 <h2 className="mt-1 text-lg font-black leading-6">

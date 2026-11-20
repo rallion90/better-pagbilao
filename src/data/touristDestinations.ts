@@ -4,13 +4,10 @@
 
 import type { TouristDestination, TouristDestinationsData } from "../types/touristDestinations"
 import { TOURIST_DESTINATIONS_SNAPSHOT } from "./touristDestinationsSnapshot"
+import { DESTINATION_PHOTOS } from "./destinationPhotos"
+import type { DestinationPhotoSource } from "./destinationPhotos"
 
-export type DestinationImage = {
-    src: string
-    alt: string
-    credit: string
-    creditUrl?: string
-}
+export type DestinationImage = DestinationPhotoSource
 
 export type TouristSpot = {
     /** URL slug: /explore/tourist-destinations/{slug} */
@@ -57,8 +54,6 @@ export const TOURISM_OFFICE = {
 /** Filter chips on the listing page, in display order. Only the ones some destination uses are shown. */
 export const DESTINATION_FILTERS = ["Beach", "Island", "Nature", "Waterfall", "Heritage", "Culture", "Festival", "Viewpoint"]
 
-const TOURISM_SITE = "https://tourism.pagbilao.gov.ph/"
-
 const FEE_LABELS: Record<string, string> = {
     entranceFee: "Entrance fee",
     boatFee: "Boat fee",
@@ -95,9 +90,9 @@ function toTouristSpot(destination: TouristDestination): TouristSpot {
         feesNote: typeof feesNote === "string" && feesNote ? feesNote : null,
         visitorTips: destination.visitorTips ?? [],
         mapQuery: destination.mapQuery ?? `${destination.name}, Pagbilao, Quezon`,
-        image: destination.image
-            ? { src: destination.image, alt: `${destination.name}, Pagbilao, Quezon`, credit: "Photo: Pagbilao Tourism", creditUrl: TOURISM_SITE }
-            : null,
+        // Only freely licensed, locally stored photos (see destinationPhotos.ts). The API's `image` URLs point to
+        // the LGU tourism site, which publishes no reuse license, so they are not shown.
+        image: DESTINATION_PHOTOS[slug] ?? null,
     }
 }
 

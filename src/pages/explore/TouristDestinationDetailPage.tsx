@@ -129,7 +129,7 @@ const TouristDestinationDetailPage = () => {
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start">
                         <div className="space-y-10">
-                            <DestinationPhoto key={spot.slug} spot={spot} className="h-72 w-full sm:h-96" showCredit lazy={false} />
+                            <DestinationPhoto key={spot.slug} spot={spot} variant="feature" lazy={false} />
 
                             {spot.activities.length > 0 && (
                                 <div>
