@@ -7,6 +7,7 @@ import { useGovernance } from "../../hooks/useGovernance"
 import { useSeo } from "../../hooks/useSeo"
 import { historyPageCopy } from "../../i18n/historyPage"
 import { useLanguage } from "../../i18n/useLanguage"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const PopulationChart = lazy(() => import("../../components/explore/PopulationChart"))
 
@@ -20,12 +21,15 @@ const KIND_STYLE: Record<EntryKind, { badge: string; dot: string }> = {
 
 const SECTION_IDS = ["beginnings", "timeline", "church", "war", "growth", "mayors", "traditions", "contribute", "sources"] as const
 
-const SectionHeading = ({ eyebrow, children }: { eyebrow?: string; children: string }) => (
-    <div className="max-w-3xl">
-        {eyebrow && <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-blue">{eyebrow}</p>}
-        <h2 className="mt-2 text-2xl font-black sm:text-3xl">{children}</h2>
-    </div>
-)
+const SectionHeading = ({ eyebrow, children }: { eyebrow?: string; children: string }) => {
+    const sectionAccent = useSectionAccent()
+    return (
+        <div className="max-w-3xl">
+            {eyebrow && <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.text}`}>{eyebrow}</p>}
+            <h2 className="mt-2 text-2xl font-black sm:text-3xl">{children}</h2>
+        </div>
+    )
+}
 
 const KindBadge = ({ kind, label }: { kind: EntryKind; label: string }) => (
     <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-black ring-1 ${KIND_STYLE[kind].badge}`}>{label}</span>
@@ -66,6 +70,7 @@ const MayorList = () => {
 
 const HistoryPage = () => {
     const { lang, t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const copy = historyPageCopy[lang]
     const [era, setEra] = useState<EraId | "all">("all")
 
@@ -84,14 +89,14 @@ const HistoryPage = () => {
             <section className="bg-bayan-ink py-14 text-white sm:py-16">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <PageBreadcrumb items={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]} />
-                    <p className="mt-8 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
+                    <p className={`mt-8 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
                     <h1 className="mt-3 max-w-4xl text-3xl font-black sm:text-4xl lg:text-5xl lg:leading-[1.1]">{copy.heading}</h1>
                     <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
 
                     <dl className="mt-8 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
                         {copy.facts.map((fact) => (
                             <div key={fact.label} className="rounded-lg bg-white/8 px-4 py-3 ring-1 ring-white/12">
-                                <dd className="text-2xl font-black text-bayan-gold sm:text-3xl">{fact.value}</dd>
+                                <dd className={`text-2xl font-black ${sectionAccent.onDark} sm:text-3xl`}>{fact.value}</dd>
                                 <dt className="mt-0.5 text-xs font-bold leading-4 text-white/64">{fact.label}</dt>
                             </div>
                         ))}
@@ -138,7 +143,7 @@ const HistoryPage = () => {
                             return (
                                 <article key={card.title} className="flex flex-col rounded-lg border border-slate-200 bg-white p-6 shadow-soft">
                                     <div className="flex items-center gap-3">
-                                        <span className="grid h-9 w-9 place-items-center rounded-full bg-bayan-ink text-sm font-black text-bayan-gold">{index + 1}</span>
+                                        <span className={`grid h-9 w-9 place-items-center rounded-full bg-bayan-ink text-sm font-black ${sectionAccent.onDark}`}>{index + 1}</span>
                                         <KindBadge kind={kind} label={card.label} />
                                     </div>
                                     <h3 className="mt-4 text-lg font-black leading-6">{card.title}</h3>
@@ -180,7 +185,7 @@ const HistoryPage = () => {
                                 <div key={item.id}>
                                     <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-slate-200 pb-3">
                                         <h3 className="text-xl font-black">{item.title[lang]}</h3>
-                                        <span className="text-sm font-black text-bayan-blue">{item.years}</span>
+                                        <span className={`text-sm font-black ${sectionAccent.text}`}>{item.years}</span>
                                     </div>
                                     <p className="mt-2 max-w-3xl text-sm font-semibold leading-6 text-slate-500">{item.blurb[lang]}</p>
 
@@ -192,7 +197,7 @@ const HistoryPage = () => {
                                                 <li key={entry.id} className="relative pb-9 last:pb-0">
                                                     <span className={`absolute -left-[33px] top-1.5 h-4 w-4 rounded-full ring-4 ring-white sm:-left-[41px] ${KIND_STYLE[entry.kind].dot}`} />
                                                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                                                        <p className="text-sm font-black text-bayan-blue">{entry.year[lang]}</p>
+                                                        <p className={`text-sm font-black ${sectionAccent.text}`}>{entry.year[lang]}</p>
                                                         <KindBadge kind={entry.kind} label={copy.howToRead[entry.kind].label} />
                                                     </div>
                                                     <h4 className="mt-1.5 text-lg font-black leading-6">{entry.title[lang]}</h4>
@@ -222,14 +227,14 @@ const HistoryPage = () => {
             {/* Church */}
             <section id="church" className="scroll-mt-32 bg-bayan-ink py-14 text-white sm:py-16">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.sections.church}</p>
+                    <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.sections.church}</p>
                     <h2 className="mt-2 max-w-3xl text-2xl font-black sm:text-3xl">{copy.church.heading}</h2>
                     <p className="mt-3 max-w-3xl text-base leading-8 text-white/76">{copy.church.intro}</p>
 
                     <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                         {CHURCH_STEPS.map((step) => (
                             <li key={step.year} className="rounded-lg bg-white/8 p-4 ring-1 ring-white/12">
-                                <p className="text-sm font-black text-bayan-gold">{step.year}</p>
+                                <p className={`text-sm font-black ${sectionAccent.onDark}`}>{step.year}</p>
                                 <p className="mt-1 text-base font-black leading-5">{step.title[lang]}</p>
                                 <p className="mt-1 text-sm leading-6 text-white/72">{step.text[lang]}</p>
                             </li>
@@ -248,7 +253,7 @@ const HistoryPage = () => {
                             <figcaption className="mt-3 text-xs font-semibold leading-5 text-slate-500">{copy.church.markerNote}</figcaption>
                         </figure>
                         <div className="rounded-lg bg-white/8 p-6 ring-1 ring-white/12">
-                            <h3 className="text-sm font-black uppercase tracking-[0.14em] text-bayan-gold">{copy.church.translationLabel}</h3>
+                            <h3 className={`text-sm font-black uppercase tracking-[0.14em] ${sectionAccent.onDark}`}>{copy.church.translationLabel}</h3>
                             <p lang="en" className="mt-4 text-sm leading-7 text-white/82">{copy.church.translation}</p>
                         </div>
                     </div>
@@ -269,7 +274,7 @@ const HistoryPage = () => {
                     <dl className="grid content-start gap-3">
                         {copy.war.facts.map((fact) => (
                             <div key={fact.label} className="rounded-lg border border-slate-200 bg-bayan-mist px-5 py-4">
-                                <dd className="text-2xl font-black text-bayan-blue">{fact.value}</dd>
+                                <dd className={`text-2xl font-black ${sectionAccent.text}`}>{fact.value}</dd>
                                 <dt className="mt-0.5 text-sm font-bold text-slate-600">{fact.label}</dt>
                             </div>
                         ))}
@@ -321,7 +326,7 @@ const HistoryPage = () => {
                     <div className="mt-8 grid gap-4 md:grid-cols-3">
                         {copy.traditions.cards.map((card) => (
                             <article key={card.title} className="rounded-lg border border-slate-200 bg-white p-6">
-                                <p className="text-xs font-black uppercase tracking-[0.14em] text-bayan-blue">{card.when}</p>
+                                <p className={`text-xs font-black uppercase tracking-[0.14em] ${sectionAccent.text}`}>{card.when}</p>
                                 <h3 className="mt-2 text-lg font-black leading-6">{card.title}</h3>
                                 <p className="mt-2 text-sm leading-7 text-slate-600">{card.body}</p>
                             </article>
@@ -334,7 +339,7 @@ const HistoryPage = () => {
             <section id="contribute" className="scroll-mt-32 bg-bayan-ink py-14 text-white sm:py-16">
                 <div className="mx-auto grid max-w-[1600px] gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
                     <div>
-                        <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.sections.contribute}</p>
+                        <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.sections.contribute}</p>
                         <h2 className="mt-2 text-2xl font-black sm:text-3xl">{copy.contribute.heading}</h2>
                         <p className="mt-3 max-w-xl text-base leading-8 text-white/76">{copy.contribute.intro}</p>
                         <div className="mt-6 flex flex-wrap gap-3">
@@ -358,7 +363,7 @@ const HistoryPage = () => {
                         <p className="mt-4 max-w-xl text-xs font-semibold leading-6 text-white/60">{copy.contribute.privacy}</p>
                     </div>
                     <div className="rounded-lg bg-white/8 p-6 ring-1 ring-white/12">
-                        <h3 className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-bayan-gold">
+                        <h3 className={`flex items-center gap-2 text-sm font-black uppercase tracking-[0.14em] ${sectionAccent.onDark}`}>
                             <BookOpenText className="h-4 w-4" /> {copy.contribute.wantedHeading}
                         </h3>
                         <ul className="mt-4 grid gap-3 text-sm font-semibold leading-6 text-white/84">

@@ -90,7 +90,7 @@ const HeroSearch = () => {
                     <button
                         type="button"
                         onClick={() => results[0] && goToResult(results[activeIndex >= 0 ? activeIndex : 0])}
-                        className="inline-flex items-center justify-center gap-2 rounded-md bg-bayan-red px-5 py-3 text-sm font-black text-white hover:bg-red-700"
+                        className="inline-flex items-center justify-center gap-2 rounded-md bg-bayan-blue px-5 py-3 text-sm font-black text-white hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bayan-gold"
                     >
                         <ArrowRight className="h-4 w-4" />
                         <span>{t.hero.findService}</span>

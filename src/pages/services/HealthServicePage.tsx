@@ -22,27 +22,18 @@ import { useServices } from "../../hooks/useServices"
 import { useSeo } from "../../hooks/useSeo"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
 import type { HealthServiceCategory } from "../../types/services"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const PAGE_PATH = "/services/health-services"
 
 const CATEGORY_ICONS: LucideIcon[] = [Syringe, HeartHandshake, Apple, Activity, PawPrint, Stethoscope, FileText, Droplets]
-const CATEGORY_COLORS = [
-    "text-bayan-blue bg-blue-50",
-    "text-bayan-red bg-red-50",
-    "text-bayan-green bg-emerald-50",
-    "text-amber-700 bg-amber-50",
-    "text-bayan-blue bg-blue-50",
-    "text-bayan-green bg-emerald-50",
-    "text-bayan-red bg-red-50",
-    "text-amber-700 bg-amber-50",
-]
-
 function toTelHref(telephone: string) {
     return `tel:${telephone.replace(/[^0-9]/g, "")}`
 }
 
 const HealthServicePage = () => {
     const { t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const { data, loading, error } = useServices()
     const copy = t.services.healthService
     const health = data?.categories.find((category): category is HealthServiceCategory => category.id === "health-services")
@@ -86,7 +77,7 @@ const HealthServicePage = () => {
                             { label: copy.heading },
                         ]}
                     />
-                    <p className="mt-6 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
+                    <p className={`mt-6 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
                     <h1 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{copy.heading}</h1>
                     <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
                 </div>
@@ -111,7 +102,7 @@ const HealthServicePage = () => {
                             <div className="mt-8">
                                 <h2 className="text-sm font-black uppercase tracking-[0.16em] text-slate-500">{copy.officeLabel}</h2>
                                 <article className="mt-4 flex flex-col gap-4 rounded-lg border border-slate-200 bg-bayan-mist p-6 sm:max-w-lg sm:flex-row sm:items-center">
-                                    <span className="grid h-14 w-14 shrink-0 place-items-center rounded-md bg-red-50 text-bayan-red">
+                                    <span className={`grid h-14 w-14 shrink-0 place-items-center rounded-md ${sectionAccent.tile}`}>
                                         <HeartPulse className="h-7 w-7" />
                                     </span>
                                     <div>
@@ -137,7 +128,7 @@ const HealthServicePage = () => {
                                 <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                                     {health.typicalServices.categories.map((service, index) => {
                                         const Icon = CATEGORY_ICONS[index % CATEGORY_ICONS.length]
-                                        const color = CATEGORY_COLORS[index % CATEGORY_COLORS.length]
+                                        const color = sectionAccent.tile
                                         const isFree = service.typicalFee.toLowerCase().startsWith("free")
                                         return (
                                             <article
@@ -197,7 +188,7 @@ const HealthServicePage = () => {
                                 <div className="mt-5 space-y-4">
                                     {health.howToAvail.generalSteps.map((step, index) => (
                                         <div key={step} className="flex items-start gap-4 rounded-lg bg-white p-4 shadow-sm">
-                                            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-blue-50 text-sm font-black text-bayan-blue">
+                                            <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-sm font-black ${sectionAccent.tile}`}>
                                                 {index + 1}
                                             </span>
                                             <p className="text-sm leading-6 text-slate-700">{step}</p>
@@ -233,7 +224,7 @@ const HealthServicePage = () => {
                     <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
                             <div>
-                                <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.verificationLabel}</p>
+                                <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.verificationLabel}</p>
                                 <p className="mt-4 text-base leading-8 text-white/76">{health.verificationGuide.recommendation}</p>
                                 <a
                                     href={toTelHref(health.confirmed.office.telephone)}
@@ -253,7 +244,7 @@ const HealthServicePage = () => {
                             </div>
                         </div>
                         <div className="mt-10 flex items-center gap-3 border-t border-white/10 pt-6 text-sm font-semibold text-white/60">
-                            <Landmark className="h-4 w-4 text-bayan-gold" />
+                            <Landmark className={`h-4 w-4 ${sectionAccent.onDark}`} />
                             Sources: {health.confirmed.sources.map((source) => source.name).join(" · ")}
                         </div>
                     </div>

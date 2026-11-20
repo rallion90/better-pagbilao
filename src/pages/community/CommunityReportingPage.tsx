@@ -31,6 +31,7 @@ import { PUBLIC_STATUSES, STATUS_META, categoryMeta, formatIssueDate } from "../
 import type { LatLng } from "../../lib/communityReports"
 import { IssueApiError, submitIssue } from "../../lib/issuesApi"
 import type { Issue, IssueStatus, IssueSubmission, IssueSubmitted } from "../../types/issues"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const PAGE_PATH = "/community/report"
 const PAGE_SIZE = 6
@@ -41,6 +42,7 @@ const STEP_ICONS = [MapPin, PenLine, Clock]
 
 const Unavailable = ({ copy }: { copy: CommunityReportingCopy }) => {
     const { t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const { state, message, refresh } = useIssueReporting()
     const failed = state === "unavailable"
 
@@ -56,14 +58,14 @@ const Unavailable = ({ copy }: { copy: CommunityReportingCopy }) => {
             <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                 <PageBreadcrumb items={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]} />
                 <div className="mx-auto mt-10 max-w-2xl text-center">
-                    <span className="mx-auto grid h-20 w-20 place-items-center rounded-2xl bg-white/10 text-bayan-gold ring-1 ring-white/15">
+                    <span className={`mx-auto grid h-20 w-20 place-items-center rounded-2xl bg-white/10 ${sectionAccent.onDark} ring-1 ring-white/15`}>
                         <Hammer className="h-9 w-9" />
                     </span>
                     <p className="mt-6 inline-flex rounded-full bg-bayan-gold px-3.5 py-1 text-xs font-black uppercase tracking-[0.16em] text-bayan-ink">
                         {copy.unavailable.badge}
                     </p>
                     <h1 className="mt-5 text-3xl font-black sm:text-4xl">{failed ? copy.unavailable.errorHeading : copy.unavailable.heading}</h1>
-                    {message && <p className="mt-4 text-base font-bold text-bayan-gold">{message}</p>}
+                    {message && <p className={`mt-4 text-base font-bold ${sectionAccent.onDark}`}>{message}</p>}
                     <p className="mt-4 text-base leading-8 text-white/76">{failed ? copy.unavailable.errorBody : copy.unavailable.body}</p>
                     <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                         {failed && (
@@ -148,6 +150,7 @@ const ReportCard = ({ report, copy, lang, selected, onView }: ReportCardProps) =
 
 const CommunityReportingContent = () => {
     const { lang, t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const copy = communityReportingCopy[lang]
     const { markDisabled } = useIssueReporting()
     const navigate = useNavigate()
@@ -281,7 +284,7 @@ const CommunityReportingContent = () => {
                     <PageBreadcrumb items={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]} />
                     <div className="mt-8 grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:items-center">
                         <div>
-                            <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
+                            <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
                             <h1 className="mt-3 max-w-3xl text-3xl font-black tracking-normal sm:text-4xl lg:text-5xl lg:leading-[1.1]">{copy.heading}</h1>
                             <p className="mt-4 max-w-2xl text-base leading-8 text-white/76">{copy.intro}</p>
                             <div className="mt-7 flex flex-wrap gap-3">
@@ -307,7 +310,7 @@ const CommunityReportingContent = () => {
                             <dl className="mt-9 grid max-w-md grid-cols-3 gap-3">
                                 {[
                                     { label: copy.stats.total, value: stats.total, tone: "text-white" },
-                                    { label: copy.stats.open, value: stats.open, tone: "text-bayan-gold" },
+                                    { label: copy.stats.open, value: stats.open, tone: sectionAccent.onDark },
                                     { label: copy.stats.resolved, value: stats.resolved, tone: "text-emerald-300" },
                                 ].map((stat) => (
                                     <div key={stat.label} className="rounded-lg bg-white/8 px-4 py-3 ring-1 ring-white/12">
@@ -328,7 +331,7 @@ const CommunityReportingContent = () => {
                                         </span>
                                         <div>
                                             <p className="text-base font-black">
-                                                <span className="mr-2 text-bayan-gold">{index + 1}.</span>
+                                                <span className={`mr-2 ${sectionAccent.onDark}`}>{index + 1}.</span>
                                                 {step.title}
                                             </p>
                                             <p className="mt-1 text-sm leading-6 text-white/76">{step.body}</p>
@@ -589,7 +592,7 @@ const CommunityReportingContent = () => {
             {/* Track shortcut */}
             <section id="track" className="scroll-mt-32 bg-bayan-ink py-14 text-white sm:py-16">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.track.heading}</p>
+                    <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.track.heading}</p>
                     <p className="mt-3 max-w-md text-base leading-8 text-white/76">{copy.track.body}</p>
                     <form onSubmit={handleTrack} className="mt-6 flex max-w-md gap-2">
                         <label htmlFor="track-reference" className="sr-only">

@@ -19,9 +19,9 @@ const STAT_META: {
     {
         key: "population",
         icon: UsersRound,
-        accent: "border-bayan-red",
-        iconBg: "bg-red-50",
-        iconColor: "text-bayan-red",
+        accent: "border-bayan-sea",
+        iconBg: "bg-bayan-sea-light",
+        iconColor: "text-bayan-sea-deep",
     },
     {
         key: "barangays",

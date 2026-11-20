@@ -10,6 +10,7 @@ import { useTouristGuide } from "../../hooks/useTouristGuide"
 import { touristDestinationsCopy } from "../../i18n/touristDestinations"
 import type { TouristDestinationsCopy } from "../../i18n/touristDestinations"
 import { useLanguage } from "../../i18n/useLanguage"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const SITE_URL = "https://betterpagbilao.org"
 
@@ -42,6 +43,7 @@ const DestinationCard = ({ spot, copy }: { spot: TouristSpot; copy: TouristDesti
 
 const TouristDestinationsPage = () => {
     const { lang, t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const copy = touristDestinationsCopy[lang]
     const { spots, sources } = useTouristGuide()
     const [filter, setFilter] = useState("all")
@@ -72,7 +74,7 @@ const TouristDestinationsPage = () => {
             <section className="bg-bayan-ink py-14 text-white sm:py-16">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <PageBreadcrumb items={[{ label: t.explore.breadcrumbHome, to: "/" }, { label: t.explore.breadcrumbExplore }, { label: copy.breadcrumb }]} />
-                    <p className="mt-6 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
+                    <p className={`mt-6 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
                     <h1 className="mt-3 max-w-4xl text-3xl font-black tracking-normal sm:text-4xl lg:text-5xl lg:leading-[1.1]">{copy.heading}</h1>
                     <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
                 </div>

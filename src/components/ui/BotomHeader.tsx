@@ -6,6 +6,7 @@ import { useBusinessDirectoryStatus } from "../../hooks/useBusinessDirectory"
 import { useIssueReporting } from "../../hooks/useIssueReporting"
 import { businessDirectoryCopy } from "../../i18n/businessDirectory"
 import { useLanguage } from "../../i18n/useLanguage"
+import { SECTION_ACCENTS } from "../../lib/sectionAccents"
 import { navMenuMeta } from "../../lib/navMenus"
 
 type MenuLinkProps = {
@@ -98,7 +99,7 @@ const BottomHeader = () => {
                             <div className={`absolute left-1/2 top-full z-50 w-[min(34rem,calc(100vw-2rem))] -translate-x-1/2 pt-3 ${isOpen ? "" : "hidden"}`}>
                                 <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-soft ring-1 ring-slate-900/5">
                                     <div className="border-b border-slate-200 bg-bayan-mist px-5 py-4">
-                                        <p className="text-xs font-black uppercase tracking-[0.16em] text-bayan-blue">{menu.label}</p>
+                                        <p className={`text-xs font-black uppercase tracking-[0.16em] ${SECTION_ACCENTS[menu.id].text}`}>{menu.label}</p>
                                         <p className="mt-1 text-sm font-semibold leading-6 text-slate-600">{menu.description}</p>
                                     </div>
                                     <div className="grid gap-1 p-2 sm:grid-cols-2">

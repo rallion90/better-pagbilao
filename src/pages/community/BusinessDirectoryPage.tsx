@@ -11,6 +11,7 @@ import { useLanguage } from "../../i18n/useLanguage"
 import { onlineHref, telHref } from "../../lib/businessApi"
 import { businessCategoryMeta } from "../../lib/businessCategories"
 import type { Business } from "../../types/businesses"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const SITE_URL = "https://betterpagbilao.org"
 const PAGE_PATH = "/community/businesses"
@@ -87,6 +88,7 @@ const BusinessCard = ({ business, categoryName, page }: BusinessCardProps) => {
 
 const BusinessDirectoryPage = () => {
     const { lang, t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const copy = businessDirectoryCopy[lang]
     const page = copy.directory
     const { categories, barangays, optionsLoading, categoryName } = useBusinessDirectory()
@@ -203,7 +205,7 @@ const BusinessDirectoryPage = () => {
                     <PageBreadcrumb items={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumbCommunity }, { label: page.breadcrumb }]} />
                     <div className="mt-8 grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:items-center">
                         <div>
-                            <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{page.eyebrow}</p>
+                            <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{page.eyebrow}</p>
                             <h1 className="mt-3 max-w-3xl text-3xl font-black tracking-normal sm:text-4xl lg:text-5xl lg:leading-[1.1]">{page.heading}</h1>
                             <p className="mt-4 max-w-2xl text-base leading-8 text-white/76">{page.intro}</p>
                             <div className="mt-7 flex flex-wrap gap-3">
@@ -232,7 +234,7 @@ const BusinessDirectoryPage = () => {
                                         </span>
                                         <div>
                                             <p className="text-base font-black">
-                                                <span className="mr-2 text-bayan-gold">{index + 1}.</span>
+                                                <span className={`mr-2 ${sectionAccent.onDark}`}>{index + 1}.</span>
                                                 {step.title}
                                             </p>
                                             <p className="mt-1 text-sm leading-6 text-white/76">{step.body}</p>

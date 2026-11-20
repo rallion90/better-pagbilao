@@ -11,6 +11,7 @@ import { useLanguage } from "../../i18n/useLanguage"
 import { STATUS_FLOW, categoryMeta, formatIssueDate, statusMeta } from "../../lib/communityReports"
 import { IssueApiError, getIssue, photoUrl } from "../../lib/issuesApi"
 import type { Issue, IssueErrorKind, IssueUpdate } from "../../types/issues"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 type Settled = { key: string } & ({ issue: Issue } | { kind: IssueErrorKind })
 
@@ -22,6 +23,7 @@ function newestFirst(updates: IssueUpdate[]) {
 
 const TrackReportPage = () => {
     const { lang, t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const copy = communityReportingCopy[lang]
     const track = copy.track
     const { code = "" } = useParams()
@@ -82,7 +84,7 @@ const TrackReportPage = () => {
                         ]}
                     />
                     <div className="mt-8 max-w-2xl">
-                        <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{track.eyebrow}</p>
+                        <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{track.eyebrow}</p>
                         <h1 className="mt-3 text-3xl font-black sm:text-4xl">{track.heading}</h1>
                         <p className="mt-4 text-base leading-8 text-white/76">{track.body}</p>
                         <form onSubmit={handleSubmit} className="mt-6 flex max-w-md gap-2">

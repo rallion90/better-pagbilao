@@ -13,6 +13,7 @@ import { useLanguage } from "../../i18n/useLanguage"
 import { businessPosition, onlineHref, telHref } from "../../lib/businessApi"
 import { businessCategoryMeta, categorySchemaType } from "../../lib/businessCategories"
 import type { Business } from "../../types/businesses"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const BusinessMap = lazy(() => import("../../components/community/BusinessMap"))
 
@@ -24,13 +25,14 @@ const RELATED_LIMIT = 6
 /** Dark hero used for the loading, error and not-found states. */
 const StatusHero = ({ icon, heading, body, children }: { icon: ReactNode; heading: string; body?: string; children?: ReactNode }) => {
     const { lang, t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const copy = businessDirectoryCopy[lang]
     return (
         <section className="bg-bayan-ink py-20 text-white sm:py-28">
             <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                 <PageBreadcrumb items={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumbCommunity }, { label: copy.directory.breadcrumb, to: DIRECTORY_PATH }]} />
                 <div className="mx-auto mt-10 max-w-2xl text-center">
-                    <span className="mx-auto grid h-20 w-20 place-items-center rounded-2xl bg-white/10 text-bayan-gold ring-1 ring-white/15">{icon}</span>
+                    <span className={`mx-auto grid h-20 w-20 place-items-center rounded-2xl bg-white/10 ${sectionAccent.onDark} ring-1 ring-white/15`}>{icon}</span>
                     <h1 className="mt-5 text-3xl font-black sm:text-4xl">{heading}</h1>
                     {body && <p className="mt-4 text-base leading-8 text-white/76">{body}</p>}
                     <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -98,6 +100,7 @@ const RelatedBusinesses = ({ business, categoryLabel }: { business: Business; ca
 
 const BusinessDetailPage = () => {
     const { lang, t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const copy = businessDirectoryCopy[lang]
     const { id = "" } = useParams()
     const { categoryName } = useBusinessDirectory()
@@ -191,7 +194,7 @@ const BusinessDetailPage = () => {
                             </span>
                         )}
                         <div className="min-w-0">
-                            <p className="text-sm font-black uppercase tracking-[0.14em] text-bayan-gold">{category}</p>
+                            <p className={`text-sm font-black uppercase tracking-[0.14em] ${sectionAccent.onDark}`}>{category}</p>
                             <h1 className="mt-1 text-3xl font-black tracking-normal sm:text-4xl">{business.name}</h1>
                         </div>
                     </div>

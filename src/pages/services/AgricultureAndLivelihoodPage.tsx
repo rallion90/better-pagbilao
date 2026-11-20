@@ -23,6 +23,7 @@ import { useSeo } from "../../hooks/useSeo"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
 import OfficeMap, { type OfficeMapMarker } from "../../components/common/OfficeMap"
 import type { AgricultureServiceCategory } from "../../types/services"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const PAGE_PATH = "/services/agriculture-and-livelihood"
 
@@ -57,6 +58,7 @@ function toTelHref(telephone: string) {
 
 const AgricultureAndLivelihoodPage = () => {
     const { t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const { data, loading, error } = useServices()
     const copy = t.services.agricultureAndLivelihood
     const agri = data?.categories.find(
@@ -130,7 +132,7 @@ const AgricultureAndLivelihoodPage = () => {
                             { label: copy.heading },
                         ]}
                     />
-                    <p className="mt-6 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
+                    <p className={`mt-6 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
                     <h1 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{copy.heading}</h1>
                     <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
                 </div>
@@ -316,7 +318,7 @@ const AgricultureAndLivelihoodPage = () => {
                     <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
                             <div>
-                                <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.verificationLabel}</p>
+                                <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.verificationLabel}</p>
                                 <p className="mt-4 text-base leading-8 text-white/76">{agri.verificationGuide.recommendation}</p>
                                 <div className="mt-6 flex flex-wrap gap-3">
                                     {agri.confirmed.offices
@@ -342,7 +344,7 @@ const AgricultureAndLivelihoodPage = () => {
                             </div>
                         </div>
                         <div className="mt-10 flex items-center gap-3 border-t border-white/10 pt-6 text-sm font-semibold text-white/60">
-                            <Landmark className="h-4 w-4 text-bayan-gold" />
+                            <Landmark className={`h-4 w-4 ${sectionAccent.onDark}`} />
                             Sources: {agri.confirmed.sources.map((source) => source.name).join(" · ")}
                         </div>
                     </div>

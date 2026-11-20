@@ -3,11 +3,13 @@ import { useLanguage } from "../../i18n/useLanguage"
 import { useFormsAndDocuments } from "../../hooks/useFormsAndDocuments"
 import { useSeo } from "../../hooks/useSeo"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const PAGE_PATH = "/transparency/procurement"
 
 const ProcurementPage = () => {
     const { t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const { data: forms, loading, error } = useFormsAndDocuments()
     const copy = t.transparencyPages.procurement
 
@@ -47,7 +49,7 @@ const ProcurementPage = () => {
                             { label: copy.heading },
                         ]}
                     />
-                    <p className="mt-6 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
+                    <p className={`mt-6 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
                     <h1 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{copy.heading}</h1>
                     <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
                 </div>

@@ -23,12 +23,11 @@ import { useServices } from "../../hooks/useServices"
 import { useSeo } from "../../hooks/useSeo"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
 import type { SocialWelfareCategory } from "../../types/services"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const PAGE_PATH = "/services/social-welfare"
 
 const FACILITY_ICONS: LucideIcon[] = [UserRound, Baby, Scissors]
-const FACILITY_COLORS = ["text-bayan-blue bg-blue-50", "text-bayan-red bg-red-50", "text-bayan-green bg-emerald-50"]
-
 const CATEGORY_ICONS: Record<string, LucideIcon> = {
     "Assistance to Individuals in Crisis Situations (Medical)": HeartPulse,
     "Burial Assistance": HandHeart,
@@ -48,6 +47,7 @@ function toTelHref(telephone: string) {
 
 const SocialWelfarePage = () => {
     const { t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const { data, loading, error } = useServices()
     const copy = t.services.socialWelfare
     const social = data?.categories.find(
@@ -92,7 +92,7 @@ const SocialWelfarePage = () => {
                             { label: copy.heading },
                         ]}
                     />
-                    <p className="mt-6 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
+                    <p className={`mt-6 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
                     <h1 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{copy.heading}</h1>
                     <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
                 </div>
@@ -118,7 +118,7 @@ const SocialWelfarePage = () => {
                                 <h2 className="text-sm font-black uppercase tracking-[0.16em] text-slate-500">{copy.officeLabel}</h2>
                                 <article className="mt-4 rounded-lg border border-slate-200 bg-bayan-mist p-6 sm:max-w-2xl">
                                     <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-                                        <span className="grid h-14 w-14 shrink-0 place-items-center rounded-md bg-blue-50 text-bayan-blue">
+                                        <span className={`grid h-14 w-14 shrink-0 place-items-center rounded-md ${sectionAccent.tile}`}>
                                             <Users className="h-7 w-7" />
                                         </span>
                                         <div>
@@ -153,7 +153,7 @@ const SocialWelfarePage = () => {
                                 const Icon = FACILITY_ICONS[index % FACILITY_ICONS.length]
                                 return (
                                     <article key={facility.name} className="rounded-lg border border-slate-200 bg-white p-5">
-                                        <span className={`grid h-11 w-11 place-items-center rounded-md ${FACILITY_COLORS[index % FACILITY_COLORS.length]}`}>
+                                        <span className={`grid h-11 w-11 place-items-center rounded-md ${sectionAccent.tile}`}>
                                             <Icon className="h-5 w-5" />
                                         </span>
                                         <p className="mt-4 text-base font-black">{facility.name}</p>
@@ -195,7 +195,7 @@ const SocialWelfarePage = () => {
                                         key={service.category}
                                         className="flex flex-col rounded-lg border border-slate-200 p-5 transition hover:-translate-y-0.5 hover:shadow-soft"
                                     >
-                                        <span className="grid h-11 w-11 place-items-center rounded-md bg-blue-50 text-bayan-blue">
+                                        <span className={`grid h-11 w-11 place-items-center rounded-md ${sectionAccent.tile}`}>
                                             <Icon className="h-5 w-5" />
                                         </span>
                                         <h3 className="mt-4 text-base font-black">{service.category}</h3>
@@ -241,7 +241,7 @@ const SocialWelfarePage = () => {
                                 <div className="mt-5 space-y-4">
                                     {social.howToAvail.generalSteps.map((step, index) => (
                                         <div key={step} className="flex items-start gap-4 rounded-lg bg-white p-4 shadow-sm">
-                                            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-blue-50 text-sm font-black text-bayan-blue">
+                                            <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-sm font-black ${sectionAccent.tile}`}>
                                                 {index + 1}
                                             </span>
                                             <p className="text-sm leading-6 text-slate-700">{step}</p>
@@ -274,7 +274,7 @@ const SocialWelfarePage = () => {
                     <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
                             <div>
-                                <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.verificationLabel}</p>
+                                <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.verificationLabel}</p>
                                 <p className="mt-4 text-base leading-8 text-white/76">{social.verificationGuide.recommendation}</p>
                                 <a
                                     href={toTelHref(social.confirmed.office.telephone)}
@@ -294,7 +294,7 @@ const SocialWelfarePage = () => {
                             </div>
                         </div>
                         <div className="mt-10 flex items-center gap-3 border-t border-white/10 pt-6 text-sm font-semibold text-white/60">
-                            <Landmark className="h-4 w-4 text-bayan-gold" />
+                            <Landmark className={`h-4 w-4 ${sectionAccent.onDark}`} />
                             Sources: {social.confirmed.sources.map((source) => source.name).join(" · ")}
                         </div>
                     </div>

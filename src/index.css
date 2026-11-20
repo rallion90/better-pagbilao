@@ -8,6 +8,18 @@
   --color-bayan-ink: #172033;
   --color-bayan-mist: #f4f8fb;
 
+  /* Local accents. Contrast (WCAG 2.x), checked against the backgrounds they are used on:
+     bamboo #c89b5e: 6.4:1 as text on bayan-ink and for ink text on bamboo; only 2.5:1 on white,
+       so on light backgrounds it is decoration only and text uses bamboo-deep (5.8:1 on bamboo-light).
+     sea #0e8a8a: 4.2:1 on white (icons/fills, large text only); body text uses sea-deep
+       (5.4:1 on sea-light; white on sea-deep 6.4:1). */
+  --color-bayan-bamboo: #c89b5e;
+  --color-bayan-bamboo-light: #f7eedf;
+  --color-bayan-bamboo-deep: #7a5528;
+  --color-bayan-sea: #0e8a8a;
+  --color-bayan-sea-light: #e6f4f3;
+  --color-bayan-sea-deep: #0a6e6e;
+
   --shadow-soft: 0 18px 60px rgba(23, 32, 51, 0.1);
 
   --animate-marquee: marquee 22s linear infinite;

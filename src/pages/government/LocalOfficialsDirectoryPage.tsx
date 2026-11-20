@@ -4,6 +4,7 @@ import { useGovernance } from "../../hooks/useGovernance"
 import { usePublicOffices } from "../../hooks/usePublicOffices"
 import { useSeo } from "../../hooks/useSeo"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const PAGE_PATH = "/government/local-officials-directory"
 
@@ -13,6 +14,7 @@ function toTelHref(telephone: string) {
 
 const LocalOfficialsDirectoryPage = () => {
     const { t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const governance = useGovernance()
     const { data, loading, error } = usePublicOffices()
     const copy = t.government.directory
@@ -59,7 +61,7 @@ const LocalOfficialsDirectoryPage = () => {
                             { label: copy.heading },
                         ]}
                     />
-                    <p className="mt-6 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
+                    <p className={`mt-6 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
                     <h1 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{copy.heading}</h1>
                     <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
                 </div>
@@ -81,7 +83,7 @@ const LocalOfficialsDirectoryPage = () => {
                                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
                                     {mayorOffice && (
                                         <article className="rounded-lg border border-slate-200 bg-bayan-mist p-6">
-                                            <span className="grid h-12 w-12 place-items-center rounded-md bg-blue-50 text-bayan-blue">
+                                            <span className={`grid h-12 w-12 place-items-center rounded-md ${sectionAccent.tile}`}>
                                                 <Landmark className="h-6 w-6" />
                                             </span>
                                             <p className="mt-4 text-xs font-black uppercase tracking-[0.14em] text-slate-500">{mayorOffice.office}</p>
@@ -95,7 +97,7 @@ const LocalOfficialsDirectoryPage = () => {
                                     )}
                                     {viceMayor && (
                                         <article className="rounded-lg border border-slate-200 bg-bayan-mist p-6">
-                                            <span className="grid h-12 w-12 place-items-center rounded-md bg-emerald-50 text-bayan-green">
+                                            <span className={`grid h-12 w-12 place-items-center rounded-md ${sectionAccent.tileAlt}`}>
                                                 <ShieldCheck className="h-6 w-6" />
                                             </span>
                                             <p className="mt-4 text-xs font-black uppercase tracking-[0.14em] text-slate-500">{viceMayor.role}</p>
@@ -113,7 +115,7 @@ const LocalOfficialsDirectoryPage = () => {
                                             key={office.office}
                                             className="rounded-lg border border-slate-200 p-5 transition hover:-translate-y-0.5 hover:shadow-soft"
                                         >
-                                            <span className="grid h-11 w-11 place-items-center rounded-md bg-blue-50 text-bayan-blue">
+                                            <span className={`grid h-11 w-11 place-items-center rounded-md ${sectionAccent.tile}`}>
                                                 <Building2 className="h-5 w-5" />
                                             </span>
                                             <p className="mt-4 text-sm font-black uppercase tracking-[0.08em] text-slate-500">{office.office}</p>

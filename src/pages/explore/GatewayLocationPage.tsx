@@ -17,14 +17,16 @@ import { useTouristDestinations } from "../../hooks/useTouristDestinations"
 import { useSeo } from "../../hooks/useSeo"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
 import { Link } from "react-router"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const PAGE_PATH = "/explore/gateway-location"
 
 const TOPOGRAPHY_ICONS = [Landmark, Waves, Route, TreePine]
-const TOPOGRAPHY_COLORS = ["text-bayan-blue bg-blue-50", "text-bayan-green bg-emerald-50", "text-amber-700 bg-amber-50", "text-bayan-red bg-red-50"]
+const TOPOGRAPHY_COLORS = ["text-bayan-blue bg-blue-50", "text-bayan-green bg-emerald-50", "text-amber-700 bg-amber-50", "text-bayan-sea-deep bg-bayan-sea-light"]
 
 const GatewayLocationPage = () => {
     const { t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const { data: siteData, loading: siteLoading, error: siteError } = useSiteData()
     const { data: places, loading: placesLoading, error: placesError } = useNearbyPlaces()
     const { data: destinations, loading: destinationsLoading, error: destinationsError } = useTouristDestinations()
@@ -66,7 +68,7 @@ const GatewayLocationPage = () => {
               { label: "From Lucena City", value: "8 km", caption: "Provincial capital of Quezon", Icon: Navigation, accent: "bg-bayan-blue", iconBg: "bg-blue-50", iconColor: "text-bayan-blue" },
               { label: "Land Area", value: `${places.profile.areaSquareKm.toLocaleString()} km²`, caption: "Total municipal area", Icon: Compass, accent: "bg-bayan-green", iconBg: "bg-emerald-50", iconColor: "text-bayan-green" },
               { label: "Elevation", value: `${places.profile.estimatedElevationMeters} m`, caption: "Estimated average elevation", Icon: Mountain, accent: "bg-amber-500", iconBg: "bg-amber-50", iconColor: "text-amber-700" },
-              { label: "Region", value: "CALABARZON", caption: "Region IV-A, Luzon", Icon: MapPin, accent: "bg-bayan-red", iconBg: "bg-red-50", iconColor: "text-bayan-red" },
+              { label: "Region", value: "CALABARZON", caption: "Region IV-A, Luzon", Icon: MapPin, accent: "bg-bayan-sea", iconBg: "bg-bayan-sea-light", iconColor: "text-bayan-sea-deep" },
           ]
         : []
 
@@ -81,7 +83,7 @@ const GatewayLocationPage = () => {
                             { label: copy.heading },
                         ]}
                     />
-                    <p className="mt-6 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
+                    <p className={`mt-6 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
                     <h1 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{copy.heading}</h1>
                     <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
                 </div>
@@ -148,7 +150,7 @@ const GatewayLocationPage = () => {
                         <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                             {places.borderingPlaces.map((place) => (
                                 <article key={place.name} className="rounded-lg border border-slate-200 bg-bayan-mist p-5">
-                                    <span className="text-xs font-black uppercase tracking-widest text-bayan-blue">{place.direction}</span>
+                                    <span className={`text-xs font-black uppercase tracking-widest ${sectionAccent.text}`}>{place.direction}</span>
                                     <p className="mt-2 text-lg font-black">{place.name}</p>
                                     <p className="mt-1 text-sm font-semibold text-slate-500">{place.type}</p>
                                 </article>
@@ -166,17 +168,17 @@ const GatewayLocationPage = () => {
                             <div className="space-y-3">
                                 {places.transportationNotes.map((note) => (
                                     <div key={note} className="flex items-start gap-3 rounded-lg bg-white p-4 shadow-sm">
-                                        <Bus className="mt-0.5 h-5 w-5 shrink-0 text-bayan-blue" />
+                                        <Bus className={`mt-0.5 h-5 w-5 shrink-0 ${sectionAccent.text}`} />
                                         <p className="text-sm leading-6 text-slate-700">{note}</p>
                                     </div>
                                 ))}
 
                                 <div className="rounded-lg bg-bayan-ink p-5 text-white">
-                                    <p className="text-xs font-black uppercase tracking-[0.14em] text-bayan-gold">{copy.majorRoadsLabel}</p>
+                                    <p className={`text-xs font-black uppercase tracking-[0.14em] ${sectionAccent.onDark}`}>{copy.majorRoadsLabel}</p>
                                     <div className="mt-3 flex flex-wrap gap-2">
                                         {siteData.infrastructure.majorRoads.map((road) => (
                                             <span key={road} className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold ring-1 ring-white/15">
-                                                <Milestone className="h-3.5 w-3.5 text-bayan-gold" /> {road}
+                                                <Milestone className={`h-3.5 w-3.5 ${sectionAccent.onDark}`} /> {road}
                                             </span>
                                         ))}
                                     </div>
@@ -219,7 +221,7 @@ const GatewayLocationPage = () => {
                         <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                             {places.nearbyUsefulPlaces.map((place) => (
                                 <article key={place.name} className="rounded-lg border border-slate-200 p-5 transition hover:-translate-y-0.5 hover:shadow-soft">
-                                    <span className="grid h-11 w-11 place-items-center rounded-md bg-blue-50 text-bayan-blue">
+                                    <span className={`grid h-11 w-11 place-items-center rounded-md ${sectionAccent.tile}`}>
                                         <MapPin className="h-5 w-5" />
                                     </span>
                                     <p className="mt-4 text-base font-black">{place.name}</p>
@@ -254,7 +256,7 @@ const GatewayLocationPage = () => {
                             )}
                             {protectedLandscape && (
                                 <article className="flex flex-col justify-center rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-                                    <span className="grid h-11 w-11 place-items-center rounded-md bg-emerald-50 text-bayan-green">
+                                    <span className={`grid h-11 w-11 place-items-center rounded-md ${sectionAccent.tileAlt}`}>
                                         <TreePine className="h-5 w-5" />
                                     </span>
                                     <p className="mt-4 text-lg font-black">{protectedLandscape.name}</p>
@@ -273,7 +275,7 @@ const GatewayLocationPage = () => {
                 <section className="bg-bayan-ink py-10 text-white">
                     <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                         <p className="flex flex-wrap items-center gap-3 text-sm font-semibold text-white/60">
-                            <Landmark className="h-4 w-4 text-bayan-gold" />
+                            <Landmark className={`h-4 w-4 ${sectionAccent.onDark}`} />
                             Sources: {places.sources.map((source) => source.name).join(" · ")}
                         </p>
                     </div>

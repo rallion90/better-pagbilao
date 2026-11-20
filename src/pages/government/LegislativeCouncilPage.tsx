@@ -3,11 +3,13 @@ import { useLanguage } from "../../i18n/useLanguage"
 import { useGovernance } from "../../hooks/useGovernance"
 import { useSeo } from "../../hooks/useSeo"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const PAGE_PATH = "/government/legislative-council"
 
 const LegislativeCouncilPage = () => {
     const { t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const { data, loading, error } = useGovernance()
     const copy = t.government.legislative
     const secretary = data?.departmentHeadsAndOffices.find((entry) => entry.office === "Office of the Secretary to the Sangguniang Bayan")
@@ -46,7 +48,7 @@ const LegislativeCouncilPage = () => {
                             { label: copy.heading },
                         ]}
                     />
-                    <p className="mt-6 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
+                    <p className={`mt-6 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
                     <h1 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{copy.heading}</h1>
                     <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
                 </div>
@@ -66,7 +68,7 @@ const LegislativeCouncilPage = () => {
                             <div>
                                 <h2 className="text-sm font-black uppercase tracking-[0.16em] text-slate-500">{copy.presidingOfficerLabel}</h2>
                                 <article className="mt-4 flex items-center gap-4 rounded-lg border border-slate-200 bg-bayan-mist p-6 sm:max-w-md">
-                                    <span className="grid h-14 w-14 shrink-0 place-items-center rounded-md bg-blue-50 text-bayan-blue">
+                                    <span className={`grid h-14 w-14 shrink-0 place-items-center rounded-md ${sectionAccent.tile}`}>
                                         <Gavel className="h-7 w-7" />
                                     </span>
                                     <div>
@@ -84,7 +86,7 @@ const LegislativeCouncilPage = () => {
                                             key={member.name}
                                             className="rounded-lg border border-slate-200 p-5 transition hover:-translate-y-0.5 hover:shadow-soft"
                                         >
-                                            <span className="grid h-11 w-11 place-items-center rounded-md bg-emerald-50 text-bayan-green">
+                                            <span className={`grid h-11 w-11 place-items-center rounded-md ${sectionAccent.tileAlt}`}>
                                                 <UserRound className="h-5 w-5" />
                                             </span>
                                             <p className="mt-4 text-base font-black">{member.name}</p>
@@ -96,7 +98,7 @@ const LegislativeCouncilPage = () => {
 
                             <div className="mt-10 rounded-lg border border-slate-200 bg-bayan-mist p-6 sm:flex sm:items-center sm:justify-between sm:gap-6">
                                 <div className="flex items-center gap-3">
-                                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-amber-50 text-amber-700">
+                                    <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-md ${sectionAccent.tileAlt}`}>
                                         <ScrollText className="h-5 w-5" />
                                     </span>
                                     <div>
