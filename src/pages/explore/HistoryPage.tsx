@@ -1,6 +1,7 @@
 import { ArrowRight, BookOpenText, ExternalLink, LoaderCircle, Quote } from "lucide-react"
 import { lazy, Suspense, useState } from "react"
-import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import PageBanner from "../../components/common/PageBanner"
+import { BANNER_PHOTOS } from "../../lib/bannerPhotos"
 import { CENSUS, CHURCH_STEPS, HISTORY_ERAS, HISTORY_SOURCES, HISTORY_TIMELINE, MARKER_TEXT } from "../../data/pagbilaoHistory"
 import type { EntryKind, EraId } from "../../data/pagbilaoHistory"
 import { useGovernance } from "../../hooks/useGovernance"
@@ -86,36 +87,36 @@ const HistoryPage = () => {
     return (
         <>
             {/* Hero */}
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb items={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]} />
-                    <p className={`mt-8 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
-                    <h1 className="mt-3 max-w-4xl text-3xl font-black sm:text-4xl lg:text-5xl lg:leading-[1.1]">{copy.heading}</h1>
-                    <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
+            <PageBanner
+                photo={BANNER_PHOTOS.church}
+                breadcrumbs={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]}
+                size="large"
+                eyebrow={copy.eyebrow}
+                title={copy.heading}
+                description={copy.intro}
+            >
+                <dl className="mt-8 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
+                    {copy.facts.map((fact) => (
+                        <div key={fact.label} className="rounded-lg bg-white/8 px-4 py-3 ring-1 ring-white/12">
+                            <dd className={`text-2xl font-black ${sectionAccent.onDark} sm:text-3xl`}>{fact.value}</dd>
+                            <dt className="mt-0.5 text-xs font-bold leading-4 text-white/64">{fact.label}</dt>
+                        </div>
+                    ))}
+                </dl>
 
-                    <dl className="mt-8 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
-                        {copy.facts.map((fact) => (
-                            <div key={fact.label} className="rounded-lg bg-white/8 px-4 py-3 ring-1 ring-white/12">
-                                <dd className={`text-2xl font-black ${sectionAccent.onDark} sm:text-3xl`}>{fact.value}</dd>
-                                <dt className="mt-0.5 text-xs font-bold leading-4 text-white/64">{fact.label}</dt>
-                            </div>
+                <nav aria-label={copy.onThisPage} className="mt-8">
+                    <p className="text-xs font-black uppercase tracking-[0.14em] text-white/56">{copy.onThisPage}</p>
+                    <ul className="mt-2 flex flex-wrap gap-2">
+                        {SECTION_IDS.map((id) => (
+                            <li key={id}>
+                                <a href={`#${id}`} className="inline-flex rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-black text-white ring-1 ring-white/20 transition hover:bg-white/16">
+                                    {copy.sections[id]}
+                                </a>
+                            </li>
                         ))}
-                    </dl>
-
-                    <nav aria-label={copy.onThisPage} className="mt-8">
-                        <p className="text-xs font-black uppercase tracking-[0.14em] text-white/56">{copy.onThisPage}</p>
-                        <ul className="mt-2 flex flex-wrap gap-2">
-                            {SECTION_IDS.map((id) => (
-                                <li key={id}>
-                                    <a href={`#${id}`} className="inline-flex rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-black text-white ring-1 ring-white/20 transition hover:bg-white/16">
-                                        {copy.sections[id]}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
-                </div>
-            </section>
+                    </ul>
+                </nav>
+            </PageBanner>
 
             {/* How to read + beginnings */}
             <section id="beginnings" className="scroll-mt-32 bg-bayan-mist py-14 sm:py-16">

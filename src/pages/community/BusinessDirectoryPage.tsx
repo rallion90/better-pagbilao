@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowRight, Clock, FilePlus2, Globe, LoaderCircle, MapPin, PhoneCall, Search, Store } from "lucide-react"
 import { useCallback, useEffect, useState } from "react"
 import { Link, useSearchParams } from "react-router"
-import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import PageBanner from "../../components/common/PageBanner"
 import { useBusinessDirectory } from "../../hooks/useBusinessDirectory"
 import { useBusinessList } from "../../hooks/useBusinessList"
 import { useSeo } from "../../hooks/useSeo"
@@ -200,52 +200,51 @@ const BusinessDirectoryPage = () => {
     return (
         <>
             {/* Hero */}
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb items={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumbCommunity }, { label: page.breadcrumb }]} />
-                    <div className="mt-8 grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:items-center">
-                        <div>
-                            <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{page.eyebrow}</p>
-                            <h1 className="mt-3 max-w-3xl text-3xl font-black tracking-normal sm:text-4xl lg:text-5xl lg:leading-[1.1]">{page.heading}</h1>
-                            <p className="mt-4 max-w-2xl text-base leading-8 text-white/76">{page.intro}</p>
-                            <div className="mt-7 flex flex-wrap gap-3">
-                                <Link
-                                    to={ADD_PATH}
-                                    className="inline-flex items-center gap-2 rounded-md bg-bayan-gold px-5 py-3 text-sm font-black text-bayan-ink transition hover:bg-amber-400"
-                                >
-                                    <FilePlus2 className="h-4 w-4" /> {page.ctaAdd}
-                                </Link>
-                                <a
-                                    href="#businesses"
-                                    className="inline-flex items-center gap-2 rounded-md bg-white/10 px-5 py-3 text-sm font-black text-white ring-1 ring-white/20 transition hover:bg-white/16"
-                                >
-                                    {page.ctaBrowse} <ArrowRight className="h-4 w-4" />
-                                </a>
-                            </div>
+            <PageBanner
+                breadcrumbs={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumbCommunity }, { label: page.breadcrumb }]}
+            >
+                <div className="mt-8 grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:items-center">
+                    <div>
+                        <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{page.eyebrow}</p>
+                        <h1 className="mt-3 max-w-3xl text-3xl font-black tracking-normal sm:text-4xl lg:text-5xl lg:leading-[1.1]">{page.heading}</h1>
+                        <p className="mt-4 max-w-2xl text-base leading-8 text-white/76">{page.intro}</p>
+                        <div className="mt-7 flex flex-wrap gap-3">
+                            <Link
+                                to={ADD_PATH}
+                                className="inline-flex items-center gap-2 rounded-md bg-bayan-gold px-5 py-3 text-sm font-black text-bayan-ink transition hover:bg-amber-400"
+                            >
+                                <FilePlus2 className="h-4 w-4" /> {page.ctaAdd}
+                            </Link>
+                            <a
+                                href="#businesses"
+                                className="inline-flex items-center gap-2 rounded-md bg-white/10 px-5 py-3 text-sm font-black text-white ring-1 ring-white/20 transition hover:bg-white/16"
+                            >
+                                {page.ctaBrowse} <ArrowRight className="h-4 w-4" />
+                            </a>
                         </div>
-
-                        <ol className="grid gap-3">
-                            {page.steps.map((step, index) => {
-                                const StepIcon = STEP_ICONS[index]
-                                return (
-                                    <li key={step.title} className="flex items-start gap-4 rounded-lg bg-white/8 p-5 ring-1 ring-white/12">
-                                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-bayan-blue text-white">
-                                            <StepIcon className="h-5 w-5" />
-                                        </span>
-                                        <div>
-                                            <p className="text-base font-black">
-                                                <span className={`mr-2 ${sectionAccent.onDark}`}>{index + 1}.</span>
-                                                {step.title}
-                                            </p>
-                                            <p className="mt-1 text-sm leading-6 text-white/76">{step.body}</p>
-                                        </div>
-                                    </li>
-                                )
-                            })}
-                        </ol>
                     </div>
+
+                    <ol className="grid gap-3">
+                        {page.steps.map((step, index) => {
+                            const StepIcon = STEP_ICONS[index]
+                            return (
+                                <li key={step.title} className="flex items-start gap-4 rounded-lg bg-white/8 p-5 ring-1 ring-white/12">
+                                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-bayan-blue text-white">
+                                        <StepIcon className="h-5 w-5" />
+                                    </span>
+                                    <div>
+                                        <p className="text-base font-black">
+                                            <span className={`mr-2 ${sectionAccent.onDark}`}>{index + 1}.</span>
+                                            {step.title}
+                                        </p>
+                                        <p className="mt-1 text-sm leading-6 text-white/76">{step.body}</p>
+                                    </div>
+                                </li>
+                            )
+                        })}
+                    </ol>
                 </div>
-            </section>
+            </PageBanner>
 
             {/* Directory */}
             <section id="businesses" className="scroll-mt-32 bg-white py-14 sm:py-16">

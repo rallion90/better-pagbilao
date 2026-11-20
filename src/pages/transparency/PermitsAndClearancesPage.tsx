@@ -2,14 +2,12 @@ import { ExternalLink, FileImage, FileText, Landmark } from "lucide-react"
 import { useLanguage } from "../../i18n/useLanguage"
 import { useFormsAndDocuments } from "../../hooks/useFormsAndDocuments"
 import { useSeo } from "../../hooks/useSeo"
-import PageBreadcrumb from "../../components/common/PageBreadcrumb"
-import { useSectionAccent } from "../../lib/sectionAccents"
+import PageBanner from "../../components/common/PageBanner"
 
 const PAGE_PATH = "/transparency/permits-and-clearances"
 
 const PermitsAndClearancesPage = () => {
     const { t } = useLanguage()
-    const sectionAccent = useSectionAccent()
     const { data: forms, loading, error } = useFormsAndDocuments()
     const copy = t.transparencyPages.permitsAndClearances
 
@@ -37,20 +35,16 @@ const PermitsAndClearancesPage = () => {
 
     return (
         <>
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb
-                        items={[
-                            { label: t.transparencyPages.breadcrumbHome, to: "/" },
-                            { label: t.transparencyPages.breadcrumbTransparency },
-                            { label: copy.heading },
-                        ]}
-                    />
-                    <p className={`mt-6 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
-                    <h1 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{copy.heading}</h1>
-                    <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
-                </div>
-            </section>
+            <PageBanner
+                breadcrumbs={[
+                    { label: t.transparencyPages.breadcrumbHome, to: "/" },
+                    { label: t.transparencyPages.breadcrumbTransparency },
+                    { label: copy.heading },
+                ]}
+                eyebrow={copy.eyebrow}
+                title={copy.heading}
+                description={copy.intro}
+            />
 
             <section className="bg-white py-14 sm:py-16">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">

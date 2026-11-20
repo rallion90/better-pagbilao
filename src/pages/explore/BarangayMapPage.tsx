@@ -1,7 +1,7 @@
 import { ArrowRight, LoaderCircle, MapPin, Phone, Search, UserRound, X } from "lucide-react"
 import { lazy, Suspense, useEffect, useMemo, useState } from "react"
 import { Link } from "react-router"
-import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import PageBanner from "../../components/common/PageBanner"
 import { useBarangays } from "../../hooks/useBarangays"
 import { useIssueReporting } from "../../hooks/useIssueReporting"
 import { useSeo } from "../../hooks/useSeo"
@@ -12,7 +12,6 @@ import { METRICS, SHADES, areaKm2, classIndex, density, formatNumber, metricValu
 import type { BarangayMetric } from "../../lib/barangayMetrics"
 import { listIssues } from "../../lib/issuesApi"
 import type { BarangayProfile } from "../../types/barangays"
-import { useSectionAccent } from "../../lib/sectionAccents"
 
 const PAGE_PATH = "/explore/barangays"
 
@@ -27,7 +26,6 @@ type ReportCount = { name: string; total: number | null }
 
 const BarangayMapPage = () => {
     const { lang, t } = useLanguage()
-    const sectionAccent = useSectionAccent()
     const copy = barangayMapCopy[lang]
     const { data, loading, error, reload } = useBarangays()
     const { enabled: reportingOpen } = useIssueReporting()
@@ -98,28 +96,28 @@ const BarangayMapPage = () => {
 
     return (
         <>
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb items={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]} />
-                    <p className={`mt-8 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
-                    <h1 className="mt-3 max-w-3xl text-3xl font-black sm:text-4xl lg:text-5xl lg:leading-[1.1]">{copy.heading}</h1>
-                    <p className="mt-4 max-w-2xl text-base leading-8 text-white/76">{copy.intro}</p>
-                    {barangays.length > 0 && (
-                        <dl className="mt-8 grid max-w-xl grid-cols-3 gap-3">
-                            {[
-                                { label: copy.stats.barangays, value: String(barangays.length) },
-                                { label: copy.stats.population, value: formatNumber(totals.population, lang) },
-                                { label: copy.stats.area, value: `${formatNumber(totals.area, lang, 1)} km²` },
-                            ].map((stat) => (
-                                <div key={stat.label} className="rounded-lg bg-white/8 px-4 py-3 ring-1 ring-white/12">
-                                    <dd className="text-2xl font-black sm:text-3xl">{stat.value}</dd>
-                                    <dt className="mt-0.5 text-xs font-bold uppercase tracking-[0.12em] text-white/60">{stat.label}</dt>
-                                </div>
-                            ))}
-                        </dl>
-                    )}
-                </div>
-            </section>
+            <PageBanner
+                breadcrumbs={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]}
+                size="large"
+                eyebrow={copy.eyebrow}
+                title={copy.heading}
+                description={copy.intro}
+            >
+                {barangays.length > 0 && (
+                    <dl className="mt-8 grid max-w-xl grid-cols-3 gap-3">
+                        {[
+                            { label: copy.stats.barangays, value: String(barangays.length) },
+                            { label: copy.stats.population, value: formatNumber(totals.population, lang) },
+                            { label: copy.stats.area, value: `${formatNumber(totals.area, lang, 1)} km²` },
+                        ].map((stat) => (
+                            <div key={stat.label} className="rounded-lg bg-white/8 px-4 py-3 ring-1 ring-white/12">
+                                <dd className="text-2xl font-black sm:text-3xl">{stat.value}</dd>
+                                <dt className="mt-0.5 text-xs font-bold uppercase tracking-[0.12em] text-white/60">{stat.label}</dt>
+                            </div>
+                        ))}
+                    </dl>
+                )}
+            </PageBanner>
 
             <section className="bg-bayan-mist py-12 sm:py-14">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">

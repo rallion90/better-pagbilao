@@ -15,6 +15,7 @@ import {
 } from "lucide-react"
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import { Link, useNavigate, useSearchParams } from "react-router"
+import PageBanner from "../../components/common/PageBanner"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
 import IssueStatusBadge from "../../components/community/IssueStatusBadge"
 import ReportForm from "../../components/community/ReportForm"
@@ -279,70 +280,69 @@ const CommunityReportingContent = () => {
     return (
         <>
             {/* Hero */}
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb items={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]} />
-                    <div className="mt-8 grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:items-center">
-                        <div>
-                            <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
-                            <h1 className="mt-3 max-w-3xl text-3xl font-black tracking-normal sm:text-4xl lg:text-5xl lg:leading-[1.1]">{copy.heading}</h1>
-                            <p className="mt-4 max-w-2xl text-base leading-8 text-white/76">{copy.intro}</p>
-                            <div className="mt-7 flex flex-wrap gap-3">
-                                <a
-                                    href="#report"
-                                    className="inline-flex items-center gap-2 rounded-md bg-bayan-gold px-5 py-3 text-sm font-black text-bayan-ink transition hover:bg-amber-400"
-                                >
-                                    <MapPinned className="h-4 w-4" /> {copy.ctaReport}
-                                </a>
-                                <a
-                                    href="#reports"
-                                    className="inline-flex items-center gap-2 rounded-md bg-white/10 px-5 py-3 text-sm font-black text-white ring-1 ring-white/20 transition hover:bg-white/16"
-                                >
-                                    {copy.ctaBrowse} <ArrowRight className="h-4 w-4" />
-                                </a>
-                                <Link
-                                    to="/community/track"
-                                    className="inline-flex items-center gap-2 rounded-md bg-white/10 px-5 py-3 text-sm font-black text-white ring-1 ring-white/20 transition hover:bg-white/16"
-                                >
-                                    <Search className="h-4 w-4" /> {copy.ctaTrack}
-                                </Link>
-                            </div>
-                            <dl className="mt-9 grid max-w-md grid-cols-3 gap-3">
-                                {[
-                                    { label: copy.stats.total, value: stats.total, tone: "text-white" },
-                                    { label: copy.stats.open, value: stats.open, tone: sectionAccent.onDark },
-                                    { label: copy.stats.resolved, value: stats.resolved, tone: "text-emerald-300" },
-                                ].map((stat) => (
-                                    <div key={stat.label} className="rounded-lg bg-white/8 px-4 py-3 ring-1 ring-white/12">
-                                        <dd className={`text-3xl font-black ${stat.tone}`}>{stat.value}</dd>
-                                        <dt className="mt-0.5 text-xs font-bold uppercase tracking-[0.12em] text-white/60">{stat.label}</dt>
-                                    </div>
-                                ))}
-                            </dl>
+            <PageBanner
+                breadcrumbs={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]}
+            >
+                <div className="mt-8 grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:items-center">
+                    <div>
+                        <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
+                        <h1 className="mt-3 max-w-3xl text-3xl font-black tracking-normal sm:text-4xl lg:text-5xl lg:leading-[1.1]">{copy.heading}</h1>
+                        <p className="mt-4 max-w-2xl text-base leading-8 text-white/76">{copy.intro}</p>
+                        <div className="mt-7 flex flex-wrap gap-3">
+                            <a
+                                href="#report"
+                                className="inline-flex items-center gap-2 rounded-md bg-bayan-gold px-5 py-3 text-sm font-black text-bayan-ink transition hover:bg-amber-400"
+                            >
+                                <MapPinned className="h-4 w-4" /> {copy.ctaReport}
+                            </a>
+                            <a
+                                href="#reports"
+                                className="inline-flex items-center gap-2 rounded-md bg-white/10 px-5 py-3 text-sm font-black text-white ring-1 ring-white/20 transition hover:bg-white/16"
+                            >
+                                {copy.ctaBrowse} <ArrowRight className="h-4 w-4" />
+                            </a>
+                            <Link
+                                to="/community/track"
+                                className="inline-flex items-center gap-2 rounded-md bg-white/10 px-5 py-3 text-sm font-black text-white ring-1 ring-white/20 transition hover:bg-white/16"
+                            >
+                                <Search className="h-4 w-4" /> {copy.ctaTrack}
+                            </Link>
                         </div>
-
-                        <ol className="grid gap-3">
-                            {copy.steps.map((step, index) => {
-                                const StepIcon = STEP_ICONS[index]
-                                return (
-                                    <li key={step.title} className="flex items-start gap-4 rounded-lg bg-white/8 p-5 ring-1 ring-white/12">
-                                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-bayan-blue text-white">
-                                            <StepIcon className="h-5 w-5" />
-                                        </span>
-                                        <div>
-                                            <p className="text-base font-black">
-                                                <span className={`mr-2 ${sectionAccent.onDark}`}>{index + 1}.</span>
-                                                {step.title}
-                                            </p>
-                                            <p className="mt-1 text-sm leading-6 text-white/76">{step.body}</p>
-                                        </div>
-                                    </li>
-                                )
-                            })}
-                        </ol>
+                        <dl className="mt-9 grid max-w-md grid-cols-3 gap-3">
+                            {[
+                                { label: copy.stats.total, value: stats.total, tone: "text-white" },
+                                { label: copy.stats.open, value: stats.open, tone: sectionAccent.onDark },
+                                { label: copy.stats.resolved, value: stats.resolved, tone: "text-emerald-300" },
+                            ].map((stat) => (
+                                <div key={stat.label} className="rounded-lg bg-white/8 px-4 py-3 ring-1 ring-white/12">
+                                    <dd className={`text-3xl font-black ${stat.tone}`}>{stat.value}</dd>
+                                    <dt className="mt-0.5 text-xs font-bold uppercase tracking-[0.12em] text-white/60">{stat.label}</dt>
+                                </div>
+                            ))}
+                        </dl>
                     </div>
+
+                    <ol className="grid gap-3">
+                        {copy.steps.map((step, index) => {
+                            const StepIcon = STEP_ICONS[index]
+                            return (
+                                <li key={step.title} className="flex items-start gap-4 rounded-lg bg-white/8 p-5 ring-1 ring-white/12">
+                                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-bayan-blue text-white">
+                                        <StepIcon className="h-5 w-5" />
+                                    </span>
+                                    <div>
+                                        <p className="text-base font-black">
+                                            <span className={`mr-2 ${sectionAccent.onDark}`}>{index + 1}.</span>
+                                            {step.title}
+                                        </p>
+                                        <p className="mt-1 text-sm leading-6 text-white/76">{step.body}</p>
+                                    </div>
+                                </li>
+                            )
+                        })}
+                    </ol>
                 </div>
-            </section>
+            </PageBanner>
 
             {/* Report form + map */}
             <section id="report" className="scroll-mt-32 bg-bayan-mist py-14 sm:py-16">

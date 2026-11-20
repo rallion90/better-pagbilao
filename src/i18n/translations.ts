@@ -155,6 +155,9 @@ export interface Translations {
             notes: string[]
         }
     }
+    banner: {
+        photo: string
+    }
     footer: {
         tagline: string
         quickLinksHeading: string
@@ -508,6 +511,9 @@ const en: Translations = {
                 "Public history sourced from official local portal notes",
             ],
         },
+    },
+    banner: {
+        photo: "Photo",
     },
     footer: {
         tagline:
@@ -938,6 +944,9 @@ const tl: Translations = {
                 "Pampublikong kasaysayan mula sa opisyal na tala ng lokal na portal",
             ],
         },
+    },
+    banner: {
+        photo: "Larawan",
     },
     footer: {
         tagline:

@@ -15,7 +15,8 @@ import { useSiteData } from "../../hooks/useSiteData"
 import { useNearbyPlaces } from "../../hooks/useNearbyPlaces"
 import { useTouristDestinations } from "../../hooks/useTouristDestinations"
 import { useSeo } from "../../hooks/useSeo"
-import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import PageBanner from "../../components/common/PageBanner"
+import { BANNER_PHOTOS } from "../../lib/bannerPhotos"
 import { Link } from "react-router"
 import { useSectionAccent } from "../../lib/sectionAccents"
 
@@ -74,20 +75,17 @@ const GatewayLocationPage = () => {
 
     return (
         <>
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb
-                        items={[
-                            { label: t.explore.breadcrumbHome, to: "/" },
-                            { label: t.explore.breadcrumbExplore },
-                            { label: copy.heading },
-                        ]}
-                    />
-                    <p className={`mt-6 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.eyebrow}</p>
-                    <h1 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{copy.heading}</h1>
-                    <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
-                </div>
-            </section>
+            <PageBanner
+                photo={BANNER_PHOTOS.highway}
+                breadcrumbs={[
+                    { label: t.explore.breadcrumbHome, to: "/" },
+                    { label: t.explore.breadcrumbExplore },
+                    { label: copy.heading },
+                ]}
+                eyebrow={copy.eyebrow}
+                title={copy.heading}
+                description={copy.intro}
+            />
 
             {loading && (
                 <section className="bg-white py-14 sm:py-16">

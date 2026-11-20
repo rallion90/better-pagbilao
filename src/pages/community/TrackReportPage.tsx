@@ -2,7 +2,7 @@ import { CircleAlert, LoaderCircle, MapPin, Search } from "lucide-react"
 import { useEffect, useState } from "react"
 import type { FormEvent } from "react"
 import { Link, useNavigate, useParams } from "react-router"
-import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import PageBanner from "../../components/common/PageBanner"
 import IssueStatusBadge from "../../components/community/IssueStatusBadge"
 import { useIssueReporting } from "../../hooks/useIssueReporting"
 import { useSeo } from "../../hooks/useSeo"
@@ -74,45 +74,42 @@ const TrackReportPage = () => {
 
     return (
         <>
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb
-                        items={[
-                            { label: t.services.breadcrumbHome, to: "/" },
-                            ...(reportingOpen ? [{ label: copy.breadcrumb, to: "/community/report" }] : []),
-                            { label: track.breadcrumb },
-                        ]}
-                    />
-                    <div className="mt-8 max-w-2xl">
-                        <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{track.eyebrow}</p>
-                        <h1 className="mt-3 text-3xl font-black sm:text-4xl">{track.heading}</h1>
-                        <p className="mt-4 text-base leading-8 text-white/76">{track.body}</p>
-                        <form onSubmit={handleSubmit} className="mt-6 flex max-w-md gap-2">
-                            <label htmlFor="track-code" className="sr-only">
-                                {copy.success.referenceLabel}
-                            </label>
-                            <input
-                                id="track-code"
-                                type="text"
-                                value={input}
-                                autoComplete="off"
-                                autoCapitalize="characters"
-                                spellCheck={false}
-                                placeholder={track.placeholder}
-                                onChange={(event) => setInput(event.target.value)}
-                                className="min-w-0 flex-1 rounded-md border border-white/20 bg-white/8 px-3.5 py-2.5 font-mono text-sm font-bold uppercase tracking-wider text-white placeholder:font-sans placeholder:normal-case placeholder:tracking-normal placeholder:text-white/40 focus:border-bayan-gold focus:outline-none focus:ring-2 focus:ring-bayan-gold/30"
-                            />
-                            <button
-                                type="submit"
-                                disabled={loading}
-                                className="inline-flex items-center gap-2 rounded-md bg-bayan-gold px-5 py-2.5 text-sm font-black text-bayan-ink transition hover:bg-amber-400 disabled:cursor-wait disabled:opacity-70"
-                            >
-                                <Search className="h-4 w-4" /> {track.button}
-                            </button>
-                        </form>
-                    </div>
+            <PageBanner
+                breadcrumbs={[
+                    { label: t.services.breadcrumbHome, to: "/" },
+                    ...(reportingOpen ? [{ label: copy.breadcrumb, to: "/community/report" }] : []),
+                    { label: track.breadcrumb },
+                ]}
+            >
+                <div className="mt-8 max-w-2xl">
+                    <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{track.eyebrow}</p>
+                    <h1 className="mt-3 text-3xl font-black sm:text-4xl">{track.heading}</h1>
+                    <p className="mt-4 text-base leading-8 text-white/76">{track.body}</p>
+                    <form onSubmit={handleSubmit} className="mt-6 flex max-w-md gap-2">
+                        <label htmlFor="track-code" className="sr-only">
+                            {copy.success.referenceLabel}
+                        </label>
+                        <input
+                            id="track-code"
+                            type="text"
+                            value={input}
+                            autoComplete="off"
+                            autoCapitalize="characters"
+                            spellCheck={false}
+                            placeholder={track.placeholder}
+                            onChange={(event) => setInput(event.target.value)}
+                            className="min-w-0 flex-1 rounded-md border border-white/20 bg-white/8 px-3.5 py-2.5 font-mono text-sm font-bold uppercase tracking-wider text-white placeholder:font-sans placeholder:normal-case placeholder:tracking-normal placeholder:text-white/40 focus:border-bayan-gold focus:outline-none focus:ring-2 focus:ring-bayan-gold/30"
+                        />
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="inline-flex items-center gap-2 rounded-md bg-bayan-gold px-5 py-2.5 text-sm font-black text-bayan-ink transition hover:bg-amber-400 disabled:cursor-wait disabled:opacity-70"
+                        >
+                            <Search className="h-4 w-4" /> {track.button}
+                        </button>
+                    </form>
                 </div>
-            </section>
+            </PageBanner>
 
             <section className="bg-bayan-mist py-12 sm:py-14">
                 <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8" aria-live="polite">

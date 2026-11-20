@@ -17,7 +17,7 @@ import {
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import type { FormEvent, ReactNode } from "react"
 import { Link } from "react-router"
-import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import PageBanner from "../../components/common/PageBanner"
 import type { BusinessMapFocus } from "../../components/community/BusinessMap"
 import { useBusinessDirectory, useDirectoryDisabledHandler } from "../../hooks/useBusinessDirectory"
 import { useSeo } from "../../hooks/useSeo"
@@ -435,21 +435,17 @@ const AddBusinessPage = () => {
 
     return (
         <>
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb
-                        items={[
-                            { label: t.services.breadcrumbHome, to: "/" },
-                            { label: copy.breadcrumbCommunity },
-                            { label: copy.directory.breadcrumb, to: DIRECTORY_PATH },
-                            { label: page.breadcrumb },
-                        ]}
-                    />
-                    <p className={`mt-6 text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{page.eyebrow}</p>
-                    <h1 className="mt-3 max-w-3xl text-3xl font-black tracking-normal sm:text-4xl">{page.heading}</h1>
-                    <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{page.intro}</p>
-                </div>
-            </section>
+            <PageBanner
+                breadcrumbs={[
+                    { label: t.services.breadcrumbHome, to: "/" },
+                    { label: copy.breadcrumbCommunity },
+                    { label: copy.directory.breadcrumb, to: DIRECTORY_PATH },
+                    { label: page.breadcrumb },
+                ]}
+                eyebrow={page.eyebrow}
+                title={page.heading}
+                description={page.intro}
+            />
 
             <section className="bg-bayan-mist py-14 sm:py-16">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">

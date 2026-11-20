@@ -2,6 +2,7 @@ import { ArrowLeft, Clock, EyeOff, FilePlus2, Globe, LoaderCircle, MapPin, Packa
 import { lazy, Suspense } from "react"
 import type { ReactNode } from "react"
 import { Link, useParams } from "react-router"
+import PageBanner from "../../components/common/PageBanner"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
 import ShareButton from "../../components/common/ShareButton"
 import { useBusiness } from "../../hooks/useBusiness"
@@ -175,50 +176,47 @@ const BusinessDetailPage = () => {
 
     return (
         <>
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb
-                        items={[
-                            { label: t.services.breadcrumbHome, to: "/" },
-                            { label: copy.breadcrumbCommunity },
-                            { label: copy.directory.breadcrumb, to: DIRECTORY_PATH },
-                            { label: business.name },
-                        ]}
-                    />
-                    <div className="mt-8 flex flex-wrap items-center gap-5">
-                        {business.logoUrl ? (
-                            <img src={business.logoUrl} alt={copy.detail.logoAlt(business.name)} className="h-16 w-16 shrink-0 rounded-2xl bg-white object-cover" />
-                        ) : (
-                            <span className={`grid h-16 w-16 shrink-0 place-items-center rounded-2xl ${color}`}>
-                                <Icon className="h-7 w-7" />
-                            </span>
-                        )}
-                        <div className="min-w-0">
-                            <p className={`text-sm font-black uppercase tracking-[0.14em] ${sectionAccent.onDark}`}>{category}</p>
-                            <h1 className="mt-1 text-3xl font-black tracking-normal sm:text-4xl">{business.name}</h1>
-                        </div>
-                    </div>
-                    <p className="mt-5 max-w-2xl whitespace-pre-line text-base leading-8 text-white/76">{business.description}</p>
-                    <div className="mt-5 flex flex-wrap items-center gap-3">
-                        {callHref && (
-                            <a href={callHref} className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-black text-bayan-ink shadow-soft">
-                                <PhoneCall className="h-4 w-4 text-bayan-blue" /> {business.phone}
-                            </a>
-                        )}
-                        {business.online && (
-                            <a
-                                href={onlineHref(business.online)}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 rounded-md bg-white/10 px-4 py-2 text-sm font-bold text-white ring-1 ring-white/20 transition hover:bg-white/16"
-                            >
-                                <Globe className="h-4 w-4" /> {copy.detail.online}
-                            </a>
-                        )}
-                        <ShareButton title={`${business.name}, Barangay ${business.barangay}, Pagbilao`} path={canonicalPath} />
+            <PageBanner
+                breadcrumbs={[
+                    { label: t.services.breadcrumbHome, to: "/" },
+                    { label: copy.breadcrumbCommunity },
+                    { label: copy.directory.breadcrumb, to: DIRECTORY_PATH },
+                    { label: business.name },
+                ]}
+            >
+                <div className="mt-8 flex flex-wrap items-center gap-5">
+                    {business.logoUrl ? (
+                        <img src={business.logoUrl} alt={copy.detail.logoAlt(business.name)} className="h-16 w-16 shrink-0 rounded-2xl bg-white object-cover" />
+                    ) : (
+                        <span className={`grid h-16 w-16 shrink-0 place-items-center rounded-2xl ${color}`}>
+                            <Icon className="h-7 w-7" />
+                        </span>
+                    )}
+                    <div className="min-w-0">
+                        <p className={`text-sm font-black uppercase tracking-[0.14em] ${sectionAccent.onDark}`}>{category}</p>
+                        <h1 className="mt-1 text-3xl font-black tracking-normal sm:text-4xl">{business.name}</h1>
                     </div>
                 </div>
-            </section>
+                <p className="mt-5 max-w-2xl whitespace-pre-line text-base leading-8 text-white/76">{business.description}</p>
+                <div className="mt-5 flex flex-wrap items-center gap-3">
+                    {callHref && (
+                        <a href={callHref} className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-black text-bayan-ink shadow-soft">
+                            <PhoneCall className="h-4 w-4 text-bayan-blue" /> {business.phone}
+                        </a>
+                    )}
+                    {business.online && (
+                        <a
+                            href={onlineHref(business.online)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-md bg-white/10 px-4 py-2 text-sm font-bold text-white ring-1 ring-white/20 transition hover:bg-white/16"
+                        >
+                            <Globe className="h-4 w-4" /> {copy.detail.online}
+                        </a>
+                    )}
+                    <ShareButton title={`${business.name}, Barangay ${business.barangay}, Pagbilao`} path={canonicalPath} />
+                </div>
+            </PageBanner>
 
             <section className="bg-white py-14 sm:py-16">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">

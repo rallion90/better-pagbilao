@@ -2,7 +2,7 @@ import { ChevronLeft, ChevronRight, LoaderCircle, Megaphone, Pin, Search, Triang
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { useSearchParams } from "react-router"
 import AnnouncementCard from "../../components/announcements/AnnouncementCard"
-import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import PageBanner from "../../components/common/PageBanner"
 import { useAnnouncementList } from "../../hooks/useAnnouncementList"
 import { useSeo } from "../../hooks/useSeo"
 import { announcementsCopy } from "../../i18n/announcementsPage"
@@ -101,14 +101,13 @@ const AnnouncementsPage = () => {
 
     return (
         <>
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb items={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]} />
-                    <p className="mt-8 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
-                    <h1 className="mt-3 max-w-3xl text-3xl font-black sm:text-4xl lg:text-5xl lg:leading-[1.1]">{copy.heading}</h1>
-                    <p className="mt-4 max-w-2xl text-base leading-8 text-white/76">{copy.intro}</p>
-                </div>
-            </section>
+            <PageBanner
+                breadcrumbs={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]}
+                size="large"
+                eyebrow={copy.eyebrow}
+                title={copy.heading}
+                description={copy.intro}
+            />
 
             <section className="bg-bayan-mist py-10 sm:py-12">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
