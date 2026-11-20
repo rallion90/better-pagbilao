@@ -1,6 +1,7 @@
 import {
     BookOpenCheck,
     BriefcaseBusiness,
+    ChartColumn,
     ClipboardCheck,
     ContactRound,
     FileDown,
@@ -50,6 +51,7 @@ const NAV_MENUS: NavMenuMeta[] = [
         items: [
             { href: "/transparency/ordinances-and-executive-orders", Icon: FileDown },
             { href: "/transparency/procurement", Icon: ClipboardCheck },
+            { href: "/transparency/budget", Icon: ChartColumn },
             { href: "/transparency/citizens-charter", Icon: BookOpenCheck },
             { href: "/transparency/permits-and-clearances", Icon: FolderDown },
         ],
