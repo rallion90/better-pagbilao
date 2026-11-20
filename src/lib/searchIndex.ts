@@ -30,6 +30,7 @@ const STATIC_PAGES: SearchItem[] = [
   { id: "page-destinations", title: "Tourist Destinations", subtitle: "Islands, beaches, falls, heritage sites", category: "Page", path: DESTINATIONS_PATH },
   { id: "page-ordinances", title: "Ordinances and Executive Orders", subtitle: "Legislative issuances", category: "Page", path: "/transparency/ordinances-and-executive-orders" },
   { id: "page-procurement", title: "Procurement", subtitle: "Bids and procurement notices", category: "Page", path: "/transparency/procurement" },
+  { id: "page-budget", title: "Budget", subtitle: "Pagbilao in the national budget, 2020–2027", category: "Page", path: "/transparency/budget" },
   { id: "page-citizens-charter", title: "Citizen's Charter", subtitle: "Service standards and requirements", category: "Page", path: "/transparency/citizens-charter" },
   { id: "page-permits", title: "Permits and Clearances", subtitle: "Transparency documents", category: "Page", path: "/transparency/permits-and-clearances" },
 ]

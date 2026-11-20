@@ -25,6 +25,7 @@ const OrdinancesAndExecutiveOrdersPage = lazy(() => import("./pages/transparency
 const ProcurementPage = lazy(() => import("./pages/transparency/ProcurementPage"));
 const CitizensCharterPage = lazy(() => import("./pages/transparency/CitizensCharterPage"));
 const PermitsAndClearancesPage = lazy(() => import("./pages/transparency/PermitsAndClearancesPage"));
+const BudgetPage = lazy(() => import("./pages/transparency/BudgetPage"));
 const CommunityReportingPage = lazy(() => import("./pages/community/CommunityReportingPage"));
 const TrackReportPage = lazy(() => import("./pages/community/TrackReportPage"));
 const BusinessDirectoryLayout = lazy(() => import("./components/community/BusinessDirectoryLayout"));
@@ -77,6 +78,7 @@ function App() {
             <Route path="/explore/tourist-destinations/:slug" element={<TouristDestinationDetailPage />} />
             <Route path="/transparency/ordinances-and-executive-orders" element={<OrdinancesAndExecutiveOrdersPage />} />
             <Route path="/transparency/procurement" element={<ProcurementPage />} />
+            <Route path="/transparency/budget" element={<BudgetPage />} />
             <Route path="/transparency/citizens-charter" element={<CitizensCharterPage />} />
             <Route path="/transparency/permits-and-clearances" element={<PermitsAndClearancesPage />} />
             <Route path="*" element={<NotFoundPage />} />

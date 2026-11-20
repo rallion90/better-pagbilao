@@ -361,6 +361,7 @@ const en: Translations = {
                 items: [
                     { label: "Public Documents", description: "Ordinances, executive orders, and references." },
                     { label: "Procurement", description: "Bids, notices, and accountability entries." },
+                    { label: "Budget", description: "National budget projects for Pagbilao, 2020–2027." },
                     { label: "Citizen's Charter", description: "Service standards and resident-facing guidance." },
                     { label: "Forms", description: "Permits, clearances, and downloadable files." },
                 ],
@@ -809,6 +810,7 @@ const tl: Translations = {
                 items: [
                     { label: "Mga Pampublikong Dokumento", description: "Mga ordinansa, executive order, at reference." },
                     { label: "Procurement", description: "Mga bid, abiso, at accountability entry." },
+                    { label: "Budget", description: "Mga proyekto sa pambansang budget para sa Pagbilao, 2020–2027." },
                     { label: "Citizen's Charter", description: "Pamantayan ng serbisyo at gabay para sa residente." },
                     { label: "Mga Form", description: "Permit, clearance, at mga madodownload na file." },
                 ],
