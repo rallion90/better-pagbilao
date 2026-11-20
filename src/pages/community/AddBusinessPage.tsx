@@ -30,6 +30,7 @@ import type { LatLng } from "../../lib/communityReports"
 import { IssueApiError } from "../../lib/issuesApi"
 import { EMPLOYEE_OPTIONS } from "../../types/businesses"
 import type { BusinessCategoryId, BusinessSubmission, BusinessSubmitted, EmployeeCount, PinPrecision } from "../../types/businesses"
+import { MascotTip } from "../../components/common/Mascots"
 import { useSectionAccent } from "../../lib/sectionAccents"
 
 const BusinessMap = lazy(() => import("../../components/community/BusinessMap"))
@@ -454,6 +455,7 @@ const AddBusinessPage = () => {
                             <SuccessCard result={submitted} copy={page} onAnother={() => setSubmitted(null)} />
                         ) : (
                             <form ref={formRef} onSubmit={handleSubmit} className="relative space-y-6" noValidate>
+                                <MascotTip label={t.mascots.tipLabel}>{t.mascots.addBusinessTip}</MascotTip>
                                 {/* Honeypot: real visitors never see or fill this, and the request always sends `website` empty. */}
                                 <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
                                     <label>

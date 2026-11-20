@@ -155,6 +155,12 @@ export interface Translations {
             notes: string[]
         }
     }
+    mascots: {
+        tipLabel: string
+        loading: string
+        reportTip: string
+        addBusinessTip: string
+    }
     banner: {
         photo: string
     }
@@ -511,6 +517,12 @@ const en: Translations = {
                 "Public history sourced from official local portal notes",
             ],
         },
+    },
+    mascots: {
+        tipLabel: "Tip from Papag & Bilao",
+        loading: "Hang on, getting the page ready…",
+        reportTip: "Pin the exact spot on the map and mention a nearby landmark. It helps volunteers find the problem faster.",
+        addBusinessTip: "Use the name on your signboard and a number customers can call. A volunteer checks every listing before it goes public.",
     },
     banner: {
         photo: "Photo",
@@ -944,6 +956,12 @@ const tl: Translations = {
                 "Pampublikong kasaysayan mula sa opisyal na tala ng lokal na portal",
             ],
         },
+    },
+    mascots: {
+        tipLabel: "Payo nina Papag at Bilao",
+        loading: "Sandali lang, inihahanda ang pahina…",
+        reportTip: "I-pin ang eksaktong lugar sa mapa at banggitin ang malapit na palatandaan. Mas mabilis itong mahahanap ng mga volunteer.",
+        addBusinessTip: "Gamitin ang pangalang nasa karatula ng negosyo at numerong matatawagan ng mga customer. Sinusuri ng isang volunteer ang bawat listing bago ito ilathala.",
     },
     banner: {
         photo: "Larawan",

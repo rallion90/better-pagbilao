@@ -1,8 +1,9 @@
-import { ArrowRight, Megaphone } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Link } from "react-router"
 import { useAnnouncementList } from "../../hooks/useAnnouncementList"
 import { announcementsCopy } from "../../i18n/announcementsPage"
 import { useLanguage } from "../../i18n/useLanguage"
+import { MascotPair } from "../common/Mascots"
 import AnnouncementCard from "./AnnouncementCard"
 
 const PARAMS = { perPage: 3 } as const
@@ -49,9 +50,7 @@ const LatestAnnouncements = () => {
                         </div>
                     ) : (
                         <div className="flex items-center gap-4 rounded-lg border border-dashed border-slate-300 bg-white p-6">
-                            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-amber-50 text-amber-700">
-                                <Megaphone className="h-5 w-5" aria-hidden />
-                            </span>
+                            <MascotPair size="sm" className="shrink-0" />
                             <div>
                                 <p className="text-base font-black">{copy.list.empty}</p>
                                 <p className="mt-0.5 text-sm font-semibold text-slate-500">{copy.home.emptyHint}</p>

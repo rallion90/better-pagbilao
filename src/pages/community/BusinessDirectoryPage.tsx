@@ -11,6 +11,7 @@ import { useLanguage } from "../../i18n/useLanguage"
 import { onlineHref, telHref } from "../../lib/businessApi"
 import { businessCategoryMeta } from "../../lib/businessCategories"
 import type { Business } from "../../types/businesses"
+import { MascotPair } from "../../components/common/Mascots"
 import { useSectionAccent } from "../../lib/sectionAccents"
 
 const SITE_URL = "https://betterpagbilao.org"
@@ -317,6 +318,7 @@ const BusinessDirectoryPage = () => {
                             </div>
                         ) : businesses.length === 0 ? (
                             <div className="mt-8 rounded-lg border border-dashed border-slate-300 bg-bayan-mist p-8 text-center">
+                                <MascotPair size="md" className="mb-3" />
                                 <p className="text-sm font-semibold text-slate-500">{hasFilters ? page.emptyFiltered : page.emptyAll}</p>
                                 {hasFilters ? (
                                     <button type="button" onClick={clearFilters} className="mt-4 text-sm font-black text-bayan-blue underline underline-offset-2">

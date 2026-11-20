@@ -56,3 +56,11 @@
 .chat-mascot-blink {
   animation: mascot-blink 4.5s ease-in-out infinite;
 }
+
+/* Mascots stay still for people who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  .chat-mascot-blink,
+  .animate-mascot-bob {
+    animation: none !important;
+  }
+}

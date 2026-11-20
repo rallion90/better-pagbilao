@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, LoaderCircle, Megaphone, Pin, Search, TriangleAlert, X } from "lucide-react"
+import { ChevronLeft, ChevronRight, LoaderCircle, Pin, Search, TriangleAlert, X } from "lucide-react"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { useSearchParams } from "react-router"
 import AnnouncementCard from "../../components/announcements/AnnouncementCard"
@@ -8,6 +8,7 @@ import { useSeo } from "../../hooks/useSeo"
 import { announcementsCopy } from "../../i18n/announcementsPage"
 import { useLanguage } from "../../i18n/useLanguage"
 import { ANNOUNCEMENT_TYPES } from "../../types/announcements"
+import { MascotPair } from "../../components/common/Mascots"
 import type { AnnouncementType } from "../../types/announcements"
 
 const PER_PAGE = 12
@@ -184,9 +185,7 @@ const AnnouncementsPage = () => {
                             </div>
                         ) : list && items.length === 0 && !error ? (
                             <div className="grid place-items-center rounded-lg border border-dashed border-slate-300 bg-white px-6 py-14 text-center">
-                                <span className="grid h-12 w-12 place-items-center rounded-full bg-amber-50 text-amber-700">
-                                    <Megaphone className="h-6 w-6" aria-hidden />
-                                </span>
+                                <MascotPair size="md" />
                                 <p className="mt-4 text-lg font-black">{filtersActive ? copy.list.emptyFiltered : copy.list.empty}</p>
                                 {filtersActive && (
                                     <button type="button" onClick={resetFilters} className="mt-3 text-sm font-black text-bayan-blue hover:underline">

@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import ChatFloat from "./components/chat/ChatFloat";
 import DataDisclosureModal from "./components/common/DataDisclosureModal";
 import MascotIntroModal from "./components/common/MascotIntroModal";
+import PageLoading from "./components/common/PageLoading";
 import './App.css'
 
 const LegislativeCouncilPage = lazy(() => import("./pages/government/LegislativeCouncilPage"));
@@ -44,7 +45,7 @@ function App() {
       <Header />
 
       <main id="home">
-        <Suspense fallback={null}>
+        <Suspense fallback={<PageLoading />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/government/legislative-council" element={<LegislativeCouncilPage />} />
