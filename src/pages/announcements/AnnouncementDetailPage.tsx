@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router"
 import AnnouncementImage from "../../components/announcements/AnnouncementImage"
 import TypeBadge from "../../components/announcements/TypeBadge"
-import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import PageBanner from "../../components/common/PageBanner"
 import ShareButton from "../../components/common/ShareButton"
 import { useSeo } from "../../hooks/useSeo"
 import { announcementsCopy } from "../../i18n/announcementsPage"
@@ -196,17 +196,15 @@ const AnnouncementDetailPage = () => {
 
     return (
         <>
-            <section className="bg-bayan-ink py-6 text-white">
-                <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb
-                        items={[
-                            { label: t.services.breadcrumbHome, to: "/" },
-                            { label: copy.breadcrumb, to: "/announcements" },
-                            { label: announcement?.title ?? copy.breadcrumb },
-                        ]}
-                    />
-                </div>
-            </section>
+            <PageBanner
+                compact
+                containerClassName="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8"
+                breadcrumbs={[
+                    { label: t.services.breadcrumbHome, to: "/" },
+                    { label: copy.breadcrumb, to: "/announcements" },
+                    { label: announcement?.title ?? copy.breadcrumb },
+                ]}
+            />
             <section className="bg-bayan-mist py-10 sm:py-14">
                 <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
                     <div className="mb-5 flex flex-wrap items-center justify-between gap-3">

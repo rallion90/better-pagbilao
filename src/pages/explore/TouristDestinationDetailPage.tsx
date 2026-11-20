@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight, Calendar, Check, Info, LoaderCircle, MapPin, Navigation, PhoneCall, SearchX, Wallet } from "lucide-react"
 import { Link, useParams } from "react-router"
+import PageBanner from "../../components/common/PageBanner"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
 import ShareButton from "../../components/common/ShareButton"
 import DestinationPhoto from "../../components/explore/DestinationPhoto"
@@ -11,6 +12,7 @@ import { touristDestinationsCopy } from "../../i18n/touristDestinations"
 import { useLanguage } from "../../i18n/useLanguage"
 import { telHref } from "../../lib/businessApi"
 import { destinationCategoryMeta } from "../../lib/destinationCategories"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const SITE_URL = "https://betterpagbilao.org"
 
@@ -21,6 +23,7 @@ function placeLabel(spot: TouristSpot): string {
 
 const TouristDestinationDetailPage = () => {
     const { lang, t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const copy = touristDestinationsCopy[lang]
     const { slug = "" } = useParams()
     const { spots, sources, settled } = useTouristGuide()
@@ -66,7 +69,7 @@ const TouristDestinationDetailPage = () => {
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <PageBreadcrumb items={[{ label: t.explore.breadcrumbHome, to: "/" }, { label: t.explore.breadcrumbExplore }, { label: copy.breadcrumb, to: DESTINATIONS_PATH }]} />
                     <div className="mx-auto mt-10 max-w-2xl text-center">
-                        <span className="mx-auto grid h-20 w-20 place-items-center rounded-2xl bg-white/10 text-bayan-gold ring-1 ring-white/15">
+                        <span className={`mx-auto grid h-20 w-20 place-items-center rounded-2xl bg-white/10 ${sectionAccent.onDark} ring-1 ring-white/15`}>
                             {pending ? <LoaderCircle className="h-9 w-9 animate-spin" /> : <SearchX className="h-9 w-9" />}
                         </span>
                         <h1 className="mt-5 text-3xl font-black sm:text-4xl">{pending ? copy.detail.loading : copy.detail.notFoundHeading}</h1>
@@ -90,46 +93,43 @@ const TouristDestinationDetailPage = () => {
 
     return (
         <>
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb
-                        items={[
-                            { label: t.explore.breadcrumbHome, to: "/" },
-                            { label: t.explore.breadcrumbExplore },
-                            { label: copy.breadcrumb, to: DESTINATIONS_PATH },
-                            { label: spot.name },
-                        ]}
-                    />
-                    <div className="mt-8 flex flex-wrap items-center gap-5">
-                        <span className={`grid h-16 w-16 shrink-0 place-items-center rounded-2xl ${color}`}>
-                            <Icon className="h-7 w-7" />
-                        </span>
-                        <div className="min-w-0">
-                            <p className="text-sm font-black uppercase tracking-[0.14em] text-bayan-gold">{spot.categories.join(" · ")}</p>
-                            <h1 className="mt-1 text-3xl font-black tracking-normal sm:text-4xl">{spot.name}</h1>
-                        </div>
-                    </div>
-                    <p className="mt-5 max-w-3xl text-base leading-8 text-white/76">{spot.description}</p>
-                    <div className="mt-5 flex flex-wrap items-center gap-3">
-                        <a
-                            href={mapsHref(spot)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-black text-bayan-ink shadow-soft"
-                        >
-                            <Navigation className="h-4 w-4 text-bayan-blue" /> {copy.detail.openMap}
-                        </a>
-                        <ShareButton title={`${spot.name}, ${spot.nearby ? "near Pagbilao" : "Pagbilao"}, Quezon`} path={path} />
-                        {spot.nearby && <span className="rounded-md bg-white/10 px-4 py-2 text-sm font-bold text-white ring-1 ring-white/20">{copy.nearbyBadge}</span>}
+            <PageBanner
+                breadcrumbs={[
+                    { label: t.explore.breadcrumbHome, to: "/" },
+                    { label: t.explore.breadcrumbExplore },
+                    { label: copy.breadcrumb, to: DESTINATIONS_PATH },
+                    { label: spot.name },
+                ]}
+            >
+                <div className="mt-8 flex flex-wrap items-center gap-5">
+                    <span className={`grid h-16 w-16 shrink-0 place-items-center rounded-2xl ${color}`}>
+                        <Icon className="h-7 w-7" />
+                    </span>
+                    <div className="min-w-0">
+                        <p className={`text-sm font-black uppercase tracking-[0.14em] ${sectionAccent.onDark}`}>{spot.categories.join(" · ")}</p>
+                        <h1 className="mt-1 text-3xl font-black tracking-normal sm:text-4xl">{spot.name}</h1>
                     </div>
                 </div>
-            </section>
+                <p className="mt-5 max-w-3xl text-base leading-8 text-white/76">{spot.description}</p>
+                <div className="mt-5 flex flex-wrap items-center gap-3">
+                    <a
+                        href={mapsHref(spot)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-black text-bayan-ink shadow-soft"
+                    >
+                        <Navigation className="h-4 w-4 text-bayan-blue" /> {copy.detail.openMap}
+                    </a>
+                    <ShareButton title={`${spot.name}, ${spot.nearby ? "near Pagbilao" : "Pagbilao"}, Quezon`} path={path} />
+                    {spot.nearby && <span className="rounded-md bg-white/10 px-4 py-2 text-sm font-bold text-white ring-1 ring-white/20">{copy.nearbyBadge}</span>}
+                </div>
+            </PageBanner>
 
             <section className="bg-white py-14 sm:py-16">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start">
                         <div className="space-y-10">
-                            <DestinationPhoto key={spot.slug} spot={spot} className="h-72 w-full sm:h-96" showCredit lazy={false} />
+                            <DestinationPhoto key={spot.slug} spot={spot} variant="feature" lazy={false} />
 
                             {spot.activities.length > 0 && (
                                 <div>

@@ -17,7 +17,7 @@ import {
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import type { FormEvent, ReactNode } from "react"
 import { Link } from "react-router"
-import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import PageBanner from "../../components/common/PageBanner"
 import type { BusinessMapFocus } from "../../components/community/BusinessMap"
 import { useBusinessDirectory, useDirectoryDisabledHandler } from "../../hooks/useBusinessDirectory"
 import { useSeo } from "../../hooks/useSeo"
@@ -30,6 +30,8 @@ import type { LatLng } from "../../lib/communityReports"
 import { IssueApiError } from "../../lib/issuesApi"
 import { EMPLOYEE_OPTIONS } from "../../types/businesses"
 import type { BusinessCategoryId, BusinessSubmission, BusinessSubmitted, EmployeeCount, PinPrecision } from "../../types/businesses"
+import { MascotTip } from "../../components/common/Mascots"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const BusinessMap = lazy(() => import("../../components/community/BusinessMap"))
 
@@ -164,6 +166,7 @@ const SuccessCard = ({ result, copy, onAnother }: { result: BusinessSubmitted; c
 
 const AddBusinessPage = () => {
     const { lang, t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const copy = businessDirectoryCopy[lang]
     const page = copy.form
     const f = page.fields
@@ -433,21 +436,17 @@ const AddBusinessPage = () => {
 
     return (
         <>
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb
-                        items={[
-                            { label: t.services.breadcrumbHome, to: "/" },
-                            { label: copy.breadcrumbCommunity },
-                            { label: copy.directory.breadcrumb, to: DIRECTORY_PATH },
-                            { label: page.breadcrumb },
-                        ]}
-                    />
-                    <p className="mt-6 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{page.eyebrow}</p>
-                    <h1 className="mt-3 max-w-3xl text-3xl font-black tracking-normal sm:text-4xl">{page.heading}</h1>
-                    <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{page.intro}</p>
-                </div>
-            </section>
+            <PageBanner
+                breadcrumbs={[
+                    { label: t.services.breadcrumbHome, to: "/" },
+                    { label: copy.breadcrumbCommunity },
+                    { label: copy.directory.breadcrumb, to: DIRECTORY_PATH },
+                    { label: page.breadcrumb },
+                ]}
+                eyebrow={page.eyebrow}
+                title={page.heading}
+                description={page.intro}
+            />
 
             <section className="bg-bayan-mist py-14 sm:py-16">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
@@ -456,6 +455,7 @@ const AddBusinessPage = () => {
                             <SuccessCard result={submitted} copy={page} onAnother={() => setSubmitted(null)} />
                         ) : (
                             <form ref={formRef} onSubmit={handleSubmit} className="relative space-y-6" noValidate>
+                                <MascotTip label={t.mascots.tipLabel}>{t.mascots.addBusinessTip}</MascotTip>
                                 {/* Honeypot: real visitors never see or fill this, and the request always sends `website` empty. */}
                                 <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
                                     <label>
@@ -868,7 +868,7 @@ const AddBusinessPage = () => {
                             <div className="rounded-lg bg-bayan-ink p-5 text-white">
                                 <h2 className="text-base font-black">{page.sidebar.helpHeading}</h2>
                                 <p className="mt-2 text-sm leading-6 text-white/76">{page.sidebar.helpBody}</p>
-                                <Link to="/services/business-and-permits" className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-bayan-gold hover:gap-2">
+                                <Link to="/services/business-and-permits" className={`mt-4 inline-flex items-center gap-1 text-sm font-bold ${sectionAccent.onDark} hover:gap-2`}>
                                     {page.sidebar.helpLink} <ArrowRight className="h-4 w-4 transition-all" />
                                 </Link>
                             </div>

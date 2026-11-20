@@ -5,6 +5,8 @@ import type { CommunityReportingCopy } from "../../i18n/communityReporting"
 import { MAX_PHOTO_BYTES, MAX_PHOTOS, PHOTO_TYPES, categoryMeta, isWithinPagbilao } from "../../lib/communityReports"
 import type { LatLng } from "../../lib/communityReports"
 import { IssueApiError } from "../../lib/issuesApi"
+import { MascotTip } from "../common/Mascots"
+import { useLanguage } from "../../i18n/useLanguage"
 import type { IssueCategory, IssueSubmission } from "../../types/issues"
 
 type ReportFormProps = {
@@ -66,6 +68,7 @@ const ReportForm = ({
     onClearPin,
     onSubmit,
 }: ReportFormProps) => {
+    const { t } = useLanguage()
     const form = copy.form
     const [category, setCategory] = useState("")
     const [title, setTitle] = useState("")
@@ -184,6 +187,7 @@ const ReportForm = ({
         <form onSubmit={handleSubmit} noValidate className="relative rounded-lg border border-slate-200 bg-white p-5 shadow-soft sm:p-7">
             <h2 className="text-2xl font-black">{form.heading}</h2>
             <p className="mt-1 text-sm font-semibold text-slate-500">{form.subheading}</p>
+            <MascotTip label={t.mascots.tipLabel} className="mt-5">{t.mascots.reportTip}</MascotTip>
 
             {/* Honeypot: real visitors never see or fill this, and the request always sends `website` empty. */}
             <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>

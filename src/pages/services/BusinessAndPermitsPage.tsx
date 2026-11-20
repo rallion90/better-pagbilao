@@ -20,19 +20,13 @@ import type { LucideIcon } from "lucide-react"
 import { useLanguage } from "../../i18n/useLanguage"
 import { useServices } from "../../hooks/useServices"
 import { useSeo } from "../../hooks/useSeo"
-import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import PageBanner from "../../components/common/PageBanner"
 import type { BusinessAndPermitsCategory } from "../../types/services"
+import { useSectionAccent } from "../../lib/sectionAccents"
 
 const PAGE_PATH = "/services/business-and-permits"
 
 const OFFICE_ICONS: LucideIcon[] = [Wallet, HardHat, Map, Receipt]
-const OFFICE_COLORS = [
-    "text-bayan-blue bg-blue-50",
-    "text-amber-700 bg-amber-50",
-    "text-bayan-green bg-emerald-50",
-    "text-bayan-red bg-red-50",
-]
-
 const CATEGORY_ICONS: Record<string, LucideIcon> = {
     "New Business Permit (Mayor's Permit)": Store,
     "Business Permit Renewal": RefreshCw,
@@ -50,6 +44,7 @@ function toTelHref(telephone: string) {
 
 const BusinessAndPermitsPage = () => {
     const { t } = useLanguage()
+    const sectionAccent = useSectionAccent()
     const { data, loading, error } = useServices()
     const copy = t.services.businessAndPermits
     const business = data?.categories.find(
@@ -85,20 +80,16 @@ const BusinessAndPermitsPage = () => {
 
     return (
         <>
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb
-                        items={[
-                            { label: t.services.breadcrumbHome, to: "/" },
-                            { label: t.services.breadcrumbServices },
-                            { label: copy.heading },
-                        ]}
-                    />
-                    <p className="mt-6 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
-                    <h1 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{copy.heading}</h1>
-                    <p className="mt-4 max-w-3xl text-base leading-8 text-white/76">{copy.intro}</p>
-                </div>
-            </section>
+            <PageBanner
+                breadcrumbs={[
+                    { label: t.services.breadcrumbHome, to: "/" },
+                    { label: t.services.breadcrumbServices },
+                    { label: copy.heading },
+                ]}
+                eyebrow={copy.eyebrow}
+                title={copy.heading}
+                description={copy.intro}
+            />
 
             <section className="bg-white py-14 sm:py-16">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
@@ -123,7 +114,7 @@ const BusinessAndPermitsPage = () => {
                                         const Icon = OFFICE_ICONS[index % OFFICE_ICONS.length]
                                         return (
                                             <article key={office.name} className="rounded-lg border border-slate-200 bg-bayan-mist p-5">
-                                                <span className={`grid h-11 w-11 place-items-center rounded-md ${OFFICE_COLORS[index % OFFICE_COLORS.length]}`}>
+                                                <span className={`grid h-11 w-11 place-items-center rounded-md ${sectionAccent.tile}`}>
                                                     <Icon className="h-5 w-5" />
                                                 </span>
                                                 <p className="mt-4 text-base font-black">{office.name}</p>
@@ -139,7 +130,7 @@ const BusinessAndPermitsPage = () => {
                             </div>
 
                             <div className="mt-6 flex items-start gap-3 rounded-lg border border-slate-200 bg-bayan-mist p-5">
-                                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-blue-50 text-bayan-blue">
+                                <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-md ${sectionAccent.tile}`}>
                                     <Store className="h-5 w-5" />
                                 </span>
                                 <div>
@@ -206,7 +197,7 @@ const BusinessAndPermitsPage = () => {
                                         className="flex flex-col rounded-lg border border-slate-200 p-5 transition hover:-translate-y-0.5 hover:shadow-soft"
                                     >
                                         <div className="flex items-center justify-between">
-                                            <span className="grid h-11 w-11 place-items-center rounded-md bg-blue-50 text-bayan-blue">
+                                            <span className={`grid h-11 w-11 place-items-center rounded-md ${sectionAccent.tile}`}>
                                                 <Icon className="h-5 w-5" />
                                             </span>
                                             <span className="text-xs font-black uppercase tracking-[0.08em] text-slate-400">{service.office}</span>
@@ -254,7 +245,7 @@ const BusinessAndPermitsPage = () => {
                                 <div className="mt-5 space-y-4">
                                     {business.howToAvail.generalSteps.map((step, index) => (
                                         <div key={step} className="flex items-start gap-4 rounded-lg bg-white p-4 shadow-sm">
-                                            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-blue-50 text-sm font-black text-bayan-blue">
+                                            <span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full text-sm font-black ${sectionAccent.tile}`}>
                                                 {index + 1}
                                             </span>
                                             <p className="text-sm leading-6 text-slate-700">{step}</p>
@@ -287,7 +278,7 @@ const BusinessAndPermitsPage = () => {
                     <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
                             <div>
-                                <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.verificationLabel}</p>
+                                <p className={`text-sm font-black uppercase tracking-[0.18em] ${sectionAccent.onDark}`}>{copy.verificationLabel}</p>
                                 <p className="mt-4 text-base leading-8 text-white/76">{business.verificationGuide.recommendation}</p>
                                 <div className="mt-6 flex flex-wrap gap-3">
                                     {business.confirmed.offices.map((office) => (
@@ -311,7 +302,7 @@ const BusinessAndPermitsPage = () => {
                             </div>
                         </div>
                         <div className="mt-10 flex items-center gap-3 border-t border-white/10 pt-6 text-sm font-semibold text-white/60">
-                            <Landmark className="h-4 w-4 text-bayan-gold" />
+                            <Landmark className={`h-4 w-4 ${sectionAccent.onDark}`} />
                             Sources: {business.confirmed.sources.map((source) => source.name).join(" · ")}
                         </div>
                     </div>

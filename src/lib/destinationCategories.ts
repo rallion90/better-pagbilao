@@ -11,9 +11,9 @@ const META: Record<string, CategoryMeta> = {
     Dam: { Icon: Waves, color: "text-bayan-blue bg-blue-50" },
     "Protected Area": { Icon: TreePine, color: "text-bayan-green bg-emerald-50" },
     "Land Formation": { Icon: Mountain, color: "text-amber-700 bg-amber-50" },
-    Heritage: { Icon: Landmark, color: "text-bayan-red bg-red-50" },
-    Culture: { Icon: Landmark, color: "text-bayan-red bg-red-50" },
-    Festival: { Icon: PartyPopper, color: "text-bayan-red bg-red-50" },
+    Heritage: { Icon: Landmark, color: "text-bayan-bamboo-deep bg-bayan-bamboo-light" },
+    Culture: { Icon: Landmark, color: "text-bayan-bamboo-deep bg-bayan-bamboo-light" },
+    Festival: { Icon: PartyPopper, color: "text-bayan-bamboo-deep bg-bayan-bamboo-light" },
     Viewpoint: { Icon: Mountain, color: "text-amber-700 bg-amber-50" },
     Nature: { Icon: TreePine, color: "text-bayan-green bg-emerald-50" },
 }

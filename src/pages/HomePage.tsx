@@ -1,10 +1,11 @@
 import { Link } from 'react-router'
-import HeroSlider from '../components/home/HeroSlider'
+import HomeHero from '../components/home/HomeHero'
 import CardStat from '../components/home/CardStat'
 import LatestAnnouncements from '../components/announcements/LatestAnnouncements'
 import { useLanguage } from '../i18n/useLanguage'
 import { historyPageCopy } from '../i18n/historyPage'
 import { useSeo } from '../hooks/useSeo'
+import { accentForPath, SECTION_ACCENTS } from '../lib/sectionAccents'
 
 import {
     ArrowRight,
@@ -35,7 +36,6 @@ import {
 } from 'lucide-react'
 
 const SERVICE_ICONS = [BriefcaseBusiness, HeartPulse, ShieldAlert, Wheat, UsersRound, Palmtree]
-const SERVICE_COLORS = ["text-bayan-blue", "text-bayan-red", "text-bayan-green", "text-amber-700", "text-bayan-blue", "text-bayan-green"]
 const SERVICE_LINK_HREFS = [
     "/services/business-and-permits",
     "/services/health-services",
@@ -49,7 +49,6 @@ const IDENTITY_ICONS = [Route, Waves, HandHeart]
 const IDENTITY_COLORS = ["text-bayan-gold", "text-cyan-300", "text-emerald-300"]
 
 const TRANSPARENCY_ICONS = [ScrollText, ClipboardCheck, BookOpenCheck, FolderDown]
-const TRANSPARENCY_COLORS = ["text-bayan-green", "text-bayan-blue", "text-bayan-red", "text-amber-700"]
 const TRANSPARENCY_LINK_HREFS = [
     "/transparency/ordinances-and-executive-orders",
     "/transparency/procurement",
@@ -63,12 +62,10 @@ const HOTLINE_TELS = ["tel:09186244564", "tel:09985985764", "tel:09234424945", "
 const HOTLINE_NUMBERS = ["0918-624-4564", "0998-598-5764", "0923-442-4945", "(042) 797-3092"]
 
 const TIMELINE_ICONS = [Sprout, BookOpenText, Route]
-const TIMELINE_COLORS = [
-    { bg: "bg-blue-50", text: "text-bayan-blue" },
-    { bg: "bg-red-50", text: "text-bayan-red" },
-    { bg: "bg-emerald-50", text: "text-bayan-green" },
-]
-const HISTORY_STAT_COLORS = ["text-bayan-blue", "text-bayan-green", "text-bayan-red"]
+// Home sections borrow the accent of the site section they link into.
+const SERVICE_COLORS = SERVICE_LINK_HREFS.map((href) => accentForPath(href).text)
+const EXPLORE = SECTION_ACCENTS.explore
+const TIMELINE_TILES = [EXPLORE.tile, EXPLORE.tileAlt, EXPLORE.tile]
 
 const HomePage = () => {
     const { t, lang } = useLanguage()
@@ -87,7 +84,7 @@ const HomePage = () => {
 
     return (
         <>
-            <HeroSlider />
+            <HomeHero />
 
             <CardStat />
 
@@ -97,7 +94,7 @@ const HomePage = () => {
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
                         <div>
-                            <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-blue">{t.home.services.eyebrow}</p>
+                            <p className={`text-sm font-black uppercase tracking-[0.18em] ${SECTION_ACCENTS.services.text}`}>{t.home.services.eyebrow}</p>
                             <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{t.home.services.heading}</h2>
                             <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">{t.home.services.description}</p>
                         </div>
@@ -159,7 +156,7 @@ const HomePage = () => {
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
                         <div>
-                            <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-green">{t.home.transparency.eyebrow}</p>
+                            <p className={`text-sm font-black uppercase tracking-[0.18em] ${SECTION_ACCENTS.transparency.text}`}>{t.home.transparency.eyebrow}</p>
                             <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{t.home.transparency.heading}</h2>
                             <p className="mt-4 text-base leading-7 text-slate-600">{t.home.transparency.paragraph}</p>
                         </div>
@@ -177,7 +174,7 @@ const HomePage = () => {
                                                 <p className="text-sm font-black text-slate-500">{card.category}</p>
                                                 <h3 className="mt-2 text-xl font-black">{card.title}</h3>
                                             </div>
-                                            <Icon className={`h-6 w-6 ${TRANSPARENCY_COLORS[index]}`} />
+                                            <Icon className={`h-6 w-6 ${SECTION_ACCENTS.transparency.text}`} />
                                         </div>
                                     </Link>
                                 )
@@ -202,7 +199,7 @@ const HomePage = () => {
                             </figcaption>
                         </figure>
                         <div>
-                            <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-red">{t.home.tourism.eyebrow}</p>
+                            <p className={`text-sm font-black uppercase tracking-[0.18em] ${EXPLORE.text}`}>{t.home.tourism.eyebrow}</p>
                             <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">{t.home.tourism.heading}</h2>
                             <p className="mt-4 text-base leading-8 text-slate-600">{t.home.tourism.paragraph}</p>
                             <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -257,7 +254,7 @@ const HomePage = () => {
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
                     <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                         <div>
-                            <p className="text-sm font-black uppercase tracking-[0.18em] text-bayan-blue">{t.home.history.eyebrow}</p>
+                            <p className={`text-sm font-black uppercase tracking-[0.18em] ${EXPLORE.text}`}>{t.home.history.eyebrow}</p>
                             <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
                                 {t.home.history.heading}
                             </h2>
@@ -265,9 +262,9 @@ const HomePage = () => {
                             <p className="mt-4 max-w-xl text-base leading-8 text-slate-600">{t.home.history.paragraph2}</p>
 
                             <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                                {t.home.history.stats.map((stat, index) => (
+                                {t.home.history.stats.map((stat) => (
                                     <div key={stat.label} className="rounded-lg border border-slate-200 bg-bayan-mist p-4">
-                                        <p className={`text-2xl font-black ${HISTORY_STAT_COLORS[index]}`}>{stat.value}</p>
+                                        <p className={`text-2xl font-black ${EXPLORE.text}`}>{stat.value}</p>
                                         <p className="mt-1 text-xs font-bold uppercase tracking-[0.12em] text-slate-500">{stat.label}</p>
                                     </div>
                                 ))}
@@ -285,10 +282,10 @@ const HomePage = () => {
                             <div className="space-y-5">
                                 {t.home.history.timeline.map((item, index) => {
                                     const Icon = TIMELINE_ICONS[index]
-                                    const colors = TIMELINE_COLORS[index]
+                                    const tile = TIMELINE_TILES[index]
                                     return (
                                         <article key={item.title} className="grid gap-4 rounded-lg bg-white p-5 shadow-sm sm:grid-cols-[auto_1fr]">
-                                            <span className={`grid h-12 w-12 place-items-center rounded-md ${colors.bg} ${colors.text}`}>
+                                            <span className={`grid h-12 w-12 place-items-center rounded-md ${tile}`}>
                                                 <Icon className="h-6 w-6" />
                                             </span>
                                             <div>

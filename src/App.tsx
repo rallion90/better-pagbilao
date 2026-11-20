@@ -6,7 +6,10 @@ import Footer from './components/layout/Footer'
 import HomePage from "./pages/HomePage";
 import ChatFloat from "./components/chat/ChatFloat";
 import DataDisclosureModal from "./components/common/DataDisclosureModal";
-import MascotIntroModal from "./components/common/MascotIntroModal";
+import MascotIntroToast from "./components/common/MascotIntroToast";
+import ScrollToTop from "./components/common/ScrollToTop";
+import PageLoading from "./components/common/PageLoading";
+import { useScrollReveal } from "./hooks/useScrollReveal";
 import './App.css'
 
 const LegislativeCouncilPage = lazy(() => import("./pages/government/LegislativeCouncilPage"));
@@ -37,14 +40,16 @@ const AnnouncementDetailPage = lazy(() => import("./pages/announcements/Announce
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function App() {
+  useScrollReveal();
 
   return (
     <>
+      <ScrollToTop />
       <EmergencyBanner />
       <Header />
 
       <main id="home">
-        <Suspense fallback={null}>
+        <Suspense fallback={<PageLoading />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/government/legislative-council" element={<LegislativeCouncilPage />} />
@@ -82,7 +87,7 @@ function App() {
       <Footer />
       <ChatFloat />
       <DataDisclosureModal />
-      <MascotIntroModal />
+      <MascotIntroToast />
     </>
   )
 }

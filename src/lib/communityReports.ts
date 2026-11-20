@@ -35,7 +35,7 @@ const CATEGORY_META: Record<string, { Icon: LucideIcon; color: string }> = {
     "water-and-power": { Icon: Zap, color: "text-amber-700 bg-amber-50" },
     "public-safety": { Icon: ShieldAlert, color: "text-bayan-red bg-red-50" },
     "public-facilities": { Icon: Building2, color: "text-bayan-blue bg-blue-50" },
-    "illegal-structures": { Icon: Ban, color: "text-bayan-red bg-red-50" },
+    "illegal-structures": { Icon: Ban, color: "text-bayan-bamboo-deep bg-bayan-bamboo-light" },
     environment: { Icon: TreePine, color: "text-bayan-green bg-emerald-50" },
     other: FALLBACK_CATEGORY,
 }

@@ -6,6 +6,7 @@ import { ArrowRight, Loader2, Search } from "lucide-react"
 import { useLanguage } from "../../i18n/useLanguage"
 import { useSearchIndex } from "../../hooks/useSearchIndex"
 import { searchItems, type SearchItem } from "../../lib/searchIndex"
+import { Papag } from "../chat/ChatMascots"
 
 const HeroSearch = () => {
     const { t } = useLanguage()
@@ -65,7 +66,7 @@ const HeroSearch = () => {
 
     return (
         <div ref={containerRef} className="relative mt-8 w-full max-w-2xl">
-            <div className="rounded-lg bg-white p-2 shadow-soft">
+            <div className="rounded-[10px] bg-white p-2 shadow-[0_18px_40px_rgba(0,0,0,0.28)]">
                 <label htmlFor="search" className="sr-only">
                     Search local services
                 </label>
@@ -90,7 +91,7 @@ const HeroSearch = () => {
                     <button
                         type="button"
                         onClick={() => results[0] && goToResult(results[activeIndex >= 0 ? activeIndex : 0])}
-                        className="inline-flex items-center justify-center gap-2 rounded-md bg-bayan-red px-5 py-3 text-sm font-black text-white hover:bg-red-700"
+                        className="inline-flex items-center justify-center gap-2 rounded-md bg-bayan-blue px-5 py-3 text-sm font-black text-white hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bayan-gold"
                     >
                         <ArrowRight className="h-4 w-4" />
                         <span>{t.hero.findService}</span>
@@ -108,7 +109,10 @@ const HeroSearch = () => {
                     )}
 
                     {!loading && results.length === 0 && (
-                        <p className="px-3 py-3 text-sm font-semibold text-slate-500">{t.hero.searchNoResults}</p>
+                        <div className="flex items-center gap-3 px-3 py-2">
+                            <Papag className="h-10 w-10 shrink-0" />
+                            <p className="text-sm font-semibold text-slate-500">{t.hero.searchNoResults}</p>
+                        </div>
                     )}
 
                     {!loading &&

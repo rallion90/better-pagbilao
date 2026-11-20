@@ -26,3 +26,12 @@
 - License: Creative Commons Attribution-ShareAlike 4.0 International
 - License URL: https://creativecommons.org/licenses/by-sa/4.0/
 - Changes: Downloaded for local project use; displayed with CSS cropping through `object-cover`.
+
+## `pagbilao-church.jpg` and `pagbilao-church-1280.jpg`
+
+- Title: Saint Catherine of Alexandria.jpg (Pagbilao Church, St. Catherine of Alexandria Parish)
+- Creator: Carmelo Bayarcal
+- Source: https://commons.wikimedia.org/wiki/File:Saint_Catherine_of_Alexandria.jpg
+- License: Creative Commons Attribution-ShareAlike 3.0 Unported
+- License URL: https://creativecommons.org/licenses/by-sa/3.0/
+- Changes: Downloaded at 1920px and 1280px wide, re-encoded as optimized JPEG for local project use; displayed with CSS cropping through `object-cover` under a navy gradient overlay.

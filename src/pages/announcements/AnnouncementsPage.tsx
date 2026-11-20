@@ -1,13 +1,14 @@
-import { ChevronLeft, ChevronRight, LoaderCircle, Megaphone, Pin, Search, TriangleAlert, X } from "lucide-react"
+import { ChevronLeft, ChevronRight, LoaderCircle, Pin, Search, TriangleAlert, X } from "lucide-react"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { useSearchParams } from "react-router"
 import AnnouncementCard from "../../components/announcements/AnnouncementCard"
-import PageBreadcrumb from "../../components/common/PageBreadcrumb"
+import PageBanner from "../../components/common/PageBanner"
 import { useAnnouncementList } from "../../hooks/useAnnouncementList"
 import { useSeo } from "../../hooks/useSeo"
 import { announcementsCopy } from "../../i18n/announcementsPage"
 import { useLanguage } from "../../i18n/useLanguage"
 import { ANNOUNCEMENT_TYPES } from "../../types/announcements"
+import { MascotPair } from "../../components/common/Mascots"
 import type { AnnouncementType } from "../../types/announcements"
 
 const PER_PAGE = 12
@@ -101,14 +102,13 @@ const AnnouncementsPage = () => {
 
     return (
         <>
-            <section className="bg-bayan-ink py-14 text-white sm:py-16">
-                <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
-                    <PageBreadcrumb items={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]} />
-                    <p className="mt-8 text-sm font-black uppercase tracking-[0.18em] text-bayan-gold">{copy.eyebrow}</p>
-                    <h1 className="mt-3 max-w-3xl text-3xl font-black sm:text-4xl lg:text-5xl lg:leading-[1.1]">{copy.heading}</h1>
-                    <p className="mt-4 max-w-2xl text-base leading-8 text-white/76">{copy.intro}</p>
-                </div>
-            </section>
+            <PageBanner
+                breadcrumbs={[{ label: t.services.breadcrumbHome, to: "/" }, { label: copy.breadcrumb }]}
+                size="large"
+                eyebrow={copy.eyebrow}
+                title={copy.heading}
+                description={copy.intro}
+            />
 
             <section className="bg-bayan-mist py-10 sm:py-12">
                 <div className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
@@ -185,9 +185,7 @@ const AnnouncementsPage = () => {
                             </div>
                         ) : list && items.length === 0 && !error ? (
                             <div className="grid place-items-center rounded-lg border border-dashed border-slate-300 bg-white px-6 py-14 text-center">
-                                <span className="grid h-12 w-12 place-items-center rounded-full bg-amber-50 text-amber-700">
-                                    <Megaphone className="h-6 w-6" aria-hidden />
-                                </span>
+                                <MascotPair size="md" />
                                 <p className="mt-4 text-lg font-black">{filtersActive ? copy.list.emptyFiltered : copy.list.empty}</p>
                                 {filtersActive && (
                                     <button type="button" onClick={resetFilters} className="mt-3 text-sm font-black text-bayan-blue hover:underline">

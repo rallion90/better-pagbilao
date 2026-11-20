@@ -33,6 +33,8 @@ const getMessageTime = () =>
   }).format(new Date());
 
 export const OPEN_CHAT_EVENT = "bp:open-chat";
+/** Fired whenever the chat panel opens, however it was opened. */
+export const CHAT_OPENED_EVENT = "bp:chat-opened";
 
 const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
   const { t } = useLanguage();
@@ -56,6 +58,10 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
       behavior: "smooth",
     });
   }, [isOpen, messages, isReplying]);
+
+  useEffect(() => {
+    if (isOpen) window.dispatchEvent(new Event(CHAT_OPENED_EVENT));
+  }, [isOpen]);
 
   useEffect(() => {
     const handleOpenRequest = () => setIsOpen(true);
@@ -268,7 +274,7 @@ const ChatFloat = ({ onResolveMessage }: ChatFloatProps) => {
               />
               <button
                 type="submit"
-                className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-bayan-red text-white shadow-sm transition hover:bg-red-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                className="grid h-11 w-11 shrink-0 place-items-center rounded-md bg-bayan-blue text-white shadow-sm transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-slate-300"
                 aria-label={t.chat.sendLabel}
                 disabled={!draft.trim() || isReplying}
               >
