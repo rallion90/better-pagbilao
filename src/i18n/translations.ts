@@ -78,8 +78,22 @@ export interface Translations {
     }
     hero: {
         locationBadge: string
+        greeting: string
         title: string
         description: string
+        live: string
+        popularLabel: string
+        photoAlt: string
+        photoCreditTitle: string
+        photoCreditLine: string
+        today: {
+            title: string
+            feelsLike: string
+            advisories: string
+            advisoriesNone: string
+            advisoriesActive: string
+            weatherSource: string
+        }
         searchPlaceholder: string
         findService: string
         searchLoading: string
@@ -341,9 +355,23 @@ const en: Translations = {
     },
     hero: {
         locationBadge: "Municipality of Pagbilao, Quezon",
+        greeting: "Mabuhay, taga-Pagbilao!",
         title: "Pagbilao at a Glance",
         description:
-            "A community-powered local portal concept for finding services, forms, hotlines, tourism information, and public documents in one clear place.",
+            "Services, forms, hotlines, tourism and public documents for our town, in one clear place. Para sa bawat taga-Pagbilao at sa mga bumibisita.",
+        live: "Live",
+        popularLabel: "Popular:",
+        photoAlt: "Pagbilao Church (St. Catherine of Alexandria Parish), Pagbilao, Quezon",
+        photoCreditTitle: "Pagbilao Church · St. Catherine of Alexandria",
+        photoCreditLine: "Photo: Carmelo Bayarcal, CC BY-SA 3.0 via Wikimedia Commons",
+        today: {
+            title: "Today in Pagbilao",
+            feelsLike: "Feels like",
+            advisories: "Advisories",
+            advisoriesNone: "None",
+            advisoriesActive: "active",
+            weatherSource: "Weather: Open-Meteo",
+        },
         searchPlaceholder: "Search permits, health, tourism, hotlines...",
         findService: "Find Service",
         searchLoading: "Loading search index...",
@@ -757,9 +785,23 @@ const tl: Translations = {
     },
     hero: {
         locationBadge: "Bayan ng Pagbilao, Quezon",
+        greeting: "Mabuhay, taga-Pagbilao!",
         title: "Pagbilao sa Isang Sulyap",
         description:
-            "Isang community-powered na konsepto ng lokal na portal para mahanap ang mga serbisyo, forms, hotline, impormasyon sa turismo, at pampublikong dokumento sa iisang lugar.",
+            "Mga serbisyo, form, hotline, turismo at pampublikong dokumento ng ating bayan, sa iisang malinaw na lugar. Para sa bawat taga-Pagbilao at sa mga bumibisita.",
+        live: "Live",
+        popularLabel: "Popular:",
+        photoAlt: "Simbahan ng Pagbilao (Parokya ni Sta. Catalina ng Alejandria), Pagbilao, Quezon",
+        photoCreditTitle: "Simbahan ng Pagbilao · Sta. Catalina ng Alejandria",
+        photoCreditLine: "Larawan: Carmelo Bayarcal, CC BY-SA 3.0 mula sa Wikimedia Commons",
+        today: {
+            title: "Pagbilao Ngayon",
+            feelsLike: "Pakiramdam",
+            advisories: "Mga abiso",
+            advisoriesNone: "Wala",
+            advisoriesActive: "aktibo",
+            weatherSource: "Panahon: Open-Meteo",
+        },
         searchPlaceholder: "Maghanap ng permit, kalusugan, turismo, hotline...",
         findService: "Hanapin ang Serbisyo",
         searchLoading: "Nilo-load ang search index...",

@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import HeroSlider from '../components/home/HeroSlider'
+import HomeHero from '../components/home/HomeHero'
 import CardStat from '../components/home/CardStat'
 import LatestAnnouncements from '../components/announcements/LatestAnnouncements'
 import { useLanguage } from '../i18n/useLanguage'
@@ -87,7 +87,7 @@ const HomePage = () => {
 
     return (
         <>
-            <HeroSlider />
+            <HomeHero />
 
             <CardStat />
 

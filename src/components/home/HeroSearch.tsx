@@ -65,7 +65,7 @@ const HeroSearch = () => {
 
     return (
         <div ref={containerRef} className="relative mt-8 w-full max-w-2xl">
-            <div className="rounded-lg bg-white p-2 shadow-soft">
+            <div className="rounded-[10px] bg-white p-2 shadow-[0_18px_40px_rgba(0,0,0,0.28)]">
                 <label htmlFor="search" className="sr-only">
                     Search local services
                 </label>
