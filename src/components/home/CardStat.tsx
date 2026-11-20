@@ -1,5 +1,6 @@
 import { Landmark, Map, Sprout, UsersRound, type LucideIcon } from "lucide-react"
 import { useLanguage } from "../../i18n/useLanguage"
+import CountUp from "../common/CountUp"
 import type { Translations } from "../../i18n/translations"
 
 const STAT_META: {
@@ -61,7 +62,7 @@ const CardStat = () => {
                                 </span>
                                 <div className="min-w-0">
                                     <p className="text-[11px] font-bold uppercase tracking-wide text-slate-500 sm:text-xs">{stat.label}</p>
-                                    <p className="mt-0.5 text-xl font-black tabular-nums leading-tight text-bayan-ink sm:text-2xl">{stat.value}</p>
+                                    <p className="mt-0.5 text-xl font-black tabular-nums leading-tight text-bayan-ink sm:text-2xl"><CountUp value={stat.value} /></p>
                                     <p className="mt-1 hidden text-xs font-semibold text-slate-500 md:block">{stat.caption}</p>
                                 </div>
                             </div>

@@ -8,6 +8,7 @@ import ChatFloat from "./components/chat/ChatFloat";
 import DataDisclosureModal from "./components/common/DataDisclosureModal";
 import MascotIntroModal from "./components/common/MascotIntroModal";
 import PageLoading from "./components/common/PageLoading";
+import { useScrollReveal } from "./hooks/useScrollReveal";
 import './App.css'
 
 const LegislativeCouncilPage = lazy(() => import("./pages/government/LegislativeCouncilPage"));
@@ -38,6 +39,7 @@ const AnnouncementDetailPage = lazy(() => import("./pages/announcements/Announce
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function App() {
+  useScrollReveal();
 
   return (
     <>
