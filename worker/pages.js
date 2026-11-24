@@ -16,7 +16,8 @@ export const STATIC_PAGES = {
     },
     "/community/businesses/add": {
         "title": "Add a Business | Better Pagbilao",
-        "description": "Add your Pagbilao business to the community directory. Free listing for stores, food sellers, farms, services, and online sellers."
+        "description": "Add your Pagbilao business to the community directory. Free listing for stores, food sellers, farms, services, and online sellers.",
+        "robots": "noindex, follow"
     },
     "/community/report": {
         "title": "Community Reporting | Better Pagbilao",
@@ -85,5 +86,9 @@ export const STATIC_PAGES = {
     "/transparency/procurement": {
         "title": "Procurement | Better Pagbilao Transparency",
         "description": "Procurement notices and monitoring reports for Pagbilao, Quezon's local government, sourced from the official municipal portal."
+    },
+    "/transparency/budget": {
+        "title": "Pagbilao in the National Budget | Better Pagbilao Transparency",
+        "description": "National budget projects for Pagbilao, Quezon: the FY 2027 NEP and House bill side by side, and the enacted budgets of 2020 to 2026, each linked to its source document."
     }
 }
