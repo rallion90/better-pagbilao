@@ -137,6 +137,8 @@ function rewrite(response, meta, pathname) {
         .on('meta[name="twitter:title"]', setContent(meta.title))
         .on('meta[name="twitter:description"]', setContent(meta.description))
         .on('meta[name="twitter:image"]', setContent(meta.image))
+        // A fixed page can ask to be kept out of search results, such as a form.
+        .on('meta[name="robots"]', setContent(meta.robots))
         .on("head", {
             element(element) {
                 const href = escapeAttribute(url)

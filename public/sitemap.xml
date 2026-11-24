@@ -25,12 +25,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://betterpagbilao.org/community/businesses/add</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
     <loc>https://betterpagbilao.org/explore/barangays</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -115,6 +109,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://betterpagbilao.org/explore/tourist-destinations/kuwebang-lampas</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://betterpagbilao.org/government/legislative-council</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -185,6 +185,12 @@
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://betterpagbilao.org/announcements/see-pagbilaos-share-of-the-national-budget</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://betterpagbilao.org/announcements/better-pagbilao-community-crowdsourcing-coming-soon</loc>
