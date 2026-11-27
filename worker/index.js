@@ -45,6 +45,11 @@ async function businessMeta(slug) {
     if (data === NOT_FOUND) return NOT_FOUND
     const business = data?.business
     if (!business) return null
+    // A link the listing used to have, e.g. 7-eleven-47 before it became "7-Eleven Bukal" at 7-eleven-bukal.
+    // A permanent redirect moves search engines (and their ranking) over to the current link.
+    if (data.redirectTo && data.redirectTo !== slug) {
+        return { redirect: `/community/businesses/${encodeURIComponent(data.redirectTo)}` }
+    }
     const category = categories?.categories?.find((item) => item.slug === business.category)?.name
     return {
         title: `${business.name} — ${category ? `${category} in ` : ""}Barangay ${business.barangay}, Pagbilao | ${SITE_NAME}`,
@@ -52,6 +57,8 @@ async function businessMeta(slug) {
         // The branded card the API draws for each listing. Without one the page keeps the site's default image.
         image: business.shareImageUrl || null,
         imageAlt: business.name,
+        // Listings too thin to stand on their own (no real description, phone or hours) stay out of search results.
+        robots: business.indexable === false ? "noindex, follow" : null,
     }
 }
 
@@ -182,6 +189,7 @@ export default {
             if (lastSegment.includes(".")) return notFound(response)
             const meta = await pageMeta(pathname)
             if (meta === NOT_FOUND) return notFound(response)
+            if (meta?.redirect) return Response.redirect(`${SITE_URL}${meta.redirect}`, 301)
             return meta ? rewrite(response, meta, pathname) : response
         } catch {
             return response

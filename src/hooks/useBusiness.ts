@@ -4,10 +4,12 @@ import { IssueApiError } from "../lib/issuesApi"
 import type { Business } from "../types/businesses"
 import { useDirectoryDisabledHandler } from "./useBusinessDirectory"
 
-type Settled = { key: string; business: Business | null; notFound: boolean; failed: boolean }
+type Settled = { key: string; business: Business | null; redirectTo: string | null; notFound: boolean; failed: boolean }
 
 type UseBusinessResult = {
     business: Business | null
+    /** The listing's current slug when `slug` is one it used to have; null otherwise. */
+    redirectTo: string | null
     loading: boolean
     /** 404: unknown, pending or rejected listing */
     notFound: boolean
@@ -28,12 +30,12 @@ export function useBusiness(slug: string): UseBusinessResult {
         const controller = new AbortController()
 
         getBusiness(slug, controller.signal)
-            .then((business) => setSettled({ key, business, notFound: false, failed: false }))
+            .then(({ business, redirectTo }) => setSettled({ key, business, redirectTo, notFound: false, failed: false }))
             .catch((error: unknown) => {
                 if (error instanceof DOMException && error.name === "AbortError") return
                 if (handleDisabled(error)) return
                 const notFound = error instanceof IssueApiError && error.kind === "not-found"
-                setSettled({ key, business: null, notFound, failed: !notFound })
+                setSettled({ key, business: null, redirectTo: null, notFound, failed: !notFound })
             })
 
         return () => controller.abort()
@@ -43,6 +45,7 @@ export function useBusiness(slug: string): UseBusinessResult {
 
     return {
         business: current?.business ?? null,
+        redirectTo: current?.redirectTo ?? null,
         loading: current === null,
         notFound: current?.notFound ?? false,
         failed: current?.failed ?? false,
