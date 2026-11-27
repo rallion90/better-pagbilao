@@ -1,7 +1,7 @@
 import { ArrowLeft, Clock, EyeOff, FilePlus2, Globe, LoaderCircle, MapPin, Package, PhoneCall, SearchX, TriangleAlert } from "lucide-react"
 import { lazy, Suspense } from "react"
 import type { ReactNode } from "react"
-import { Link, useParams } from "react-router"
+import { Link, Navigate, useParams } from "react-router"
 import PageBanner from "../../components/common/PageBanner"
 import PageBreadcrumb from "../../components/common/PageBreadcrumb"
 import ShareButton from "../../components/common/ShareButton"
@@ -105,7 +105,7 @@ const BusinessDetailPage = () => {
     const copy = businessDirectoryCopy[lang]
     const { id = "" } = useParams()
     const { categoryName } = useBusinessDirectory()
-    const { business, loading, notFound, failed, reload } = useBusiness(id)
+    const { business, redirectTo, loading, notFound, failed, reload } = useBusiness(id)
 
     const category = business ? categoryName(business.category) : ""
     const callHref = business ? telHref(business.phone) : null
@@ -119,7 +119,7 @@ const BusinessDetailPage = () => {
         ? `${business.description} Find ${business.name} in Barangay ${business.barangay}, Pagbilao, Quezon — hours, contact number, and location on the map.`
         : "Community directory of local businesses in Pagbilao, Quezon."
 
-    // Slugs never change, so the slug URL is the canonical one.
+    // The listing's current slug is the canonical URL, also when it was opened by a slug it used to have.
     const canonicalPath = `${DIRECTORY_PATH}/${business?.id ?? id}`
 
     const jsonLd = business
@@ -152,7 +152,14 @@ const BusinessDetailPage = () => {
           }
         : undefined
 
-    useSeo({ title, description, path: canonicalPath, jsonLd, noindex: !business })
+    // Listings too thin to stand on their own (no real description, phone or hours) are kept out of search results.
+    useSeo({ title, description, path: canonicalPath, jsonLd, noindex: !business || business.indexable === false })
+
+    // An old link, e.g. 7-eleven-47 after the listing became "7-Eleven Bukal". The Worker answers it with a 301
+    // for direct visits; this covers links followed inside the app.
+    if (redirectTo && redirectTo !== id) {
+        return <Navigate to={`${DIRECTORY_PATH}/${redirectTo}`} replace />
+    }
 
     if (loading) {
         return <StatusHero icon={<LoaderCircle className="h-9 w-9 animate-spin" />} heading={copy.detail.loading} />

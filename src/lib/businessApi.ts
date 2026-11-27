@@ -27,10 +27,14 @@ export async function listBusinesses(params: BusinessListParams = {}, signal?: A
     return request<BusinessList>(`/businesses${suffix}`, { signal })
 }
 
-/** GET /businesses/{slug}. Rejects with kind "not-found" for an unknown, pending or rejected listing. */
-export async function getBusiness(slug: string, signal?: AbortSignal): Promise<Business> {
-    const data = await request<{ business: Business }>(`/businesses/${encodeURIComponent(slug)}`, { signal })
-    return data.business
+/**
+ * GET /businesses/{slug}. Rejects with kind "not-found" for an unknown, pending or rejected listing.
+ * redirectTo is set when the slug is one the listing used to have (e.g. before "7-Eleven" became
+ * "7-Eleven Bukal"): it names the listing's current slug.
+ */
+export async function getBusiness(slug: string, signal?: AbortSignal): Promise<{ business: Business; redirectTo: string | null }> {
+    const data = await request<{ business: Business; redirectTo?: string }>(`/businesses/${encodeURIComponent(slug)}`, { signal })
+    return { business: data.business, redirectTo: data.redirectTo ?? null }
 }
 
 /** POST /businesses. Uses multipart/form-data only when a logo or gallery photo is attached, JSON otherwise. */

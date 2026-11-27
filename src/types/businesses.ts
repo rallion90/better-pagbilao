@@ -32,8 +32,8 @@ export interface Business {
     address: string
     /** Free text, display as-is */
     hours: string | null
-    /** Free text: may hold more than one number, or placeholder text ("Not available") when there is none. Use telHref(). */
-    phone: string
+    /** Free text: may hold more than one number. Null when the listing has none. Use telHref(). */
+    phone: string | null
     /** "facebook.com/..." or a full URL */
     online: string | null
     latitude: number | null
@@ -41,6 +41,8 @@ export interface Business {
     pinPrecision: PinPrecision
     logoUrl: string | null
     gallery: { url: string }[]
+    /** False while the listing is too thin for search engines (no real description, phone or hours): the page is noindex. */
+    indexable?: boolean
 }
 
 export interface BusinessPagination {
