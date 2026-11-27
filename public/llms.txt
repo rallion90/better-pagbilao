@@ -1,0 +1,50 @@
+# Better Pagbilao
+
+> Better Pagbilao is a community-built, volunteer-run civic portal for Pagbilao, Quezon, Philippines. It gathers government services, hotlines, tourism information and public documents in one place. It is NOT an official government website and is not run by or affiliated with the Municipality of Pagbilao (LGU) or any government office. Always confirm requirements, fees and schedules with the responsible office.
+
+Information on the site comes from public government documents and offices and remains the property of its original sources. Please credit the original source when you reuse it. Site content is in English, Tagalog and Taglish.
+
+## Main pages
+
+- [Home](https://betterpagbilao.org/): Overview of the portal and quick links
+- [Hotlines](https://betterpagbilao.org/hotlines): Emergency and office contact numbers
+- [Announcements](https://betterpagbilao.org/announcements): Public notices and updates
+- [About our website](https://betterpagbilao.org/announcements/about-our-website): What Better Pagbilao is and who runs it
+
+## Government
+
+- [Legislative council](https://betterpagbilao.org/government/legislative-council): Sangguniang Bayan members
+- [Local officials directory](https://betterpagbilao.org/government/local-officials-directory): Municipal officials and offices
+
+## Services
+
+- [Health services](https://betterpagbilao.org/services/health-services)
+- [Disaster and safety](https://betterpagbilao.org/services/disaster-and-safety)
+- [Agriculture and livelihood](https://betterpagbilao.org/services/agriculture-and-livelihood)
+- [Social welfare](https://betterpagbilao.org/services/social-welfare)
+- [Business and permits](https://betterpagbilao.org/services/business-and-permits)
+
+## Transparency
+
+- [Citizen's Charter](https://betterpagbilao.org/transparency/citizens-charter)
+- [Ordinances and executive orders](https://betterpagbilao.org/transparency/ordinances-and-executive-orders)
+- [Permits and clearances](https://betterpagbilao.org/transparency/permits-and-clearances)
+- [Budget](https://betterpagbilao.org/transparency/budget)
+- [Procurement](https://betterpagbilao.org/transparency/procurement)
+
+## Explore
+
+- [History](https://betterpagbilao.org/explore/history): History of Pagbilao
+- [Barangays](https://betterpagbilao.org/explore/barangays): Barangay map and list
+- [Gateway location](https://betterpagbilao.org/explore/gateway-location): Where Pagbilao is and how to get there
+- [Tourist destinations](https://betterpagbilao.org/explore/tourist-destinations): Places to visit
+
+## Community
+
+- [Business directory](https://betterpagbilao.org/community/businesses): Local businesses in Pagbilao
+
+## Optional
+
+- [Open data API catalog](https://betterpagbilao.org/api/index.json): Static JSON data (governance, offices, hotlines, barangays, demographics, tourism)
+- [Sitemap](https://betterpagbilao.org/sitemap.xml): Full list of pages
+- [Source code](https://github.com/rallion90/better-pagbilao): GitHub repository (MIT License)
